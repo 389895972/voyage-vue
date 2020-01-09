@@ -4,6 +4,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router.js'
 import './assets/css/global.css'
+import './assets/css/bootstrap-theme.css'
+import './assets/css/bootstrap.css'
 import axios from 'axios'
 import locale from 'element-ui/lib/locale/lang/en'
 import routes from "./rout";
@@ -27,7 +29,7 @@ Vue.use(ElementUI, { locale })
 Vue.use(VueI18n)
 
 const  i18n = new VueI18n({
-  locale: 'zh',          //默认语言
+  locale: 'en',          //默认语言
   messages: {
     'zh': require('./lang/zh'),
     'en': require('./lang/en'),

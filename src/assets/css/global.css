@@ -92,7 +92,7 @@ hr{
     margin-left: auto;
     margin-right: auto;
     background-color: #4A4A4D;
-    border-width: 0.7px;
+    border-width: 2px;
 }
 .all_hr1{
     width: 85%;
@@ -100,7 +100,7 @@ hr{
     margin-left: auto;
     margin-right: auto;
     background-color: #4A4A4D;
-    border-width: 0.7px;
+    border-width:2px;
     margin-bottom: 10px;
 }
 .in_hr{

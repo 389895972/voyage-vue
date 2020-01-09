@@ -4,21 +4,28 @@
             <div class="header">
                 <img class="img" src="../../assets/images/logo.png" alt="">
             </div>
+
             <div class="main">
                 <div class="first">
-                    <div class="index_pic" >
-                        <img src="../../assets/images/ailit_bg.png" alt="" width="100%"  >
-                        <div class="index_btn">
-                            <el-button type="primary">立即购买</el-button>
-                            <el-button type="primary">管理设备</el-button>
-                        </div>
+                    <div  id="aikit_img_div" class="col-md-8 col-xs-12" style="background-color: white;padding: 0;height:100%">
+                        <img src="../../assets/images/aikit1.png" alt=""  width="100%" >
+                    </div>
+                    <div id="aikit_ours" class="col-md-4 col-xs-12" >
+                        <div class="aikit_title">Thundercomm TurboX  <SUP>TM</SUP> AI  KIT</div>
+                        <div class="aikit_introduce">Thundercomm AI Kit is the most powerful on-device AI vision enabled edge device for developers. Thundercomm AI Kit helps developers and terminal manufacture to port their AI algorithm and AI application. It is designed with Qualcomm® SDA845 and provide device for development, algorithm SDK, develop guide and demo code.</div>
+                          <div class="aikit_btn">
+                              <el-button type="primary">立即购买</el-button>
+                              <el-button type="primary">管理设备</el-button>
+                          </div>
                     </div>
 
+
                 </div>
+                <div>
                 <div class="product">
                     <span class="product_det">商品详情</span>
                     <div class="product_indexs" >
-                        <div class="product_index"  >
+                        <div class="product_index"   >
 
                         <div class="product_btn" @click="counter3">关键优势</div>
                         <div class="product_btn" @click="counter7">使用示例</div>
@@ -144,12 +151,13 @@
             <!--                </div>-->
             <!--            </div>-->
         </div>
-
+        </div>
     </el-container>
 
 
 </template>
 <script>
+
   export default {
       data(){
           const vm=window.vm;
@@ -221,12 +229,16 @@
 
 
     .first{
-        display: flex;
+        /*display: flex;*/
+        display: inline-block;
+        background-color: white;
+
+
     }
-    .index_pic{
+    #index_pic{
         /*background-image: url("../../assets/images/ailit_bg.png");*/
         /*  background-size: cover;*/
-          width: 100%;
+        /*  width: 100%;*/
         /*  height: 445px;*/
         position:relative;
 
@@ -378,5 +390,25 @@
         margin: 0 auto;
         margin-bottom: 80px;
         cursor:pointer;
+    }
+    .aikit_title{
+        margin: 80px auto 0 0;
+        font-size: 21px;
+        font-weight: bold;
+
+    }
+
+    .aikit_introduce{
+        margin: 40px 20px 0 0;
+    }
+    .aikit_btn{
+        /*margin: 60px  auto 101.5px 0;*/
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    #aikit_ours{
+        height: 100%;
+        background-color: white;
+        padding: 0;
     }
 </style>
