@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/index/Home'
-import Details from './components/index/Details'
+import AikitDetails from './components/index/AikitDetails'
 //import First from "./components/index/First";
+import de from './ChangLang'
+
 Vue.use(Router)
 
 const router =new Router({
     routes:[
         {path:'/',redirect: '/home'},
         {path:'/home', component: Home,},
-        {path:'/details', component: Details,},
+        {path:'/aikitdetails', component: AikitDetails,},
+        {path:'/de', component: de,},
     ]
 })
 

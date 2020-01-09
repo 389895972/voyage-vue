@@ -19,12 +19,17 @@
                     <span class="product_det">商品详情</span>
                     <div class="product_indexs" >
                         <div class="product_index"  >
-                        <div class="product_btn" @click="counter1">产品展示</div>
-                        <div class="product_btn" @click="counter2">产品接口图</div>
+
                         <div class="product_btn" @click="counter3">关键优势</div>
+                        <div class="product_btn" @click="counter7">使用示例</div>
                         <div class="product_btn" @click="counter4">产品硬件</div>
                         <div class="product_btn" @click="counter5">产品软件</div>
-                        <div class="product_btn" @click="counter6">文档</div>
+                            <div class="product_btn" @click="counter1">产品展示</div>
+                            <div class="product_btn" @click="counter2">产品接口图</div>
+                        <div class="product_btn" @click="counter6">{{$t('nav.document')}}</div>
+<!--                            <nav> {{ $t('nav.home') }}  </nav>-->
+<!--                            <nav> {{ vm.$t('nav.document') }}  </nav>-->
+                       <div> </div>
                         </div>
                     </div>
                     <div class="product_show">
@@ -146,10 +151,17 @@
 </template>
 <script>
   export default {
-      data(){},
+      data(){
+          const vm=window.vm;
+          return {
+              //home:this.$t('nav.document')
+              vm:vm
+          }
+      },
       methods:{
           download(){
-                alert("1")
+              this.$i18n.locale = 'en'
+              //console.log($i18n.locale)
           },
           counter1() {  //counter1是绑定的点击事件名称
               const returnEle = document.querySelector("#i1");  //productId是将要跳转区域的id
@@ -189,6 +201,13 @@
           },
           counter6() {  //counter1是绑定的点击事件名称
               const returnEle = document.querySelector("#i6");  //productId是将要跳转区域的id
+              if (returnEle) {
+                  returnEle.scrollIntoView(true); // true 是默认的
+              }
+              document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
+          },
+          counter7() {  //counter1是绑定的点击事件名称
+              const returnEle = document.querySelector("#i7");  //productId是将要跳转区域的id
               if (returnEle) {
                   returnEle.scrollIntoView(true); // true 是默认的
               }
@@ -238,32 +257,7 @@
         margin: 0 55px;
         width: 110px;
     }
-    .all_hr{
-        width: 85%;
-        margin-top: 30px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #4A4A4D;
-        border-width: 0.7px;
-    }
-    .all_hr1{
-        width: 85%;
-        margin-top: 30px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #4A4A4D;
-        border-width: 0.7px;
-        margin-bottom: 10px;
-    }
-    .in_hr{
-        width: 85%;
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #cccccc;
-        border-width: 0.4px;
-        margin-bottom: 10px;
-    }
+
     .product_indexs{
         display: flex;
         border: 1px solid;
@@ -274,7 +268,6 @@
         height: 50px;
         align-items: center;
         overflow: hidden;
-
     }
     .product_index{
         display: flex;
