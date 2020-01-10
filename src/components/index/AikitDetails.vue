@@ -1,141 +1,176 @@
 <template>
     <el-container>
         <div class="home-container">
+
             <div class="header">
                 <img class="img" src="../../assets/images/logo.png" alt="">
             </div>
 
             <div class="main">
                 <div class="first">
-                    <div  id="aikit_img_div" class="col-md-8 col-xs-12" style="background-color: white;padding: 0;height:100%">
+                    <div   class="col-md-7 col-xs-12 aikit_img_div" style="background-color: white;padding: 0;height:100%">
                         <img src="../../assets/images/aikit1.png" alt=""  width="100%" >
                     </div>
-                    <div id="aikit_ours" class="col-md-4 col-xs-12" >
-                        <div class="aikit_title">Thundercomm TurboX  <SUP>TM</SUP> AI  KIT</div>
+                    <div id="aikit_ours" class="col-md-4 col-xs-11" >
+                        <div class="aikit_title">Thundercomm TurboX  <SUP>TM</SUP> AI KIT</div>
                         <div class="aikit_introduce">Thundercomm AI Kit is the most powerful on-device AI vision enabled edge device for developers. Thundercomm AI Kit helps developers and terminal manufacture to port their AI algorithm and AI application. It is designed with Qualcomm® SDA845 and provide device for development, algorithm SDK, develop guide and demo code.</div>
                           <div class="aikit_btn">
-                              <el-button type="primary">立即购买</el-button>
-                              <el-button type="primary">管理设备</el-button>
+                              <el-button type="primary">Buy Now</el-button>
+                              <el-button type="primary">Device Management</el-button>
                           </div>
                     </div>
 
 
                 </div>
+
                 <div>
+                    <ul class="fixTitle1" :class="{fixTitle:whether}"  v-if="whether" >
+
+                        <div  class="tabs1 col-md-12 col-xs-11" type="border-card">
+<!--                            悬浮框-->
+                            <el-tabs   class="tab_2" @tab-click="handleClick1">
+                                <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
+                                <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
+                                <el-tab-pane label="产品特性" name="#i3"></el-tab-pane>
+                                <el-tab-pane label="教程与文档" name="#i4"></el-tab-pane>
+<!--                                <div class="aikit_btn">-->
+<!--                                    <el-button type="primary">Buy Now</el-button>-->
+<!--                                    <el-button type="primary">Device Management</el-button>-->
+<!--                                </div>-->
+                            </el-tabs>
+                            <el-tabs   class="tabs_2" @tab-click="handleClick1">
+                                <el-button type="primary">Buy Now</el-button>
+                                <el-button type="primary">Device Management</el-button>
+                                <!--                                </div>-->
+                            </el-tabs>
+                        </div>
+                    </ul>
                 <div class="product">
                     <span class="product_det">商品详情</span>
-                    <div class="product_indexs" >
-                        <div class="product_index"   >
-
-                        <div class="product_btn" @click="counter3">关键优势</div>
-                        <div class="product_btn" @click="counter7">使用示例</div>
-                        <div class="product_btn" @click="counter4">产品硬件</div>
-                        <div class="product_btn" @click="counter5">产品软件</div>
-                            <div class="product_btn" @click="counter1">产品展示</div>
-                            <div class="product_btn" @click="counter2">产品接口图</div>
-                        <div class="product_btn" @click="counter6">{{$t('nav.document')}}</div>
-<!--                            <nav> {{ $t('nav.home') }}  </nav>-->
-<!--                            <nav> {{ vm.$t('nav.document') }}  </nav>-->
-                       <div> </div>
-                        </div>
+                    <div  class="tabs">
+                        <el-tabs  id="iii" class="tabs_1" @tab-click="handleClick">
+                            <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
+                            <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
+                            <el-tab-pane label="产品特性" name="#i3"></el-tab-pane>
+                            <el-tab-pane label="教程与文档" name="#i4"></el-tab-pane>
+                        </el-tabs>
                     </div>
-                    <div class="product_show">
-                         <div class="product_show_div" id="i1">产品展示</div>
-                        <img class="imgs" src="../../assets/images/aikit_show8.png" alt=""  width="100%" height="100%">
+<!--                    <div class="product_indexs"  >-->
+<!--                        <div class="product_index"   >-->
+<!--                        <div class="product_btn" @click="counter1">产品优势</div>-->
+<!--                        <div class="product_btn" @click="counter2">产品规格</div>-->
+<!--                        <div class="product_btn" @click="counter3">产品特性</div>-->
+<!--                        <div class="product_btn" @click="counter4">教程与文档</div>-->
+<!--                       </div>-->
+<!--                    </div>-->
+                    <div class="product_show" id="i1">
+                        <div class="product_show_div">产品优势</div>
+                        <div class="advantages">
+                            <span class="advantages_span1">算法SDK</span>
+                            <span class="advantages_span2"> 算法SDK包括一些优化算法和演示应用程序的源代码，如人脸识别和目标检测。开发人员可以使用算法SDK开发自己的人工智能应用程序。此外，开发人员还可以集成自己的AI算法，方便地演示应用程序。</span>
+                            <hr class="in_hr">
+                        </div>
+                        <div class="advantages">
+                            <span class="advantages_span1">强大计算</span>
+                            <span class="advantages_span2">AI工具包集成了最新的高通六角685 DSP、新的矢量引擎和异构计算(CPU、DSP和GPU)，提供了超过450 GLOP的计算能力来完成4k视频的人工智能可视化处理。</span>
+                            <hr  class="in_hr">
+                        </div>
+                        <div class="advantages">
+                            <span class="advantages_span1">柔性视觉解</span>
+                            <span class="advantages_span2">支持多种摄像头解决方案，包括内置超高清相机、USB3.0摄像头和IP摄像头。</span>
+
+                        </div>
                         <hr class="all_hr">
                     </div>
-
                     <div class="product_show" id="i2">
-                        <div class="product_show_div">产品接口图</div>
-                        <img src="../../assets/images/aikit_jiekou.png" alt="" width="100%" height="100%">
-                        <hr class="all_hr">
-                    </div>
-
-                    <div class="product_show" id="i3">
-                        <div class="product_show_div">关键优势</div>
-                        <div class="advantages">
-                          <span class="advantages_span1">算法SDK</span>
-                          <span class="advantages_span2"> 算法SDK包括一些优化算法和演示应用程序的源代码，如人脸识别和目标检测。开发人员可以使用算法SDK开发自己的人工智能应用程序。此外，开发人员还可以集成自己的AI算法，方便地演示应用程序。</span>
-                        <hr class="in_hr">
-                        </div>
-                        <div class="advantages">
-                        <span class="advantages_span1">强大计算</span>
-                        <span class="advantages_span2">AI工具包集成了最新的高通六角685 DSP、新的矢量引擎和异构计算(CPU、DSP和GPU)，提供了超过450 GLOP的计算能力来完成4k视频的人工智能可视化处理。</span>
-                        <hr  class="in_hr">
-                        </div>
-                        <div class="advantages">
-                        <span class="advantages_span1">柔性视觉解</span>
-                        <span class="advantages_span2">支持多种摄像头解决方案，包括内置超高清相机、USB3.0摄像头和IP摄像头。</span>
-
-                        </div>
-                        <hr class="all_hr">
-                    </div>
-                    <div class="product_show" id="i4">
-                        <div class="product_show_div">产品硬件</div>
+                        <div class="product_show_div">产品规格</div>
+                        <span class="prohard">产品硬件规格</span>
                         <div class="pro_border">
                             <table border="1" style="border-collapse:collapse;width:100%;text-align:center;line-height:2em;">
-                            <tbody>
-                            <tr style="background-color:#526fe1;color:#fff;font-weight:700;"><td>Module</td><td>Item</td><td>Spec</td></tr>
-                            </tbody>
-                            <tbody>
-                            <tr><td rowspan="4">Computing
-                            </td><td>CPU</td><td>Qualcomm SDA845 processor, 8x Qualcomm=C2=AE Kryo=E2=84=A2 385 @ 2.8GHz</td>
-                            </tr>
-                            <tr><td>GPU</td><td>Adreno 630 GPU</td></tr><tr><td>DSP</td><td>Hexgan 685 DSP</td>
-                            </tr>
-                            <tr><td>ISP</td><td>Qualcomm Spectra=E2=84=A2 280 image sensor processor</td></tr>
-                            <tr><td rowspan="3">Memory</td><td>RAM</td><td>8GB LPDDR4</td></tr>
-                            <tr><td>ROM</td><td>64GB UFS2.1</td></tr>
-                            <tr><td>SD Card</td><td>Support MicroSD Card</td></tr>
-                            <tr><td rowspan="2">Camera</td><td>Built in Camera</td><td>8MP, FOV 120 degree;</td></tr><tr><td>External Camera</td><td><span>USB3.0 camera (accessory, not included in release)</span>=20</td></tr><tr><td rowspan="2">Display</td><td>HDMI</td>                                <td>1x Micro HDMI, 4k Ultra HD</td></tr><tr><td>Type C</td><td>4k Ultra HD</td></tr><tr><td>Video</td><td>VPU</td><td>Support for HDR10, HLG, and H.265 (HEVC) 4k@60fps video capture</td></tr><tr><td rowspan="3">Audio</td><td>Speaker</td><td>1x speaker</td></tr><tr><td>Audio out</td><td>1x Headsetout</td></tr><tr><td>Microphone</td><td>1x microphone</td></tr><tr><td>Wireless Connectivity</td><td>WIFI</td><td>2.4G/5G,802.11 a/b/g/n/ac 2x2 MIMO</td></tr><tr><td rowspan="2">Wired Connectivity</td><td>USB</td><td>3x USB3.0 host, 1x 3.0 Type C</td></tr><tr><td>Ethernet</td><td>1x GbE.</td></tr><tr><td>Debug Port</td><td>Micro USB</td><td>1x Micro USB (connecting to serial port for debug purpose)</td></tr><tr><td>Indicator</td><td>LED</td><td>RGB Led: Power status, WIFI status, Ethernet status;</td></tr><tr><td>Input</td><td>Buttons</td><td>Power key/ Volume up/down key/Camera snapshot key</td></tr><tr><td>Sensors</td><td>9-axis sensor</td><td>Gyroscope &amp; accelerometer &amp; geomagnetic sensor</td></tr><tr><td>Power</td><td>Power charging</td><td>12v DC</td></tr></tbody>
+                                <tbody>
+                                <tr style="background-color:#526fe1;color:#fff;font-weight:700;"><td>Module</td><td>Item</td><td>Spec</td></tr>
+                                </tbody>
+                                <tbody>
+                                <tr><td rowspan="4">Computing
+                                </td><td>CPU</td><td>Qualcomm SDA845 processor, 8x Qualcomm=C2=AE Kryo=E2=84=A2 385 @ 2.8GHz</td>
+                                </tr>
+                                <tr><td>GPU</td><td>Adreno 630 GPU</td></tr><tr><td>DSP</td><td>Hexgan 685 DSP</td>
+                                </tr>
+                                <tr><td>ISP</td><td>Qualcomm Spectra=E2=84=A2 280 image sensor processor</td></tr>
+                                <tr><td rowspan="3">Memory</td><td>RAM</td><td>8GB LPDDR4</td></tr>
+                                <tr><td>ROM</td><td>64GB UFS2.1</td></tr>
+                                <tr><td>SD Card</td><td>Support MicroSD Card</td></tr>
+                                <tr><td rowspan="2">Camera</td><td>Built in Camera</td><td>8MP, FOV 120 degree;</td></tr><tr><td>External Camera</td><td><span>USB3.0 camera (accessory, not included in release)</span>=20</td></tr><tr><td rowspan="2">Display</td><td>HDMI</td>                                <td>1x Micro HDMI, 4k Ultra HD</td></tr><tr><td>Type C</td><td>4k Ultra HD</td></tr><tr><td>Video</td><td>VPU</td><td>Support for HDR10, HLG, and H.265 (HEVC) 4k@60fps video capture</td></tr><tr><td rowspan="3">Audio</td><td>Speaker</td><td>1x speaker</td></tr><tr><td>Audio out</td><td>1x Headsetout</td></tr><tr><td>Microphone</td><td>1x microphone</td></tr><tr><td>Wireless Connectivity</td><td>WIFI</td><td>2.4G/5G,802.11 a/b/g/n/ac 2x2 MIMO</td></tr><tr><td rowspan="2">Wired Connectivity</td><td>USB</td><td>3x USB3.0 host, 1x 3.0 Type C</td></tr><tr><td>Ethernet</td><td>1x GbE.</td></tr><tr><td>Debug Port</td><td>Micro USB</td><td>1x Micro USB (connecting to serial port for debug purpose)</td></tr><tr><td>Indicator</td><td>LED</td><td>RGB Led: Power status, WIFI status, Ethernet status;</td></tr><tr><td>Input</td><td>Buttons</td><td>Power key/ Volume up/down key/Camera snapshot key</td></tr><tr><td>Sensors</td><td>9-axis sensor</td><td>Gyroscope &amp; accelerometer &amp; geomagnetic sensor</td></tr><tr><td>Power</td><td>Power charging</td><td>12v DC</td></tr></tbody>
                             </table>
                         </div>
                         <hr class="all_hr">
                     </div>
                     <div class="product_show" id="i5">
-                        <div class="product_show_div">产品软件</div>
+<!--                        <div class="product_show_div">产品软件</div>-->
+                        <span class="prohard">产品软件规格</span>
                         <div class="pro_border">
-                        <table border="1px solid" style="border-collapse:collapse;width:100%;text-align:center;line-height:2em;" >
-                        <tbody>
-                        <tr><th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Module</th><th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Feature</th>
-                        </tr>
-                        </tbody>
-                        <tbody>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OS</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Android O</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Framework</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Tensorflow, Tensorflow Lite, Caffe/Caffe2, ONNX,SNPE, Android NN</td></tr>
-                        <tr><td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Algorithm SDK</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Detection &amp; Face Recognition &amp; Emotion Detection &amp; Age= Detection &amp; Gender Detection algorithm &amp; Eye blink</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Object Detection algorithm</td>
-                        </tr>
-                        <tr><td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Sample Application</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Recognition &amp; Emotion Detection &amp; Age Detection &amp; Gend</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Objection Detection algorithm demo</td>
-                        </tr>
-                        <tr><td rowspan="3" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Camera
-                        </td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Support USB3.0 Camera, 1080p@30fps
-                        </td></tr><tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Ultra HD camera preview, recording and snapshot</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">RTSP Client</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Graphic
-                        </td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OpenGLES3.2, OpenCL2.0 full
-                        </td></tr>
-                        </tbody>
-                        </table>
+                            <table border="1px solid" style="border-collapse:collapse;width:100%;text-align:center;line-height:2em;" >
+                                <tbody>
+                                <tr><th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Module</th><th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Feature</th>
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OS</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Android O</td>
+                                </tr>
+                                <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Framework</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Tensorflow, Tensorflow Lite, Caffe/Caffe2, ONNX,SNPE, Android NN</td></tr>
+                                <tr><td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Algorithm SDK</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Detection &amp; Face Recognition &amp; Emotion Detection &amp; Age= Detection &amp; Gender Detection algorithm &amp; Eye blink</td>
+                                </tr>
+                                <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Object Detection algorithm</td>
+                                </tr>
+                                <tr><td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Sample Application</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Recognition &amp; Emotion Detection &amp; Age Detection &amp; Gend</td>
+                                </tr>
+                                <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Objection Detection algorithm demo</td>
+                                </tr>
+                                <tr><td rowspan="3" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Camera
+                                </td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Support USB3.0 Camera, 1080p@30fps
+                                </td></tr><tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Ultra HD camera preview, recording and snapshot</td>
+                                </tr>
+                                <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">RTSP Client</td>
+                                </tr>
+                                <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Graphic
+                                </td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OpenGLES3.2, OpenCL2.0 full
+                                </td></tr>
+                                </tbody>
+                            </table>
                         </div>
                         <hr class="all_hr">
                     </div>
-                    <div class="product_show" id="i6">
-                        <div class="product_show_div">文档</div>
+                    <div class="product_show">
+                         <div class="product_show_div" id="i3">产品特性</div>
+                        <img class="imgs" src="../../assets/images/aikit_show8.png" alt=""  width="100%" height="100%">
+                        <hr class="all_hr">
+                    </div>
+                    <div class="product_show" id="i4">
+                        <div class="product_show_div">相关文档</div>
                         <button class="download-btn" @click="download">
-                        <span>Click Here to Download the Documents</span>
-                    </button>
-
+                            <span>Click Here to Download the Documents</span>
+                        </button>
                         <hr class="all_hr1"  >
                     </div>
+<!--                    <div class="product_show" id="i2">-->
+<!--                        <div class="product_show_div">产品接口图</div>-->
+<!--                        <img src="../../assets/images/aikit_jiekou.png" alt="" width="100%" height="100%">-->
+<!--                        <hr class="all_hr">-->
+<!--                    </div>-->
                 </div>
 
+                    <!-- 切换内容star -->
+                    <div class="tab-con">
+                        <div v-show="curId===0">
+                            第一部分内容
+                        </div>
+                        <div v-show="curId===1">
+                            第二部分内容
+                        </div>
+                        <div v-show="curId===2">
+                            第三部分内容
+                        </div>
+                    </div>
             </div>
             <!--            <div class="footer">-->
             <!--                <div  class="footer_inners">-->
@@ -163,13 +198,16 @@
           const vm=window.vm;
           return {
               //home:this.$t('nav.document')
-              vm:vm
+              vm:vm,
+              whether:false,
+              curId:0
           }
       },
+
       methods:{
           download(){
               this.$i18n.locale = 'en'
-              //console.log($i18n.locale)
+             // console.log($i18n.locale)
           },
           counter1() {  //counter1是绑定的点击事件名称
               const returnEle = document.querySelector("#i1");  //productId是将要跳转区域的id
@@ -178,54 +216,37 @@
               }
               document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
           },
+          handleScroll() {
+              var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+              const w=document.getElementById("iii")
+             window.console.log(w.offsetTop)
+              // var scrollTop = w.scrollTop;
+              // window.console.log('aaa'+scrollTop);
+               //alart(scrollTop);
+              if(scrollTop>w.offsetTop){
+                  this.whether = true;
+              }else{
+                  this.whether = false;
+              }
+          },
+          handleClick(tab){
 
-          counter2() {  //counter1是绑定的点击事件名称
-              const returnEle = document.querySelector("#i2");  //productId是将要跳转区域的id
-              if (returnEle) {
-                  returnEle.scrollIntoView(true); // true 是默认的
-              }
-              document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
+              document.querySelector(tab.name).scrollIntoView({
+                  behavior:"smooth"});
           },
-          counter3() {  //counter1是绑定的点击事件名称
-              const returnEle = document.querySelector("#i3");  //productId是将要跳转区域的id
-              if (returnEle) {
-                  returnEle.scrollIntoView(true); // true 是默认的
-              }
-              document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
-          },
-          counter4() {  //counter1是绑定的点击事件名称
-              const returnEle = document.querySelector("#i4");  //productId是将要跳转区域的id
-              if (returnEle) {
-                  returnEle.scrollIntoView(true); // true 是默认的
-              }
-              document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
-          },
-          counter5() {  //counter1是绑定的点击事件名称
-              const returnEle = document.querySelector("#i5");  //productId是将要跳转区域的id
-              if (returnEle) {
-                  returnEle.scrollIntoView(true); // true 是默认的
-              }
-              document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
-          },
-          counter6() {  //counter1是绑定的点击事件名称
-              const returnEle = document.querySelector("#i6");  //productId是将要跳转区域的id
-              if (returnEle) {
-                  returnEle.scrollIntoView(true); // true 是默认的
-              }
-              document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
-          },
-          counter7() {  //counter1是绑定的点击事件名称
-              const returnEle = document.querySelector("#i7");  //productId是将要跳转区域的id
-              if (returnEle) {
-                  returnEle.scrollIntoView(true); // true 是默认的
-              }
-              document.querySelector("counter1").scrollIntoView(true); //这里的counter1是将要返回地方的id
+          handleClick1(tab){
+
+              document.querySelector(tab.name).scrollIntoView(true);
           },
 
       },
+      mounted:function(){
+          window.addEventListener("scroll", this.handleScroll)
+      }
+      ,
   }
 </script>
-<style scoped>
+<style   lang="less" scoped>
 
 
     .first{
@@ -247,7 +268,7 @@
 
     .main{
         background-color: #cccccc;
-        padding: 20px 25px;
+        padding: 25px 25px;
     }
 
     .index_btn{
@@ -283,7 +304,7 @@
     }
     .product_index{
         display: flex;
-        margin-left: 50px;
+        margin-left: 25px;
 
 
     }
@@ -293,7 +314,8 @@
         text-align: center;
         background-color: white;
         width: 100%;
-        padding-bottom: 40px;
+        padding-bottom: 30px;
+        padding-top: 10px;
 
     }
     .product_show_span{
@@ -311,9 +333,10 @@
         border: 0;
         background-color: white;
         /*font-size: 21px;*/
-        margin-left: 50px;
+        margin-left: 30px;
         height: 28px ;
-        width: 105px;
+        /*width: 160px;*/
+        cursor:pointer;
     }
     .product{
         margin-top: 40px;
@@ -323,16 +346,15 @@
         font-size: 21px;
 
     }
-   /*.imgs{*/
-   /*   margin: 0 40px;*/
-   /*}*/
+
     .product_show_div{
         width: 200px;
         margin: 0 0 10px 30px;
         /*margin-left: 2.3%;*/
-        padding: 10px;
+        padding: 20px;
         font-size: 21px;
         font-weight: bold;
+        text-align: left;
     }
     .advantages{
         display:block;
@@ -392,14 +414,14 @@
         cursor:pointer;
     }
     .aikit_title{
-        margin: 80px auto 0 0;
+        margin: 40px auto 0 0;
         font-size: 21px;
         font-weight: bold;
 
     }
 
     .aikit_introduce{
-        margin: 40px 20px 0 0;
+        margin: 40px 5px 0 0;
     }
     .aikit_btn{
         /*margin: 60px  auto 101.5px 0;*/
@@ -410,5 +432,84 @@
         height: 100%;
         background-color: white;
         padding: 0;
+        margin-left: 5%;
+        margin-top: 0.5%;
+    }
+    .aikit_img_div{
+
+    }
+    .prohard{
+        display: block;
+        /*margin:10px 0 0 115px;*/
+        margin-left: 7.5%;
+        font-weight: bold;
+        font-size: 18px;
+        width:118px;
+        text-align: left;
+         margin-bottom: 15px;
+    }
+    .fixTitle{
+        position:fixed;
+        top:0;
+        display: flex;
+    }
+    .tabs{
+        background-color: white;
+        padding-left:4%;
+        padding-top: 10px;
+        padding-right: 7.5%;
+        font-size: 21px;
+        margin-top: 40px;
+        border:1px solid #0f0f0f;
+    }
+
+    /*!*.tabs_1 {*!*/
+    /*!*    font-size: 50px ;*!*/
+    /*!*}*!*/
+    /*.el-tabs_item{*/
+    /*    font-size: 50px ;*/
+    /*}*/
+
+</style>
+<style >
+    .el-tabs__item{
+        font-size: 21px  !important;
+    }
+    .el-tabs__nav-wrap::after{
+        height: 0px;
+    }
+    .fixTitle1{
+        background-color: #cccccc;
+        width: 96.7%;
+        padding: 0;
+        margin: 0;
+    }
+    .tabs1{
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        padding-left:4%;
+        padding-top: 10px;
+        padding-right: 5%;
+        font-size: 21px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border:1px solid #0f0f0f;
+        width: 100%;
+    }
+    @media (max-width: 768px){.tabs1{display:block  !important;}}
+    .tabs_2{
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        /*padding-left:4%;*/
+        /*padding-top: 10px;*/
+        /*padding-right: 7.5%;*/
+        /*font-size: 21px;*/
+        /*margin-top: 10px;*/
+        /*margin-bottom: 10px;*/
+
+        /*width: 96.5%;*/
     }
 </style>
+
