@@ -22,13 +22,12 @@
 
 
                 </div>
-
+                <!--                            悬浮框-->
                 <div>
-                    <ul class="fixTitle1" :class="{fixTitle:whether}"  v-if="whether" >
+                    <div class="fixTitle1" :class="{fixTitle:whether}"  v-if="whether" >
+                        <div  class="tabs1 col-md-12 col-xs-11" >
 
-                        <div  class="tabs1 col-md-12 col-xs-11" type="border-card">
-<!--                            悬浮框-->
-                            <el-tabs   class="tab_2" @tab-click="handleClick1">
+                            <el-tabs   class="tab_pane" @tab-click="handleClick1">
                                 <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
                                 <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
                                 <el-tab-pane label="产品特性" name="#i3"></el-tab-pane>
@@ -38,13 +37,13 @@
 <!--                                    <el-button type="primary">Device Management</el-button>-->
 <!--                                </div>-->
                             </el-tabs>
-                            <el-tabs   class="tabs_2" @tab-click="handleClick1">
+                            <el-tabs   class="tab_btn" @tab-click="handleClick1">
                                 <el-button type="primary">Buy Now</el-button>
                                 <el-button type="primary">Device Management</el-button>
                                 <!--                                </div>-->
                             </el-tabs>
                         </div>
-                    </ul>
+                    </div>
                 <div class="product">
                     <span class="product_det">商品详情</span>
                     <div  class="tabs">
@@ -159,18 +158,8 @@
 <!--                    </div>-->
                 </div>
 
-                    <!-- 切换内容star -->
-                    <div class="tab-con">
-                        <div v-show="curId===0">
-                            第一部分内容
-                        </div>
-                        <div v-show="curId===1">
-                            第二部分内容
-                        </div>
-                        <div v-show="curId===2">
-                            第三部分内容
-                        </div>
-                    </div>
+
+
             </div>
             <!--            <div class="footer">-->
             <!--                <div  class="footer_inners">-->
@@ -242,8 +231,7 @@
       },
       mounted:function(){
           window.addEventListener("scroll", this.handleScroll)
-      }
-      ,
+      },
   }
 </script>
 <style   lang="less" scoped>
@@ -435,6 +423,13 @@
         margin-left: 5%;
         margin-top: 0.5%;
     }
+    #aikit_ours1{
+        height: 100%;
+        background-color: white;
+        padding: 0;
+        margin-left: 5%;
+        margin-top: 0.5%;
+    }
     .aikit_img_div{
 
     }
@@ -455,7 +450,7 @@
     }
     .tabs{
         background-color: white;
-        padding-left:4%;
+        padding-left:1.2%;
         padding-top: 10px;
         padding-right: 7.5%;
         font-size: 21px;
@@ -469,47 +464,80 @@
     /*.el-tabs_item{*/
     /*    font-size: 50px ;*/
     /*}*/
+    .fixTitle1{
+        background-color: #cccccc;
+        width: 97.3%;
+        padding: 0;
+        margin: 0;
+    }
+    .tab_btn{
+        display: inline-flex;
+        justify-content: space-between;
+        background-color: white;
+        padding-left:1%;
+        /*padding-top: 10px;*/
+        padding-right: 1%;
+        /*font-size: 21px;*/
+        /*margin-top: 10px;*/
+        /*margin-bottom: 10px;*/
+
+        width: 90%;
+    }
 
 </style>
-<style >
+<style  >
     .el-tabs__item{
         font-size: 21px  !important;
     }
     .el-tabs__nav-wrap::after{
         height: 0px;
     }
-    .fixTitle1{
-        background-color: #cccccc;
-        width: 96.7%;
-        padding: 0;
-        margin: 0;
-    }
+
     .tabs1{
         display: flex;
         justify-content: space-between;
         background-color: white;
-        padding-left:4%;
+        /*padding-left:20%;*/
         padding-top: 10px;
-        padding-right: 5%;
+        /*padding-right: 10%;*/
         font-size: 21px;
         margin-top: 10px;
         margin-bottom: 10px;
         border:1px solid #0f0f0f;
         width: 100%;
     }
-    @media (max-width: 768px){.tabs1{display:block  !important;}}
-    .tabs_2{
-        display: flex;
+    .tab_btn{
+        display: inline-flex;
         justify-content: space-between;
         background-color: white;
-        /*padding-left:4%;*/
+        padding-left:1%;
         /*padding-top: 10px;*/
-        /*padding-right: 7.5%;*/
+        padding-right: 1%;
         /*font-size: 21px;*/
         /*margin-top: 10px;*/
         /*margin-bottom: 10px;*/
 
-        /*width: 96.5%;*/
+        width: 90%;
     }
+    .el-tabs__header{
+        margin-left: 30px;
+    }
+    /*.tab_pane{*/
+    /*    display: inline-flex;*/
+    /*    justify-content: space-between;*/
+    /*    background-color: white;*/
+    /*    padding-left:4%;*/
+    /*    !*padding-top: 10px;*!*/
+    /*    padding-right: 4%;*/
+    /*    !*font-size: 21px;*!*/
+    /*    !*margin-top: 10px;*!*/
+    /*    !*margin-bottom: 10px;*!*/
+
+    /*    !*width: 96.5%;*!*/
+    /*}*/
+    @media (max-width: 768px){
+        .tabs1{display:block  !important;}
+    }
+
 </style>
 
