@@ -6,8 +6,32 @@
         </div>
         <div class="main">
             <div>
-                <img src="../../assets/images/index6.png" width="100%">
+<!--                <img src="../../assets/images/index6.png" width="100%">-->
+                <div class="home_first">
+                    <div class="home_first_left">
+                        <div class="home_first_left_top">
+                            <div class="first_font">我们追求更灵活便携的嵌入式开发工作</div>
 
+                        </div>
+                        <div>
+                            <img src="../../assets/images/home1.png" width="100%" >
+                        </div>
+                    </div>
+                    <div class="home_first_right">
+                        <div>
+                            <img src="../../assets/images/home2.png" width="100%" >
+                        </div>
+
+                    </div>
+                </div>
+                <div class="advantages">
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 <div class="mid">
                     <div class="iblock">选择  Devices  on  Cloud</div>
                     <div class="blocks">
@@ -65,6 +89,10 @@
 </script>
 <style  scoped>
 
+            div{
+                margin: 0;
+                padding: 0;
+            }
     .mid{
         margin-left: 2px;
         margin-right: 2px;
@@ -102,4 +130,35 @@
         display: block;
     }
 
+
+    img{
+        height: 100%;
+    }
+    .home_first{
+        display: flex;
+        background-color: #E9F1F2;
+
+    }
+    .home_first_left{
+       width: 50%;
+
+    }
+    .home_first_left_top{
+        height: 10%;
+
+
+    }
+    .home_first_right{
+        width: 50%;
+    }
+    .first_font{
+        font-size: 35px;
+        color: #6173C4;
+        margin: 10px auto;
+        width: 75%;
+    }
+    .advantages{
+        width: 85%;
+        display: flex;
+    }
 </style>

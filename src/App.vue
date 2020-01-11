@@ -10,6 +10,7 @@
 <script>
 
 import  BackToTop from './components/Scroll-top'
+
 export default {
   name: 'app',
   components: { BackToTop},
