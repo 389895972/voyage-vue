@@ -600,6 +600,13 @@ a {
   top: 0;
   display: flex;
 }
+.fixTitle1 {
+  background-color: #cccccc;
+  width: 97.3%;
+  padding: 0;
+  margin: 0;
+  z-index: 5;
+}
 .tabs {
   background-color: white;
   padding-left: 1.2%;

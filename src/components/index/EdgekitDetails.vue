@@ -418,7 +418,7 @@
                         <hr class="all_hr">
         </div>-->
         <div class="product_show">
-          <div class="product_show_div" id="i3">Features</div>
+          <div class="product_show_div" id="i3">Product Characteristics</div>
           <span class="prohard">Application</span>
           <div class="product_application">
             <img src="../../assets/images/Edgekit/application.jpg" alt width="100%" height="auto" />
@@ -702,7 +702,7 @@ a {
 }
 
 .product_show_div {
-  width: 200px;
+  // width: 200px;
   margin: 0 0 10px 30px;
   /*margin-left: 2.3%;*/
   padding: 20px;

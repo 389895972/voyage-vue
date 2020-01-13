@@ -54,7 +54,7 @@
                         </el-row>
 
                         <el-row>
-                            <el-col :span="6" :offset="2" :xs="{span:20,offset:2}">
+                            <el-col :span="6" :offset="2" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
                                 <el-card :body-style="{ padding: '0px' }">
                                     <img src="../../assets/images/home/aikit.png" class="image"
                                          style="height: 300px;width: 100%">
@@ -98,7 +98,7 @@
                                     </div>
                                 </el-card>
                             </el-col>
-                            <el-col :span="6" :offset="1" :xs="{span:20,offset:2}">
+                            <el-col :span="6" :offset="1" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
                                 <el-card :body-style="{ padding: '0px' }">
                                     <img src="../../assets/images/home/edge.png" class="image"
                                          style="height: 300px;width: 100%">
@@ -143,7 +143,7 @@
                                     </div>
                                 </el-card>
                             </el-col>
-                            <el-col :span="6" :offset="1" :xs="{span:20,offset:2}">
+                            <el-col :span="6" :offset="1" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
                                 <el-card :body-style="{ padding: '0px' }">
                                     <img src="../../assets/images/home/rb3.png" class="image"
                                          style="height: 300px;width: 100%">
@@ -192,7 +192,7 @@
                         </el-row>
                         <el-row>
 
-                            <el-col :span="6" :offset="2" :xs="{span:20,offset:2}">
+                            <el-col :span="6" :offset="2" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
                                 <el-card :body-style="{ padding: '0px' }">
                                     <img src="../../assets/images/home/rb3.png" class="image"
                                          style="height: 300px;width: 100%">
@@ -238,7 +238,7 @@
                                 </el-card>
                             </el-col>
 
-                            <el-col :span="6" :offset="1" :xs="{span:20,offset:2}">
+                            <el-col :span="6" :offset="1" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
                                 <el-card :body-style="{ padding: '0px' }">
                                     <img src="../../assets/images/home/rb3.png" class="image"
                                          style="height: 300px;width: 100%">
@@ -340,6 +340,8 @@
                     <el-button class="home_reg_btn"> 立即注册并试用</el-button>
                 </div>
             </div>
+
+
             <div style="background-color:#D7D7DB;padding-bottom:10px">
 
                 <div class="service">
@@ -427,7 +429,7 @@
 
     div {
         /*margin: 0;*/
-        padding: 0;
+        /* padding: 0; */
     }
 
     .mid {
@@ -586,6 +588,10 @@
         font-style: normal;
         color: rgba(102, 102, 102, 0.874509803921569);
 
+    }
+
+    .el-card{
+        box-shadow:10px 10px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !important
     }
 
     .el-footer {
