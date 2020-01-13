@@ -11,7 +11,6 @@
                         <div class="home_first_left">
                             <div class="home_first_left_top">
                                 <div class="first_font">我们追求更灵活便携的嵌入式开发工作</div>
-
                             </div>
                             <div>
                                 <img src="../../assets/images/home1.png" width="100%">
@@ -499,7 +498,7 @@
 
     .home_first_left_top {
         height: 10%;
-
+        display:inline;
 
     }
 
