@@ -82,6 +82,7 @@
     .block_inner{
         display: block;
 
+
     }
     .block_inners{
         margin-top: 15px;

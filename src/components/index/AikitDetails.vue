@@ -489,6 +489,7 @@
     .el-tabs__item{
         font-size: 21px  !important;
     }
+
     .el-tabs__nav-wrap::after{
         height: 0px;
     }
