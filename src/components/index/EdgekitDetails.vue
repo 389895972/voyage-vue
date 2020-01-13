@@ -55,7 +55,7 @@
               <el-tab-pane label="Tutorials and Documentation" name="#i4"></el-tab-pane>
             </el-tabs>
           </div>
-          <div class="product_show"  id="i1">
+          <div class="product_show" id="i1">
             <div class="product_show_div">Key advantages</div>
             <span class="prohard">Introduce</span>
             <div class="product_advantages">
@@ -434,19 +434,98 @@
           <hr class="all_hr1" />
         </div>
       </div>
-      <!--            <div class="footer">-->
-      <!--                <div  class="footer_inners">-->
-      <!--                    <div class="footer_inner">-->
-      <!--                        <span class="footer_span1">CONTACT INFO联系方式</span>-->
-      <!--                        <span class="footer_span11">中科创达股份有限公司是智能操作系统产品和技术提供商。自2008年成立依赖，公司致力于提供智能化操作系统系列产品、技术及解决方案。</span>-->
-      <!--                    </div>-->
-      <!--                    <div class="footer_inner">-->
-      <!--                        <span class="footer_span2">(86)10-62662686</span>-->
-      <!--                        <span class="footer_span21">biz@thundersoft.com</span>-->
-      <!--                        <span class="footer_span22">北京市海淀区清华东路9号院3号楼创达大厦 邮编：100083</span>-->
-      <!--                    </div>-->
-      <!--                </div>-->
-      <!--            </div>-->
+      <!-- <div class="footer">
+        <div class="footer_inners">
+          <div class="footer_inner">
+            <span class="footer_span1">CONTACT INFO联系方式</span>
+            <span
+              class="footer_span11"
+            >中科创达股份有限公司是智能操作系统产品和技术提供商。自2008年成立依赖，公司致力于提供智能化操作系统系列产品、技术及解决方案。</span>
+          </div>
+          <div class="footer_inner">
+            <span class="footer_span2">(86)10-62662686</span>
+            <span class="footer_span21">biz@thundersoft.com</span>
+            <span class="footer_span22">北京市海淀区清华东路9号院3号楼创达大厦 邮编：100083</span>
+          </div>
+        </div>
+      </div>-->
+      <div class="home_reg">
+          <span class="home_reg_title">现在注册，免费体验Devices on Cloud 平台所有开放设备</span>
+          <div class="home_reg_img">
+               <img src="../../assets/images/home/home_reg.png" alt="">
+          </div>
+          <div>
+            <el-button class="home_reg_btn"> 立即注册并试用</el-button>
+          </div>
+      </div>
+      <div style="background-color:#D7D7DB;padding-bottom:10px" >
+           <div class="service"> 
+                       <span class="service_title">常见问题</span>
+                       <div class="service_index">注册与登录 注册与收费 其他常见问题</div>
+                        <hr style="margin-bottom:1px">
+           </div>
+           <div class="service_contents">
+             <table>
+                  <tr>
+                         <td> <span class="service_querstion">注册账号都需要那些条件？</span>
+                           <div style="width:80%">  <p>注册账号时需要提供您真实有效的邮箱和手机号，我们会在验证过程中向index邮箱或者手机号发送验证码，只有验证通过才能使用我们的设备。</p> </div> </td>
+                         <td> <span class="service_querstion">什么是使用服务？</span>
+                              <p>适用服务是我们为使用者提供的免费使用本平台指定设备的服务。</p> </td>
+                  </tr>
+                                   <tr>
+                         <td> <span class="service_querstion">收不到邮箱验证码怎么办？</span>
+                            <div style="width:80%">   <p>可能被邮箱判断为垃圾邮件，请您打开垃圾邮箱所在文件夹查看是否收到。<br>
+                              如果任然无法收到验证码，您可尝试切换手机号进行验证。</p></div> </td>
+                         <td> <span class="service_querstion">试用过后如何计费？</span>
+                              <p>30天以下：按日计费<br>
+                               30天以上：按月计费<br>
+                              可选择：1~29日或者1~12月<br>
+                               订单页面选择日期后，费用自动生成</p> </td>
+                  </tr>
+                                    <tr>
+                         <td> <span class="service_querstion">收不到短信验证码怎么办？</span>
+                          <div style="width:80%">     <p>可能会由于手机停机、存储信息已满、网络延迟等原因没有及时收到验证码，这时请检查您的手机，保证手机可正常接收短信后，尝试重新获取验证码。<br>
+                              如果仍然无法收到验证码您可尝试邮箱进行验证。</p></div> </td>
+                         <td>  </td>
+                  </tr>
+             </table>
+             
+           </div>
+      </div>
+      <el-footer height="300px">
+        <el-col :span="3" :offset="1">
+          <div class="footer_block">
+            <span style="margin-left:30%">产品</span>
+          </div>
+        </el-col>
+        <el-col :span="3">
+          <div class="footer_block">
+            <span style="margin-left:30%">社区</span>
+          </div>
+        </el-col>
+        <el-col :span="3">
+          <div class="footer_block">
+            <span style="margin-left:30%">教程</span>
+          </div>
+        </el-col>
+         <el-col :span="3">
+          <div class="footer_block">
+            <span style="margin-left:30%"></span>
+          </div>
+        </el-col>
+         <el-col :span="3">
+          <div class="footer_block">
+            <span style="margin-left:30%"></span>
+          </div>
+        </el-col>
+        <el-col :span="3">
+          <div class="footer_block_final">
+            <span style="margin-left:10%;padding-top:10px">联系我们</span>
+            <p style="margin:10% 0 0 10%;font-size:16px">   Email</p>
+            <p style="margin-left:10%;font-size:16px"> service@45iot,com</p>
+          </div>
+        </el-col>
+      </el-footer>
     </div>
   </el-container>
 </template>
@@ -784,6 +863,86 @@ a {
 .el-tabs__header {
   margin-left: 30px;
 }
+
+.el-footer{
+  background-color: #666666
+}
+.el-col {
+  height: 100%;
+}
+.footer_block {
+  margin-top:60px;
+  height: 60%;
+  width: 100%;
+  color: white;
+  border-left: 2px solid grey;
+  font-size: 21px
+}
+.footer_block_final {
+  margin-top:60px;
+  margin-bottom:60px;
+  height: 60%;
+  width: 100%;
+  color: white;
+   border-left: 2px solid grey;
+  border-right: 2px solid grey;
+   font-size: 21px;
+   
+}
+
+.service{
+  background-color: #D7D7DB;
+  text-align: center;
+  padding-bottom: 1%;
+  padding-top: 2%
+}
+.service_title{
+  font-size: 21px;
+
+  width: 100%;
+}
+.service_index{
+  text-align: left;
+  font-size: 21px;
+  padding-left: 6%;
+  margin-top: 3%;
+  margin-bottom: 1%
+}
+.service_contents{
+  width: 85%;
+  margin: 0 auto;
+  background-color: #D7D7DB
+ 
+}
+.service_querstion{
+  font-weight: bold;
+}
+
+.home_reg{
+  text-align: center;
+  background-color: #000143;
+  font-size:  18px;
+  padding-top: 2%;
+  padding-bottom: 2%
+  
+}
+.home_reg_img{
+  align-content: center;
+  margin: 0 auto;
+  width: 85%;
+  text-align: center;
+  background-color:#000143
+}
+.home_reg_title{
+     color: white;
+}
+.home_reg_btn{
+  background-color: #000143;
+  border:1px solid white;
+  color: white;
+  cursor: pointer;
+}
+
 
 @media (max-width: 768px) {
   .tabs1 {
