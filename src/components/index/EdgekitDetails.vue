@@ -449,7 +449,7 @@
           </div>
         </div>
       </div>-->
-      <div class="home_reg">
+      <!-- <div class="home_reg">
           <span class="home_reg_title">现在注册，免费体验Devices on Cloud 平台所有开放设备</span>
           <div class="home_reg_img">
                <img src="../../assets/images/home/home_reg.png" alt="">
@@ -491,7 +491,7 @@
              </table>
              
            </div>
-      </div>
+      </div> -->
       <el-footer height="300px">
         <el-col :span="3" :offset="1">
           <div class="footer_block">
