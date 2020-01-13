@@ -351,7 +351,7 @@
                             <div class="product_show_div" >Product Characteristics</div>
                             <span class="prohard">Applications</span>
                             <div class="pro_border">
-                                <img src="../../assets/images/rb3/rb3-11.png" alt="">
+                                <img src="../../assets/images/rb3/rb3-11.png" alt="" width="100%">
                             </div>
 
                             <hr class="all_hr">
