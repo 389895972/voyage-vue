@@ -39,10 +39,29 @@
                                                        class="imgs"></div>
                         </div>
                         <div class="adv_imgs_bottom">
-                            <div class="adv_content"> 对比设备，租比买的价格更低</div>
-                            <div class="adv_content"> 第一手新设备，随时更新 ，无需等待</div>
-                            <div class="adv_content"> 企业级系统支持和服务</div>
-                            <div class="adv_content"> 在45IOT社区讨论交流学习</div>
+                            <div class="adv_content">
+                                <div style="text-align:left"> 
+                                    对比设备，租比买的价格更低
+                                </div> 
+                                
+                            </div>
+                            <div class="adv_content">
+                                <div style="text-align:left"> 
+                                    第一手新设备，随时更新 ，无需等待
+                                </div> 
+                            </div>
+                            <div class="adv_content">
+                                <div style="text-align:left"> 
+                                    企业级系统支持和服务
+                                </div> 
+                                 
+                            </div>
+                            <div class="adv_content"> 
+                                 <div style="text-align:left"> 
+                                    在45IOT社区讨论交流学习
+                                </div> 
+                            
+                            </div>
                         </div>
                     </div>
 
@@ -532,7 +551,7 @@
     }
 
     .adv_imgs_bottom {
-        align-items: center;
+        /* align-items: center; */
 
 
         width: 85%;
@@ -554,13 +573,17 @@
         height: 65px;
         /*position: absolute;*/
         /*left:25%;*/
-        vertical-align: middle
-
+        vertical-align: middle;
+            
     }
 
     .adv_content {
         font-size: 25px;
         margin: 10px 50px 60px 50px;
+        width: 20%;
+        /* text-align: center; */
+        justify-content: space-around;
+
     }
 
     .product_show {
@@ -595,7 +618,7 @@
     }
 
     .el-footer {
-        background-color: #666666
+        background-color: rgb(58,58,58);
     }
 
     .el-col {

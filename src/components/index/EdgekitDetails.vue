@@ -522,7 +522,7 @@
           <div class="footer_block_final">
             <span style="margin-left:10%;padding-top:10px">联系我们</span>
             <p style="margin:10% 0 0 10%;font-size:16px">   Email</p>
-            <p style="margin-left:10%;font-size:16px"> service@45iot,com</p>
+            <p style="margin-left:10%;font-size:16px"> service@45iot.com</p>
           </div>
         </el-col>
       </el-footer>
@@ -865,7 +865,7 @@ a {
 }
 
 .el-footer{
-  background-color: #666666
+  background-color: rgb(58,58,58);
 }
 .el-col {
   height: 100%;

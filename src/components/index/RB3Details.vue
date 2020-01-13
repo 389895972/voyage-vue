@@ -54,7 +54,7 @@
                 </div>
                 <div>
                     <div class="product">
-                        <span class="product_det">商品详情</span>
+                        <span class="product_det">Product Details</span>
                         <div  class="tabs">
                             <el-tabs  id="iii" class="tabs_1" @tab-click="handleClick">
                                 <el-tab-pane label="Key Advantage" name="#i1"></el-tab-pane>
