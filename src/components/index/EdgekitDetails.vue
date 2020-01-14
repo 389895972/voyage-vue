@@ -418,7 +418,7 @@
                         <hr class="all_hr">
         </div>-->
         <div class="product_show">
-          <div class="product_show_div" id="i3">Features</div>
+          <div class="product_show_div" id="i3">Product Characteristics</div>
           <span class="prohard">Application</span>
           <div class="product_application">
             <img src="../../assets/images/Edgekit/application.jpg" alt width="100%" height="auto" />
@@ -449,7 +449,7 @@
           </div>
         </div>
       </div>-->
-      <div class="home_reg">
+      <!-- <div class="home_reg">
           <span class="home_reg_title">现在注册，免费体验Devices on Cloud 平台所有开放设备</span>
           <div class="home_reg_img">
                <img src="../../assets/images/home/home_reg.png" alt="">
@@ -491,7 +491,7 @@
              </table>
              
            </div>
-      </div>
+      </div> -->
       <el-footer height="300px">
         <el-col :span="3" :offset="1">
           <div class="footer_block">
@@ -522,7 +522,7 @@
           <div class="footer_block_final">
             <span style="margin-left:10%;padding-top:10px">联系我们</span>
             <p style="margin:10% 0 0 10%;font-size:16px">   Email</p>
-            <p style="margin-left:10%;font-size:16px"> service@45iot,com</p>
+            <p style="margin-left:10%;font-size:16px"> service@45iot.com</p>
           </div>
         </el-col>
       </el-footer>
@@ -702,7 +702,7 @@ a {
 }
 
 .product_show_div {
-  width: 200px;
+  // width: 200px;
   margin: 0 0 10px 30px;
   /*margin-left: 2.3%;*/
   padding: 20px;
@@ -865,7 +865,7 @@ a {
 }
 
 .el-footer{
-  background-color: #666666
+  background-color: rgb(58,58,58);
 }
 .el-col {
   height: 100%;

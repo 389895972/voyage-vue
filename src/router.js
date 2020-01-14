@@ -19,7 +19,8 @@ const router =new Router({
         {path:'/de', component: de,},
         {path:'/test', component: test,},
         {path:'/edgekitdetails',component: EdgekitDetails,},
-    ]
+    ],
+   
 })
 
 
