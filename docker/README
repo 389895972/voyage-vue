@@ -1,0 +1,4 @@
+BUILD : docker build -t 192.168.15.246/device-as-a-service/daas_vue:x.x.x -f Dockerfile ..
+RUN   : docker run -itd -p 8080:8080 192.168.15.246/device-as-a-service/daas_vue:x.x.x
+PUSH  : docker login 192.168.15.246 && docker push 192.168.15.246/device-as-a-service/daas_vue:x.x.x
+
