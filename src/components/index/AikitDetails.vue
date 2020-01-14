@@ -16,14 +16,12 @@
           <div id="aikit_ours" class="col-md-4 col-xs-11">
             <div class="aikit_title">
               Thundercomm TurboX
-              <SUP>TM</SUP>AI KIT
+              <SUP>TM</SUP>AI套件
             </div>
-            <div
-              class="aikit_introduce"
-            >Thundercomm AI Kit is the most powerful on-device AI vision enabled edge device for developers. Thundercomm AI Kit helps developers and terminal manufacture to port their AI algorithm and AI application. It is designed with Qualcomm® SDA845 and provide device for development, algorithm SDK, develop guide and demo code.</div>
+            <div class="aikit_introduce">Thundercomm AI Kit是面向开发人员的功能最强大的设备上具有AI视觉功能的边缘设备。Thundercomm AI Kit可帮助开发人员和终端制造商移植其AI算法和AI应用程序。</div>
             <div class="aikit_btn">
-              <el-button type="primary">Buy Now</el-button>
-              <el-button type="primary">Device Management</el-button>
+              <el-button type="primary">立即购买</el-button>
+              <el-button type="primary">管理设备</el-button>
             </div>
           </div>
         </div>
@@ -38,8 +36,8 @@
                 <el-tab-pane label="教程与文档" name="#i4"></el-tab-pane>
               </el-tabs>
               <el-tabs class="tab_btn" @tab-click="handleClick1">
-                <el-button type="primary">Buy Now</el-button>
-                <el-button type="primary">Device Management</el-button>
+                <el-button type="primary">立即购买</el-button>
+                <el-button type="primary">管理设备</el-button>
                 <!--                                </div>-->
               </el-tabs>
             </div>
