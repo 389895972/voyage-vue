@@ -22,7 +22,7 @@
               class="aikit_introduce"
             >EdgeKit is dedicated to driving and implementing powerful, reliable and intelligent universal edge computing E2E solutions in our daily life. To accelerate the deployment of edge computing services, the EdgeKit team works with LF Edge, AWS and Qualcomm, which provide an interoperable, flexible and scalable edge computing service platform, cloud infrastructure and chipset. Edge Kit is an on-device AI feature supported by Qualcomm SNPE to meet the growing demand for machine vision, AI algorithms and predictive maintenance. EdgeKit initially supported Edge-X, which is neutral to any vendor. The universal open framework provides a simplified and standardized foundation for edge computing architecture in AIoT. EdgeKit has good documentation and tutorials to make DevKit easy to use.</div>
             <div class="aikit_btn">
-              <el-button type="primary">Buy Now</el-button>
+              <el-button type="primary"  @click="buy_edgekit">Buy Now</el-button>
               <el-button type="primary">Device Management</el-button>
             </div>
           </div>
@@ -38,7 +38,7 @@
               <el-tab-pane label="Tutorials and Documentation" name="#i4"></el-tab-pane>
             </el-tabs>
             <el-tabs class="tab_btn" @tab-click="handleClick1">
-              <el-button type="primary">Buy Now</el-button>
+              <el-button type="primary"  @click="buy_edgekit">Buy Now</el-button>
               <el-button type="primary">Device Management</el-button>
               <!--                                </div>-->
             </el-tabs>
@@ -571,10 +571,19 @@ export default {
     },
     handleClick1(tab) {
       document.querySelector(tab.name).scrollIntoView(true);
+    },
+    buy_edgekit() {
+      this.$router.push(
+              { path: '/buy',
+                query:{ name:'Edge KIT'}
+              }
+      );
+
     }
   },
   mounted: function() {
     window.addEventListener("scroll", this.handleScroll);
+
   }
 };
 </script>

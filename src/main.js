@@ -18,7 +18,11 @@ axios.interceptors.request.use(config=>{
   config.headers.Authorization= window.sessionStorage.getItem('token');
   return config;
 })
+router.afterEach(() => {
 
+    window.scrollTo(0,0)
+
+})
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(router)

@@ -20,7 +20,7 @@
             </div>
             <div class="aikit_introduce">Thundercomm AI Kit是面向开发人员的功能最强大的设备上具有AI视觉功能的边缘设备。Thundercomm AI Kit可帮助开发人员和终端制造商移植其AI算法和AI应用程序。</div>
             <div class="aikit_btn">
-              <el-button type="primary">立即购买</el-button>
+              <el-button type="primary" @click="buy_aikit">立即购买</el-button>
               <el-button type="primary">管理设备</el-button>
             </div>
           </div>
@@ -36,7 +36,7 @@
                 <el-tab-pane label="教程与文档" name="#i4"></el-tab-pane>
               </el-tabs>
               <el-tabs class="tab_btn" @tab-click="handleClick1">
-                <el-button type="primary">立即购买</el-button>
+                <el-button type="primary" @click="buy_aikit">立即购买</el-button>
                 <el-button type="primary">管理设备</el-button>
                 <!--                                </div>-->
               </el-tabs>
@@ -389,11 +389,20 @@ export default {
     },
     handleClick1(tab) {
       document.querySelector(tab.name).scrollIntoView(true);
+    },
+    buy_aikit() {
+      this.$router.push(
+              { path: '/buy',
+              query:{ name:'AI KIT'}
+              }
+      );
+
     }
   },
   mounted: function() {
     window.addEventListener("scroll", this.handleScroll);
-  }
+  },
+
 };
 </script>
 <style   lang="less" scoped>
