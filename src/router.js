@@ -6,6 +6,8 @@ import RB3Details from './components/index/RB3Details'
 import test from './components/test'
 import EdgekitDetails from './components/index/EdgekitDetails'
 import Buy from './components/order/Buy'
+import Confirm from './components/order/Confirm'
+import Example from './components/order/Example'
 //import First from "./components/index/First";
 import de from './ChangLang'
 
@@ -21,6 +23,8 @@ const router =new Router({
         {path:'/test', component: test,},
         {path:'/edgekitdetails',component: EdgekitDetails,},
         {path:'/buy',component: Buy,},
+        {path:'/confirm',name:'Confirm',component: Confirm,},
+        {path:'/example',component: Example,},
     ],
    
 })

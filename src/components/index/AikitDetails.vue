@@ -393,7 +393,10 @@ export default {
     buy_aikit() {
       this.$router.push(
               { path: '/buy',
-              query:{ name:'AI KIT'}
+              query:{
+                name:'AI KIT',
+                good_id: 1682320,
+              }
               }
       );
 

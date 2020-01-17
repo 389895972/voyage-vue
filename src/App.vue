@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <keep-alive >
     <router-view></router-view>
+    </keep-alive>
     <el-tooltip placement="top" content="回到顶部">
       <back-to-top :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="0" transition-name="fade"/>
     </el-tooltip>
