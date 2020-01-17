@@ -105,7 +105,7 @@
                 </el-card>
               </el-col>
               <el-col :span="6" :offset="1" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
-                <el-card :body-style="{ padding: '0px' }">
+                <el-card :body-style="{ padding: '0px' }" @click="go_aikit">
                   <img
                     src="../../assets/images/home/edge.png"
                     class="image"
@@ -192,7 +192,7 @@
             </el-row>
             <el-row>
               <el-col :span="6" :offset="2" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
-                <el-card :body-style="{ padding: '0px' }">
+                <el-card :body-style="{ padding: '0px' }" @click="go_aikit">
                   <img
                     src="../../assets/images/home/rb3.png"
                     class="image"
@@ -508,6 +508,9 @@ export default {
       },
       buy_rb3(){
            this.$router.push({path:'/rb3details'});
+      },
+      go_aikit(){
+      this.$router.push({path:'/aikitdetails'});
       }
   }
 };

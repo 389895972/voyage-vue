@@ -6,6 +6,7 @@
             </div>
             {{infoForm}}
 {{os}}
+            {{ orderData[0].product_name}}
             <div class="content">
                 <div class="titles">
                     <div class="title"> 确认订单</div>
@@ -80,6 +81,7 @@
                user_id:'123',
                pay:0.0,
                os:'1',
+               product_name:this.$route.params.product_name,
                orderData: [{
                    product_name: '商品名称：',
                    buy_nums: '',
@@ -110,9 +112,9 @@
         },
         methods: {
             getInfo(){
-                this.orderData[0].product_name='商品名称:'+this.$route.params.os;
+                this.orderData[0].product_name='商品名称:'+this.$route.params.product_name;
                 this.orderData[1].product_name='版本:'+this.$route.params.configure;
-                this.orderData[2].product_name='操作系统:'+this.$route.params.edtion;
+                this.orderData[2].product_name='操作系统:'+this.$route.params.os+" " +this.$route.params.edtion;
                 this.orderData[0].buy_nums=this.$route.params.buy_nums+'台';
                 this.orderData[0].buy_times=this.$route.params.buy_times;
                 this.orderData[0].pay=this.$route.params.pay;
@@ -139,6 +141,7 @@
             buy(){
                 this.$router.push('/example');
                 this.$http.post('/order/insert',{
+                    product_name:this.product_name,
                     userId:this.user_id,
                     goodsId:this.good_id,
                     num:this.orderData[1].buy_nums,

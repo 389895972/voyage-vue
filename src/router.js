@@ -7,8 +7,9 @@ import test from './components/test'
 import EdgekitDetails from './components/index/EdgekitDetails'
 import Buy from './components/order/Buy'
 import Confirm from './components/order/Confirm'
-import Example from './components/order/Example'
+import InstanceDetails from './components/order/InstanceDetails'
 //import First from "./components/index/First";
+import Instance from './components/order/Instance'
 import de from './ChangLang'
 
 Vue.use(Router)
@@ -24,7 +25,8 @@ const router =new Router({
         {path:'/edgekitdetails',component: EdgekitDetails,},
         {path:'/buy',component: Buy,},
         {path:'/confirm',name:'Confirm',component: Confirm,},
-        {path:'/example',component: Example,},
+        {path:'/instanceDetails',component:InstanceDetails,},
+        {path:'/instance',component:Instance,},
     ],
    
 })
