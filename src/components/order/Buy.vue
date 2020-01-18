@@ -43,7 +43,7 @@
                 </div>
                  {{value2}}
                 <div class="configure">
-                    <span class="configure_title">购买数量</span><el-input-number v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                    <span class="configure_title">购买数量</span><el-input-number v-model="buy_num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
                   <div class="block" style="width: 60%;margin: 20px">
                     <span class="demonstration">购买时长</span>
                     <el-slider
@@ -96,7 +96,7 @@
                 ubuntus:'ubuntu 16.0.4',
                 androids: 'android o',
                 value2: 10,
-                num: 1,
+                buy_num: 1,
                 pay:'0.00',
                 product_name: this.$route.query.name,
                 configures: [
