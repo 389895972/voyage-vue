@@ -12,12 +12,15 @@ import locale from 'element-ui/lib/locale/lang/en'
 import routes from "./rout";
 import  VueI18n from 'vue-i18n'
 
-axios.defaults.baseURL='http://127.0.0.1:8081'
+Vue.prototype.$http=axios;
+axios.defaults.baseURL='/api'
+//axios.defaults.baseURL='http://127.0.0.1:8081'
+//axios.defaults.baseURL='http://10.0.20.144:9001'
 //请求拦截器 添加 token
-axios.interceptors.request.use(config=>{
-  config.headers.Authorization= window.sessionStorage.getItem('token');
-  return config;
-})
+// axios.interceptors.request.use(config=>{
+//   config.headers.Authorization= window.sessionStorage.getItem('token');
+//   return config;
+// })
 router.afterEach(() => {
 
     window.scrollTo(0,0)
@@ -26,7 +29,7 @@ router.afterEach(() => {
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(router)
-Vue.prototype.$http=axios;
+
 Vue.use(ElementUI, { locale })
  Vue.use(ElementUI, {
   i18n: (key, value) => i18n.t(key, value)

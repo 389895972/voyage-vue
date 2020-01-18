@@ -1,4 +1,5 @@
 <template>
+    <keep-alive>
     <el-container>
         <div class="home-container">
             <div class="header">
@@ -7,7 +8,7 @@
             <div>
                 <div class="product_name"> {{product_name}}  </div>
 
-
+{{os_specs}}
                 <div class="configure">
                      <span class="configure_title"> 规格配置</span>
                       <el-select v-model="configure" placeholder="请选择">
@@ -16,34 +17,59 @@
                           </el-option>
                       </el-select>
                 </div>
-{{oss}}
+
+                <hr>
+<!--                 {{spec[0].attributeName}}-->
                 <div class="configure">
                     <span class="configure_title">操作系统</span>
-                    <span  class="configure_os">
-                        <el-select v-model="oss" placeholder="请选择">
-                            <el-option  v-for="item in os"  :key="item.value"  :label="item.label"
-                                        :value="item.value">
-                            </el-option>
-                        </el-select>
-                        </span>
-                        <span v-if="oss==='Linux'" class="configure_os">
-                        <el-select   v-model="ubuntus" placeholder="请选择">
-                            <el-option  v-for="item in ubuntu"  :key="item.value"  :label="item.label"
-                                        :value="item.value">
-                            </el-option>
-                        </el-select>
-                        </span>
-                        <span v-if="oss==='Android'" class="configure_os">
-                        <el-select   v-model="androids" placeholder="请选择">
-                            <el-option  v-for="item in android"  :key="item.value"  :label="item.label"
-                                        :value="item.value">
-                            </el-option>
-                        </el-select>
-                    </span>
+                    <span class="configure_os">
+            <el-select v-model="current_os" placeholder="请选择">
+              <el-option
+                      v-for="item in oss"
+                      :key="item"
+                      :label="item"
+                      :value="item"
+              ></el-option>
+            </el-select>
+          </span>
+
+                    <el-select v-model="current_os_version" placeholder="请选择">
+                        <el-option
+                                v-for="item in os_specs[current_os]"
+                                :key="item"
+                                :label="item"
+                                :value="item"
+                        ></el-option>
+                    </el-select>
+
                 </div>
+<!--                <div class="configure">-->
+<!--                    <span class="configure_title">操作系统</span>-->
+<!--                    <span  class="configure_os">-->
+<!--                        <el-select v-model="oss" placeholder="请选择">-->
+<!--                            <el-option  v-for="item in spec"  :key="item.id"  :label="item.attributeName"-->
+<!--                                        :value="item.attributeName">-->
+<!--                            </el-option>-->
+<!--                        </el-select>-->
+<!--                        </span>-->
+<!--                    <span v-if="oss==='linux'" class="configure_os">-->
+<!--                        <el-select   v-model="ubuntus" placeholder="请选择">-->
+<!--                            <el-option  v-for="item in data"  :key="item.id"  :label="item.spec[0].attributeValue"-->
+<!--                                        :value="item.spec[0].attributeValue">-->
+<!--                            </el-option>-->
+<!--                        </el-select>-->
+<!--                        </span>-->
+<!--                    <span v-if="oss==='Android'" class="configure_os">-->
+<!--                        <el-select   v-model="androids" placeholder="请选择">-->
+<!--                            <el-option  v-for="item in data"  :key="item.id"  :label="item.spec[0].attributeValue"-->
+<!--                                        :value="item.spec[0].attributeValue">-->
+<!--                            </el-option>-->
+<!--                        </el-select>-->
+<!--                    </span>-->
+<!--                </div>-->
                  {{value2}}
                 <div class="configure">
-                    <span class="configure_title">购买数量</span><el-input-number v-model="buy_num" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                    <span class="configure_title">购买数量</span><el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
                   <div class="block" style="width: 60%;margin: 20px">
                     <span class="demonstration">购买时长</span>
                     <el-slider
@@ -52,7 +78,6 @@
                             show-stops>
                     </el-slider>
 <!--                      <el-slider v-model="orderForm.bandWidth" :step="50" :max="3050" :marks="marks" show-input :format-tooltip="formatTooltip" />-->
-                      <el-slider v-model="toolmsg" :step="10" :format-tooltip="timestepToolTip" show-stops :max="50" :content="['d','o']"></el-slider>
 
                 </div>
                 </div>
@@ -72,7 +97,7 @@
                             </el-radio-group>
                         </el-form-item>
                         <el-form-item label="手机号" prop="tel">
-                            <el-input ></el-input>
+                            <el-input v-model="ruleForm.tel"></el-input>
                         </el-form-item>
                         <el-form-item label="用途" prop="purpose">
                             <el-input type="textarea" v-model="ruleForm.purpose"></el-input>
@@ -85,37 +110,32 @@
             </div>
         </div>
     </el-container>
+    </keep-alive>
 </template>
 
 <script>
     export default {
         data() {
             return {
+                data:[],
                 configure:'标准版',
-                oss:'Linux',
-                ubuntus:'ubuntu 16.0.4',
-                androids: 'android o',
-                value2: 10,
-                buy_num: 1,
+                os_specs:{},
+                oss:[],
+                current_os:'',
+                current_os_version:'',
+
+                // vision:'标准版',
+                // os:'请选择',
+                // ubuntu:'请选择',
+                // android: '请选择',
+                hire_time: 10,
+                buy_nums: 1,
                 pay:'0.00',
                 product_name: this.$route.query.name,
+                good_id:this.$route.query.good_id,
                 configures: [
                     {value: '选项1', label: '标准版'},
 
-                ],
-                os:[],
-                os1: [
-                    {value: 'Android', label: 'Android'},
-                    {value: 'Linux', label: 'Linux'},
-                ],
-                os2: [
-                    {value: 'Linux', label: 'Linux'},
-                ],
-                ubuntu: [
-                    {value: 'ubtunu 16.0.4', label: 'ubtunu 16.0.4'},
-                ],
-                android:[
-                    {value: 'android o', label: 'android o'},
                 ],
                 ruleForm: {
                     name: '',
@@ -143,36 +163,83 @@
                     purpose: [
                         { required: true, message: '请填写用途', trigger: 'blur' }
                     ]
-                }
+                },
+
 
             }
-
         },
         methods: {
             handleChange(value) {
                 window.console.log(value);
             },
-            getOs(){
-                this.$http.get('',)
-            },
-            setOs(){
-                if(this.product_name==="AI KIT"){
-                    this.os=this.os1;
-                }else{
-                    this.os=this.os2;
-                }
-            },
-            buy(){
-                if(this.oss==='Linux'){
-                    this.$router.push({path:'/rb3details'});
-                }
+            async getOs(){
+              const {data:res}=await this.$http.get('/goodsitem/findAll',{params:{ goodsid:this.good_id}})
+              // window.console.log(res)
+              if(res.code==20000) {
+                  this.data = res.data;
+                  window.console.log(this.data);
+                  for (var i in this.data) {
+                      var spec = JSON.parse(this.data[i].spec);
+                      let spec_attr_name = spec[0].attributeName;
+                      let spec_attr_val = spec[0].attributeValue;
+                      if (spec_attr_name && spec_attr_val) {
+                          if (this.os_specs[spec_attr_name] == undefined) {
+                              this.os_specs[spec_attr_name] = [spec_attr_val];
+                          } else {
+                              if (this.os_specs[spec_attr_name].indexOf(spec_attr_val) == -1) {
+                                  this.os_specs[spec_attr_name].push(spec_attr_val);
+                              }
+                          }
+                      }
+                  }
 
-            }
+                  this.oss = Object.keys(this.os_specs)
+              }
+
+
+
+            },
+            // setOs(){
+            //     if(this.product_name==="AI KIT"){
+            //         this.os=this.os1;
+            //     }else{
+            //         this.os=this.os2;
+            //     }
+            // },
+            buy(){
+                if(this.current_os===''||this.current_os_version===''){
+                    this.$message.error("请选择操作系统版本")
+                }
+                    this.$router.push(
+                        {
+                            name:'Confirm',
+                            params:{
+                                product_name:this.product_name,
+                                os:this.current_os,
+                                edtion:this.current_os_version,
+                                info:this.ruleForm,
+                                buy_nums:this.buy_nums,
+                                buy_times:this.value2+'周',
+                                pay:this.pay,
+                                configure:this.configure
+                            }
+                        });
+
+
+
+            },
+
         },
         created(){
            this.getOs();
-           this.setOs();
+           // this.setOs();
         },
+        watch:{
+            current_os(){
+                this.current_os_version='';
+
+            }
+        }
     }
 </script>
 
