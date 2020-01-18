@@ -8,6 +8,7 @@ import EdgekitDetails from './components/index/EdgekitDetails'
 import Buy from './components/order/Buy'
 import Confirm from './components/order/Confirm'
 import InstanceDetails from './components/order/InstanceDetails'
+import ToPay from './components/order/ToPay'
 //import First from "./components/index/First";
 import Instance from './components/order/Instance'
 import de from './ChangLang'
@@ -27,6 +28,7 @@ const router =new Router({
         {path:'/confirm',name:'Confirm',component: Confirm,},
         {path:'/instanceDetails',component:InstanceDetails,},
         {path:'/instance',component:Instance,},
+        {path:'/toPay',name:'ToPay',component:ToPay,},
     ],
    
 })

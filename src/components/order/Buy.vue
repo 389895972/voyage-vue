@@ -8,7 +8,7 @@
             <div>
                 <div class="product_name"> {{product_name}}  </div>
 
-
+{{os_specs}}
                 <div class="configure">
                      <span class="configure_title"> 规格配置</span>
                       <el-select v-model="configure" placeholder="请选择">
@@ -17,45 +17,41 @@
                           </el-option>
                       </el-select>
                 </div>
-                {{data}}
-              {{data[0].spec}}
+
                 <hr>
 <!--                 {{spec[0].attributeName}}-->
-                  {{spec}}
-                {{product_name}}
-<!--                <div class="configure">-->
-<!--                    <span class="configure_title">操作系统</span>-->
-<!--                    <span  class="configure_os">s-->
-<!--                        <el-select v-model="oss" placeholder="请选择">-->
-<!--                            <el-option  v-for="item in os"  :key="item.value"  :label="item.label"-->
-<!--                                        :value="item.value">-->
-<!--                            </el-option>-->
-<!--                        </el-select>-->
-<!--                        </span>-->
-<!--                        <span v-if="oss==='linux'" class="configure_os">-->
-<!--                        <el-select   v-model="ubuntus" placeholder="请选择">-->
-<!--                            <el-option  v-for="item in ubuntu"  :key="item.value"  :label="item.label"-->
-<!--                                        :value="item.value">-->
-<!--                            </el-option>-->
-<!--                        </el-select>-->
-<!--                        </span>-->
-<!--                        <span v-if="oss==='Android'" class="configure_os">-->
-<!--                        <el-select   v-model="androids" placeholder="请选择">-->
-<!--                            <el-option  v-for="item in android"  :key="item.value"  :label="item.label"-->
-<!--                                        :value="item.value">-->
-<!--                            </el-option>-->
-<!--                        </el-select>-->
-<!--                    </span>-->
-<!--                </div>-->
                 <div class="configure">
                     <span class="configure_title">操作系统</span>
-                    <span  class="configure_os">
-                        <el-select v-model="oss" placeholder="请选择">
-                            <el-option  v-for="item in spec"  :key="item.id"  :label="item.attributeName"
-                                        :value="item.attributeName">
-                            </el-option>
-                        </el-select>
-                        </span>
+                    <span class="configure_os">
+            <el-select v-model="current_os" placeholder="请选择">
+              <el-option
+                      v-for="item in oss"
+                      :key="item"
+                      :label="item"
+                      :value="item"
+              ></el-option>
+            </el-select>
+          </span>
+
+                    <el-select v-model="current_os_version" placeholder="请选择">
+                        <el-option
+                                v-for="item in os_specs[current_os]"
+                                :key="item"
+                                :label="item"
+                                :value="item"
+                        ></el-option>
+                    </el-select>
+
+                </div>
+<!--                <div class="configure">-->
+<!--                    <span class="configure_title">操作系统</span>-->
+<!--                    <span  class="configure_os">-->
+<!--                        <el-select v-model="oss" placeholder="请选择">-->
+<!--                            <el-option  v-for="item in spec"  :key="item.id"  :label="item.attributeName"-->
+<!--                                        :value="item.attributeName">-->
+<!--                            </el-option>-->
+<!--                        </el-select>-->
+<!--                        </span>-->
 <!--                    <span v-if="oss==='linux'" class="configure_os">-->
 <!--                        <el-select   v-model="ubuntus" placeholder="请选择">-->
 <!--                            <el-option  v-for="item in data"  :key="item.id"  :label="item.spec[0].attributeValue"-->
@@ -70,7 +66,7 @@
 <!--                            </el-option>-->
 <!--                        </el-select>-->
 <!--                    </span>-->
-                </div>
+<!--                </div>-->
                  {{value2}}
                 <div class="configure">
                     <span class="configure_title">购买数量</span><el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
@@ -122,10 +118,16 @@
         data() {
             return {
                 data:[],
-                vision:'标准版',
-                os:'请选择',
-                ubuntu:'请选择',
-                android: '请选择',
+                configure:'标准版',
+                os_specs:{},
+                oss:[],
+                current_os:'',
+                current_os_version:'',
+
+                // vision:'标准版',
+                // os:'请选择',
+                // ubuntu:'请选择',
+                // android: '请选择',
                 hire_time: 10,
                 buy_nums: 1,
                 pay:'0.00',
@@ -162,7 +164,7 @@
                         { required: true, message: '请填写用途', trigger: 'blur' }
                     ]
                 },
-                os_specs:[],
+
 
             }
         },
@@ -172,24 +174,26 @@
             },
             async getOs(){
               const {data:res}=await this.$http.get('/goodsitem/findAll',{params:{ goodsid:this.good_id}})
-              window.console.log(res)
+              // window.console.log(res)
               if(res.code==20000) {
-                  this.data=res.data
-                  this.spec = JSON.parse(this.data[0].spec)
-                  window.console.log(this.spec)
-                  for(var index in this.data){
-                      //获取规格
-                      let specs = JSON.parse(this.data[index].spec)
-
-                      if(specs[0].attributeName && specs[0].attributeValue){
-                          //获取单个操作系统规格
-                          let os_spec = {}
-                          os_spec[specs[0].attributeName].push(specs[0].attributeValue)
-
+                  this.data = res.data;
+                  window.console.log(this.data);
+                  for (var i in this.data) {
+                      var spec = JSON.parse(this.data[i].spec);
+                      let spec_attr_name = spec[0].attributeName;
+                      let spec_attr_val = spec[0].attributeValue;
+                      if (spec_attr_name && spec_attr_val) {
+                          if (this.os_specs[spec_attr_name] == undefined) {
+                              this.os_specs[spec_attr_name] = [spec_attr_val];
+                          } else {
+                              if (this.os_specs[spec_attr_name].indexOf(spec_attr_val) == -1) {
+                                  this.os_specs[spec_attr_name].push(spec_attr_val);
+                              }
+                          }
                       }
-
-
                   }
+
+                  this.oss = Object.keys(this.os_specs)
               }
 
 
@@ -203,29 +207,16 @@
             //     }
             // },
             buy(){
-                if(this.oss==='linux'){
+                if(this.current_os===''||this.current_os_version===''){
+                    this.$message.error("请选择操作系统版本")
+                }
                     this.$router.push(
                         {
                             name:'Confirm',
                             params:{
                                 product_name:this.product_name,
-                                os:this.oss,
-                                edtion:this.ubuntus,
-                                info:this.ruleForm,
-                                buy_nums:this.buy_nums,
-                                buy_times:this.value2+'周',
-                                pay:this.pay,
-                                configure:this.configure
-                            }
-                        });
-                }else {
-                    this.$router.push(
-                        {
-                            name:'Confirm',
-                            params:{
-                                product_name:this.product_name,
-                                os:this.oss,
-                                edtion:this.androids,
+                                os:this.current_os,
+                                edtion:this.current_os_version,
                                 info:this.ruleForm,
                                 buy_nums:this.buy_nums,
                                 buy_times:this.value2+'周',
@@ -234,7 +225,7 @@
                             }
                         });
 
-                }
+
 
             },
 
@@ -243,7 +234,12 @@
            this.getOs();
            // this.setOs();
         },
+        watch:{
+            current_os(){
+                this.current_os_version='';
 
+            }
+        }
     }
 </script>
 

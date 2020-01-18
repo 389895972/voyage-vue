@@ -77,8 +77,9 @@
     export default {
         data(){
            return{
-               good_id:2121,
-               user_id:'123',
+               status:1,
+               good_id:1682320,
+               user_id:"1",
                pay:0.0,
                os:'1',
                product_name:this.$route.params.product_name,
@@ -138,22 +139,39 @@
             back(){
                 this.$router.go(-1);//返回上一层
             },
-            buy(){
-                this.$router.push('/example');
-                this.$http.post('/order/insert',{
+           async buy(){
+                // this.$router.push('/example');
+                const {data:res}=await this.$http.post('/order/insert',{
                     product_name:this.product_name,
                     userId:this.user_id,
                     goodsId:this.good_id,
                     num:this.orderData[1].buy_nums,
                     hire_time:this.orderData[1].buy_times,
                     OS:this.os,
+                    status:this.status,
                     infoForm:this.infoForm,
                 }) ;
-                // this.$http.get('/order/insert',{params:{userId:this.user_id,}
-                //
-                // })
+               if(res.code===20000){
+                   this.$router.push(
+                       {
+                           name:'ToPay',
+                           params:{
+                               product_name:this.product_name,
+                               userId:this.user_id,
+                               goodsId:this.good_id,
+                               num:this.orderData[1].buy_nums,
+                               hire_time:this.orderData[1].buy_times,
+                               OS:this.os,
+                               status:this.status,
+                               infoForm:this.infoForm,
+                               configure:this.configure,
+                               order_id:res.order_id,
+                               order_time:res.order_time,
+                           }
+                       });
+               }
 
-            }
+           }
 
         }
     }
