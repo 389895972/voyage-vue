@@ -39,12 +39,21 @@
                     <el-table-column label="操作">
                         <template slot-scope="scope">
                             <!--                     {{scope.row}}-->
-                            <el-button type="primary" icon="el-icon-edit" size="mini" @click="showEditDialog(scope.row.id)">管理</el-button>
-                            <el-button type="success" icon="el-icon-thumb" size="mini" @click="removeUserById(scope.row.id)">进入控制台</el-button>
+                            <el-button type="primary" icon="el-icon-edit" size="mini" @click="manage(scope.row.id)">管理</el-button>
+                            <el-button type="success" icon="el-icon-thumb" size="mini" @click="go(scope.row.id)">进入控制台</el-button>
 
                         </template>
                     </el-table-column>
                 </el-table>
+                <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-size="pageSize"
+                        :background=true
+                        layout="total,sizes, prev, pager, next"
+                        :total="total">
+                </el-pagination>
             </div>
         </div>
     </el-container>
@@ -53,6 +62,9 @@
     export default {
         data() {
             return {
+                currentPage:2,
+                pageSize:5,
+                total:20,
                 tableData: [{
                     date: '2016-05-02',
                     name: '王小虎',
@@ -62,6 +74,25 @@
                     name: '王小虎',
                     address: '上海市普陀区金沙江路 1517 弄'
                 }]
+            }
+        },
+        methods:{
+            getList(){
+                this.$http.get('',{params:{
+                        currentPage:this.currentPage,
+                        pageSize:this.pageSize,
+                    }})
+            },
+            manage(){
+
+            },
+            go(){
+
+            }
+        },
+        created:{
+            getList(){
+
             }
         }
     }
