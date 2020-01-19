@@ -7,6 +7,7 @@
             {{infoForm}}
 {{os}}
             {{ orderData[0].product_name}}
+
             <div class="content">
                 <div class="titles">
                     <div class="title"> 确认订单</div>
@@ -29,7 +30,7 @@
                                     label="数量">
                             </el-table-column>
                             <el-table-column
-                                    prop="buy_times"
+                                    prop="hire_time"
                                     label="时长">
                             </el-table-column>
                             <el-table-column
@@ -74,29 +75,34 @@
     </el-container>
 </template>
 <script>
+  //  import {formatDate} from "element-ui";
+  //import {formatDate} from '../../../date.js'
     export default {
         data(){
            return{
+               time: 1516703495241,
                status:1,
                good_id:1682320,
                user_id:"1",
-               pay:0.0,
-               os:'1',
+               pay:this.$route.params.pay,
+               os:this.$route.params.os+' '+this.$route.params.version,
+               buy_nums:this.$route.params.buy_nums,
                product_name:this.$route.params.product_name,
+               hire_time:this.$route.params.hire_time,
                orderData: [{
                    product_name: '商品名称：',
                    buy_nums: '',
-                   buy_times: '',
+                   hire_time: '',
                    pay: '0.0',
                }, {
                    product_name: '版本：',
                    buy_nums: '',
-                   buy_times: '',
+                   hire_time: '',
                    pay: '0.0',
                }, {
                    product_name: '操作系统：',
                    buy_nums: '',
-                   buy_times: '',
+                   hire_time: '',
                    pay: '',
                }],
                infoForm: {
@@ -115,9 +121,9 @@
             getInfo(){
                 this.orderData[0].product_name='商品名称:'+this.$route.params.product_name;
                 this.orderData[1].product_name='版本:'+this.$route.params.configure;
-                this.orderData[2].product_name='操作系统:'+this.$route.params.os+" " +this.$route.params.edtion;
+                this.orderData[2].product_name='操作系统:'+this.$route.params.os+" " +this.$route.params.version;
                 this.orderData[0].buy_nums=this.$route.params.buy_nums+'台';
-                this.orderData[0].buy_times=this.$route.params.buy_times;
+                this.orderData[0].hire_time=this.$route.params.hire_time;
                 this.orderData[0].pay=this.$route.params.pay;
                 this.infoForm=this.$route.params.info;
             },
@@ -140,40 +146,58 @@
                 this.$router.go(-1);//返回上一层
             },
            async buy(){
-                // this.$router.push('/example');
+
                 const {data:res}=await this.$http.post('/order/insert',{
                     product_name:this.product_name,
                     userId:this.user_id,
                     goodsId:this.good_id,
-                    num:this.orderData[1].buy_nums,
-                    hire_time:this.orderData[1].buy_times,
+                    num:this.buy_nums,
+                    hire_time:this.hire_time,
                     OS:this.os,
                     status:this.status,
+                    price:this.pay,
                     infoForm:this.infoForm,
+                    order_status:1,
                 }) ;
                if(res.code===20000){
+               //   var date=new Date()
+               //   var year=date.getFullYear();
+               // /* 在日期格式中，月份是从0开始的，因此要加0
+               //  * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+               //  * */
+               // var month= date.getMonth()+1<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
+               // var day=date.getDate()<10 ? "0"+date.getDate() : date.getDate();
+               // var hours=date.getHours()<10 ? "0"+date.getHours() : date.getHours();
+               // var minutes=date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes();
+               // var seconds=date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds();
+               // var nowDate=year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds
                    this.$router.push(
                        {
                            name:'ToPay',
                            params:{
+                               orderId:res.orderId,
                                product_name:this.product_name,
                                userId:this.user_id,
                                goodsId:this.good_id,
-                               num:this.orderData[1].buy_nums,
-                               hire_time:this.orderData[1].buy_times,
-                               OS:this.os,
+                               num:this.buy_nums,
+                               hire_time:this.hire_time,
+                               OS:'镜像：'+this.os,
                                status:this.status,
                                infoForm:this.infoForm,
                                configure:this.configure,
-                               order_id:res.order_id,
-                               order_time:res.order_time,
+                               pay:this.pay,
+                               //date:nowDate,
+                               order_status:1,
+                              // order_id:res.order_id,
+                              // order_time:res.order_time,
                            }
                        });
                }
 
            }
 
-        }
+        },
+
     }
 </script>
 <style scoped>

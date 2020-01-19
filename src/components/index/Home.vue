@@ -65,13 +65,13 @@
 
             <el-row>
               <el-col :span="6" :offset="2" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
-                <el-card :body-style="{ padding: '0px' }">
+                <el-card :body-style="{ padding: '0px' }" >
                   <img
                     src="../../assets/images/home/aikit.png"
                     class="image"
-                    style="height: 300px;width: 100%"
+                    style="height: 300px;width: 100%" @click="go_aikit"
                   />
-                  <div style="padding: 14px;">
+                  <div style="padding: 14px;" @click="go_aikit" class="card_div">
                     <span style="font-size: 20px;">Thundercomm TurboX™AI套件</span>
                     <p style="line-height:25px;margin-left: 20px;margin-right:10px">具有AI视觉功能的边缘设备</p>
                     <el-row :gutter="13">
@@ -99,19 +99,19 @@
                       </div>
                     </div>
                     <div class="bottom clearfix" style="text-align: right;">
-                      <el-button type="text" class="button" @click="buy_aikit">立即购买</el-button>
+                      <el-button type="text" class="button" @click.stop="buy_aikit">立即购买</el-button>
                     </div>
                   </div>
                 </el-card>
               </el-col>
               <el-col :span="6" :offset="1" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
-                <el-card :body-style="{ padding: '0px' }" @click="go_aikit">
+                <el-card :body-style="{ padding: '0px' }" @click="go_edgekit">
                   <img
                     src="../../assets/images/home/edge.png"
                     class="image"
-                    style="height: 300px;width: 100%"
+                    style="height: 300px;width: 100%" @click="go_edgekit"
                   />
-                  <div style="padding: 14px;">
+                  <div style="padding: 14px;" class="card_div"  @click="go_edgekit">
                     <span style="font-size: 20px;">TurboX Edge套件</span>
                     <p
                       style="line-height:25px;margin-left: 20px;margin-right:10px"
@@ -141,19 +141,19 @@
                       </div>
                     </div>
                     <div class="bottom clearfix" style="text-align: right;">
-                      <el-button type="text" class="button" @click="buy_edgekit">立即购买</el-button>
+                      <el-button type="text" class="button" @click.stop="buy_edgekit">立即购买</el-button>
                     </div>
                   </div>
                 </el-card>
               </el-col>
               <el-col :span="6" :offset="1" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
-                <el-card :body-style="{ padding: '0px' }">
+                <el-card :body-style="{ padding: '0px' }" >
                   <img
                     src="../../assets/images/home/rb3.png"
                     class="image"
-                    style="height: 300px;width: 100%"
+                    style="height: 300px;width: 100%"  @click="go_rb3"
                   />
-                  <div style="padding: 14px;">
+                  <div style="padding: 14px;" class="card_div" @click="go_rb3">
                     <span style="font-size:20px;margin:0 0 10px 10px">高通®机器人RB3平台（SDA845）</span>
                     <p
                       style="line-height:25px;margin-left: 20px;margin-right:10px"
@@ -184,7 +184,7 @@
                       </div>
                     </div>
                     <div class="bottom clearfix" style="text-align: right;">
-                      <el-button type="text" class="button" @click="buy_rb3">立即购买</el-button>
+                      <el-button type="text" class="button" @click.stop="buy_rb3">立即购买</el-button>
                     </div>
                   </div>
                 </el-card>
@@ -192,13 +192,13 @@
             </el-row>
             <el-row>
               <el-col :span="6" :offset="2" :xs="{span:20,offset:2}" :lg="{span:5,offset:2}">
-                <el-card :body-style="{ padding: '0px' }" @click="go_aikit">
+                <el-card :body-style="{ padding: '0px' }" @click="go_rb3">
                   <img
                     src="../../assets/images/home/rb3.png"
                     class="image"
-                    style="height: 300px;width: 100%"
+                    style="height: 300px;width: 100%" @click="go_rb3"
                   />
-                  <div style="padding: 14px;">
+                  <div style="padding: 14px;" class="card_div">
                     <span style="font-size:20px;margin:0 0 10px 10px">高通®机器人RB3平台（SDA845）</span>
                     <p
                       style="line-height:25px;margin-left: 20px;margin-right:10px"
@@ -242,7 +242,7 @@
                     class="image"
                     style="height: 300px;width: 100%"
                   />
-                  <div style="padding: 14px;">
+                  <div style="padding: 14px;" class="card_div">
                     <span style="font-size:20px;margin:0 0 10px 10px">高通®机器人RB3平台（SDA845）</span>
                     <p
                       style="line-height:25px;margin-left: 20px;margin-right:10px"
@@ -499,18 +499,46 @@ export default {
     };
   },
   methods: {
-      buy_aikit(){
-      
-          this.$router.push({path:'/aikitdetails'});
-      },
+    buy_aikit() {
+      this.$router.push(
+              { path: '/buy',
+                query:{
+                  name:'AI KIT',
+                  good_id: 1682320,
+                }
+              }
+      );
+
+    },
       buy_edgekit(){
-          this.$router.push({path:'/edgekitdetails'});
+
+          this.$router.push(
+                { path: '/buy',
+                  query:{
+                    name:'Edge KIT',
+                    good_id: 1682320,
+                  }
+                }
+        );
       },
       buy_rb3(){
-           this.$router.push({path:'/rb3details'});
+        this.$router.push(
+                { path: '/buy',
+                  query:{
+                    name:'RB 3',
+                    good_id: 1682320,
+                  }
+                }
+        );
       },
       go_aikit(){
       this.$router.push({path:'/aikitdetails'});
+      },
+      go_edgekit(){
+       this.$router.push({path:'/edgekitdetails'});
+      },
+      go_rb3(){
+       this.$router.push({path:'/rb3details'});
       }
   }
 };
@@ -769,5 +797,10 @@ img {
   color: white;
   cursor: pointer;
 }
-
+.image{
+   cursor: pointer;
+ }
+.card_div{
+  cursor: pointer;
+}
 </style>

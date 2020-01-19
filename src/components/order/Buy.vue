@@ -67,13 +67,13 @@
 <!--                        </el-select>-->
 <!--                    </span>-->
 <!--                </div>-->
-                 {{value2}}
+
                 <div class="configure">
                     <span class="configure_title">购买数量</span><el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
                   <div class="block" style="width: 60%;margin: 20px">
                     <span class="demonstration">购买时长</span>
                     <el-slider
-                            v-model="value2"
+                            v-model="hire_time"
                             :step="1"
                             show-stops>
                     </el-slider>
@@ -130,7 +130,7 @@
                 // android: '请选择',
                 hire_time: 10,
                 buy_nums: 1,
-                pay:'0.00',
+                pay:188,
                 product_name: this.$route.query.name,
                 good_id:this.$route.query.good_id,
                 configures: [
@@ -209,22 +209,22 @@
             buy(){
                 if(this.current_os===''||this.current_os_version===''){
                     this.$message.error("请选择操作系统版本")
-                }
+                }else{
                     this.$router.push(
                         {
                             name:'Confirm',
                             params:{
                                 product_name:this.product_name,
                                 os:this.current_os,
-                                edtion:this.current_os_version,
+                                version:this.current_os_version,
                                 info:this.ruleForm,
                                 buy_nums:this.buy_nums,
-                                buy_times:this.value2+'周',
+                                hire_time:this.hire_time+'周',
                                 pay:this.pay,
                                 configure:this.configure
                             }
                         });
-
+                }
 
 
             },
