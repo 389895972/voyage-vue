@@ -22,7 +22,7 @@
                             width="300">
                     </el-table-column>
                 </el-table>
-                <div v-if="order_status===1">  <el-button type="primary" size="mini">立即支付</el-button> <el-button type="info" size="mini" plain>取消订单</el-button> </div>
+                <div v-if="this.order_status===1">  <el-button type="primary" size="mini">立即支付</el-button> <el-button type="info" size="mini" plain>取消订单</el-button> </div>
                 <div v-else-if="order_status===2">
                     <el-table
                             :data="pay_status"
@@ -109,35 +109,35 @@
                 },
                 ],
                 orderInfoDetails: [
-                {
-                    product_name:'',
-                    product_num: '',
-                    configure:'',
-                    pay_methods:'默认',
-                    start_end_time:'',
-                    pay:'',
-                }, {
+                    {
+                        product_name:'',
+                        product_num: '',
+                        configure:'',
+                        pay_methods:'默认',
+                        start_end_time:'',
+                        pay:'',
+                    }, {
                         product_name: '',
                         product_num: '',
                         configure:'',
                         pay_methods:'',
                         start_end_time:'',
                         pay:'',
-                }, {
+                    }, {
                         product_name: '',
                         product_num: '',
                         configure:'',
                         pay_methods:'',
                         start_end_time:'',
                         pay:'',
-                },{
+                    },{
                         product_name: '',
                         product_num: '',
                         configure:'',
                         pay_methods:'',
                         start_end_time:'',
                         pay:'',
-                },
+                    },
                 ],
                 pay_status: [{
                     pay_channel: '-',
@@ -209,6 +209,7 @@
                 let t=d.getFullYear()+"-"+month+"-"+day+time;
                 return t;
             },
+
         }
 
     }
