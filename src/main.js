@@ -13,9 +13,9 @@ import routes from "./rout";
 import  VueI18n from 'vue-i18n' 
 
 Vue.prototype.$http=axios;
-axios.defaults.baseURL='/api'
+//axios.defaults.baseURL='/api'
 //axios.defaults.baseURL='http://127.0.0.1:8081'
-//axios.defaults.baseURL='http://10.0.20.144:9001'
+axios.defaults.baseURL='http://10.0.20.114:9001'
 //请求拦截器 添加 token
 // axios.interceptors.request.use(config=>{
 //   config.headers.Authorization= window.sessionStorage.getItem('token');
