@@ -181,6 +181,7 @@
               const {data:res}=await this.$http.get('/goodsitem/findAll',{params:{ goodsid:this.good_id}})
               // window.console.log(res)
               if(res.code==20000) {
+                  this.$message.success("成功")
                   this.data = res.data;
                   window.console.log(this.data);
                   for (var i in this.data) {
