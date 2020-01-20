@@ -68,14 +68,14 @@
             <el-button
               v-if="scope.row.state=='未支付'"
               size="mini"
-              type="danger"
+              type="warning"
               @click="handleCancel(scope.$index,scope.row)"
             >取消</el-button>
 
             <el-button
               v-if="scope.row.state=='已支付'"
               size="mini"
-              type="primary"
+              type="success"
               @click="go_control_page(scope.$index,scope.row)"
             >资源管理</el-button>
 
@@ -91,6 +91,7 @@
 
       <div class="block">
         <el-pagination
+          background
           @current-change="handleCurrentChange"
           :current-page="currentPage"
           :page-size="page_size"
@@ -140,33 +141,30 @@ export default {
     },
     //跳转到订单详情
     go_order_detaile(index, row) {
-      window.console.log(index, row);
-      this.$router.push({name:'ToPay',params:{orderId:row.orderID}});
-      
+      this.$router.push({ name: "ToPay", params: { orderId: row.orderID } });
     },
     //跳转到资源列表
-    go_control_page(index,row){
-
+    go_control_page(index, row) {
       window.console.log(index, row);
     },
     //取消订单
-    handleCancel(index,row){
-       this.$http
+    handleCancel(index, row) {
+      var that = this
+      this.$http
         .get("/order/cancelOrder", {
           params: {
-            order_id: row.orderID
+            orderId: row.orderID
           }
         })
         .then(function(response) {
-    
-          if(response.code == 200){
-              this.$router.go(0);
-              window.console.log(response);
+          // window.console.log(response);
+          if (response.status == 200) { 
+            that.$set(that.PageData[index], "state", "已取消");
           }
-           
         })
         .catch(function(error) {
           window.console.log(error);
+          alert("取消失败")
         });
     },
     //删除订单
@@ -180,14 +178,14 @@ export default {
         })
         .then(function(response) {
           window.console.log(response);
-          if(response.code == 200){
-            alert("删除成功")
-            this.$router.go(0);
+          if (response.status == 200) {
+             this.$router.go(0);
+            alert("删除成功");
           }
-          
         })
         .catch(function(error) {
           window.console.log(error);
+          alert("删除失败");
         });
     },
     //获取订单数据
@@ -217,8 +215,6 @@ export default {
             status_map[res.data[index]["status"]];
           this.tableData[index]["price"] = res.data[index]["price"];
         }
-        //  this.total_info = this.tableData.length;
-        //  this.total_page = Math.round(this.total_info/this.page_size+0.5);
       } else {
         alert("连接服务器失败");
       }
@@ -398,6 +394,7 @@ export default {
     filterData() {
       this.currentPage = 1;
     }
+
   }
 };
 </script>
