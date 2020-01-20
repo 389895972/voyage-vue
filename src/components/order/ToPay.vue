@@ -228,12 +228,14 @@
                 let t=d.getFullYear()+"-"+month+"-"+day+time;
                 return t;
             },
-            handleCancel(){
-                const data=this.$http.get("/order/cancelOrder", {params: {
-                            orderId: this.orderId
-                        }
-                    })
-                window.console.log(data)
+            async handleCancel(){
+                const {data:res}=await this.$http.get("/order/cancelOrder", {params: {orderId: this.orderId}})
+                window.console.log(res.code)
+                if(res.code===20000){
+                    this.$message.success("取消订单成功！")
+                    this.getOrder();
+                }
+
             }
 
         },
