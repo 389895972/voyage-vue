@@ -228,7 +228,8 @@
                                 buy_nums:this.buy_nums,
                                 hire_time:this.hire_time,
                                 pay:this.pay,
-                                configure:this.configure
+                                configure:this.configure,
+                                good_id:this.good_id
                             }
                         });
                 }

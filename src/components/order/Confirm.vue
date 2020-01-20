@@ -80,15 +80,15 @@
     export default {
         data(){
            return{
-               time: 1516703495241,
+              // time: 1516703495241,
                status:1,
-               good_id:1682320,
+               good_id:'',
                user_id:"1",
                pay:this.$route.params.pay,
                os:this.$route.params.os+' '+this.$route.params.version,
                buy_nums:this.$route.params.buy_nums,
                product_name:this.$route.params.product_name,
-               hire_time:this.$route.params.hire_time,
+               hire_time:'',
                orderData: [
                //     {
                //     product_name: '商品名称：',
@@ -131,14 +131,18 @@
                 this.orderData[0].buy_nums=this.$route.params.buy_nums+'台';
                  if(this.$route.params.hire_time>=1&this.$route.params.hire_time<=29){
                        this.orderData[0].hire_time=this.$route.params.hire_time+'天'
+                     this.hire_time=this.orderData[0].hire_time
                    }else if(this.$route.params.hire_time>=30&this.$route.params.hire_time<=40){
                        this.orderData[0].hire_time=(this.$route.params.hire_time-29)+'月'
+                     this.hire_time=this.orderData[0].hire_time
                    }else {
                        this.orderData[0].hire_time='1年'
+                     this.hire_time=this.orderData[0].hire_time
                  }
                 //this.orderData[0].hire_time=this.$route.params.hire_time;
                 this.orderData[0].pay=this.$route.params.pay;
                 this.infoForm=this.$route.params.info;
+                this.good_id=this.$route.params.good_id;
             },
             objectSpanMethod({  rowIndex, columnIndex }) {
                 if (columnIndex !== 0) {
