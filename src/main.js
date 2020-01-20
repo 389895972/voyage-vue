@@ -6,7 +6,7 @@ import router from './router.js'
 import './assets/css/global.css'
 import './assets/css/bootstrap-theme.css'
 import './assets/css/bootstrap.css'
-//import './assets/js/jquery-3.4.1.min'
+//import './asse  ts/js/jquery-3.4.1.min'
 import axios from 'axios'
 import locale from 'element-ui/lib/locale/lang/en'
 import routes from "./rout";

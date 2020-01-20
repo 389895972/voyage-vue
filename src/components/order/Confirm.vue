@@ -89,22 +89,24 @@
                buy_nums:this.$route.params.buy_nums,
                product_name:this.$route.params.product_name,
                hire_time:this.$route.params.hire_time,
-               orderData: [{
-                   product_name: '商品名称：',
-                   buy_nums: '',
-                   hire_time: '',
-                   pay: '0.0',
-               }, {
-                   product_name: '版本：',
-                   buy_nums: '',
-                   hire_time: '',
-                   pay: '0.0',
-               }, {
-                   product_name: '操作系统：',
-                   buy_nums: '',
-                   hire_time: '',
-                   pay: '',
-               }],
+               orderData: [
+               //     {
+               //     product_name: '商品名称：',
+               //     buy_nums: '',
+               //     hire_time: '',
+               //     pay: '0.0',
+               // }, {
+               //     product_name: '版本：',
+               //     buy_nums: '',
+               //     hire_time: '',
+               //     pay: '0.0',
+               // }, {
+               //     product_name: '操作系统：',
+               //     buy_nums: '',
+               //     hire_time: '',
+               //     pay: '',
+               // }
+               ],
                infoForm: {
                    name: '',
                    dept: '',
@@ -119,11 +121,22 @@
         },
         methods: {
             getInfo(){
+                this.orderData=[]
+                this.orderData[0]={}
+                this.orderData[1]={}
+                this.orderData[2]={}
                 this.orderData[0].product_name='商品名称:'+this.$route.params.product_name;
                 this.orderData[1].product_name='版本:'+this.$route.params.configure;
                 this.orderData[2].product_name='操作系统:'+this.$route.params.os+" " +this.$route.params.version;
                 this.orderData[0].buy_nums=this.$route.params.buy_nums+'台';
-                this.orderData[0].hire_time=this.$route.params.hire_time;
+                 if(this.$route.params.hire_time>=1&this.$route.params.hire_time<=29){
+                       this.orderData[0].hire_time=this.$route.params.hire_time+'天'
+                   }else if(this.$route.params.hire_time>=30&this.$route.params.hire_time<=40){
+                       this.orderData[0].hire_time=(this.$route.params.hire_time-29)+'月'
+                   }else {
+                       this.orderData[0].hire_time='1年'
+                 }
+                //this.orderData[0].hire_time=this.$route.params.hire_time;
                 this.orderData[0].pay=this.$route.params.pay;
                 this.infoForm=this.$route.params.info;
             },
