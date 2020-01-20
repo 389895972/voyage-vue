@@ -22,7 +22,7 @@
                             width="300">
                     </el-table-column>
                 </el-table>
-                <div v-if="this.order_status===1">  <el-button type="primary" size="mini">立即支付</el-button> <el-button type="info" size="mini" plain>取消订单</el-button> </div>
+                <div v-if="this.order_status===1">  <el-button type="primary" size="mini">立即支付</el-button> <el-button type="info" size="mini" plain @click="handleCancel">取消订单</el-button> </div>
                 <div v-else-if="order_status===2">
                     <el-table
                             :data="pay_status"
@@ -228,6 +228,13 @@
                 let t=d.getFullYear()+"-"+month+"-"+day+time;
                 return t;
             },
+            handleCancel(){
+                const data=this.$http.get("/order/cancelOrder", {params: {
+                            orderId: this.orderId
+                        }
+                    })
+                window.console.log(data)
+            }
 
         },
         // computed:{

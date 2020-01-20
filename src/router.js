@@ -6,6 +6,8 @@ import RB3Details from './components/index/RB3Details'
 import test from './components/test'
 import EdgekitDetails from './components/index/EdgekitDetails'
 import Buy from './components/order/Buy'
+import orderList from './components/order/orderList'
+
 import Confirm from './components/order/Confirm'
 import InstanceDetails from './components/order/InstanceDetails'
 import ToPay from './components/order/ToPay'
@@ -18,6 +20,7 @@ Vue.use(Router)
 const router =new Router({
     routes:[
         {path:'/',redirect: '/home'},
+
         {path:'/home', component: Home,meta:{keepAlive:false}},
         {path:'/aikitdetails', component: AikitDetails,meta:{keepAlive:false}},
         {path:'/rb3details', component: RB3Details,meta:{keepAlive:false}},
@@ -29,6 +32,7 @@ const router =new Router({
         {path:'/instanceDetails',component:InstanceDetails,meta:{keepAlive:false}},
         {path:'/instance',component:Instance,meta:{keepAlive:false}},
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
+        {path:"/order/orderList",component:orderList,},
     ],
    
 })

@@ -72,7 +72,7 @@
                     style="height: 300px;width: 100%" @click="go_aikit"
                   />
                   <div style="padding: 14px;" @click="go_aikit" class="card_div">
-                    <span style="font-size: 20px;">Thundercomm TurboX™AI套件</span>
+                    <span style="font-size: 20px;margin:0 0 10px 10px">Thundercomm TurboX™AI套件</span>
                     <p style="line-height:25px;margin-left: 20px;margin-right:10px">具有AI视觉功能的边缘设备</p>
                     <el-row :gutter="13">
                       <el-col :span="15">
@@ -112,7 +112,7 @@
                     style="height: 300px;width: 100%" @click="go_edgekit"
                   />
                   <div style="padding: 14px;" class="card_div"  @click="go_edgekit">
-                    <span style="font-size: 20px;">TurboX Edge套件</span>
+                    <span style="font-size: 20px;margin:0 0 10px 10px">TurboX Edge套件</span>
                     <p
                       style="line-height:25px;margin-left: 20px;margin-right:10px"
                     >EdgeKit致力于驱动并实现强大，可靠和智能的通用边缘计算E2E解决方案。</p>
