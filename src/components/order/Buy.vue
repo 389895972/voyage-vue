@@ -7,8 +7,7 @@
             </div>
             <div>
                 <div class="product_name"> {{product_name}}  </div>
-
-{{os_specs}}
+                <!--{{os_specs}}-->
                 <div class="configure">
                      <span class="configure_title"> 规格配置</span>
                       <el-select v-model="configure" placeholder="请选择">
@@ -72,13 +71,10 @@
                     <span class="configure_title">购买数量</span><el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
                   <div class="block" style="width: 60%;margin: 20px">
                     <span class="demonstration">购买时长</span>
-                    <el-slider
-                            v-model="hire_time"
-                            :step="1"
-                            show-stops>
-                    </el-slider>
-<!--                      <el-slider v-model="orderForm.bandWidth" :step="50" :max="3050" :marks="marks" show-input :format-tooltip="formatTooltip" />-->
+                   
+                      <el-slider v-model="hire_time" :step="1" :format-tooltip="timestepToolTip" show-stops :max="41" :min="1" ></el-slider>
 
+                      {{hire_time}}---{{pay}}---{{hire_time_pa}}
                 </div>
                 </div>
                 <div class="info_form">
@@ -117,6 +113,14 @@
     export default {
         data() {
             return {
+                timestep:10,
+                volume: 600,
+                toolmsg: ['0 day','1 day', '2 days','3 days','4 days','5 days','6 days','7 days','8 days','9 days','10 days',
+                    '11 days','12 days','13 days','14 days','15 days','16 days','17 days','18 days','19 days','20 days',
+                    '21 days','22 days','23 days','24 days','25 days','26 days','27 days','28 days','29 days',
+                    '1 month', '2 months','3 months','4 months','5 months','6 months','7 months','8 months','9 months','10 months','11 months',
+                    '1 year','2 years','3 years','4 years','5 years',
+                ],
                 data:[],
                 configure:'标准版',
                 os_specs:{},
@@ -129,8 +133,9 @@
                 // ubuntu:'请选择',
                 // android: '请选择',
                 hire_time: 10,
+                hire_time_pay: '',
                 buy_nums: 1,
-                pay:188,
+               // pay:188,
                 product_name: this.$route.query.name,
                 good_id:this.$route.query.good_id,
                 configures: [
@@ -194,6 +199,8 @@
                   }
 
                   this.oss = Object.keys(this.os_specs)
+              }else if(res==null||res.code!==20000){
+                  this.$message.error("获取操作系统失败")
               }
 
 
@@ -219,7 +226,7 @@
                                 version:this.current_os_version,
                                 info:this.ruleForm,
                                 buy_nums:this.buy_nums,
-                                hire_time:this.hire_time+'周',
+                                hire_time:this.hire_time,
                                 pay:this.pay,
                                 configure:this.configure
                             }
@@ -228,6 +235,11 @@
 
 
             },
+            timestepToolTip(index) {
+                this.hire_time_pay=index
+                return this.toolmsg[index]
+
+            }
 
         },
         created(){
@@ -239,6 +251,23 @@
                 this.current_os_version='';
 
             }
+        },
+        computed:{
+          pay(){
+                  let pay=0
+                  let time = this.hire_time;
+                if(time>=0 && time<=29){
+                    pay=10*time
+                }else if(time>=30 && time<=40){
+                   pay=40*(time-29)
+                }else{
+                     pay=10*365
+                }
+                 return pay;
+             },
+             hire_time_pa(){
+                 return this.toolmsg[this.hire_time_pay]
+             }
         }
     }
 </script>

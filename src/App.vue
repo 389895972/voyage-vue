@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <keep-alive >
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
     <el-tooltip placement="top" content="回到顶部">
       <back-to-top :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="0" transition-name="fade"/>
     </el-tooltip>
@@ -12,6 +13,7 @@
 <script>
 
 import  BackToTop from './components/Scroll-top'
+//import Buy from './components/order/Buy'
 
 export default {
   name: 'app',

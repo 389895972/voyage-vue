@@ -38,7 +38,7 @@
                     </el-table-column>
                     <el-table-column label="操作">
                         <template slot-scope="scope">
-                            <!--                     {{scope.row}}-->
+<!--                                               {{scope.row}}-->
                             <el-button type="primary" icon="el-icon-edit" size="mini" @click="manage(scope.row.id)">管理</el-button>
                             <el-button type="success" icon="el-icon-thumb" size="mini" @click="go(scope.row.id)">进入控制台</el-button>
 

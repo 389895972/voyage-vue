@@ -20,20 +20,18 @@ Vue.use(Router)
 const router =new Router({
     routes:[
         {path:'/',redirect: '/home'},
-        {path:'/home', component: Home,},
-        {path:'/aikitdetails', component: AikitDetails,},
-        {path:'/rb3details', component: RB3Details,},
-        {path:'/de', component: de,},
-        {path:'/test', component: test,},
-        {path:'/edgekitdetails',component: EdgekitDetails,},
-        {path:'/buy',component: Buy,},
-        {path:"/order/orderList",component:orderList,},
- 
-
-        {path:'/confirm',name:'Confirm',component: Confirm,},
-        {path:'/instanceDetails',component:InstanceDetails,},
-        {path:'/instance',component:Instance,},
-        {path:'/toPay',name:'ToPay',component:ToPay,},
+        {path:'/home', component: Home,meta:{keepAlive:false}},
+        {path:'/aikitdetails', component: AikitDetails,meta:{keepAlive:false}},
+        {path:'/rb3details', component: RB3Details,meta:{keepAlive:false}},
+        {path:'/de', component: de,meta:{keepAlive:false}},
+        {path:'/test', component: test,meta:{keepAlive:false}},
+        {path:'/edgekitdetails',component: EdgekitDetails,meta:{keepAlive:false}},
+        {path:'/buy',component: Buy,meta:{keepAlive:true}},
+        {path:'/confirm',name:'Confirm',component: Confirm,meta:{keepAlive:false}},
+        {path:'/instanceDetails',component:InstanceDetails,meta:{keepAlive:false}},
+        {path:'/instance',component:Instance,meta:{keepAlive:false}},
+        {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
+        {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
     ],
    
 })
