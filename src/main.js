@@ -14,8 +14,8 @@ import  VueI18n from 'vue-i18n'
 
 Vue.prototype.$http=axios;
 
-//axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
-axios.defaults.baseURL='/api'
+axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
+//axios.defaults.baseURL='/api'
 //process.env.NODE_ENV === "production" ? "axios.defaults.baseURL='http://10.0.20.114:9001'" : "axios.defaults.baseURL='/api'",
 //axios.defaults.baseURL='http://10.0.20.114:9001'
 //axios.defaults.baseURL='http://127.0.0.1:8081'

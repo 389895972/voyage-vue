@@ -1,7 +1,7 @@
 module.exports = {
     publicPath: './',
 
-    // devServer: {
+     devServer: {
         proxy: {
             '/api': {
                 //target: 'http://10.0.20.144:9001',
@@ -20,7 +20,7 @@ module.exports = {
             //         '^/api/v2': ''  //通过pathRewrite重写地址，将前缀/api转为/
             //     }
             // }
-       // }
+        }
 
 }
  }
