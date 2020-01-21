@@ -69,7 +69,7 @@
 
             </div>
             <div class="order_btn">
-                <span>费用合计：</span><span style="color: red">￥{{pay}}</span> <el-button   @click="back">上一步：配置选择</el-button> <el-button  type="primary" @click="buy">确认订单</el-button>
+                <span>费用合计：</span><span style="text-decoration: line-through">￥{{pay}}</span><span style="color: red">￥{{topay}}</span> <el-button   @click="back">上一步：配置选择</el-button> <el-button  type="primary" @click="buy">确认订单</el-button>
             </div>
         </div>
     </el-container>
@@ -85,6 +85,7 @@
                good_id:'',
                user_id:"1",
                pay:this.$route.params.pay,
+               topay:'0.00',
                os:this.$route.params.os+' '+this.$route.params.version,
                buy_nums:this.$route.params.buy_nums,
                product_name:this.$route.params.product_name,

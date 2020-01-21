@@ -91,6 +91,8 @@
 
 
                 </el-table>
+                <div style="text-align: right;margin-right: 100px">原价：{{orderInfoDetails[0].pay}}</div>
+                <div style="text-align: right;margin-right: 100px">应付金额：￥0.00</div>
             </div>
 
         </el-container>
@@ -177,7 +179,7 @@
                    //  this.orderInfoDetails[0].configure=res.data.o__s
                      this.orderInfoDetails[0].pay_methods='默认'
                      this.orderInfoDetails[0].start_end_time='默认'
-                    this.orderInfoDetails[0].pay=res.data.price
+                     this.orderInfoDetails[0].pay='￥'+res.data.price
 
                      if(res.data.payment_type==="1"){
                          this.orderInfo[0].order_type= '订单类型：新购'
@@ -200,10 +202,10 @@
                  }
             },
             tranDate(standard_time){
-                let d=new Date(standard_time);
+                let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0000',''));
                 let month=d.getMonth()+1;
                 let day=d.getDate();
-                let hour=d.getHours();
+let hour=d.getHours();
                 let minutes=d.getMinutes();
                 let seconds=d.getSeconds();
                 if(month<10){

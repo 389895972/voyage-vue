@@ -101,7 +101,7 @@
                     </el-form>
                 </div>
                 <div class="order_btn">
-                   <span>费用合计：</span><span style="color: red">￥{{pay}}</span> <el-button  type="primary" @click="buy">确认订单</el-button>
+                   <span>费用合计：</span><span style="text-decoration:line-through">￥{{pay}} </span> <span style="color:red">￥{{topay}}</span><el-button  type="primary" @click="buy">确认订单</el-button>
                 </div>
             </div>
         </div>
@@ -113,6 +113,7 @@
     export default {
         data() {
             return {
+                topay:'0.00',
                 timestep:10,
                 volume: 600,
                 toolmsg: ['0 day','1 day', '2 days','3 days','4 days','5 days','6 days','7 days','8 days','9 days','10 days',
@@ -258,12 +259,13 @@
           pay(){
                   let pay=0
                   let time = this.hire_time;
+                   let buy_nums=this.buy_nums
                 if(time>=0 && time<=29){
-                    pay=10*time
+                    pay=10*time*buy_nums
                 }else if(time>=30 && time<=40){
-                   pay=40*(time-29)
+                   pay=40*(time-29)*buy_nums
                 }else{
-                     pay=10*365
+                     pay=10*365*buy_nums
                 }
                  return pay;
              },
