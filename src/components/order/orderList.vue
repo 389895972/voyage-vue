@@ -233,7 +233,7 @@ export default {
     },
     //转换日期
     tranDate(standard_time) {
-      let d=new Date(standard_time.replace("-","/"));
+      let d = new Date(standard_time);
       let month = d.getMonth() + 1;
       let day = d.getDate();
       let hour = d.getHours();
