@@ -1,516 +1,180 @@
 <template>
-  <!-- .filter(data => !search || data.orderID.toLowerCase().includes(search.toLowerCase())) -->
-  <el-container>
-    <el-main>
-      <el-form :inline="true" :model="formInline" class="demo-form-inline">
-        <el-form-item label="产品：">
-          <el-input v-model="formInline.search_product" placeholder="搜索产品 "></el-input>
-        </el-form-item>
-        <el-form-item label="时间范围：">
-          <el-select v-model="formInline.search_timescope">
-            <el-option label="全部" value></el-option>
-            <el-option v-for="item in time_scope" :key="item" :label="item" :value="item"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item>
-          <el-form-item label="订单号：">
-            <el-input v-model="formInline.search_ID" placeholder="搜索订单"></el-input>
-          </el-form-item>
+  <el-header height="100px">
+    <div class="nav_layout">
+        <img class="logo" src="../assets/images/logo.png" alt />
+        <div class="nav_layout_right">
+            <div class="nav_item">
+                 <a class="nav_a" href="#">
+                    <span class="nav_font">控制台</span>
+                </a>
+            </div>
 
-          <el-button type="primary" @click="set_search">查询</el-button>
-        </el-form-item>
-
-        <el-form-item>
-          <el-button @click="export_exl">导出</el-button>
-        </el-form-item>
-      </el-form>
-      <el-form :inline="true" :model="formInline" class="demo-form-inline">
-        <el-form-item label="类型：">
-          <el-select v-model="formInline.search_type">
-            <el-option label="全部" value></el-option>
-            <el-option v-for="item in type_scope" :key="item" :label="item" :value="item"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="状态：">
-          <el-select v-model="formInline.search_state">
-            <el-option label="全部" value></el-option>
-            <el-option v-for="item in state_scope" :key="item" :label="item" :value="item"></el-option>
-          </el-select>
-        </el-form-item>
-      </el-form>
-
-      <el-table :data="PageData" style="width: 100%">
-        <el-table-column label="订单编号" prop="orderID"></el-table-column>
-        <el-table-column label="产品" prop="product"></el-table-column>
-        <el-table-column width="100px" label="类型" prop="type"></el-table-column>
-        <el-table-column label="创建时间" align="center" prop="create_time"></el-table-column>
-        <el-table-column label="支付时间" align="center" prop="pay_time"></el-table-column>
-        <el-table-column label="状态" prop="state" style="color:red;">
-          <template scope="scope">
-            <span v-if="scope.row.state==='已支付'" style="color: green">已支付</span>
-            <span v-else-if="scope.row.state==='已取消'">已取消</span>
-            <span v-else-if="scope.row.state==='未支付'" style="color: red">未支付</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="价格" prop="price"></el-table-column>
-
-        <el-table-column align="center" label="操作">
-          <template slot-scope="scope">
-            <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
-
-            <el-button
-              v-if="scope.row.state=='未支付'"
-              size="mini"
-              type="primary"
-              @click="handlePay(scope.$index,scope.row)"
-            >支付</el-button>
-
-            <el-button
-              v-if="scope.row.state=='未支付'"
-              size="mini"
-              type="danger"
-              @click="handleCancel(scope.$index,scope.row)"
-            >取消</el-button>
-
-            <el-button
-              v-if="scope.row.state=='已支付'"
-              size="mini"
-              type="primary"
-              @click="go_control_page(scope.$index,scope.row)"
-            >资源管理</el-button>
-
-            <el-button
-              v-if="scope.row.state=='已取消'"
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.$index, scope.row)"
-            >删除</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-
-      <div class="block">
-        <el-pagination
-          @current-change="handleCurrentChange"
-          :current-page="currentPage"
-          :page-size="page_size"
-          :page-count="total_page"
-          layout="total, prev, pager, next, jumper"
-          :total="total_info"
-        ></el-pagination>
-      </div>
-      <!-- <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
-        <span>确定取消订单?</span>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-        </span>
-      </el-dialog> -->
-    </el-main>
-  </el-container>
+           <div class="nav_item">
+                <a class="nav_a" @click="go_orderList" href="#">
+                    <span class="nav_font">我的订单</span>
+                </a>
+           </div>
+           <div v-if="isLogin" class="nav_item">
+                <el-dropdown trigger="click">
+                <span class="el-dropdown-link">
+                    <img class="head_frame" src="../assets/images/aikit.png" alt />
+                </span>
+                <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
+                    <el-dropdown-item icon="el-icon-user-solid">
+                    <a class="nav_a" href="#">
+                        <span class="nav_dropdown_font">个人中心</span>
+                    </a>
+                    </el-dropdown-item>
+                    <hr style="opacity: 0.15;background: #FFFFFF;margin-left: 5px">
+                    <el-dropdown-item icon="el-icon-switch-button">
+                    <a href="#">
+                        <span class="nav_dropdown_font">退出登陆</span>
+                    </a>
+                    </el-dropdown-item>
+                </el-dropdown-menu>
+                </el-dropdown>
+           </div>
+            <div v-else class="nav_item">
+                <el-button size="small"
+                           type="primary"
+                            @click="go_login">
+                    <span class="button_font">
+                        立即登陆
+                    </span></el-button>
+            </div>
+        </div>
+    </div>
+  </el-header>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      //分页属性
-      currentPage: 1,
-      page_size: 5,
+        isLogin:false,
 
-      //提示框
-      dialogVisible:false,
-
-      //下拉表属性
-      type_scope: ["新购", "续费"],
-      time_scope: ["一个月内", "二个月内", "三个月内"],
-      state_scope: ["已支付", "已取消", "未支付"],
-
-      //数据属性
-      tableData: [],
-      //过滤属性
-      search_ID: "",
-      search_product: "",
-      search_type: "",
-      search_timescope: "",
-      search_state: "",
-      formInline: {
-        search_ID: "",
-        search_product: "",
-        search_type: "",
-        search_timescope: "",
-        search_state: ""
-      }
     };
   },
-  methods: {
-    //设置当前页
-    handleCurrentChange(val) {
-      this.currentPage = val;
-    },
-    //跳转到订单详情
-    go_order_detaile(index, row) {
-      this.$router.push({ name: "ToPay", params: { orderId: row.orderID } });
-    },
-    //跳转到资源列表
-    go_control_page(index, row) {
-      window.console.log(index, row);
-    },
-    //取消订单
-    handleCancel(index, row) {
-      window.console.log(index, row);
-      this.$set(this.PageData[index], "state", "已取消");
-    },
-    //删除订单
-    handleDelete(index, row) {
-      window.console.log(index, row);
-      this.PageData.splice(index,1);
-    },
-    //获取订单数据
-    get_order_list() {
-      const res = {
-        flag: true,
-        code: 20000,
-        message: "成功",
-        data: [
-          {
-            order_id: 200117153452064794,
-            goods_name: "AIKIT",
-            payment_type: "1",
-            create_time: "2020-01-17T07:34:52.000+0000",
-            update_time: "2020-01-17T07:34:52.000+0000",
-            status: "1",
-            price: 100.0
-          },
-          {
-            order_id: 200117153755805341,
-            goods_name: "AIKIT",
-            payment_type: "1",
-            create_time: "2020-01-17T07:37:56.000+0000",
-            update_time: "2020-01-17T07:37:56.000+0000",
-            status: "1",
-            price: 100.0
-          },
-          {
-            order_id: 200117200514470110,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-17T12:05:14.000+0000",
-            update_time: "2020-01-17T12:05:14.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200117202403826390,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-17T12:24:04.000+0000",
-            update_time: "2020-01-17T12:24:04.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200117202448579321,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-17T12:24:49.000+0000",
-            update_time: "2020-01-17T12:24:49.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200117213825275585,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-17T13:38:25.000+0000",
-            update_time: "2020-01-17T13:38:25.000+0000",
-            status: null,
-            price: null
-          },
-          {
-            order_id: 200118103507948754,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T02:35:08.000+0000",
-            update_time: "2020-01-18T02:35:08.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118103736360476,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T02:37:36.000+0000",
-            update_time: "2020-01-18T02:37:36.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118103934207205,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T02:39:34.000+0000",
-            update_time: "2020-01-18T02:39:34.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118104009501274,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T02:40:10.000+0000",
-            update_time: "2020-01-18T02:40:10.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118140301939632,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T06:03:02.000+0000",
-            update_time: "2020-01-18T06:03:02.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118163256980238,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T08:32:57.000+0000",
-            update_time: "2020-01-18T08:32:57.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118163452177231,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T08:34:52.000+0000",
-            update_time: "2020-01-18T08:34:52.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118163849339702,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T08:38:49.000+0000",
-            update_time: "2020-01-18T08:38:49.000+0000",
-            status: "1",
-            price: null
-          },
-          {
-            order_id: 200118164238201343,
-            goods_name: "AI KIT",
-            payment_type: "1",
-            create_time: "2020-01-18T08:42:38.000+0000",
-            update_time: "2020-01-18T08:42:38.000+0000",
-            status: "1",
-            price: null
-          }
-        ]
-      };
-      let status_map = { "1": "未支付", "2": "已支付", "3": "已取消" };
-      let type_map = { "1": "新购", "2": "续费" };
+    methods:{
+      //进入订单列表
+        go_orderList() {
+            this.$router.push(
+                { path: '/order/orderList',
+                    query:{
+                        user_id: 1,
+                    }
+                }
+            );
 
-      this.tableData = [];
-      for (var index in res.data) {
-        this.tableData[index] = {};
-        this.tableData[index]["orderID"] = res.data[index]["order_id"];
-        this.tableData[index]["product"] = res.data[index]["goods_name"];
-        this.tableData[index]["type"] =
-          type_map[res.data[index]["payment_type"]];
-        this.tableData[index]["create_time"] = this.tranDate(
-          res.data[index]["create_time"]
-        );
-        this.tableData[index]["pay_time"] = this.tranDate(
-          res.data[index]["update_time"]
-        );
-        this.tableData[index]["state"] = status_map[res.data[index]["status"]];
-        this.tableData[index]["price"] = res.data[index]["price"];
-      }
-    },
-    //设置过滤参数
-    set_search() {
-      this.search_product = this.formInline.search_product;
-      this.search_timescope = this.formInline.search_timescope;
-      this.search_ID = this.formInline.search_ID;
-      this.search_type = this.formInline.search_type;
-      this.search_state = this.formInline.search_state;
-    },
-    //导出表格
-    export_exl() {
-      alert("暂未开放");
-    },
-    //转换日期
-    tranDate(standard_time) {
-      let d = new Date(standard_time);
-      let month = d.getMonth() + 1;
-      let day = d.getDate();
-      let hour = d.getHours();
-      let minutes = d.getMinutes();
-      let seconds = d.getSeconds();
-      if (month < 10) {
-        month = "0" + month;
-      }
-
-      if (day < 10) {
-        day = "0" + day;
-      }
-      if (hour < 10) {
-        hour = "0" + hour;
-      }
-
-      if (minutes < 10) {
-        minutes = "0" + minutes;
-      }
-
-      if (seconds < 10) {
-        seconds = "0" + seconds;
-      }
-      let time = " " + hour + ":" + minutes + ":" + seconds;
-      let t = d.getFullYear() + "-" + month + "-" + day + time;
-      return t;
-    },
-    //获取n个月前日期
-    addDate(months, type) {
-      var d = new Date();
-      var is_last_year = false;
-      window.console.log(d);
-      d.setDate(d.getDate());
-      var month = d.getMonth() + 1 + months;
-      if (month <= 0) {
-        month = d.getMonth() + 13 + months;
-        is_last_year = true;
-      }
-
-      var day = d.getDate();
-      var hour = d.getHours();
-      var minutes = d.getMinutes();
-      var seconds = d.getSeconds();
-
-      if (month < 10) {
-        month = "0" + month;
-      }
-
-      if (day < 10) {
-        day = "0" + day;
-      }
-      var time = "";
-      //type不是空字符串 表示需要时分秒
-      if (type != null && "" != type) {
-        if (hour < 10) {
-          hour = "0" + hour;
+        },
+        //进入实例列表
+        go_instanceList(){
+            this.$router.push(
+                { path: '/',
+                    query:{
+                        user_id: 1,
+                    }
+                }
+            );
+        },
+        go_login(){
+            // this.$router.push(
+            //     { path: '/login',
+            //     }
+            // );
+            this.isLogin=true;
         }
 
-        if (minutes < 10) {
-          minutes = "0" + minutes;
-        }
-
-        if (seconds < 10) {
-          seconds = "0" + seconds;
-        }
-        time = " " + hour + ":" + minutes + ":" + seconds;
-      }
-      var val = d.getFullYear() + "-" + month + "-" + day + time;
-      if (is_last_year) {
-        val = d.getFullYear() - 1 + "-" + month + "-" + day + time;
-      }
-
-      window.console.log(val);
-      return val;
-    },
-    //过滤时间
-    time_filter(order_create_time, t_scope) {
-      let type = "0";
-      let start_time = "";
-      switch (t_scope) {
-        case "一个月内":
-          start_time = this.addDate(-1, type);
-          break;
-        case "二个月内":
-          start_time = this.addDate(-2, type);
-          break;
-        case "三个月内":
-          start_time = this.addDate(-3, type);
-          break;
-        default:
-          break;
-      }
-
-      let st = new Date(start_time);
-
-      let ort = new Date(order_create_time);
-      if (ort >= st) {
-        return true;
-      }
-      return false;
     }
-  },
-  computed: {
-    //过滤数据
-    filterData() {
-      const tableData = this.tableData;
-      const search_ID = this.search_ID;
-      const search_product = this.search_product;
-      const search_type = this.search_type;
-      const search_timescope = this.search_timescope;
-      const search_state = this.search_state;
-      let f = tableData;
-      if (search_ID) {
-        f = tableData.filter(p => p.orderID == search_ID);
-      }
-      if (search_product) {
-        f = f.filter(p =>
-          p.product.toLowerCase().includes(search_product.toLowerCase())
-        );
-      }
-      if (search_type) {
-        f = f.filter(p => p.type.includes(search_type));
-      }
-
-      if (search_timescope) {
-        f = f.filter(p => this.time_filter(p.create_time, search_timescope));
-      }
-      if (search_state) {
-        f = f.filter(p => p.state && p.state.includes(search_state));
-      }
-
-      return f;
-    },
-    //分页数据
-    PageData() {
-      let cp = this.currentPage;
-      let ps = this.page_size;
-      let f = this.filterData;
-      return f.slice((cp - 1) * ps, cp * ps);
-    },
-    //过滤数据总页数
-    total_page() {
-      let f = this.filterData;
-
-      return Math.round(f.length / this.page_size + 0.5);
-    },
-    //过滤数据总条数
-    total_info() {
-      return this.filterData.length;
-    }
-  },
-  //加载前调用
-  mounted() {
-    this.get_order_list();
-  },
-  watch: {
-    //当过滤数据发生变化设当前页为1，否则获取不到过滤数据
-    filterData() {
-      this.currentPage = 1;
-    }
-  }
 };
 </script>
-<style scoped>
-.el-form-item {
-  margin-left: 20px;
-  margin-right: 100px;
+
+<style  scoped>
+.el-header {
+  background-color: #101c3d;
+  color: white;
+  line-height: 60px;
+
+}
+.logo{
+    width: 64px;
+    height:64px;
+    margin-top: 15px;
+    /*margin: auto auto auto 0;*/
+}
+.nav_layout{
+    display: flex;
+    justify-content: space-between;
+    line-height: 6;
+    /*padding-left: 100px;*/
+    /*padding-right: 150px;*/
+
+}
+.nav_layout_right{
+    display: flex;
+    align-items: center;
+}
+.nav_font{
+    opacity: 0.8;
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+.nav_font:hover{
+    opacity: 1;
+
+}
+.nav_dropdown_font{
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    opacity: 0.8;
+    color: #FFFFFF;
+}
+.nav_dropdown_font:hover{
+    opacity: 1;
+}
+.nav_a{
+    text-decoration:none;
+    color:white;
+}
+.button_font{
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.nav_item{
+    margin-left:20px ;
+
+}
+.head_frame {
+  border: 1px solid rgba(228, 231, 235, 0.2);
+  height: 44px;
+  width: 44px;
+  border-radius: 22px;
+  border-radius: 22px;
+}
+.el-button--primary{
+    background-color: #3254DC;
+}
+.el-button--primary:focus, .el-button--primary:hover {
+    background-color: #5171F0;
+}
+.el-dropdown-menu__item{
+    line-height: 0;
+}
+.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
+    /* background-color: #ecf5ff; */
+    color: #66b1ff;
+}
+@media (min-width: 768px) {
+    .nav_layout{
+        /*display: flex;*/
+        /*justify-content: space-between;*/
+        /*line-height: 6;*/
+        padding-left: 100px;
+        padding-right: 150px;
+
+    }
 }
 </style>
