@@ -10,7 +10,9 @@ import './assets/css/bootstrap.css'
 import axios from 'axios'
 import locale from 'element-ui/lib/locale/lang/en'
 import routes from "./rout";
-import  VueI18n from 'vue-i18n' 
+import  VueI18n from 'vue-i18n'
+
+
 
 Vue.prototype.$http=axios;
 axios.defaults.baseURL='/api'
