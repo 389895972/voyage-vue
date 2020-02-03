@@ -4,35 +4,43 @@
             <img class="logo" src="../assets/images/logo.png" alt />
             <div class="nav_layout_right">
                 <div class="nav_item">
-                    <a style="color:white;" href="#">
+                    <a class="nav_a" href="#">
                         <span class="nav_font">控制台</span>
                     </a>
                 </div>
 
                 <div class="nav_item">
-                    <a style="color:white;" @click="go_orderList" href="#">
+                    <a class="nav_a" @click="go_orderList" href="#">
                         <span class="nav_font">我的订单</span>
                     </a>
                 </div>
-                <div class="nav_item">
+                <div v-if="isLogin" class="nav_item">
                     <el-dropdown trigger="click">
                 <span class="el-dropdown-link">
                     <img class="head_frame" src="../assets/images/aikit.png" alt />
                 </span>
                         <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
                             <el-dropdown-item icon="el-icon-user-solid">
-                                <a href="#">
-                                    <span>个人中心</span>
+                                <a class="nav_a" href="#">
+                                    <span class="nav_dropdown_font">个人中心</span>
                                 </a>
                             </el-dropdown-item>
                             <hr style="opacity: 0.15;background: #FFFFFF;margin-left: 5px">
                             <el-dropdown-item icon="el-icon-switch-button">
                                 <a href="#">
-                                    <span>退出登陆</span>
+                                    <span class="nav_dropdown_font">退出登陆</span>
                                 </a>
                             </el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
+                </div>
+                <div v-else class="nav_item">
+                    <el-button size="small"
+                               type="primary"
+                               @click="go_login">
+                    <span class="button_font">
+                        立即登陆
+                    </span></el-button>
                 </div>
             </div>
         </div>
@@ -69,6 +77,13 @@
                     }
                 );
             },
+            go_login(){
+                // this.$router.push(
+                //     { path: '/login',
+                //     }
+                // );
+                this.isLogin=true;
+            }
 
         }
     };
@@ -97,14 +112,37 @@
     }
     .nav_layout_right{
         display: flex;
+        align-items: center;
     }
     .nav_font{
         opacity: 0.8;
         font-family: PingFangSC-Medium;
-        /*font-weight: 600;*/
         font-size: 16px;
         color: #FFFFFF;
     }
+    .nav_font:hover{
+        opacity: 1;
+
+    }
+    .nav_dropdown_font{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        opacity: 0.8;
+        color: #FFFFFF;
+    }
+    .nav_dropdown_font:hover{
+        opacity: 1;
+    }
+    .nav_a{
+        text-decoration:none;
+        color:white;
+    }
+    .button_font{
+        font-family: PingFangSC-Medium;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+
     .nav_item{
         margin-left:20px ;
 
@@ -116,7 +154,19 @@
         border-radius: 22px;
         border-radius: 22px;
     }
-
+    .el-button--primary{
+        background-color: #3254DC;
+    }
+    .el-button--primary:focus, .el-button--primary:hover {
+        background-color: #5171F0;
+    }
+    .el-dropdown-menu__item{
+        line-height: 0;
+    }
+    .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
+        /* background-color: #ecf5ff; */
+        color: #66b1ff;
+    }
     @media (min-width: 768px) {
         .nav_layout{
             /*display: flex;*/
