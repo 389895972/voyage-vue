@@ -27,13 +27,13 @@
                 <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
                   <el-dropdown-item icon="el-icon-user-solid">
                     <a class="nav_a" href="#">
-                      <span class="nav_dropdown_font">个人中心</span>
+                      <span class="nav_dropdown_font" style="display: inline-block">个人中心</span>
                     </a>
                   </el-dropdown-item>
                   <hr style="opacity: 0.15;background: #FFFFFF;margin-left: 5px">
                   <el-dropdown-item icon="el-icon-switch-button">
                     <a href="#">
-                      <span class="nav_dropdown_font">退出登陆</span>
+                      <span class="nav_dropdown_font" style="display: inline-block">退出登陆</span>
                     </a>
                   </el-dropdown-item>
                 </el-dropdown-menu>
@@ -72,9 +72,11 @@
           <div style="">
             <div class="advs">
               <div class="adv_title">
-                  <span class="adv_content1">硬件分时共享平台
-                    <hr style="margin: 0">
-                    <span style="font-size:28px;margin:0 auto;width: 60px;letter-spacing:2px">
+                  <span class="adv_content1">
+                     <span style="text-align: center"> 硬件分时</span>
+                     <span style="text-align: center"> 共享平台</span>
+                    <hr style="margin: 0;text-align: center;width: 100%">
+                    <span style="font-size:38px;margin:0 auto;width:80px;text-align:center;letter-spacing:2px">
                         优势
                     </span>
                   </span>
@@ -672,15 +674,16 @@
                 </div>
               </div>
               <div class="block">
-                <img src="../../assets/images/home/编组.png" alt="">
-                <span class="block_title_info">支持多种操作系统</span>
+
+               <div class="block_img_border" >   <img src="../../assets/images/home/编组.png" class="block_img" alt=""></div>
+                <span class="block_title_info">随时放心存储</span>
                 <div class="block_inners">
                   <p class="block_inner">随时保存设备镜像，工作进度可保存在云端。主动管理和生命周期服务</p>
                 </div>
               </div>
               <div class="block">
                 <img src="../../assets/images/home/编组.png" alt="">
-                <span class="block_title_info">值得依赖</span>
+                <span class="block_title_info">支持多种操作系统</span>
                 <div class="block_inners">
                   <p class="block_inner">我们帮助你解决系统、驱动层面的问题。专注于AI算法的问题处理。</p>
                 </div>
@@ -858,7 +861,7 @@
       <el-footer height="600px">
         <el-row :offset="3"><img  class="footer_img" src="../../../public/logo.png" alt=""></el-row>
         <el-row>
-        <el-col :span="3" :offset="3">
+        <el-col :span="3" :offset="4">
           <div class="footer_block">
             <span class="footer_block_title" >产品</span>
             <span class="footer_block_content"> <a href=""> AIKIT </a> </span>
@@ -934,7 +937,7 @@
                   :data-clipboard-text="email"
                   @click="copy"
           >复制</el-button>
-          <span>
+          <span style="margin-left: 31%">
           <img src="../../assets/images/home/Twitter.png" alt="">
           <img src="../../assets/images/home/Facebook.png" alt="">
           <img src="../../assets/images/home/weixin.png" alt="">
@@ -961,7 +964,8 @@ export default {
   data() {
     return {
       home_reg_activeName: "home_reg_first",
-      email:"E-mail:service@45iot.com"
+      email:"E-mail:service@45iot.com",
+      isLogin:false,
     };
   },
   methods: {
@@ -1006,6 +1010,34 @@ export default {
       go_rb3(){
        this.$router.push({path:'/rb3details'});
       },
+    //进入订单列表
+    go_orderList() {
+      this.$router.push(
+              { path: '/order/orderList',
+                query:{
+                  user_id: 1,
+                }
+              }
+      );
+
+    },
+    //进入实例列表
+    go_instanceList(){
+      this.$router.push(
+              { path: '/',
+                query:{
+                  user_id: 1,
+                }
+              }
+      );
+    },
+    go_login(){
+      // this.$router.push(
+      //     { path: '/login',
+      //     }
+      // );
+      this.isLogin=true;
+    },
      copy() {
      // var _this = this;
      // var clipboard = new Clipboard(".btn"); //单页面引用
@@ -1054,14 +1086,23 @@ div {
   margin-top: 15px;
   color: white;
 }
-
+.block_img_border{
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 1px solid red;
+  margin: 0 auto;
+}
+.block_img{
+   line-height: 70px;
+}
 .iblock {
 
   color: white;
   margin-top: 35px;
   font-size: 23px;
   width: 50%;
-  margin-left: 16%;
+  margin-left: 18.8%;
   text-align: left;
 }
 
@@ -1069,14 +1110,14 @@ div {
   text-align: center;
   display: inline-flex;
   justify-content: space-around;
-  width: 68%;
+  width: 54.8%;
   margin-top: 70px;
 }
 
 .block_title_info {
   margin-top: 10px;
   display: block;
-  font-size: 20px;
+  font-size: 18pt;
 }
 
 .block_inner {
@@ -1112,9 +1153,9 @@ span {
 .home_reg_icon >>> .el-step__head.is-finish{
   border-color: grey;
 }
-img {
-  /*height: 100%;*/
-}
+/*img {*/
+/*  !*height: 100%;*!*/
+/*}*/
 
 .home_first {
   display: flex;
@@ -1152,22 +1193,22 @@ img {
 }
 .advs{
     box-shadow: #666 0px 0px 5px;
-    height: 140px;
+    height: 170.88px;
 
 }
 .adv_title{
-  width: 70%;
+  width: 62.4%;
   margin: 0 auto;
   display: flex;
 }
 .adv_content1{
   background-color: #3254DC;
-  width: 140px;
-  height: 140px;
+  width: 170.88px;
+  height: 170.88px;
   color: white;
-  padding: 30px  ;
+  padding: 2.4%  ;
   display:inline-block;
-    font-size: 18px;
+  font-size: 23px;
 }
 .adv_content2{
     display:inline-block;
@@ -1184,12 +1225,13 @@ img {
 }
 .adv_content_title2{
     text-align: center;
-    margin: 0 17px;
+    margin: 0 auto;
     font-size: 13px;
+     width: 144px;
 }
 .adv_image{
-    width: 50px;
-    margin: 10px auto;
+    width: 53.7px;
+    margin: 23px auto 13px auto;
 }
 .advantages {
   width: 85%;
@@ -1290,18 +1332,18 @@ img {
 }
 .footer_img{
   margin-top: 50px;
-   margin-left: 15%;
+   margin-left: 18.8%;
 }
 .footer_title_ours{
   color: white;
-  margin-left: 16%;
+  margin-left: 18.8%;
   margin-top: 60px;
 }
 .footer_title_email{
   color: #7785AC;
   display: inline;
   font-size: 12px;
-  margin-left: 16%;
+  margin-left: 18.8%;
   margin-right: 0;
   margin-top: 10px;
  width: 40%;
@@ -1321,7 +1363,12 @@ img {
   background-color: #0B152E;
   height: 90px;
   line-height: 90px;
-  padding-left: 16%;
+  padding-left: 19.2%;
+}
+.item{
+  width: 62.5%;
+  margin: 0 auto;
+  text-align: left;
 }
 .el-cols{
   width: 40%;
@@ -1332,7 +1379,7 @@ a:link{
 }
 .footer_input{
   width: 20%;
-  margin-left: 16%;
+  /*margin-left: 16%;*/
   margin-top: 5px;
   background-color: #0aa0e8;
 }
@@ -1359,14 +1406,14 @@ a:link{
 }
 
 .service_title {
-
+ font-weight: bold;
   text-align: left;
   width: 100%;
-    margin-left: 16%;
-    font-size: 23px;
+  margin-left: 18.8%;
+  font-size: 23px;
 }
 .home_question{
-    margin-left: 14%;
+    margin-left: 17%;
 }
 .service_index {
   text-align: left;
@@ -1435,7 +1482,8 @@ a:link{
   font-size: 23px;
   color: white;
   width:20%;
-  margin-left: 9%;
+  margin-left: 18.8%;
+  text-align: left;
 }
 .home_reg_introduce  {
   margin-top: 20px;
@@ -1459,6 +1507,7 @@ a:link{
   .btn{
     font-size: 8px;
   }
+
 </style>
 <!--<style>-->
 <!--  .el-input__inner{-->
@@ -1529,7 +1578,7 @@ a:link{
     height: 44px;
     width: 44px;
     border-radius: 22px;
-    border-radius: 22px;
+
   }
   .el-button--primary{
     background-color: #3254DC;
@@ -1550,7 +1599,7 @@ a:link{
     font-family: PingFangSC-Semibold;
     font-size: 23px;
     color: #16161D;
-    font-width: bold;
+    font-weight: bold;
 
   }
   .product_display{
