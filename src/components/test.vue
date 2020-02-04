@@ -52,7 +52,6 @@
                     <span class="block_title">产品展示</span>
                 </el-col>
             </el-row>
-
             <el-row>
                 <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:4}">
                     <el-card :body-style="{ padding: '0px' }" >
@@ -340,6 +339,7 @@
 
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -547,12 +547,9 @@ export default {
 
     }
 
-
     .el-pagination.is-background .el-pager li:not(.disabled):hover {
         color: #F0F1F3;
     }
-
-
 
 
 

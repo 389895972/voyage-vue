@@ -44,8 +44,9 @@ html,body,#app{
 .main{
     padding: 0;
 }
+
 .footer{
-    background-color:#4A4A4D ;
+    background-color:#101C3D ;
     color: white;
     height: 20%;
 }
