@@ -46,7 +46,7 @@
                 </div>
             </div>
         </el-header>
-        <div class="product_show">
+        <div class="product_display">
             <el-row>
                 <el-col :offset="4">
                     <span class="block_title">产品展示</span>
@@ -470,8 +470,10 @@ export default {
     font-size: 36px;
     color: #16161D;
 }
-.product_show{
+.product_display{
     background-color: #F0F1F3;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
     .el-col {
         margin-bottom: 10px;
@@ -484,6 +486,7 @@ export default {
 .card_image{
     height: auto;
     width: 100%;
+    cursor: pointer;
 }
 .card_title{
     font-family: PingFangSC-Semibold;
@@ -534,6 +537,9 @@ export default {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+    .card_div{
+        cursor: pointer;
+    }
     .el-pagination {
         text-align: center;
 
