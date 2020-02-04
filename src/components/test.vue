@@ -484,9 +484,11 @@ export default {
     margin-bottom:10px ;
 }
 .card_image{
-    height: auto;
+    height: 240px;
     width: 100%;
     cursor: pointer;
+    overflow: hidden;
+
 }
 .card_title{
     font-family: PingFangSC-Semibold;
