@@ -31,6 +31,7 @@ const router =new Router({
         {path:'/confirm',name:'Confirm',component: Confirm,meta:{keepAlive:false}},
         {path:'/instanceDetails',component:InstanceDetails,meta:{keepAlive:false}},
         {path:'/instance',component:Instance,meta:{keepAlive:false}},
+        {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
         {path:"/order/orderList",component:orderList,},
     ],

@@ -108,6 +108,8 @@
 export default {
   data() {
     return {
+      //用户Id
+      userId:this.$route.query.user_id,
       //分页属性
       currentPage: 1,
       page_size: 5,
@@ -158,7 +160,7 @@ export default {
         })
         .then(function(response) {
           // window.console.log(response);
-          if (response.status == 200) { 
+          if (response.status == 200) {
             that.$set(that.PageData[index], "state", "已取消");
           }
         })

@@ -11,8 +11,10 @@ import axios from 'axios'
 import locale from 'element-ui/lib/locale/lang/en'
 import routes from "./rout";
 import  VueI18n from 'vue-i18n'
+
 import Clipboard from 'clipboard';
 Vue.prototype.Clipboard=Clipboard;
+
 Vue.prototype.$http=axios;
 
 axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
