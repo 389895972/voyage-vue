@@ -337,8 +337,8 @@
         </div>
     </el-container>
 
-</template>
 
+</template>
 <script>
 export default {
   data() {
@@ -551,13 +551,6 @@ export default {
     .el-pagination.is-background .el-pager li:not(.disabled):hover {
         color: #F0F1F3;
     }
-
-
-
-
-
-
-
 
 
 

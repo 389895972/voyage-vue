@@ -20,6 +20,7 @@ Vue.use(Router)
 const router =new Router({
     routes:[
         {path:'/',redirect: '/home'},
+
         {path:'/home', component: Home,meta:{keepAlive:false}},
         {path:'/aikitdetails', component: AikitDetails,meta:{keepAlive:false}},
         {path:'/rb3details', component: RB3Details,meta:{keepAlive:false}},
@@ -32,8 +33,9 @@ const router =new Router({
         {path:'/instance',component:Instance,meta:{keepAlive:false}},
         {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
+
     ],
-   
+
 })
 
 
