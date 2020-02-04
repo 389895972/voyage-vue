@@ -17,9 +17,9 @@
                     </div>
                     <div v-if="isLogin" class="nav_item">
                         <el-dropdown trigger="click">
-                <span class="el-dropdown-link">
-                    <img class="head_frame" src="../assets/images/aikit.png" alt />
-                </span>
+                        <span class="el-dropdown-link">
+                            <img class="head_frame" src="../assets/images/aikit.png" alt/>
+                        </span>
                             <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
                                 <el-dropdown-item icon="el-icon-user-solid">
                                     <a class="nav_a" href="#">
@@ -329,10 +329,11 @@
                 </el-col>
 
             </el-row>
-
-
-
-
+                <el-pagination
+                        background
+                        layout="prev, pager, next"
+                        :total="50">
+                </el-pagination>
         </div>
     </el-container>
 
@@ -374,7 +375,10 @@ export default {
             //     }
             // );
             this.isLogin=true;
-        }
+        },
+        go_aikit(){
+            this.$router.push({path:'/aikitdetails'});
+        },
 
     }
 };
@@ -530,6 +534,16 @@ export default {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+    .el-pagination {
+        text-align: center;
+
+    }
+
+
+    .el-pagination.is-background .el-pager li:not(.disabled):hover {
+        color: #F0F1F3;
+    }
+
 
 
 
