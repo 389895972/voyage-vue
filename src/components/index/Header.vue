@@ -1,7 +1,7 @@
 <template>
-    <el-header height="100px">
+    <el-header  class="header_head" height="100px">
         <div class="nav_layout">
-            <img class="logo" src="../assets/images/logo.png" alt />
+            <img class="logo" src="../../assets/images/logo.png" alt />
             <div class="nav_layout_right">
                 <div class="nav_item">
                     <a class="nav_a" href="#">
@@ -17,7 +17,7 @@
                 <div v-if="isLogin" class="nav_item">
                     <el-dropdown trigger="click">
                 <span class="el-dropdown-link">
-                    <img class="head_frame" src="../assets/images/aikit.png" alt />
+                    <img class="head_frame" src="../../assets/images/aikit.png" alt />
                 </span>
                         <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
                             <el-dropdown-item icon="el-icon-user-solid">
@@ -90,6 +90,10 @@
 </script>
 
 <style  scoped>
+    .header_head{
+       border-bottom: 1px solid grey;
+        border-color: rgba(151, 151, 151, 0.3);
+    }
     .el-header {
         background-color: #101c3d;
         color: white;
@@ -152,7 +156,6 @@
         height: 44px;
         width: 44px;
         border-radius: 22px;
-        border-radius: 22px;
     }
     .el-button--primary{
         background-color: #3254DC;
@@ -172,8 +175,8 @@
             /*display: flex;*/
             /*justify-content: space-between;*/
             /*line-height: 6;*/
-            padding-left: 100px;
-            padding-right: 150px;
+            padding-left: 18.1%;
+            padding-right: 18.1%;
 
         }
     }

@@ -397,7 +397,8 @@ export default {
       this.currentPage = 1;
     }
 
-  }
+  },
+
 };
 </script>
 <style scoped>

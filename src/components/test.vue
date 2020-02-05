@@ -1,5 +1,8 @@
 <template>
     <el-container style="overflow-x: hidden;">
+        <div class="trapezoid_border">
+        <div class="trapezoid"></div>
+        </div>
         <el-header height="100px">
             <div class="nav_layout">
                 <img class="logo" src="../assets/images/logo.png" alt />
@@ -56,6 +59,7 @@
             <el-row>
                 <el-col :span="8" :xs="{span:20,offset:2}" :lg="{span:8}">
                     <el-card :body-style="{ padding: '0px' }" class="card_left" >
+
                         <img
                                 src="../assets/images/home/aikit_resize_2.png"
                                 class="card_image" @click="go_aikit"
@@ -100,8 +104,10 @@
                         </div>
                     </el-card>
                 </el-col>
+
                 <el-col :span="8" :xs="{span:20,offset:2}" :lg="{span:8}">
                     <el-card :body-style="{ padding: '0px', }" class="card_middle">
+
                         <img
                                 src="../assets/images/home/rb3_resize.png"
                                 class="card_image" @click="go_rb3"
@@ -148,6 +154,7 @@
                 </el-col>
                 <el-col :span="8" :xs="{span:20,offset:2}" :lg="{span:8}">
                     <el-card :body-style="{ padding: '0px' }" class="card_right" >
+
                         <img
                                 src="../assets/images/home/edge_resize.png"
                                 class="card_image" @click="go_edgekit"
@@ -387,10 +394,12 @@ export default {
     align-items: center;
 }
 .product_cards{
+
     width: 62.5%;
     margin: 0 auto;
     /*padding-left: 20px;*/
     /*padding-right: 20px;*/
+
 }
     .el-col {
         margin-bottom: 10px;
@@ -402,6 +411,7 @@ export default {
 }
 .card_image{
     height: 12vw;
+
     width: 100%;
     cursor: pointer;
     overflow: hidden;
@@ -482,6 +492,16 @@ export default {
         color: #F0F1F3;
     }
 
+   .trapezoid{
+       border-bottom: 30px solid #3254DC;
+       border-left: 30px solid #3254DC;
+       border-right: 30px solid transparent;
+        width: 126.72px;
+   }
+   .trapezoid_border {
+       border-bottom: 2px solid #3254DC;
+   }
+
 
     @media (max-width: 768px) {
         .nav_layout{
@@ -507,6 +527,7 @@ export default {
             width: 100%;
             height: auto;
         }
+
 
     }
 

@@ -4,52 +4,52 @@
 <!--      <div class="header">-->
 <!--        <img class="img" src="../../assets/images/logo.png" alt />-->
 <!--      </div>-->
-      <el-header height="80px">
-        <div class="nav_layout">
-          <img class="logo" src="../../assets/images/logo.png" alt />
-          <div class="nav_layout_right">
-            <div class="nav_item">
-              <a class="nav_a" href="#">
-                <span class="nav_font">控制台</span>
-              </a>
-            </div>
+<!--      <el-header height="100px">-->
+<!--        <div class="nav_layout">-->
+<!--          <img class="logo" src="../../assets/images/logo.png" alt />-->
+<!--          <div class="nav_layout_right">-->
+<!--            <div class="nav_item">-->
+<!--              <a class="nav_a" href="#">-->
+<!--                <span class="nav_font">控制台</span>-->
+<!--              </a>-->
+<!--            </div>-->
 
-            <div class="nav_item">
-              <a class="nav_a" @click="go_orderList" href="#">
-                <span class="nav_font">我的订单</span>
-              </a>
-            </div>
-            <div v-if="isLogin" class="nav_item">
-              <el-dropdown trigger="click">
-                        <span class="el-dropdown-link">
-                            <img class="head_frame" src="../../assets/images/aikit.png" alt/>
-                        </span>
-                <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
-                  <el-dropdown-item icon="el-icon-user-solid">
-                    <a class="nav_a" href="#">
-                      <span class="nav_dropdown_font" style="display: inline-block">个人中心</span>
-                    </a>
-                  </el-dropdown-item>
-                  <hr style="opacity: 0.15;background: #FFFFFF;margin-left: 5px">
-                  <el-dropdown-item icon="el-icon-switch-button">
-                    <a href="#">
-                      <span class="nav_dropdown_font" style="display: inline-block">退出登陆</span>
-                    </a>
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
-            </div>
-            <div v-else class="nav_item">
-              <el-button size="small"
-                         type="primary"
-                         @click="go_login">
-                    <span class="button_font">
-                        立即登陆
-                    </span></el-button>
-            </div>
-          </div>
-        </div>
-      </el-header>
+<!--            <div class="nav_item">-->
+<!--              <a class="nav_a" @click="go_orderList" href="#">-->
+<!--                <span class="nav_font">我的订单</span>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div v-if="isLogin" class="nav_item">-->
+<!--              <el-dropdown trigger="click">-->
+<!--                        <span class="el-dropdown-link">-->
+<!--                            <img class="head_frame" src="../../assets/images/aikit.png" alt/>-->
+<!--                        </span>-->
+<!--                <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">-->
+<!--                  <el-dropdown-item icon="el-icon-user-solid">-->
+<!--                    <a class="nav_a" href="#">-->
+<!--                      <span class="nav_dropdown_font" style="display: inline-block">个人中心</span>-->
+<!--                    </a>-->
+<!--                  </el-dropdown-item>-->
+<!--                  <hr style="opacity: 0.15;background: #FFFFFF;margin-left: 5px">-->
+<!--                  <el-dropdown-item icon="el-icon-switch-button">-->
+<!--                    <a href="#">-->
+<!--                      <span class="nav_dropdown_font" style="display: inline-block">退出登陆</span>-->
+<!--                    </a>-->
+<!--                  </el-dropdown-item>-->
+<!--                </el-dropdown-menu>-->
+<!--              </el-dropdown>-->
+<!--            </div>-->
+<!--            <div v-else class="nav_item">-->
+<!--              <el-button size="small"-->
+<!--                         type="primary"-->
+<!--                         @click="go_login">-->
+<!--                    <span class="button_font">-->
+<!--                        立即登陆-->
+<!--                    </span></el-button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </el-header>-->
       <div class="main">
         <div>
           <!--                <img src="../../assets/images/index6.png" width="100%">-->
@@ -75,7 +75,7 @@
                   <span class="adv_content1">
                      <span style="text-align: center"> 硬件分时</span>
                      <span style="text-align: center"> 共享平台</span>
-                    <hr style="margin: 0;text-align: center;width: 100%">
+                    <hr style="opacity:0.4;margin: 0 auto;text-align: center;width:85px;height: 0.1px">
                     <span style="font-size:38px;margin:0 auto;width:80px;text-align:center;letter-spacing:2px">
                         优势
                     </span>
@@ -664,28 +664,27 @@
             <div class="iblock">多种产品形式，灵活适用各类业务场景</div>
             <div class="blocks">
               <div class="block">
-                <img src="../../assets/images/home/编组.png" alt="">
+                <img src="../../assets/images/home/编组 7.png" class="block_img" alt="">
                 <span class="block_title_info">按需分配 减少初期投入</span>
                 <div class="block_inners">
-                  <p class="block_inner">
+<!--                  <p class="block_inner">-->
                     嵌入式设备更新和淘汰的频率远远高于个人电脑。
                     根据项目进度，随时可以增加和减少对于设备的使用量。
-                  </p>
+<!--                  </p>-->
                 </div>
               </div>
               <div class="block">
-
-               <div class="block_img_border" >   <img src="../../assets/images/home/编组.png" class="block_img" alt=""></div>
+                 <img src="../../assets/images/home/编组 8.png" class="block_img" alt="">
                 <span class="block_title_info">随时放心存储</span>
                 <div class="block_inners">
-                  <p class="block_inner">随时保存设备镜像，工作进度可保存在云端。主动管理和生命周期服务</p>
+                  随时保存设备镜像，工作进度可保存在云端。主动管理和生命周期服务
                 </div>
               </div>
               <div class="block">
-                <img src="../../assets/images/home/编组.png" alt="">
+                <img src="../../assets/images/home/编组 9.png"  class="block_img" alt="">
                 <span class="block_title_info">支持多种操作系统</span>
                 <div class="block_inners">
-                  <p class="block_inner">我们帮助你解决系统、驱动层面的问题。专注于AI算法的问题处理。</p>
+                  我们帮助你解决系统、驱动层面的问题。专注于AI算法的问题处理。
                 </div>
               </div>
             </div>
@@ -858,103 +857,103 @@
 
         </div>-->
       </div>
-      <el-footer height="600px">
-        <el-row :offset="3"><img  class="footer_img" src="../../../public/logo.png" alt=""></el-row>
-        <el-row>
-        <el-col :span="3" :offset="4">
-          <div class="footer_block">
-            <span class="footer_block_title" >产品</span>
-            <span class="footer_block_content"> <a href=""> AIKIT </a> </span>
-            <span class="footer_block_content"><a href="">RB3 </a></span>
-            <span class="footer_block_content"><a href="">Rasybarry Pie </a></span>
-            <span class="footer_block_content"><a href="">Intel Nuc </a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-
-          <div class="footer_block">
-            <span class="footer_block_title">社区</span>
-            <span class="footer_block_content"> <a href=""> 5G</a> </span>
-            <span class="footer_block_content"><a href="">消费电子产品</a></span>
-            <span class="footer_block_content"><a href="">智能汽车</a></span>
-            <span class="footer_block_content"><a href="">智慧家居</a></span>
-            <span class="footer_block_content"><a href="">智慧城市 </a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span class="footer_block_title">教程</span>
-            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
-            <span class="footer_block_content"><a href="">AI服务</a></span>
-            <span class="footer_block_content"><a href="">AI模块</a></span>
-            <span class="footer_block_content"><a href="">AI工具</a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span class="footer_block_title">关于我们 </span>
-            <span class="footer_block_content"> <a href="" > 关于我们</a> </span>
-            <span class="footer_block_content"><a href="">关于我们</a></span>
-            <span class="footer_block_content"><a href="">关于我们</a></span>
-            <span class="footer_block_content"><a href="">关于我们</a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span class="footer_block_title">其他</span>
-            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
-            <span class="footer_block_content"><a href="">AI服务</a></span>
-            <span class="footer_block_content"><a href="">AI模块</a></span>
-            <span class="footer_block_content"><a href="">AI工具</a></span>
-          </div>
-        </el-col>
-        </el-row>
-        <el-row ><span class="footer_title_ours">联系我们</span></el-row>
-
-
-          <span class="footer_title_email">邮箱联系</span>
-          <span class="footer_title_email2">其他联系</span>
-
-
-        <el-table-column fixed="right" label="操作" width="150">
-          <template slot-scope="scope">
-            <el-button-group>
-              <el-tooltip class="item" effect="dark" content="复制内容" placement="top">
-                <el-button type="warning" size="mini" v-clipboard:copy="scope.row.content" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <i class="fa fa-copy"></i>
-                </el-button>
-              </el-tooltip>
-            </el-button-group>
-          </template>
-        </el-table-column>
-        <div class="item">
-        <el-input  v-model="email" class="footer_input" size="mini"></el-input>
-<!--          <span class="footer_input"> {{email}}</span>-->
-          <el-button
-                  type="primary"
-                  class="btn"
-                  size="mini"
-                  :data-clipboard-text="email"
-                  @click="copy"
-          >复制</el-button>
-          <span style="margin-left: 31%">
-          <img src="../../assets/images/home/Twitter.png" alt="">
-          <img src="../../assets/images/home/Facebook.png" alt="">
-          <img src="../../assets/images/home/weixin.png" alt="">
-            </span>
-
-        </div>
-
-        <!--        <el-col :span="3">-->
-<!--          <div class="footer_block_final">-->
-<!--            <span style="margin-left:10%;padding-top:10px">联系我们</span>-->
-<!--            <p style="margin:10% 0 0 10%;font-size:16px">Email</p>-->
-<!--            <p style="margin-left:10%;font-size:16px">service@45iot.com</p>-->
+<!--      <el-footer height="600px">-->
+<!--        <el-row :offset="3"><img  class="footer_img" src="../../../public/logo.png" alt=""></el-row>-->
+<!--        <el-row>-->
+<!--        <el-col :span="3" :offset="4">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title" >产品</span>-->
+<!--            <span class="footer_block_content"> <a href=""> AIKIT </a> </span>-->
+<!--            <span class="footer_block_content"><a href="">RB3 </a></span>-->
+<!--            <span class="footer_block_content"><a href="">Rasybarry Pie </a></span>-->
+<!--            <span class="footer_block_content"><a href="">Intel Nuc </a></span>-->
 <!--          </div>-->
 <!--        </el-col>-->
+<!--        <el-col :span="3">-->
 
-      </el-footer>
-      <span class="footer_footer"> Copyright &copy; 2018~2020.Rescord license ICP备案号：181470003号 All rights reserved. </span>
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">社区</span>-->
+<!--            <span class="footer_block_content"> <a href=""> 5G</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">消费电子产品</a></span>-->
+<!--            <span class="footer_block_content"><a href="">智能汽车</a></span>-->
+<!--            <span class="footer_block_content"><a href="">智慧家居</a></span>-->
+<!--            <span class="footer_block_content"><a href="">智慧城市 </a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="3">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">教程</span>-->
+<!--            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">AI服务</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI模块</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI工具</a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="3">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">关于我们 </span>-->
+<!--            <span class="footer_block_content"> <a href="" > 关于我们</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
+<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
+<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="3">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">其他</span>-->
+<!--            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">AI服务</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI模块</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI工具</a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        </el-row>-->
+<!--        <el-row ><span class="footer_title_ours">联系我们</span></el-row>-->
+
+
+<!--          <span class="footer_title_email">邮箱联系</span>-->
+<!--          <span class="footer_title_email2">其他联系</span>-->
+
+
+<!--        <el-table-column fixed="right" label="操作" width="150">-->
+<!--          <template slot-scope="scope">-->
+<!--            <el-button-group>-->
+<!--              <el-tooltip class="item" effect="dark" content="复制内容" placement="top">-->
+<!--                <el-button type="warning" size="mini" v-clipboard:copy="scope.row.content" v-clipboard:success="onCopy" v-clipboard:error="onError">-->
+<!--                  <i class="fa fa-copy"></i>-->
+<!--                </el-button>-->
+<!--              </el-tooltip>-->
+<!--            </el-button-group>-->
+<!--          </template>-->
+<!--        </el-table-column>-->
+<!--        <div class="item">-->
+<!--        <el-input  v-model="email" class="footer_input" size="mini"></el-input>-->
+<!--&lt;!&ndash;          <span class="footer_input"> {{email}}</span>&ndash;&gt;-->
+<!--          <el-button-->
+<!--                  type="primary"-->
+<!--                  class="btn"-->
+<!--                  size="mini"-->
+<!--                  :data-clipboard-text="email"-->
+<!--                  @click="copy"-->
+<!--          >复制</el-button>-->
+<!--          <span style="margin-left: 31%">-->
+<!--          <img src="../../assets/images/home/Twitter.png" alt="">-->
+<!--          <img src="../../assets/images/home/Facebook.png" alt="">-->
+<!--          <img src="../../assets/images/home/weixin.png" alt="">-->
+<!--            </span>-->
+
+<!--        </div>-->
+
+<!--        &lt;!&ndash;        <el-col :span="3">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="footer_block_final">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span style="margin-left:10%;padding-top:10px">联系我们</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p style="margin:10% 0 0 10%;font-size:16px">Email</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p style="margin-left:10%;font-size:16px">service@45iot.com</p>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </el-col>&ndash;&gt;-->
+
+<!--      </el-footer>-->
+<!--      <span class="footer_footer"> Copyright &copy; 2018~2020.Rescord license ICP备案号：181470003号 All rights reserved. </span>-->
     </div>
   </el-container>
 </template>
@@ -1058,6 +1057,10 @@ export default {
         clipboard.destroy();
       });
     },
+  },
+  created(){
+    // this.$emit('header',false);
+    //this.$emit('footer',false);
   }
 };
 </script>
@@ -1073,9 +1076,9 @@ div {
   border: 1px solid;
   text-align: center;
   /*background-color: #f5f5f5;*/
-  background-image: url("../../assets/images/home/bj_pic.png");
+  background-image: url("../../assets/images/home/bj_pic1.png");
   background-size: 100% 100%;
-  height: 400px;
+  height: 450px;
 
 }
 
@@ -1092,9 +1095,10 @@ div {
   border-radius: 50%;
   border: 1px solid red;
   margin: 0 auto;
+  align-items:center
 }
 .block_img{
-   line-height: 70px;
+    width:70px ;
 }
 .iblock {
 
@@ -1110,23 +1114,23 @@ div {
   text-align: center;
   display: inline-flex;
   justify-content: space-around;
-  width: 54.8%;
+  width: 60%;
   margin-top: 70px;
 }
 
 .block_title_info {
   margin-top: 10px;
   display: block;
-  font-size: 18pt;
+  font-size: 18px;
 }
 
 .block_inner {
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 0 10px 0;
   width: 50%;
   text-align: center;
   font-weight: 400;
-  font-size: 9px;
+  font-size: 14px;
   color: white;
 }
 
@@ -1134,6 +1138,7 @@ div {
   margin-top: 15px;
   margin-bottom: 45px;
   color: white;
+  font-size: 12px;
 }
 
 span {
@@ -1192,7 +1197,8 @@ span {
   text-align: center;
 }
 .advs{
-    box-shadow: #666 0px 0px 5px;
+    /*box-shadow:red  0 0 50px 0 ;*/
+    box-shadow:2px 2px 10px #909090;
     height: 170.88px;
 
 }
@@ -1514,7 +1520,7 @@ a:link{
 <!--    background-color: #0aa0e8;-->
 <!--  }-->
 <!--</style>-->
-<style  scoped>
+<style scoped >
   /*导航栏*/
   .el-header {
     background-color: #101c3d;
