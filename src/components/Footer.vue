@@ -118,15 +118,17 @@ export default {
         color: white;
         /*border-left: 2px solid grey;*/
         font-size: 21px;
+        text-align: left;
     }
     .footer_block_title{
         margin-left:30%
     }
     .footer_block_content{
-        margin-left:30%;
-        font-size:15px;
+        /*margin-left:30%;*/
+        font-size:14px;
         color:white;
         margin-top: 8%;
+        text-align: left;
     }
     .footer_img{
         margin-top: 50px;

@@ -22,7 +22,7 @@
          </div>
           <div class="pro_det" id="i1">商品详情</div>
 
-        <div class="pro_show" >
+          <div class="pro_show" >
             <div  class="pro_show_div_border">
               <div class="pro_show_div" id="iii"><span >产品优势</span></div>
             </div>
@@ -260,7 +260,7 @@
         <!--                            悬浮框-->
         <!-- <div> -->
         <div class="fixTi1" :class="{fixTitle:whether}" v-if="whether">
-          <div class="tabs_tabs1 col-md-12 col-xs-11">
+          <div class="tabs_tabs1 ">
             <el-tabs class="tab_pane" @tab-click="handleClick1">
               <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
               <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
@@ -632,7 +632,7 @@ export default {
 
 };
 </script>
-<style   lang="less" scoped>
+<style   lang="less" >
 .first {
   /*display: flex;*/
   display: inline-block;
@@ -647,7 +647,7 @@ export default {
 }
 
 .main {
-  background-color: #cccccc;
+  background-color: white;
   padding: 25px 25px;
 }
 
@@ -915,13 +915,15 @@ a {
     margin-top: 20px;
 }
 .pro_advs{
-  margin-left: 1.4%;
+  margin-left: 2.8%;
 }
+
   .adv_span2{
      /*margin-left: 50px;*/
     margin-top: 10px;
-      margin-left: 15px;
+      /*margin-left: 15px;*/
       text-align: left;
+      /*text-indent: -7rem;*/
   }
   .adv_span1{
       display: block;
@@ -929,13 +931,14 @@ a {
       /*s*/
       font-weight: bold;
       font-size: 18px;
-      width: 118px;
+      width: 400px;
       text-align: left;
-      margin-left: 13px;
+      /*margin-left: 13px;*/
        margin-top: 10px;
       margin-bottom: 10px;
 
   }
+
     .fixTi1 {
 
         width: 100%;

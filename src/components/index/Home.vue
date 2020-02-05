@@ -857,103 +857,103 @@
 
         </div>-->
       </div>
-      <el-footer height="600px">
-        <el-row :offset="3"><img  class="footer_img" src="../../../public/logo.png" alt=""></el-row>
-        <el-row>
-        <el-col :span="3" :offset="4">
-          <div class="footer_block">
-            <span class="footer_block_title" >产品</span>
-            <span class="footer_block_content"> <a href=""> AIKIT </a> </span>
-            <span class="footer_block_content"><a href="">RB3 </a></span>
-            <span class="footer_block_content"><a href="">Rasybarry Pie </a></span>
-            <span class="footer_block_content"><a href="">Intel Nuc </a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-
-          <div class="footer_block">
-            <span class="footer_block_title">社区</span>
-            <span class="footer_block_content"> <a href=""> 5G</a> </span>
-            <span class="footer_block_content"><a href="">消费电子产品</a></span>
-            <span class="footer_block_content"><a href="">智能汽车</a></span>
-            <span class="footer_block_content"><a href="">智慧家居</a></span>
-            <span class="footer_block_content"><a href="">智慧城市 </a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span class="footer_block_title">教程</span>
-            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
-            <span class="footer_block_content"><a href="">AI服务</a></span>
-            <span class="footer_block_content"><a href="">AI模块</a></span>
-            <span class="footer_block_content"><a href="">AI工具</a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span class="footer_block_title">关于我们 </span>
-            <span class="footer_block_content"> <a href="" > 关于我们</a> </span>
-            <span class="footer_block_content"><a href="">关于我们</a></span>
-            <span class="footer_block_content"><a href="">关于我们</a></span>
-            <span class="footer_block_content"><a href="">关于我们</a></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span class="footer_block_title">其他</span>
-            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
-            <span class="footer_block_content"><a href="">AI服务</a></span>
-            <span class="footer_block_content"><a href="">AI模块</a></span>
-            <span class="footer_block_content"><a href="">AI工具</a></span>
-          </div>
-        </el-col>
-        </el-row>
-        <el-row ><span class="footer_title_ours">联系我们</span></el-row>
-
-
-          <span class="footer_title_email">邮箱联系</span>
-          <span class="footer_title_email2">其他联系</span>
-
-
-        <el-table-column fixed="right" label="操作" width="150">
-          <template slot-scope="scope">
-            <el-button-group>
-              <el-tooltip class="item" effect="dark" content="复制内容" placement="top">
-                <el-button type="warning" size="mini" v-clipboard:copy="scope.row.content" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <i class="fa fa-copy"></i>
-                </el-button>
-              </el-tooltip>
-            </el-button-group>
-          </template>
-        </el-table-column>
-        <div class="item">
-        <el-input  v-model="email" class="footer_input" size="mini"></el-input>
-<!--          <span class="footer_input"> {{email}}</span>-->
-          <el-button
-                  type="primary"
-                  class="btn"
-                  size="mini"
-                  :data-clipboard-text="email"
-                  @click="copy"
-          >复制</el-button>
-          <span style="margin-left: 31%">
-          <img src="../../assets/images/home/Twitter.png" alt="">
-          <img src="../../assets/images/home/Facebook.png" alt="">
-          <img src="../../assets/images/home/weixin.png" alt="">
-            </span>
-
-        </div>
-
-        <!--        <el-col :span="3">-->
-<!--          <div class="footer_block_final">-->
-<!--            <span style="margin-left:10%;padding-top:10px">联系我们</span>-->
-<!--            <p style="margin:10% 0 0 10%;font-size:16px">Email</p>-->
-<!--            <p style="margin-left:10%;font-size:16px">service@45iot.com</p>-->
+<!--      <el-footer height="600px">-->
+<!--        <el-row :offset="3"><img  class="footer_img" src="../../../public/logo.png" alt=""></el-row>-->
+<!--        <el-row>-->
+<!--        <el-col :span="3" :offset="4">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title" >产品</span>-->
+<!--            <span class="footer_block_content"> <a href=""> AIKIT </a> </span>-->
+<!--            <span class="footer_block_content"><a href="">RB3 </a></span>-->
+<!--            <span class="footer_block_content"><a href="">Rasybarry Pie </a></span>-->
+<!--            <span class="footer_block_content"><a href="">Intel Nuc </a></span>-->
 <!--          </div>-->
 <!--        </el-col>-->
+<!--        <el-col :span="3">-->
 
-      </el-footer>
-      <span class="footer_footer"> Copyright &copy; 2018~2020.Rescord license ICP备案号：181470003号 All rights reserved. </span>
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">社区</span>-->
+<!--            <span class="footer_block_content"> <a href=""> 5G</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">消费电子产品</a></span>-->
+<!--            <span class="footer_block_content"><a href="">智能汽车</a></span>-->
+<!--            <span class="footer_block_content"><a href="">智慧家居</a></span>-->
+<!--            <span class="footer_block_content"><a href="">智慧城市 </a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="3">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">教程</span>-->
+<!--            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">AI服务</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI模块</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI工具</a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="3">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">关于我们 </span>-->
+<!--            <span class="footer_block_content"> <a href="" > 关于我们</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
+<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
+<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        <el-col :span="3">-->
+<!--          <div class="footer_block">-->
+<!--            <span class="footer_block_title">其他</span>-->
+<!--            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>-->
+<!--            <span class="footer_block_content"><a href="">AI服务</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI模块</a></span>-->
+<!--            <span class="footer_block_content"><a href="">AI工具</a></span>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--        </el-row>-->
+<!--        <el-row ><span class="footer_title_ours">联系我们</span></el-row>-->
+
+
+<!--          <span class="footer_title_email">邮箱联系</span>-->
+<!--          <span class="footer_title_email2">其他联系</span>-->
+
+
+<!--        <el-table-column fixed="right" label="操作" width="150">-->
+<!--          <template slot-scope="scope">-->
+<!--            <el-button-group>-->
+<!--              <el-tooltip class="item" effect="dark" content="复制内容" placement="top">-->
+<!--                <el-button type="warning" size="mini" v-clipboard:copy="scope.row.content" v-clipboard:success="onCopy" v-clipboard:error="onError">-->
+<!--                  <i class="fa fa-copy"></i>-->
+<!--                </el-button>-->
+<!--              </el-tooltip>-->
+<!--            </el-button-group>-->
+<!--          </template>-->
+<!--        </el-table-column>-->
+<!--        <div class="item">-->
+<!--        <el-input  v-model="email" class="footer_input" size="mini"></el-input>-->
+<!--&lt;!&ndash;          <span class="footer_input"> {{email}}</span>&ndash;&gt;-->
+<!--          <el-button-->
+<!--                  type="primary"-->
+<!--                  class="btn"-->
+<!--                  size="mini"-->
+<!--                  :data-clipboard-text="email"-->
+<!--                  @click="copy"-->
+<!--          >复制</el-button>-->
+<!--          <span style="margin-left: 31%">-->
+<!--          <img src="../../assets/images/home/Twitter.png" alt="">-->
+<!--          <img src="../../assets/images/home/Facebook.png" alt="">-->
+<!--          <img src="../../assets/images/home/weixin.png" alt="">-->
+<!--            </span>-->
+
+<!--        </div>-->
+
+<!--        &lt;!&ndash;        <el-col :span="3">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="footer_block_final">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span style="margin-left:10%;padding-top:10px">联系我们</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p style="margin:10% 0 0 10%;font-size:16px">Email</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            <p style="margin-left:10%;font-size:16px">service@45iot.com</p>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </el-col>&ndash;&gt;-->
+
+<!--      </el-footer>-->
+<!--      <span class="footer_footer"> Copyright &copy; 2018~2020.Rescord license ICP备案号：181470003号 All rights reserved. </span>-->
     </div>
   </el-container>
 </template>
@@ -1060,7 +1060,7 @@ export default {
   },
   created(){
     // this.$emit('header',false);
-    this.$emit('footer',false);
+    //this.$emit('footer',false);
   }
 };
 </script>
