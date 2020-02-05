@@ -47,14 +47,15 @@
             </div>
         </el-header>
         <div class="product_display">
+            <div class="product_cards">
             <el-row>
-                <el-col :offset="4">
-                    <span class="block_title">产品展示</span>
+                <el-col>
+                    <span class="block_title">产品</span>
                 </el-col>
             </el-row>
             <el-row>
-                <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:4}">
-                    <el-card :body-style="{ padding: '0px' }" >
+                <el-col :span="8" :xs="{span:20,offset:2}" :lg="{span:8}">
+                    <el-card :body-style="{ padding: '0px' }" class="card_left" >
                         <img
                                 src="../assets/images/home/aikit_resize_2.png"
                                 class="card_image" @click="go_aikit"
@@ -68,6 +69,7 @@
                                 <el-row :gutter="13">
                                     <el-col :span="15">
                                         <span class="card_tag">Qualcomm SDA845处理器</span>
+                                        <br>
                                         <span class="card_tag">Adreno 630 GPU</span>
                                     </el-col>
                                     <el-col :span="9">
@@ -98,21 +100,22 @@
                         </div>
                     </el-card>
                 </el-col>
-                <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:1}">
-                    <el-card :body-style="{ padding: '0px' }" >
+                <el-col :span="8" :xs="{span:20,offset:2}" :lg="{span:8}">
+                    <el-card :body-style="{ padding: '0px', }" class="card_middle">
                         <img
-                                src="../assets/images/home/aikit_resize_2.png"
-                                class="card_image" @click="go_aikit"
+                                src="../assets/images/home/rb3_resize.png"
+                                class="card_image" @click="go_rb3"
                         />
-                        <div style="padding: 14px;" @click="go_aikit" class="card_div">
-                            <span class="card_title">TurboX™AI套件</span>
+                        <div style="padding: 14px;" @click="go_rb3" class="card_div">
+                            <span class="card_title">高通®机器人RB3平台</span>
                             <div class="card_content">
-                                <p>具有AI视觉功能的边缘设备</p>
+                                <p>特制的机器人为重点的Dragon Board™ 845的开发板基于高通上® SDA845处理器和符合所述96Boards开放的硬件规范</p>
                             </div>
                             <div class="card_tags">
                                 <el-row :gutter="13">
                                     <el-col :span="15">
                                         <span class="card_tag">Qualcomm SDA845处理器</span>
+                                        <br>
                                         <span class="card_tag">Adreno 630 GPU</span>
                                     </el-col>
                                     <el-col :span="9">
@@ -123,41 +126,42 @@
                             <div class="card_labels">
                                 <div style="display: flex">
                                     <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">算法SDK</span>
+                                    <span class="card_label">QUALCOMM®神经处理SDK</span>
                                 </div>
                                 <hr class="card_hr">
 
                                 <div style="display: flex">
                                     <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">强大的计算</span>
+                                    <span class="card_label">综合开发套件</span>
                                 </div>
                                 <hr class="card_hr">
                                 <div style="display: flex">
                                     <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">灵活的视觉解决方案</span>
+                                    <span class="card_label">高效节能</span>
                                 </div>
                             </div>
                             <div class="bottom clearfix" style="text-align: right;margin-top: 20px">
-                                <el-button type="primary" size="small" @click.stop="buy_aikit">立即购买</el-button>
+                                <el-button type="primary" size="small" @click.stop="buy_rb3">立即购买</el-button>
                             </div>
                         </div>
                     </el-card>
                 </el-col>
-                <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:1}">
-                    <el-card :body-style="{ padding: '0px' }" >
+                <el-col :span="8" :xs="{span:20,offset:2}" :lg="{span:8}">
+                    <el-card :body-style="{ padding: '0px' }" class="card_right" >
                         <img
-                                src="../assets/images/home/aikit_resize_2.png"
-                                class="card_image" @click="go_aikit"
+                                src="../assets/images/home/edge_resize.png"
+                                class="card_image" @click="go_edgekit"
                         />
-                        <div style="padding: 14px;" @click="go_aikit" class="card_div">
-                            <span class="card_title">TurboX™AI套件</span>
+                        <div style="padding: 14px;" @click="go_edgekit" class="card_div">
+                            <span class="card_title">TurboX Edge套件</span>
                             <div class="card_content">
-                                <p>具有AI视觉功能的边缘设备</p>
+                                <p>EdgeKit致力于驱动并实现强大，可靠和智能的通用边缘计算E2E解决方案。</p>
                             </div>
                             <div class="card_tags">
                                 <el-row :gutter="13">
                                     <el-col :span="15">
                                         <span class="card_tag">Qualcomm SDA845处理器</span>
+                                        <br>
                                         <span class="card_tag">Adreno 630 GPU</span>
                                     </el-col>
                                     <el-col :span="9">
@@ -168,171 +172,35 @@
                             <div class="card_labels">
                                 <div style="display: flex">
                                     <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">算法SDK</span>
+                                    <span class="card_label">QUALCOMM®神经处理SDK</span>
                                 </div>
                                 <hr class="card_hr">
 
                                 <div style="display: flex">
                                     <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">强大的计算</span>
+                                    <span class="card_label">综合开发套件</span>
                                 </div>
                                 <hr class="card_hr">
                                 <div style="display: flex">
                                     <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">灵活的视觉解决方案</span>
+                                    <span class="card_label">高效节能</span>
                                 </div>
                             </div>
                             <div class="bottom clearfix" style="text-align: right;margin-top: 20px">
-                                <el-button type="primary" size="small" @click.stop="buy_aikit">立即购买</el-button>
+                                <el-button type="primary" size="small" @click.stop="buy_edgekit">立即购买</el-button>
                             </div>
                         </div>
                     </el-card>
                 </el-col>
-
             </el-row>
-            <el-row>
-                <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:4}">
-                    <el-card :body-style="{ padding: '0px' }" >
-                        <img
-                                src="../assets/images/home/aikit_resize_2.png"
-                                class="card_image" @click="go_aikit"
-                        />
-                        <div style="padding: 14px;" @click="go_aikit" class="card_div">
-                            <span class="card_title">TurboX™AI套件</span>
-                            <div class="card_content">
-                                <p>具有AI视觉功能的边缘设备</p>
-                            </div>
-                            <div class="card_tags">
-                                <el-row :gutter="13">
-                                    <el-col :span="15">
-                                        <span class="card_tag">Qualcomm SDA845处理器</span>
-                                        <span class="card_tag">Adreno 630 GPU</span>
-                                    </el-col>
-                                    <el-col :span="9">
-                                        <span class="card_tag">六核685 DSP</span>
-                                    </el-col>
-                                </el-row>
-                            </div>
-                            <div class="card_labels">
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">算法SDK</span>
-                                </div>
-                                <hr class="card_hr">
 
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">强大的计算</span>
-                                </div>
-                                <hr class="card_hr">
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">灵活的视觉解决方案</span>
-                                </div>
-                            </div>
-                            <div class="bottom clearfix" style="text-align: right;margin-top: 20px">
-                                <el-button type="primary" size="small" @click.stop="buy_aikit">立即购买</el-button>
-                            </div>
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:1}">
-                    <el-card :body-style="{ padding: '0px' }" >
-                        <img
-                                src="../assets/images/home/aikit_resize_2.png"
-                                class="card_image" @click="go_aikit"
-                        />
-                        <div style="padding: 14px;" @click="go_aikit" class="card_div">
-                            <span class="card_title">TurboX™AI套件</span>
-                            <div class="card_content">
-                                <p>具有AI视觉功能的边缘设备</p>
-                            </div>
-                            <div class="card_tags">
-                                <el-row :gutter="13">
-                                    <el-col :span="15">
-                                        <span class="card_tag">Qualcomm SDA845处理器</span>
-                                        <span class="card_tag">Adreno 630 GPU</span>
-                                    </el-col>
-                                    <el-col :span="9">
-                                        <span class="card_tag">六核685 DSP</span>
-                                    </el-col>
-                                </el-row>
-                            </div>
-                            <div class="card_labels">
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">算法SDK</span>
-                                </div>
-                                <hr class="card_hr">
-
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">强大的计算</span>
-                                </div>
-                                <hr class="card_hr">
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">灵活的视觉解决方案</span>
-                                </div>
-                            </div>
-                            <div class="bottom clearfix" style="text-align: right;margin-top: 20px">
-                                <el-button type="primary" size="small" @click.stop="buy_aikit">立即购买</el-button>
-                            </div>
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:1}">
-                    <el-card :body-style="{ padding: '0px' }" >
-                        <img
-                                src="../assets/images/home/aikit_resize_2.png"
-                                class="card_image" @click="go_aikit"
-                        />
-                        <div style="padding: 14px;" @click="go_aikit" class="card_div">
-                            <span class="card_title">TurboX™AI套件</span>
-                            <div class="card_content">
-                                <p>具有AI视觉功能的边缘设备</p>
-                            </div>
-                            <div class="card_tags">
-                                <el-row :gutter="13">
-                                    <el-col :span="15">
-                                        <span class="card_tag">Qualcomm SDA845处理器</span>
-                                        <span class="card_tag">Adreno 630 GPU</span>
-                                    </el-col>
-                                    <el-col :span="9">
-                                        <span class="card_tag">六核685 DSP</span>
-                                    </el-col>
-                                </el-row>
-                            </div>
-                            <div class="card_labels">
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">算法SDK</span>
-                                </div>
-                                <hr class="card_hr">
-
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">强大的计算</span>
-                                </div>
-                                <hr class="card_hr">
-                                <div style="display: flex">
-                                    <img src="../assets/images/home/xuanding.png" alt />
-                                    <span class="card_label">灵活的视觉解决方案</span>
-                                </div>
-                            </div>
-                            <div class="bottom clearfix" style="text-align: right;margin-top: 20px">
-                                <el-button type="primary" size="small" @click.stop="buy_aikit">立即购买</el-button>
-                            </div>
-                        </div>
-                    </el-card>
-                </el-col>
-
-            </el-row>
                 <el-pagination
                         background
                         layout="prev, pager, next"
                         :total="50">
                 </el-pagination>
+
+            </div>
         </div>
     </el-container>
 
@@ -379,6 +247,44 @@ export default {
         go_aikit(){
             this.$router.push({path:'/aikitdetails'});
         },
+        go_edgekit(){
+            this.$router.push({path:'/edgekitdetails'});
+        },
+        go_rb3(){
+            this.$router.push({path:'/rb3details'});
+        },
+        buy_aikit() {
+            this.$router.push(
+                { path: '/buy',
+                    query:{
+                        name:'AI KIT',
+                        good_id: 1682320,
+                    }
+                }
+            );
+
+        },
+        buy_edgekit(){
+
+            this.$router.push(
+                { path: '/buy',
+                    query:{
+                        name:'Edge KIT',
+                        good_id: 1682320,
+                    }
+                }
+            );
+        },
+        buy_rb3(){
+            this.$router.push(
+                { path: '/buy',
+                    query:{
+                        name:'RB 3',
+                        good_id: 1682320,
+                    }
+                }
+            );
+        },
 
     }
 };
@@ -391,6 +297,7 @@ export default {
   color: white;
   line-height: 60px;
 
+
 }
 .logo{
     width: 64px;
@@ -402,13 +309,15 @@ export default {
     display: flex;
     justify-content: space-between;
     line-height: 6;
-    /*padding-left: 100px;*/
-    /*padding-right: 150px;*/
+
+    width: 62.5%;
+    margin:0 auto;
 
 }
 .nav_layout_right{
     display: flex;
     align-items: center;
+
 }
 .nav_font{
     opacity: 0.8;
@@ -471,9 +380,17 @@ export default {
     color: #16161D;
 }
 .product_display{
+
     background-color: #F0F1F3;
     padding-top: 20px;
     padding-bottom: 20px;
+    align-items: center;
+}
+.product_cards{
+    width: 62.5%;
+    margin: 0 auto;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
 }
     .el-col {
         margin-bottom: 10px;
@@ -484,11 +401,11 @@ export default {
     margin-bottom:10px ;
 }
 .card_image{
-    height: 240px;
+    height: 12vw;
     width: 100%;
     cursor: pointer;
     overflow: hidden;
-
+    display: block;
 }
 .card_title{
     font-family: PingFangSC-Semibold;
@@ -499,7 +416,7 @@ export default {
 .card_content{
     margin-top: 20px;
     height: 40px;
-    width: 90%;
+    width: 100%;
     font-family: PingFangSC-Regular;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -511,7 +428,7 @@ export default {
     line-height: 20px;
 }
 .card_tags{
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     height: 55px;
 }
 .card_tag{
@@ -521,7 +438,7 @@ export default {
     border-radius: 3px;
 
     font-family: PingFangSC-Regular;
-    font-size: 10px;
+    font-size: 12px;
     color: #606879;
 }
 .card_labels{
@@ -542,6 +459,20 @@ export default {
     .card_div{
         cursor: pointer;
     }
+
+    .card_left{
+        width: 90%;
+    }
+    .card_right{
+        margin-left: auto;
+
+        width: 90%;
+    }
+    .card_middle{
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
     .el-pagination {
         text-align: center;
 
@@ -552,18 +483,31 @@ export default {
     }
 
 
-
-
-
-
-@media (min-width: 768px) {
-    .nav_layout{
-        /*display: flex;*/
-        /*justify-content: space-between;*/
-        /*line-height: 6;*/
-        padding-left: 100px;
-        padding-right: 150px;
+    @media (max-width: 768px) {
+        .nav_layout{
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .product_cards{
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 100%;
+        }
+        .card_left{
+            width: 100%;
+        }
+        .card_right{
+            width:  100%;
+        }
+        .card_middle{
+            width: 100%;
+        }
+        .card_image{
+            width: 100%;
+            height: auto;
+        }
 
     }
-}
+
 </style>
