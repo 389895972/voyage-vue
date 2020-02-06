@@ -632,7 +632,7 @@ export default {
 
 };
 </script>
-<style   lang="less" >
+<style   lang="less" scoped>
 .first {
   /*display: flex;*/
   display: inline-block;
