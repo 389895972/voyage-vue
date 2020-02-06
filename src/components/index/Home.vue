@@ -768,7 +768,7 @@
           <el-tabs v-model="home_reg_activeName" class="home_question">
             <el-tab-pane label="注册与登录" name="home_reg_first" class="home_reg_first">
               <div class="service_contents">
-                <table>
+                <table style="width:100%">
                   <tr>
                     <td>
                       <span class="service_querstion">注册账号都需要那些条件？</span>
@@ -783,7 +783,7 @@
                       <div style="width:80%">
                         <p class="service_querstion_p">
                           可能被邮箱判断为垃圾邮件，请您打开垃圾邮箱所在文件夹查看是否收到。
-                          <br />如果任然无法收到验证码，您可尝试切换手机号进行验证。
+                          如果任然无法收到验证码，您可尝试切换手机号进行验证。
                         </p>
                       </div>
                     </td>
@@ -794,7 +794,7 @@
                       <div style="width:80%">
                         <p class="service_querstion_p">
                           可能被邮箱判断为垃圾邮件，请您打开垃圾邮箱所在文件夹查看是否收到。
-                          <br />如果任然无法收到验证码，您可尝试切换手机号进行验证。
+                          如果任然无法收到验证码，您可尝试切换手机号进行验证。
                         </p>
                       </div>
                     </td>
@@ -1144,7 +1144,10 @@ div {
   margin-top: 35px;
   font-size: 36px;
   width: 50%;
-  margin-left: 18.8%;
+  /*margin-left: 18.8%;*/
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   text-align: left;
 
 }
@@ -1153,7 +1156,8 @@ div {
   text-align: center;
   display: inline-flex;
   justify-content: space-around;
-  width: 60%;
+  /*width: 60%;*/
+  width: 1134px;
   margin-top: 70px;
 }
 
@@ -1242,7 +1246,8 @@ span {
      background-color: white;
 }
 .adv_title{
-  width: 62.4%;
+  /*width: 62.4%;*/
+  width: 1280px;
   margin: 0 auto;
   display: flex;
 }
@@ -1454,13 +1459,18 @@ a:link{
 .service_title {
  font-weight: bold;
   text-align: left;
-  width: 100%;
-  margin-left: 18.8%;
+  /*width: 100%;*/
+  /*margin-left: 18.8%;*/
+    width: 1280px;
+    margin: 0 auto;
   font-size: 36px;
 }
 .home_question{
-    margin-left: 17%;
+    /*margin-left: 17%;*/
+    width: 1340px;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .service_index {
@@ -1497,7 +1507,7 @@ a:link{
   padding-top: 2%;
   padding-bottom: 5%;
   background-image: url("../../assets/images/home/bg_logo.png");
-  background-size: 310px 260px;
+  background-size: 360px 260px;
   background-repeat: no-repeat;
   /*opacity: 0.9;*/
   background-position: 78%;
@@ -1536,14 +1546,18 @@ a:link{
 .home_reg_title{
   font-size: 36px;
   color: white;
-  width:20%;
-  margin-left: 18.8%;
+  /*width:20%;*/
+  /*margin-left: 18.8%;*/
+    width: 1280px;
+    margin: 0 auto;
   text-align: left;
 }
 .home_reg_introduce  {
   margin-top: 20px;
   color: white;
   font-size: 24px;
+    width: 507px;
+    margin: 0 auto;
 }
 
 .home_reg_btn {
@@ -1671,7 +1685,8 @@ a:link{
   }
   .product_cards{
 
-    width: 62.5%;
+    /*width: 62.5%;*/
+    width:1280px;
     margin: 0 auto;
     /*padding-left: 20px;*/
     /*padding-right: 20px;*/

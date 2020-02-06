@@ -4,6 +4,7 @@
 
             <div class="fixTi1" :class="{fixTitle:whether}" v-if="whether">
                 <div class="tabs_tabs1">
+                    <div style="margin: 0 auto;width: 1280px;display: flex">
                     <el-tabs class="tab_pane" @tab-click="handleClick1">
                         <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
                         <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
@@ -15,6 +16,7 @@
                         <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
                         <!--                                </div>-->
                     </el-tabs>
+                    </div>
                 </div>
             </div>
 
@@ -366,89 +368,226 @@
                     <div  class="pro_show_div_border">
                         <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
                     </div>
-                    <table border="1" style="margin-top:20px;width:100%;font-size:12px;line-height:2em;text-align:left;border-color:cornflowerblue;" cellspacing="0" class="doc">
-                        <tbody><tr><td rowspan="17" style="font-weight:550;text-align:center;">Documentation</td><td rowspan="13" style="font-weight:550;text-align:center;">Hardware</td><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">Quick Start
-                                                    Guide</span> </a></td></tr>
-                        <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics
-                            DragonBoard 845c Spec</span></a></td></tr>
-                                               <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics
-                                                   Navigation Mezzanine Spec</span></a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics Machine
-                                                    Communication Mezzanine Spec</span></a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Main
-                                                    Camera Spec</span></a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Tracking Camera
-                                                    Spec</span></a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">ToFCamera Hardware User Guide</span></a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">SLM
-                                                    Camera Hardware User Guide</span></a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Hardware User Guide</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Schematics</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform  STEP Models</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM Datasheet</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM GPIO Pin Assignment</a></td></tr>
-                                                <tr><td rowspan="4" style="font-weight:550;text-align:center;">Software</td><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Linux User Guide</a></td></tr>
-                                                <!-- <tr>
-                                                    <td class="doc_td_left">
-                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=
-                                                ick="getDocument('220')">Qualcomm Robotics RB3 LE SDK User Manual</a>
-                                                    </td>
-                                                </tr> -->
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Qualcomm Robotics RB3 Platform Release notes</span></a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SLM Camera ImageViewer.pdf</a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">RB3 Robomaker Guide</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" rowspan="2" style="font-weight:550px;text-align:center;">Firmware</td>
-                                                    <!--
-                                                                    <td class="doc_td_left">
-                                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=
-                                                    ick="getDocument('166')">Qualcomm Robotics
-                                                                                    RB3 Platform Image_20190222</a>
-                                                                    </td>
-                                                    --><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Image_20191029</a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Readme</a></td>
-                                                </tr>
-                                                <tr><td rowspan="11" colspan="2" style="font-weight:550;text-align:center;">Samples-apps-codes</td><td class="doc_td_left"><a title="docment" rel="nofollow">button_test.tar</a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">can-test.tar</a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">bt-app_test.tar</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">aplay_test.tar</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">hal_play_test.tar</a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">sns_hal_tests.tar</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">camera_test.tar</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">omx_test.tar</a>
-                                                </td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">gst_test.tar</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">opengles_test.tar</a>
-                                                </td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">ros_test.tar</a>
-                                                </td></tr>
-                                                <tr><td rowspan="5" colspan="2" style="font-weight:550;text-align:center;">testResource</td><td class="doc_td_left"><a title="docment" rel="nofollow">Audio</a>
-                                                </td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">FastCV</a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">OpenGLES</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Video</a></td>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SNPE</a></td></tr>
-                                                <tr><td rowspan="6" colspan="2" style="font-weight:550;text-align:center;">Tools</td><td class="doc_td_left"><a title="docment" rel="nofollow">SLM
-                                                            Camera Image
-                                                            Viewer.exe</a></td></tr><tr>
-                                                </tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">App
-                                                            Toolchain
-                                                            SDK</a></td></tr><tr><td class="doc_td_left"><a title="docment" rel="nofollow">QTI
-                                                            USB driver</a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">TFlash</span> </a></td></tr>
-                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;text-align: left">Thundersoft_Flash_Programmer_Tool_User_Guide</span> </a></td></tr>
-                                                </tbody>
-                                                </table>
+                    <span class="adv_span1" style="margin-left: 25px">相关文档</span>
+                    <div class="product_documents">
+                        <div class = "product_document">
+                            <div class="product_document_left">
+                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <span class="document_name">相关操作文档.pdf</span>
+                            </div>
+                            <div class="product_document_right">
+                                <span class="document_size">1MB</span>
+                                <span class="document_time">2020/1/23</span>
+                                <span><a class="document_link">立即下载</a></span>
+                            </div>
+
+                        </div>
+                        <hr class="document_hr">
+
+                        <div class = "product_document">
+                            <div class="product_document_left">
+                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <span class="document_name">相关操作文档.pdf</span>
+                            </div>
+                            <div class="product_document_right">
+                                <span class="document_size">1MB</span>
+                                <span class="document_time">2020/1/23</span>
+                                <span><a class="document_link">立即下载</a></span>
+                            </div>
+
+                        </div>
+                        <hr class="document_hr">
+
+                        <div class = "product_document">
+                            <div class="product_document_left">
+                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <span class="document_name">相关操作文档.pdf</span>
+                            </div>
+                            <div class="product_document_right">
+                                <span class="document_size">1MB</span>
+                                <span class="document_time">2020/1/23</span>
+                                <span><a class="document_link">立即下载</a></span>
+                            </div>
+
+                        </div>
+                        <hr class="document_hr">
+
+                        <div v-if="isMore" class="more">
+                            <div class = "product_document">
+                                <div class="product_document_left">
+                                    <img class="document_image" src="../../assets/icons/pdf.svg">
+                                    <span class="document_name">相关操作文档.pdf</span>
+                                </div>
+                                <div class="product_document_right">
+                                    <span class="document_size">1MB</span>
+                                    <span class="document_time">2020/1/23</span>
+                                    <span><a class="document_link">立即下载</a></span>
+                                </div>
+
+                            </div>
+                            <hr class="document_hr">
+                            <el-button class="more_button" @click="showLess">收起 &lt; &lt;</el-button>
+                        </div>
+
+                        <div v-else class="less">
+                            <el-button class="more_button" @click="showMore">更多&gt;&gt;</el-button>
+                        </div>
+
+
+                    </div>
+                    <span class="adv_span1" style="margin-left: 25px">相关教程</span>
+                    <el-row>
+                        <el-col span="8">
+                            <div class="vedio_block_left">
+                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_middle">
+                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_right">
+                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <el-row v-if="isMoreVedio">
+                        <el-col span="8">
+                            <div class="vedio_block_left">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_middle">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_right">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+                        <div style="width: 100%;text-align: center">
+                            <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>
+                        </div>
+
+                    </el-row>
+
+                    <el-row v-else>
+                        <div style="width: 100%;text-align: center">
+                            <el-button class="more_button" @click="showMoreVedio">更多 &lt; &lt;</el-button>
+                        </div>
+                    </el-row>
+<!--                    <table border="1" style="margin-top:20px;width:100%;font-size:12px;line-height:2em;text-align:left;border-color:cornflowerblue;" cellspacing="0" class="doc">-->
+<!--                        <tbody><tr><td rowspan="17" style="font-weight:550;text-align:center;">Documentation</td><td rowspan="13" style="font-weight:550;text-align:center;">Hardware</td><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">Quick Start-->
+<!--                                                    Guide</span> </a></td></tr>-->
+<!--                        <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
+<!--                            DragonBoard 845c Spec</span></a></td></tr>-->
+<!--                                               <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
+<!--                                                   Navigation Mezzanine Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics Machine-->
+<!--                                                    Communication Mezzanine Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Main-->
+<!--                                                    Camera Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Tracking Camera-->
+<!--                                                    Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">ToFCamera Hardware User Guide</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">SLM-->
+<!--                                                    Camera Hardware User Guide</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Hardware User Guide</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Schematics</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform  STEP Models</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM Datasheet</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM GPIO Pin Assignment</a></td></tr>-->
+<!--                                                <tr><td rowspan="4" style="font-weight:550;text-align:center;">Software</td><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Linux User Guide</a></td></tr>-->
+<!--                                                &lt;!&ndash; <tr>-->
+<!--                                                    <td class="doc_td_left">-->
+<!--                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
+<!--                                                ick="getDocument('220')">Qualcomm Robotics RB3 LE SDK User Manual</a>-->
+<!--                                                    </td>-->
+<!--                                                </tr> &ndash;&gt;-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Qualcomm Robotics RB3 Platform Release notes</span></a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SLM Camera ImageViewer.pdf</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">RB3 Robomaker Guide</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td colspan="2" rowspan="2" style="font-weight:550px;text-align:center;">Firmware</td>-->
+<!--                                                    &lt;!&ndash;-->
+<!--                                                                    <td class="doc_td_left">-->
+<!--                                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
+<!--                                                    ick="getDocument('166')">Qualcomm Robotics-->
+<!--                                                                                    RB3 Platform Image_20190222</a>-->
+<!--                                                                    </td>-->
+<!--                                                    &ndash;&gt;<td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Image_20191029</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Readme</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td rowspan="11" colspan="2" style="font-weight:550;text-align:center;">Samples-apps-codes</td><td class="doc_td_left"><a title="docment" rel="nofollow">button_test.tar</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">can-test.tar</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">bt-app_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">aplay_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">hal_play_test.tar</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">sns_hal_tests.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">camera_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">omx_test.tar</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">gst_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">opengles_test.tar</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">ros_test.tar</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td rowspan="5" colspan="2" style="font-weight:550;text-align:center;">testResource</td><td class="doc_td_left"><a title="docment" rel="nofollow">Audio</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">FastCV</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">OpenGLES</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Video</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SNPE</a></td></tr>-->
+<!--                                                <tr><td rowspan="6" colspan="2" style="font-weight:550;text-align:center;">Tools</td><td class="doc_td_left"><a title="docment" rel="nofollow">SLM-->
+<!--                                                            Camera Image-->
+<!--                                                            Viewer.exe</a></td></tr><tr>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">App-->
+<!--                                                            Toolchain-->
+<!--                                                            SDK</a></td></tr><tr><td class="doc_td_left"><a title="docment" rel="nofollow">QTI-->
+<!--                                                            USB driver</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">TFlash</span> </a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;text-align: left">Thundersoft_Flash_Programmer_Tool_User_Guide</span> </a></td></tr>-->
+<!--                                                </tbody>-->
+<!--                                                </table>-->
 
                 </div>
             </div>
@@ -940,7 +1079,9 @@
                 //home:this.$t('nav.document')
                 vm:vm,
                 whether:false,
-                curId:0
+                curId:0,
+                isMore:false,
+                isMoreVedio:false
             }
         },
         methods:{
@@ -984,6 +1125,18 @@
                     }
                 );
 
+            },
+            showMore(){
+                this.isMore=true;
+            },
+            showLess(){
+                this.isMore=false;
+            },
+            showMoreVedio(){
+                this.isMoreVedio=true;
+            },
+            showLessVedio(){
+                this.isMoreVedio=false;
             }
 
 
@@ -994,6 +1147,150 @@
     }
 </script>
 <style scoped lang="less">
+    .product_documents{
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .product_document{
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: inline-flex;
+        margin-left: 20px;
+    }
+    .product_document_left{
+
+    }
+    .product_document_right{
+        text-align: right;
+    }
+    .document_image{
+        width: 31px;
+        height: 36px;
+    }
+    .document_name{
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #1F1F25;
+        margin-left: 10px;
+    }
+    .document_size{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #16161D;
+
+        margin-left: 20px;
+    }
+    .document_time{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #737A89;
+
+        margin-left: 20px;
+    }
+    .document_link{
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #3254DC;
+        line-height: 12px;
+
+        margin-left: 20px;
+        margin-right: 0px;
+    }
+    .document_hr{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .less{
+        text-align: center;
+        width: 100%;
+        height: 25px;
+    }
+    .more{
+        text-align: center;
+        width: 100%;
+    }
+    .product_vedios{
+        width: 100%;
+    }
+    .el-row{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    .vedio_block_left{
+
+        margin-left: 0;
+        width: 90%;
+        height: 12vw;
+
+    }
+
+    .vedio_block_middle{
+
+
+        margin-left: auto;
+        margin-right: auto;;
+        width: 90%;
+        height: 12vw;
+    }
+    .vedio_block_right{
+
+        margin-left: auto;
+        width: 90%;
+        height: 12vw;
+    }
+
+    .vedio_image{
+        /*background-image: linear-gradient(181deg, rgba(0,0,0,0.00) 71%, #000000 100%);*/
+        border-radius: 5px;
+        background-image: url("../../assets/images/AiKit/aikit_vedio.png");
+        background-size: 360px 200px;
+        width: 360px;
+        height: 200px;
+        position:relative;
+    }
+    .vedio_title{
+        font-family: PingFangSC-Semibold;
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 16px;
+        z-index: 1;
+        display: flow;
+        margin-bottom: 10px;
+
+        position:absolute;
+        left :20px;
+        bottom:20px;
+    }
+    .vedio_desc{
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #FFFFFF;
+        line-height: 20px;
+        z-index: 1;
+
+
+    }
+
+
+
+    .more_button{
+
+
+        width: 360px;
+        background: #E4E7EB;
+        border-radius: 3px;
+
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #16161D;
+    }
+    .button_p{
+
+    }
 
  /*td{*/
  /*   text-align: left;*/
@@ -1561,13 +1858,16 @@
         margin-top: 10px;
     }
     .pro_det{
-        margin-left: 18.8%;
+        /*margin-left: 18.8%;*/
         font-weight: bold;
         font-size: 36px;
         margin-top: 50px;
+       margin-right: auto;
+        margin-left: auto;
+        width: 1280px;
     }
     .pro_show{
-        width: 62.4%;
+        width:1280px;
         margin: 0 auto;
     }
     .pro_show_div{
@@ -1629,9 +1929,9 @@
         display: flex;
         justify-content: space-between;
         background-color: white;
-        padding-left: 16.6%;
+        /*padding-left: 16.6%;*/
         padding-top: 10px;
-        padding-right: 16.6%;
+        /*padding-right: 16.6%;*/
         font-size: 18px;
         /*margin-top: 10px;*/
         margin-bottom: 10px;

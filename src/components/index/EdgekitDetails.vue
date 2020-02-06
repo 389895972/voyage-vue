@@ -4,6 +4,7 @@
 
       <div class="fixTi1" :class="{fixTitle:whether}" v-if="whether">
         <div class="tabs_tabs1">
+            <div style="margin: 0 auto;width: 1280px;display: flex">
           <el-tabs class="tab_pane" @tab-click="handleClick1">
             <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
             <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
@@ -15,6 +16,7 @@
             <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
             <!--                                </div>-->
           </el-tabs>
+            </div>
         </div>
       </div>
 
@@ -368,9 +370,146 @@
           <div  class="pro_show_div_border">
             <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
           </div>
-                      <button class="download-btn" @click="download">
-                        <span>Click Here to Download the Documents</span>
-                      </button>
+<!--              <button class="download-btn" @click="download">-->
+<!--                        <span>Click Here to Download the Documents</span>-->
+<!--                      </button>-->
+            <span class="adv_span1" style="margin-left: 25px">相关文档</span>
+            <div class="product_documents">
+                <div class = "product_document">
+                    <div class="product_document_left">
+                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <span class="document_name">相关操作文档.pdf</span>
+                    </div>
+                    <div class="product_document_right">
+                        <span class="document_size">1MB</span>
+                        <span class="document_time">2020/1/23</span>
+                        <span><a class="document_link">立即下载</a></span>
+                    </div>
+
+                </div>
+                <hr class="document_hr">
+
+                <div class = "product_document">
+                    <div class="product_document_left">
+                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <span class="document_name">相关操作文档.pdf</span>
+                    </div>
+                    <div class="product_document_right">
+                        <span class="document_size">1MB</span>
+                        <span class="document_time">2020/1/23</span>
+                        <span><a class="document_link">立即下载</a></span>
+                    </div>
+
+                </div>
+                <hr class="document_hr">
+
+                <div class = "product_document">
+                    <div class="product_document_left">
+                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <span class="document_name">相关操作文档.pdf</span>
+                    </div>
+                    <div class="product_document_right">
+                        <span class="document_size">1MB</span>
+                        <span class="document_time">2020/1/23</span>
+                        <span><a class="document_link">立即下载</a></span>
+                    </div>
+
+                </div>
+                <hr class="document_hr">
+
+                <div v-if="isMore" class="more">
+                    <div class = "product_document">
+                        <div class="product_document_left">
+                            <img class="document_image" src="../../assets/icons/pdf.svg">
+                            <span class="document_name">相关操作文档.pdf</span>
+                        </div>
+                        <div class="product_document_right">
+                            <span class="document_size">1MB</span>
+                            <span class="document_time">2020/1/23</span>
+                            <span><a class="document_link">立即下载</a></span>
+                        </div>
+
+                    </div>
+                    <hr class="document_hr">
+                    <el-button class="more_button" @click="showLess">收起 &lt; &lt;</el-button>
+                </div>
+
+                <div v-else class="less">
+                    <el-button class="more_button" @click="showMore">更多&gt;&gt;</el-button>
+                </div>
+
+
+            </div>
+            <span class="adv_span1" style="margin-left: 25px">相关教程</span>
+            <el-row>
+                <el-col span="8">
+                    <div class="vedio_block_left">
+                        <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+
+                <el-col span="8">
+                    <div class="vedio_block_middle">
+                        <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+
+                <el-col span="8">
+                    <div class="vedio_block_right">
+                        <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+            </el-row>
+            <el-row v-if="isMoreVedio">
+                <el-col span="8">
+                    <div class="vedio_block_left">
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+
+                <el-col span="8">
+                    <div class="vedio_block_middle">
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+
+                <el-col span="8">
+                    <div class="vedio_block_right">
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+                <div style="width: 100%;text-align: center">
+                    <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>
+                </div>
+
+            </el-row>
+
+            <el-row v-else>
+                <div style="width: 100%;text-align: center">
+                    <el-button class="more_button" @click="showMoreVedio">更多 &lt; &lt;</el-button>
+                </div>
+            </el-row>
         </div>
       </div>
 
@@ -432,7 +571,9 @@ export default {
       activeName: "first",
       whether: false,
       curId: 0,
-      vm: vm
+      vm: vm,
+        isMore:false,
+        isMoreVedio:false
     };
   },
   methods: {
@@ -473,7 +614,19 @@ export default {
               }
       );
 
-    }
+    },
+      showMore(){
+          this.isMore=true;
+      },
+      showLess(){
+          this.isMore=false;
+      },
+      showMoreVedio(){
+          this.isMoreVedio=true;
+      },
+      showLessVedio(){
+          this.isMoreVedio=false;
+      }
   },
   mounted: function() {
     window.addEventListener("scroll", this.handleScroll);
@@ -482,7 +635,152 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.product_advantages {
+    .product_documents{
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .product_document{
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: inline-flex;
+        margin-left: 20px;
+    }
+    .product_document_left{
+
+    }
+    .product_document_right{
+        text-align: right;
+    }
+    .document_image{
+        width: 31px;
+        height: 36px;
+    }
+    .document_name{
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #1F1F25;
+        margin-left: 10px;
+    }
+    .document_size{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #16161D;
+
+        margin-left: 20px;
+    }
+    .document_time{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #737A89;
+
+        margin-left: 20px;
+    }
+    .document_link{
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #3254DC;
+        line-height: 12px;
+
+        margin-left: 20px;
+        margin-right: 0px;
+    }
+    .document_hr{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .less{
+        text-align: center;
+        width: 100%;
+        height: 25px;
+    }
+    .more{
+        text-align: center;
+        width: 100%;
+    }
+    .product_vedios{
+        width: 100%;
+    }
+    .el-row{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    .vedio_block_left{
+
+        margin-left: 0;
+        width: 90%;
+        height: 12vw;
+
+    }
+
+    .vedio_block_middle{
+
+
+        margin-left: auto;
+        margin-right: auto;;
+        width: 90%;
+        height: 12vw;
+    }
+    .vedio_block_right{
+
+        margin-left: auto;
+        width: 90%;
+        height: 12vw;
+    }
+
+    .vedio_image{
+        /*background-image: linear-gradient(181deg, rgba(0,0,0,0.00) 71%, #000000 100%);*/
+        border-radius: 5px;
+        background-image: url("../../assets/images/AiKit/aikit_vedio.png");
+        background-size: 360px 200px;
+        width: 360px;
+        height: 200px;
+        position:relative;
+    }
+    .vedio_title{
+        font-family: PingFangSC-Semibold;
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 16px;
+        z-index: 1;
+        display: flow;
+        margin-bottom: 10px;
+
+        position:absolute;
+        left :20px;
+        bottom:20px;
+    }
+    .vedio_desc{
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #FFFFFF;
+        line-height: 20px;
+        z-index: 1;
+
+
+    }
+
+
+
+    .more_button{
+
+
+        width: 360px;
+        background: #E4E7EB;
+        border-radius: 3px;
+
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #16161D;
+    }
+    .button_p{
+
+    }
+
+    .product_advantages {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
@@ -1105,13 +1403,16 @@ a {
     margin-top: 10px;
   }
   .pro_det{
-    margin-left: 18.8%;
+    /*margin-left: 18.8%;*/
     font-weight: bold;
     font-size: 36px;
     margin-top: 50px;
+      width: 1280px;
+      margin-left: auto;
+    margin-right: auto;
   }
   .pro_show{
-    width: 62.4%;
+    width: 1280px;
     margin: 0 auto;
   }
   .pro_show_div{
@@ -1171,17 +1472,17 @@ a {
     z-index: 5;
   }
   .tabs_tabs1 {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    padding-left: 16.6%;
-    padding-top: 10px;
-    padding-right: 16.6%;
-    font-size: 18px;
-    /*margin-top: 10px;*/
-    margin-bottom: 10px;
-    box-shadow:2px 2px 10px #909090;
-    width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      /*padding-left: 16.6%;*/
+      padding-top: 10px;
+      /*padding-right: 16.6%;*/
+      font-size: 18px;
+      /*margin-top: 10px;*/
+      margin-bottom: 10px;
+      box-shadow:2px 2px 10px #909090;
+      width: 100%;
   }
   .pro_show td,th{
     padding-left: 15px;

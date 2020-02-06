@@ -400,6 +400,7 @@
         <!-- <div> -->
         <div class="fixTi1" :class="{fixTitle:whether}" v-if="whether">
           <div class="tabs_tabs1 ">
+              <div style="margin: 0 auto;width: 1280px;display: flex">
             <el-tabs class="tab_pane" @tab-click="handleClick1">
               <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
               <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
@@ -411,6 +412,7 @@
               <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
               <!--                                </div>-->
             </el-tabs>
+              </div>
           </div>
         </div>
 
@@ -1017,6 +1019,7 @@ a {
      height: 450px;
      background-repeat: no-repeat;
     background-size: 100% 100%;
+
   }
   .aikit_body{
     width: 100%;
@@ -1036,13 +1039,16 @@ a {
    margin-top: 10px;
 }
   .pro_det{
-     margin-left: 18.8%;
+      /*width: 62.5%;*/
+      width: 1280px;
+      margin: 0 auto;
     font-weight: bold;
     font-size: 36px;
     margin-top: 50px;
   }
 .pro_show{
-   width: 62.4%;
+   /*width: 62.4%;*/
+   width: 1280px;
   margin: 0 auto;
 }
 .pro_show td,th{
@@ -1108,9 +1114,9 @@ a {
     display: flex;
     justify-content: space-between;
     background-color: white;
-    padding-left: 16.6%;
+    /*padding-left: 16.6%;*/
     padding-top: 10px;
-    padding-right: 16.6%;
+    /*padding-right: 16.6%;*/
     font-size: 18px;
     /*margin-top: 10px;*/
     margin-bottom: 10px;

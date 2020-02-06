@@ -300,7 +300,7 @@
 
 <style scoped>
     .buy_body{
-        width: 62.4%;
+       width: 1280px;
         margin: 50px auto 0 auto;
     }
     .product_name{
@@ -330,15 +330,16 @@
          margin-top: 20px;
     }
     .configure_content >>>.el-radio-button__inner{
-        margin: 0 10px;
+        margin-right: 10px;
         /*background-color: #3FB560;*/
-
+        width: 180px;
         color: black;
     }
     .configure_content >>> .el-radio-button__orig-radio:checked+.el-radio-button__inner{
-            margin: 0 10px;
+        margin-right: 10px;
             background-color: #3FB560;
             color: white;
+        width: 180px;
     }
     .configure_os{
         margin-right: 30px;
