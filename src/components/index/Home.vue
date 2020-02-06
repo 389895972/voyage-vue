@@ -379,7 +379,7 @@
             </el-row>
             <el-row>
               <el-col :span="5" :offset="4" :xs="{span:20,offset:2}" :lg="{span:5,offset:4}">
-                <el-card :body-style="{ padding: '0px' }" >
+                <el-card shadow="hover" :body-style="{ padding: '0px' }" >
                   <img
                           src="../../assets/images/home/aikit_resize_2.png"
                           class="card_image" @click="go_aikit"
@@ -1305,8 +1305,8 @@ span {
   color: rgba(102, 102, 102, 0.874509803921569);
 }
 
-.el-card {
-  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04) !important;
+.el-card{
+  /*box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04) !important;*/
 }
 
 .el-footer {
