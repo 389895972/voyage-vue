@@ -1,7 +1,7 @@
 <template>
     <div>
     <el-footer height="600px">
-        <el-row :offset="3"><img  class="footer_img" src="../../public/logo.png" alt=""></el-row>
+        <el-row  :offset="3"><img  class="footer_img" src="../../public/logo.png" alt=""></el-row>
         <el-row>
             <el-col :span="3" :offset="4">
                 <div class="footer_block">
@@ -121,10 +121,11 @@ export default {
         text-align: left;
     }
     .footer_block_title{
-        margin-left:30%
+        margin-left:16%;
+        font-size: 16px;
     }
     .footer_block_content{
-        /*margin-left:30%;*/
+        margin-left:16%;
         font-size:14px;
         color:white;
         margin-top: 8%;
@@ -198,4 +199,5 @@ export default {
         width: 25px;
         margin-left: 8px;
     }
+
 </style>

@@ -2,25 +2,41 @@
     <keep-alive>
     <el-container>
         <div class="home-container">
-            <div class="header">
-                <img class="img" src="../../assets/images/logo.png" alt />
-            </div>
-            <div>
-                <div class="product_name"> {{product_name}}  </div>
+
+            <div class="buy_body">
+                <div class="product_name">
+                    <span style="width: 10px;height:32px;background-color:#5171F0 ;display: inline-block"></span>
+                    <span> {{product_name}}</span>
+                </div>
                 <!--{{os_specs}}-->
-                <div class="configure">
+                <div style="display: flex;justify-content:space-around;width: 100%;">
+                    <div style="width: 66.8%">
+                <div class="configure" style="height: 120px">
                      <span class="configure_title"> 规格配置</span>
+                      <div class="configure_content" >
+                          <el-radio-group v-model="configure">
+                              <el-radio-button label="标准版"></el-radio-button>
+                          </el-radio-group>
+
                       <el-select v-model="configure" placeholder="请选择">
                           <el-option  v-for="item in configures"  :key="item.value"  :label="item.label"
                             :value="item.value">
                           </el-option>
                       </el-select>
+                      </div>
                 </div>
 
-                <hr>
+
 <!--                 {{spec[0].attributeName}}-->
-                <div class="configure">
+                <div class="configure" style="height: 165px">
                     <span class="configure_title">操作系统</span>
+                    <div class="configure_content" >
+                        <el-radio-group v-model="configure">
+                            <el-radio-button  v-for="item in oss"
+                                              :key="item"
+                                              :label="item"
+                                              :value="item" ></el-radio-button>
+                        </el-radio-group>
                     <span class="configure_os">
             <el-select v-model="current_os" placeholder="请选择">
               <el-option
@@ -31,16 +47,14 @@
               ></el-option>
             </el-select>
           </span>
-
-                    <el-select v-model="current_os_version" placeholder="请选择">
-                        <el-option
-                                v-for="item in os_specs[current_os]"
-                                :key="item"
-                                :label="item"
-                                :value="item"
-                        ></el-option>
+            <el-select v-model="current_os_version" placeholder="请选择">
+                <el-option
+                      v-for="item in os_specs[current_os]"
+                      :key="item"
+                      :label="item"
+                      :value="item"></el-option>
                     </el-select>
-
+                    </div>
                 </div>
 <!--                <div class="configure">-->
 <!--                    <span class="configure_title">操作系统</span>-->
@@ -67,17 +81,22 @@
 <!--                    </span>-->
 <!--                </div>-->
 
-                <div class="configure">
-                    <span class="configure_title">购买数量</span><el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                <div class="configure" style="height: 235px">
+                    <span class="configure_title">购买数量</span>
+                    <div class="configure_content" >
+                    <el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+
                   <div class="block" style="width: 60%;margin: 20px">
+
                     <span class="demonstration">购买时长</span>
                    
                       <el-slider v-model="hire_time" :step="1" :format-tooltip="timestepToolTip" show-stops :max="41" :min="1" ></el-slider>
 
                       {{hire_time}}---{{pay}}---{{hire_time_pa}}
+                      </div>
                 </div>
                 </div>
-                <div class="info_form">
+                <div class="configure" style="height: 500px">
                     <div class="configure_title"> 请输入个人信息</div>
                     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="login_form">
                         <el-form-item label="姓名" prop="name">
@@ -102,6 +121,9 @@
                 </div>
                 <div class="order_btn">
                    <span>费用合计：</span><span style="text-decoration:line-through">￥{{pay}} </span> <span style="color:red">￥{{topay}}</span><el-button  type="primary" @click="buy">确认订单</el-button>
+                </div>
+                    </div>
+                    <div class="configure_configure"> dfd</div>
                 </div>
             </div>
         </div>
@@ -277,21 +299,46 @@
 </script>
 
 <style scoped>
+    .buy_body{
+        width: 62.4%;
+        margin: 50px auto 0 auto;
+    }
     .product_name{
-        font-size: 20px;
-        margin: 50px 0 0 80px;
+        font-size: 36px;
+
+        margin: 50px auto 0 auto;
+
         font-weight: bold;
     }
     .configure{
-        width: 90%;
-        height: 150px;
-        margin: 20px auto 0 80px;
+        width: 100%;
+        height: 200px;
+        /*margin: 20px auto 0 80px;*/
         padding-top: 20px;
         padding-left: 30px;
-        border: 1px solid ;
+        /*border: 1px solid ;*/
+        background-color: #F0F1F3;
+        margin-top: 30px;
     }
     .configure_title{
         margin-right: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+    }
+    .configure_content{
+         margin-top: 20px;
+    }
+    .configure_content >>>.el-radio-button__inner{
+        margin: 0 10px;
+        /*background-color: #3FB560;*/
+
+        color: black;
+    }
+    .configure_content >>> .el-radio-button__orig-radio:checked+.el-radio-button__inner{
+            margin: 0 10px;
+            background-color: #3FB560;
+            color: white;
     }
     .configure_os{
         margin-right: 30px;
@@ -320,6 +367,12 @@
         margin: 20px auto 0 80px;
         padding: 20px 40px 10px 30px;
         border: 1px solid ;
+    }
+    .configure_configure{
+        width: 30.1%;
+        background-color:#F0F1F3 ;
+        height: 460px;
+        margin-top: 30px;
     }
      .el-button{
          margin-left: 20px;

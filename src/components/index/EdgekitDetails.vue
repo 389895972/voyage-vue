@@ -1,454 +1,381 @@
 <template>
   <el-container>
     <div class="home-container">
-      <div class="header">
-        <img class="img" src="../../assets/images/logo.png" alt />
+
+      <div class="fixTi1" :class="{fixTitle:whether}" v-if="whether">
+        <div class="tabs_tabs1">
+          <el-tabs class="tab_pane" @tab-click="handleClick1">
+            <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
+            <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
+            <el-tab-pane label="产品特性" name="#i3"></el-tab-pane>
+            <el-tab-pane label="教程与文档" name="#i4"></el-tab-pane>
+          </el-tabs>
+          <el-tabs class="tab_btn" @tab-click="handleClick1">
+            <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
+            <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
+            <!--                                </div>-->
+          </el-tabs>
+        </div>
       </div>
 
-      <div class="main">
-        <div class="first">
-          <div
-            class="col-md-7 col-xs-12 aikit_img_div"
-            style="background-color: white;padding: 0;height:100%"
-          >
-            <img src="../../assets/images/Edgekit/edgekit2.png" alt width="100%" />
-          </div>
-          <div id="aikit_ours" class="col-md-4 col-xs-11">
-            <div class="aikit_title">
-              TurboX Edgekit
-              <SUP>TM</SUP>Edge KIT
+      <div class="aikit_body">
+        <div class="aikit_pic">
+
+          <div class="aikit_body_title">
+            Thundercomm TurboX
+            <SUP>TM</SUP>AI套件
+            <div class="content">
+              <p>Thundercomm AI Kit是面向开发人员的功能最强大的设备上具有AI视觉功能的边缘设备。</p>
+              <p> Thundercomm AI Kit可帮助开发人员和终端制造商移植其AI算法和AI应用程序。 </p>
             </div>
-            <div
-              class="aikit_introduce"
-            >EdgeKit is dedicated to driving and implementing powerful, reliable and intelligent universal edge computing E2E solutions in our daily life. To accelerate the deployment of edge computing services, the EdgeKit team works with LF Edge, AWS and Qualcomm, which provide an interoperable, flexible and scalable edge computing service platform, cloud infrastructure and chipset. Edge Kit is an on-device AI feature supported by Qualcomm SNPE to meet the growing demand for machine vision, AI algorithms and predictive maintenance. EdgeKit initially supported Edge-X, which is neutral to any vendor. The universal open framework provides a simplified and standardized foundation for edge computing architecture in AIoT. EdgeKit has good documentation and tutorials to make DevKit easy to use.</div>
             <div class="aikit_btn">
-              <el-button type="primary"  @click="buy_edgekit">Buy Now</el-button>
-              <el-button type="primary">Device Management</el-button>
+              <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
+              <el-button style="background-color: #101C3D;color: white;width: 150px" >管理设备</el-button>
             </div>
           </div>
-        </div>
 
-        <!--                            悬浮框-->
-        <div class="fixTitle1" :class="{fixTitle:whether}" v-if="whether">
-          <div class="tabs1 col-md-12 col-xs-11">
-            <el-tabs class="tab_pane" @tab-click="handleClick1">
-              <el-tab-pane label="Key Advantage" name="#i1"></el-tab-pane>
-              <el-tab-pane label="Product Specification" name="#i2"></el-tab-pane>
-              <el-tab-pane label="Product Characteristics" name="#i3"></el-tab-pane>
-              <el-tab-pane label="Tutorials and Documentation" name="#i4"></el-tab-pane>
-            </el-tabs>
-            <el-tabs class="tab_btn" @tab-click="handleClick1">
-              <el-button type="primary"  @click="buy_edgekit">Buy Now</el-button>
-              <el-button type="primary">Device Management</el-button>
-              <!--                                </div>-->
-            </el-tabs>
-          </div>
-        </div>
 
-        <div class="product">
-          <span class="product_det">Product Details</span>
-          <div class="tabs">
-            <el-tabs id="iii" class="tabs_1" @tab-click="handleClick">
-              <el-tab-pane label="Key Advantage" name="#i1"></el-tab-pane>
-              <el-tab-pane label="Product Specification" name="#i2"></el-tab-pane>
-              <el-tab-pane label="Product Characteristics" name="#i3"></el-tab-pane>
-              <el-tab-pane label="Tutorials and Documentation" name="#i4"></el-tab-pane>
-            </el-tabs>
+        </div>
+        <div class="pro_det" id="i1">商品详情</div>
+
+        <div class="pro_show" >
+          <div  class="pro_show_div_border">
+            <div class="pro_show_div" id="iii"><span >产品优势</span></div>
           </div>
-          <div class="product_show" id="i1">
-            <div class="product_show_div">Key advantages</div>
-            <span class="prohard">Introduce</span>
-            <div class="product_advantages">
-              <p style="line-height:1.7em;margin-bottom:10px;">
-                The TurboX Edge Kit includes the purpose-built robotics-focused DragonBoard™ 845c development board, based on the Qualcomm
-                <sup>®</sup> SDA845 processor and compliant with the 96Boards open hardware specification to
-                support a broad range of mezzanine-board expansions.
+          <div class="pro_advs">
+            <span class="adv_span1">介绍</span>
+            <div>
+              <p >
+                TurboX Edge套件包括专门针对机器人的龙板™ 845c开发板，基于高通公司（Qualcomm）SDA845处理器，符合96板开放硬件规范，支持多种夹层板扩展。
               </p>
-              <p style="line-height:1.7em;margin-bottom:10px;">
-                The Qualcomm SDA845 processor is a heterogeneous computing architecture and integrates an Octa Core Qualcomm
-                <sup>®</sup> Kryo™ CPU with performance up to 2.8GHz a Qualcomm
-                <sup>®</sup> Adreno™ 630 Visual Processing Subsystem (including GPU, VPU and DPU), and a Qualcomm
-                <sup>®</sup> Hexagon™ 685 DSP with Hexagon Vector Extensions (HVX) delivering sophisticated, on-device AI processing and mobile-optimized computer vision (CV) capabilities for perception, navigation and manipulation.
+              <p>
+                Qualcomm SDA845处理器是一种异构计算架构，它集成了一个性能高达2.8GHz的八核Qualcomm？Kryo？CPU、一个Qualcomm？Adreno？630视频处理子系统（包括GPU、VPU和DPU）和一个Qualcomm？Hexagon？685数字信号处理器（带有Hexagon Vector Extensions（HVX））来提供复杂的设备内人工智能处理和移动优化计算机视觉（CV）感知、导航和操作能力。
               </p>
-              <p style="line-height:1.7em;margin-bottom:10px;">
-                The development board supports Linux and Robotics Operating System (ROS), while also including support for the Qualcomm
-                <sup>®</sup> Neural Processing software development kit (SDK) for advanced on-device AI, the Qualcomm
-                <sup>®</sup> Computer Vision Suite, the Qualcomm
-                <sup>®</sup> Hexagon DSP SDK.
+              <p >
+                开发板支持Linux和Robotics操作系统（ROS），同时还支持用于高级设备人工智能的Qualcomm®神经处理软件开发工具包（SDK）、Qualcomm®计算机视觉套件、Qualcomm®Hexagon DSP SDK。
               </p>
-              <p style="line-height:1.7em;margin-bottom:10px;">The kit includes:</p>
-              <ul
-                style="line-height:1.7em;font-size:16px;font-family:Arial, Helvetica, sans-serif;"
-              >
+              <p>
+                <!--                                The kit includes:-->
+                该套件包括：
+              </p>
+
+              <ul >
                 <li>
-                  Robotics DragonBoard™ 845c development board featuring Qualcomm
-                  <sup>®</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification
+                  <!--                                    Robotics DragonBoard Qualcomm<sup>TM</sup> 845c development board featuring Qualcomm<sup>&reg;</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification-->
+                  Robotics DragonBoard QualcommTM 845c开发板具有Qualcomm®SDA / SDM845处理器并符合96Boards开放式硬件规格
                 </li>
-                <li>Qualcomm Robotics navigation mezzanine featuring time-of-flight, tracking camera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification</li>
-                <li>Sensor support including the industry’s best performing ICM-42688 6-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense</li>
-                <li>Qualcomm Robotics cellular mezzanine (optional)</li>
-                <li>Multi-Mic support</li>
-                <li>Power supply</li>
+                <li>
+                  <!--                                    Qualcomm Robotics navigation mezzanine featuring time-of-flight, trackingcamera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification-->
+                  高通机器人导航夹层具有飞行时间，跟踪摄像头，有源立体摄像头和主摄像头，符合96Boards开放式硬件规格
+                </li>
+                <li>
+                  <!--                                    Sensor support including the industry&prime;s best performing ICM-426886-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense-->
+                  传感器支持，包括业界性能最佳的ICM-426886轴高性能运动传感器，ICS-41351顶部端口数字麦克风和TDK InvenSense的ICP-10101气压传感器
+                </li>
+                <li>
+                  <!--                                    Qualcomm Robotics cellular mezzanine (optional)-->
+                  Qualcomm Robotics蜂窝夹层楼（可选）
+                </li>
+                <li>
+                  <!--                                    Multi-Mic support-->
+                  多麦克风支持
+                </li>
+                <li>
+                  <!--                                    Power supply-->
+                  电源
+                </li>
               </ul>
-              <br />
-              <br />
-            </div>
-            <hr class="all_hr" />
 
-            <span class="prohard">Hightlight</span>
-            <div class="product_hightlight">
-              <table style="font-size:16px;font-family:Arial, Helvetica, sans-serif;">
-                <tbody>
-                  <tr>
-                    <td>
-                      <img src="../../assets/images/Edgekit/Hightligh1.png" alt />
-                    </td>
-                    <td>
-                      <img src="../../assets/images/Edgekit/Hightligh2.png" alt />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 3% 0 0;height:50px;color:#495a75;"
-                    >On-device intelligence powered by Artificial Intelligence Engine (AIE)</td>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;"
-                    >Power efficient and cost-effective</td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;"
-                    >
-                      The Qualcomm
-                      <sup>®</sup> AI Engine on the Qualcomm
-                      <sup>®</sup> TurboX Edge Kit includes the Qualcomm® Neural Processing SDK, which encompasses analysis, optimization, and debugging tools designed to allow developers and manufacturers
-                      to port trained deep learning networks on the various heterogeneous compute blocks offered by the platform.
-                    </td>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;"
-                    >
-                      The Qualcomm
-                      <sup>®</sup> TurboX Edge Kit is designed to support large industrial and enterpriseenterprise robot’s as well as small battery-operated robots with challenging power and thermal dissipation requirements.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh3.png" alt />
-                    </td>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh4.png" alt />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;"
-                    >Comprehensive development kit</td>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;"
-                    >Flexible design options for commercialization</td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;"
-                    >
-                      Further reduce development time and complexity for intelligent high-performance robots using a feature packed development kit. The kit includes the robotics-focused DragonBoard™ 845c development board, compliant with the 96Boards open hardware specification
-                      for supporting a broad range of mezzanine-board expansions and range of sensor support like time-of-flight (ToF), active stereo camera, multi-mic, IMU and proximity.
-                    </td>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;"
-                    >
-                      In addition to a feature packed development kit, the platform offers a range of solutions for commercialization from off-the-shelf System-on-Module (SoM) solutions to speed commercialization, to the flexibility for chip-on-board designs for cost-optimization
-                      at scale.
-                    </td>
-                  </tr>
-                  <!-- 新增开始1 -->
-                  <tr>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh5.png" alt />
-                    </td>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh6.png" alt />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;"
-                    >High resolution depth sensing</td>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;"
-                    >Time-of-Flight (ToF) camera</td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;"
-                    >Powered by Qualcomm Spectra™ 280 ISP for high resolution and high accuracy depth sensing</td>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;"
-                    >Time-of-flight for gestures and hand tracking use cases</td>
-                  </tr>
-                  <!-- 新增结束 -->
-                  <!-- 新增开始2 -->
-                  <tr>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh7.png" alt />
-                    </td>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh8.png" alt />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;"
-                    >Tracking camera</td>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;"
-                    >Advanced security</td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;"
-                    >Sensor module to do visual Simultaneous Localization and Mapping (vSLAM)</td>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;"
-                    >
-                      Qualcomm
-                      <sup>®</sup>Secure Processing Unit, hardware root of trust, trusted execution environment, secure boot, camera security
-                    </td>
-                  </tr>
-                  <!-- 新增结束 -->
-                  <!-- 新增开始3 -->
-                  <tr>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh9.png" alt />
-                    </td>
-                    <td>
-                      <br />
-                      <img src="../../assets/images/Edgekit/Hightligh10.png" alt />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;"
-                    >Sensor Core</td>
-                    <td
-                      style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;"
-                    >Connectivity</td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;"
-                    >Support for multiple sensors and 3rd party algorithms through Sensor Software Framework</td>
-                    <td
-                      style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;"
-                    >Wi-Fi integrated 802.11ac 2x2 with MU-MIMO and support for Bluetooth 5.0 and cellular mezzanines for LTE and CBRS</td>
-                  </tr>
-                  <!-- 新增结束 -->
-                </tbody>
-              </table>
+
             </div>
-            <hr class="all_hr" />
-          </div>
-        </div>
-        <div class="product_show" id="i2">
-          <div class="product_show_div">Specification</div>
-          <div class="pro_border">
-            <table
-              border="1"
-              style="border-collapse:collapse;width:100%;text-align:center;line-height:2em;"
-            >
+            <span class="adv_span1">强调</span>
+            <table style="font-size:12px;font-family:Arial, Helvetica, sans-serif;text-align: left">
               <tbody>
-                <tr style="background-color:#526fe1;color:#fff;font-weight:700;">
-                  <td>Module</td>
-                  <td>Item</td>
-                  <td>Spec</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td rowspan="4">Computing</td>
-                  <td>CPU</td>
-                  <td>Qualcomm SDA845 processor, 8x Qualcomm=C2=AE Kryo=E2=84=A2 385 @ 2.8GHz</td>
-                </tr>
-                <tr>
-                  <td>GPU</td>
-                  <td>Adreno 630 GPU</td>
-                </tr>
-                <tr>
-                  <td>DSP</td>
-                  <td>Hexgan 685 DSP</td>
-                </tr>
-                <tr>
-                  <td>ISP</td>
-                  <td>Qualcomm Spectra=E2=84=A2 280 image sensor processor</td>
-                </tr>
-                <tr>
-                  <td rowspan="3">Memory</td>
-                  <td>RAM</td>
-                  <td>8GB LPDDR4</td>
-                </tr>
-                <tr>
-                  <td>ROM</td>
-                  <td>64GB UFS2.1</td>
-                </tr>
-                <tr>
-                  <td>SD Card</td>
-                  <td>Support MicroSD Card</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">Camera</td>
-                  <td>Built in Camera</td>
-                  <td>8MP, FOV 120 degree;</td>
-                </tr>
-                <tr>
-                  <td>External Camera</td>
-                  <td>
-                    <span>USB3.0 camera (accessory, not included in release)</span>=20
-                  </td>
-                </tr>
-                <tr>
-                  <td rowspan="2">Display</td>
-                  <td>HDMI</td>
-                  <td>1x Micro HDMI, 4k Ultra HD</td>
-                </tr>
-                <tr>
-                  <td>Type C</td>
-                  <td>4k Ultra HD</td>
-                </tr>
-                <tr>
-                  <td>Video</td>
-                  <td>VPU</td>
-                  <td>Support for HDR10, HLG, and H.265 (HEVC) 4k@60fps video capture</td>
-                </tr>
-                <tr>
-                  <td rowspan="3">Audio</td>
-                  <td>Speaker</td>
-                  <td>1x speaker</td>
-                </tr>
-                <tr>
-                  <td>Audio out</td>
-                  <td>1x Headsetout</td>
-                </tr>
-                <tr>
-                  <td>Microphone</td>
-                  <td>1x microphone</td>
-                </tr>
-                <tr>
-                  <td>Wireless Connectivity</td>
-                  <td>WIFI</td>
-                  <td>2.4G/5G,802.11 a/b/g/n/ac 2x2 MIMO</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">Wired Connectivity</td>
-                  <td>USB</td>
-                  <td>3x USB3.0 host, 1x 3.0 Type C</td>
-                </tr>
-                <tr>
-                  <td>Ethernet</td>
-                  <td>1x GbE.</td>
-                </tr>
-                <tr>
-                  <td>Debug Port</td>
-                  <td>Micro USB</td>
-                  <td>1x Micro USB (connecting to serial port for debug purpose)</td>
-                </tr>
-                <tr>
-                  <td>Indicator</td>
-                  <td>LED</td>
-                  <td>RGB Led: Power status, WIFI status, Ethernet status;</td>
-                </tr>
-                <tr>
-                  <td>Input</td>
-                  <td>Buttons</td>
-                  <td>Power key/ Volume up/down key/Camera snapshot key</td>
-                </tr>
-                <tr>
-                  <td>Sensors</td>
-                  <td>9-axis sensor</td>
-                  <td>Gyroscope &amp; accelerometer &amp; geomagnetic sensor</td>
-                </tr>
-                <tr>
-                  <td>Power</td>
-                  <td>Power charging</td>
-                  <td>12v DC</td>
-                </tr>
+              <tr>
+                <td><img src="../../assets/images/rb3/rb3-1.png" alt=""></td>
+                <td><img src="../../assets/images/rb3/rb3-2.png" alt=""></td>
+              </tr>
+              <tr><td style="font-weight:600;padding-right:100px;width:50%;padding:0 3% 0 0;height:50px;color:#495a75;">
+                <!--                                    On-device intelligence powered by Artificial Intelligence Engine (AIE)-->
+                人工智能引擎（AIE）支持的设备上智能
+              </td>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Power efficient and cost-effective-->
+                  高效节能
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    The Qualcomm <sup>&reg;</sup> AI Engine on the Qualcomm<sup>&reg;</sup> Robotics RB3 Platform includes the Qualcomm&reg; Neural Processing SDK,which encompasses analysis, optimization, and debugging tools designed to allow developers and manufacturers to port trained deep learning networks on the various heterogeneous compute blocks offered by the platform.-->
+                  Qualcomm®Robotics RB3平台上的Qualcomm®AI引擎包括Qualcomm®Neural Processing SDK，它包含分析，优化和调试工具，旨在使开发人员和制造商可以将经过训练的深度学习网络移植到由其提供的各种异构计算模块上。
+                </td>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    The Qualcomm <sup>&reg;</sup> Robotics RB3 Platform is designed to support large industrial and enterpriseenterprise robot&prime;s as well as small battery-operated robots with challenging power and thermal dissipation requirements.-->
+                  Qualcomm®Robotics RB3平台旨在支持具有挑战性的电源和散热要求的大型工业和企业级机器人以及小型电池供电的机器人。
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <br>
+                  <img src="../../assets/images/rb3/rb3-3.png" alt="">
+                </td>
+                <td>
+                  <br>
+                  <img src="../../assets/images/rb3/rb3-4.png" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Comprehensive development kit-->
+                  综合开发套件
+                </td>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Flexible design options for commercialization-->
+                  灵活的商业化设计选择
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    Further reduce development time and complexity for intelligent high-performance robots using a feature packed development kit. The kit includes the robotics-focused DragonBoard<sup>TM</sup> 845c development board, compliant with the 96Boards open hardware specification for supporting a broad range of mezzanine-board expansions and range of sensor support like time-of-flight (ToF), active stereo camera, multi-mic, IMU and proximity.-->
+                  使用功能丰富的开发套件，进一步减少智能高性能机器人的开发时间和复杂性。 该套件包括以机器人技术为重点的DragonBoardTM 845c开发板，符合96Boards开放式硬件规格，可支持多种夹层板扩展和传感器支持范围，例如飞行时间（ToF），有源立体摄像头， 麦克风，IMU和感应器。
+                </td>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    In addition to a feature packed development kit, the platform offers a range of solutions for commercialization from off-the-shelf System-on-Module (SoM) solutions to speed commercialization, to the flexibility for chip-on-board designs for cost-optimization at scale.-->
+
+                  除了功能强大的开发套件外，该平台还提供了一系列商业化解决方案，从现成的模块上系统（SoM）解决方案以加快商业化速度，到为成本节约成本的板载芯片设计的灵活性, 大规模优化。
+                </td>
+              </tr>
+              <!-- =E6=96=B0=E5=A2=9E=E5=BC=80=E5=A7=8B1 -->
+              <tr>
+                <td>
+                  <br>
+                  <img src="../../assets/images/rb3/rb3-5.png" alt="">
+                </td>
+                <td>
+                  <br>
+                  <img src="../../assets/images/rb3/rb3-6.png" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">
+                  <!--                                    High resolution depth sensing-->
+                  高分辨率深度感应
+                </td>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Time-of-Flight (ToF) camera-->
+                  飞行时间（ToF）相机
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    Powered by Qualcomm Spectra<sup>TM</sup> 280 ISP for high resolution and high accuracy depth sensing-->
+                  由Qualcomm SpectraTM 280 ISP提供支持的高分辨率和高精度深度感应
+                </td>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    Time-of-flight for gestures and hand tracking use cases-->
+                  手势和手跟踪用例的飞行时间
+                </td>
+              </tr>
+              <!-- =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F -->
+              <!-- =E6=96=B0=E5=A2=9E=E5=BC=80=E5=A7=8B2 -->
+              <tr><td><br><img src="../../assets/images/rb3/rb3-7.png" ></td><td><br><img src="../../assets/images/rb3/rb3-8.png" alt=""></td></tr>
+              <tr>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Tracking camera-->
+                  追踪相机
+                </td>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Advanced security-->
+                  先进的安全性
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    Sensor module to do visual Simultaneous Localization and Mapping (vSLAM=-->
+                  <!--                                    )-->
+                  传感器模块进行可视化同时定位和映射（vSLAM =）
+                </td>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    Qualcomm <sup>&reg;</sup>Secure Processing Unit, hardware root of trust, trusted execution environment, secure boot, camera security-->
+                  Qualcomm®安全处理单元，信任的硬件根，信任的执行环境，安全启动，相机安全性
+                </td>
+              </tr>
+              <!-- =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F -->
+              <!-- =E6=96=B0=E5=A2=9E=E5=BC=80=E5=A7=8B3 -->
+              <tr>
+                <td><br><img src="../../assets/images/rb3/rb3-9.png" alt=""></td><td><br><img src="../../assets/images/rb3/rb3-10.png" alt=""></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Sensor Core-->
+                  传感器核心
+                </td>
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">
+                  <!--                                    Connectivity-->
+                  连接性
+                </td>
+              </tr>
+              <tr><td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
+                <!--                                Support for multiple sensors and 3rd party algorithms through Sensor Software Framework-->
+                通过传感器软件框架支持多种传感器和第三方算法
+              </td>
+                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
+                  <!--                                    Wi-Fi integrated 802.11ac 2x2 with MU-MIMO and support for Bluetooth 5.0 and cellular mezzanines for LTE and CBRS-->
+                  Wi-Fi集成了具有MU-MIMO的802.11ac 2x2，并支持蓝牙5.0和LTE和CBRS的蜂窝夹层
+                </td>
+              </tr>
+              <!-- =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F -->
               </tbody>
             </table>
           </div>
-          <hr class="all_hr" />
-        </div>
-        <!-- <div class="product_show" id="i5">
-                        <div class="product_show_div">产品软件</div>
-                        <div class="pro_border">
-                        <table border="1px solid" style="border-collapse:collapse;width:100%;text-align:center;line-height:2em;" >
-                        <tbody>
-                        <tr><th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Module</th><th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Feature</th>
-                        </tr>
-                        </tbody>
-                        <tbody>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OS</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Android O</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Framework</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Tensorflow, Tensorflow Lite, Caffe/Caffe2, ONNX,SNPE, Android NN</td></tr>
-                        <tr><td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Algorithm SDK</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Detection &amp; Face Recognition &amp; Emotion Detection &amp; Age= Detection &amp; Gender Detection algorithm &amp; Eye blink</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Object Detection algorithm</td>
-                        </tr>
-                        <tr><td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Sample Application</td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Recognition &amp; Emotion Detection &amp; Age Detection &amp; Gend</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Objection Detection algorithm demo</td>
-                        </tr>
-                        <tr><td rowspan="3" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Camera
-                        </td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Support USB3.0 Camera, 1080p@30fps
-                        </td></tr><tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Ultra HD camera preview, recording and snapshot</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">RTSP Client</td>
-                        </tr>
-                        <tr><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Graphic
-                        </td><td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OpenGLES3.2, OpenCL2.0 full
-                        </td></tr>
-                        </tbody>
-                        </table>
-                        </div>
-                        <hr class="all_hr">
-        </div>-->
-        <div class="product_show">
-          <div class="product_show_div" id="i3">Product Characteristics</div>
-          <span class="prohard">Application</span>
-          <div class="product_application">
-            <img src="../../assets/images/Edgekit/application.jpg" alt width="100%" height="auto" />
-          </div>
-          <hr class="all_hr" />
-        </div>
-        <div class="product_show" id="i4">
-          <div class="product_show_div">Document</div>
-          <button class="download-btn" @click="download">
-            <span>Click Here to Download the Documents</span>
-          </button>
 
-          <hr class="all_hr1" />
+
+
+        </div>
+
+
+        <div class="pro_show" >
+          <div  class="pro_show_div_border">
+            <div class="pro_show_div" ><span >产品规格</span></div>
+          </div>
+
+          <div class="pro_advs">
+            <table
+                    border="1"
+                    style="border:1px solid #F1F3F5;margin-top:10px;border-collapse:collapse;width:100%;text-align:left;line-height:2em;"
+            >
+              <tbody>
+              <tr style="background-color:#E4E7EB;color:black;font-weight:700;">
+                <td>Module</td>
+                <td>Item</td>
+                <td>Spec</td>
+              </tr>
+              </tbody>
+              <tbody>
+              <tr>
+                <td rowspan="4">Computing</td>
+                <td>CPU</td>
+                <td>Qualcomm SDA845 processor, 8x Qualcomm=C2=AE Kryo=E2=84=A2 385 @ 2.8GHz</td>
+              </tr>
+              <tr>
+                <td>GPU</td>
+                <td>Adreno 630 GPU</td>
+              </tr>
+              <tr>
+                <td>DSP</td>
+                <td>Hexgan 685 DSP</td>
+              </tr>
+              <tr>
+                <td>ISP</td>
+                <td>Qualcomm Spectra=E2=84=A2 280 image sensor processor</td>
+              </tr>
+              <tr>
+                <td rowspan="3">Memory</td>
+                <td>RAM</td>
+                <td>8GB LPDDR4</td>
+              </tr>
+              <tr>
+                <td>ROM</td>
+                <td>64GB UFS2.1</td>
+              </tr>
+              <tr>
+                <td>SD Card</td>
+                <td>Support MicroSD Card</td>
+              </tr>
+              <tr>
+                <td rowspan="2">Camera</td>
+                <td>Built in Camera</td>
+                <td>8MP, FOV 120 degree;</td>
+              </tr>
+              <tr>
+                <td>External Camera</td>
+                <td>
+                  <span>USB3.0 camera (accessory, not included in release)</span>=20
+                </td>
+              </tr>
+              <tr>
+                <td rowspan="2">Display</td>
+                <td>HDMI</td>
+                <td>1x Micro HDMI, 4k Ultra HD</td>
+              </tr>
+              <tr>
+                <td>Type C</td>
+                <td>4k Ultra HD</td>
+              </tr>
+              <tr>
+                <td>Video</td>
+                <td>VPU</td>
+                <td>Support for HDR10, HLG, and H.265 (HEVC) 4k@60fps video capture</td>
+              </tr>
+              <tr>
+                <td rowspan="3">Audio</td>
+                <td>Speaker</td>
+                <td>1x speaker</td>
+              </tr>
+              <tr>
+                <td>Audio out</td>
+                <td>1x Headsetout</td>
+              </tr>
+              <tr>
+                <td>Microphone</td>
+                <td>1x microphone</td>
+              </tr>
+              <tr>
+                <td>Wireless Connectivity</td>
+                <td>WIFI</td>
+                <td>2.4G/5G,802.11 a/b/g/n/ac 2x2 MIMO</td>
+              </tr>
+              <tr>
+                <td rowspan="2">Wired Connectivity</td>
+                <td>USB</td>
+                <td>3x USB3.0 host, 1x 3.0 Type C</td>
+              </tr>
+              <tr>
+                <td>Ethernet</td>
+                <td>1x GbE.</td>
+              </tr>
+              <tr>
+                <td>Debug Port</td>
+                <td>Micro USB</td>
+                <td>1x Micro USB (connecting to serial port for debug purpose)</td>
+              </tr>
+              <tr>
+                <td>Indicator</td>
+                <td>LED</td>
+                <td>RGB Led: Power status, WIFI status, Ethernet status;</td>
+              </tr>
+              <tr>
+                <td>Input</td>
+                <td>Buttons</td>
+                <td>Power key/ Volume up/down key/Camera snapshot key</td>
+              </tr>
+              <tr>
+                <td>Sensors</td>
+                <td>9-axis sensor</td>
+                <td>Gyroscope &amp; accelerometer &amp; geomagnetic sensor</td>
+              </tr>
+              <tr>
+                <td>Power</td>
+                <td>Power charging</td>
+                <td>12v DC</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pro_show" id="i4">
+          <div  class="pro_show_div_border">
+            <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
+          </div>
+                      <button class="download-btn" @click="download">
+                        <span>Click Here to Download the Documents</span>
+                      </button>
         </div>
       </div>
-      <!-- <div class="footer">
-        <div class="footer_inners">
-          <div class="footer_inner">
-            <span class="footer_span1">CONTACT INFO联系方式</span>
-            <span
-              class="footer_span11"
-            >中科创达股份有限公司是智能操作系统产品和技术提供商。自2008年成立依赖，公司致力于提供智能化操作系统系列产品、技术及解决方案。</span>
-          </div>
-          <div class="footer_inner">
-            <span class="footer_span2">(86)10-62662686</span>
-            <span class="footer_span21">biz@thundersoft.com</span>
-            <span class="footer_span22">北京市海淀区清华东路9号院3号楼创达大厦 邮编：100083</span>
-          </div>
-        </div>
-      </div>-->
+
+
+
       <!-- <div class="home_reg">
           <span class="home_reg_title">现在注册，免费体验Devices on Cloud 平台所有开放设备</span>
           <div class="home_reg_img">
@@ -459,7 +386,7 @@
           </div>
       </div>
       <div style="background-color:#D7D7DB;padding-bottom:10px" >
-           <div class="service"> 
+           <div class="service">
                        <span class="service_title">常见问题</span>
                        <div class="service_index">注册与登录 注册与收费 其他常见问题</div>
                         <hr style="margin-bottom:1px">
@@ -489,43 +416,10 @@
                          <td>  </td>
                   </tr>
              </table>
-             
+
            </div>
       </div> -->
-      <el-footer height="300px">
-        <el-col :span="3" :offset="1">
-          <div class="footer_block">
-            <span style="margin-left:30%">产品</span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span style="margin-left:30%">社区</span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block">
-            <span style="margin-left:30%">教程</span>
-          </div>
-        </el-col>
-         <el-col :span="3">
-          <div class="footer_block">
-            <span style="margin-left:30%"></span>
-          </div>
-        </el-col>
-         <el-col :span="3">
-          <div class="footer_block">
-            <span style="margin-left:30%"></span>
-          </div>
-        </el-col>
-        <el-col :span="3">
-          <div class="footer_block_final">
-            <span style="margin-left:10%;padding-top:10px">联系我们</span>
-            <p style="margin:10% 0 0 10%;font-size:16px">   Email</p>
-            <p style="margin-left:10%;font-size:16px"> service@45iot.com</p>
-          </div>
-        </el-col>
-      </el-footer>
+
     </div>
   </el-container>
 </template>
@@ -771,9 +665,10 @@ a {
   text-align: center;
   font-size: 1em;
   border-radius: 8px;
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 80px;
+  width: 100%;
+  /*margin: 0 auto;*/
+  margin-top: 20px;
+  margin-bottom: 30px;
   cursor: pointer;
 }
 .aikit_title {
@@ -958,4 +853,360 @@ a {
     display: block !important;
   }
 }
+</style>
+<style   lang="less" scoped>
+  .first {
+    /*display: flex;*/
+    display: inline-block;
+    background-color: white;
+  }
+  #index_pic {
+    /*background-image: url("../../assets/images/ailit_bg.png");*/
+    /*  background-size: cover;*/
+    /*  width: 100%;*/
+    /*  height: 445px;*/
+    position: relative;
+  }
+
+  .main {
+    background-color: white;
+    /*padding: 25px 25px;*/
+  }
+
+  .index_btn {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    bottom: 100px;
+    width: 300px;
+    margin-right: 50px;
+    /*margin-left: 1300px;*/
+    margin-left: auto;
+    justify-content: space-between;
+  }
+  .el-button {
+    margin-left: 20px;
+  }
+  a {
+    text-decoration: none;
+    margin: 0 55px;
+    width: 110px;
+  }
+
+  .product_indexs {
+    display: flex;
+    border: 1px solid;
+    background-color: white;
+    color: #4a4a4d;
+    margin-top: 30px;
+    font-size: 21px;
+    height: 50px;
+    align-items: center;
+    overflow: hidden;
+  }
+  .product_index {
+    display: flex;
+    margin-left: 25px;
+  }
+  .product_show {
+    /*display: flex;*/
+    /*justify-content:space-around;*/
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    padding-bottom: 30px;
+    padding-top: 10px;
+  }
+  .product_show_span {
+    margin-top: 50px;
+    margin-right: 300px;
+    margin-left: 118px;
+    font-size: 21px;
+
+    /*margin-top: 50px;*/
+    /*margin-right: 130px;*/
+    /*margin-left:120px;*/
+    /*font-size: 21px;*/
+  }
+  .product_btn {
+    border: 0;
+    background-color: white;
+    /*font-size: 21px;*/
+    margin-left: 30px;
+    height: 28px;
+    /*width: 160px;*/
+    cursor: pointer;
+  }
+  .product {
+    margin-top: 40px;
+  }
+  .product_det {
+    font-weight: bold;
+    font-size: 21px;
+  }
+
+  .product_show_div {
+    width: 200px;
+    margin: 0 0 10px 30px;
+    /*margin-left: 2.3%;*/
+    padding: 20px;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .advantages {
+    display: block;
+  }
+  .advantages_span1 {
+    display: block;
+    /*margin:10px 0 0 115px;*/
+    margin-left: 7.5%;
+    font-weight: bold;
+    font-size: 18px;
+    width: 118px;
+    text-align: left;
+  }
+  .advantages_span2 {
+    display: inline-block;
+    margin: 5px 0 10px 0;
+    text-align: left;
+    /*display: block;*/
+    width: 85%;
+  }
+  .index_pic_details {
+    background-color: white;
+    width: 40%;
+  }
+  .el-table {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .pro_border {
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+  .table2 {
+    border: 1px;
+    margin: 0px auto;
+    padding: 0px;
+    background-color: #ffffff;
+    width: 100%;
+    color: #454545;
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+  }
+  .download-btn {
+    border: none;
+
+    line-height: 2em;
+    color: #fff;
+    background-color: #0aa0e8;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    cursor: pointer;
+  }
+  .aikit_title {
+    margin: 40px auto 0 0;
+    font-size: 21px;
+    font-weight: bold;
+  }
+
+  .aikit_introduce {
+    margin: 40px 5px 0 0;
+  }
+  .aikit_btn {
+    /*margin: 60px  auto 101.5px 0;*/
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+  #aikit_ours {
+    height: 100%;
+    background-color: white;
+    padding: 0;
+    margin-left: 5%;
+    margin-top: 0.5%;
+  }
+  #aikit_ours1 {
+    height: 100%;
+    background-color: white;
+    padding: 0;
+    margin-left: 5%;
+    margin-top: 0.5%;
+  }
+  .aikit_img_div {
+  }
+  .prohard {
+    display: block;
+    /*margin:10px 0 0 115px;*/
+    margin-left: 7.5%;
+    font-weight: bold;
+    font-size: 18px;
+    width: 118px;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  .fixTitle {
+    position: fixed;
+    top: 0;
+    display: flex;
+  }
+  .fixTitle1 {
+    background-color: #cccccc;
+    width: 97.3%;
+    padding: 0;
+    margin: 0;
+    z-index: 5;
+  }
+  .tabs {
+    background-color: white;
+    padding-left: 1.2%;
+    padding-top: 10px;
+    padding-right: 7.5%;
+    font-size: 21px;
+    margin-top: 40px;
+    border: 1px solid #0f0f0f;
+  }
+
+  /*!*.tabs_1 {*!*/
+  /*!*    font-size: 50px ;*!*/
+  /*!*}*!*/
+  /*.el-tabs_item{*/
+  /*    font-size: 50px ;*/
+  /*}*/
+
+
+  .aikit_pic{
+    background-image: url("../../assets/images/aikit_pic.png");
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .aikit_body{
+    width: 100%;
+  }
+  .aikit_body_title{
+    color: white;
+    font-size: 36px;
+    /*margin:  3% 26.1% 7.7% 46.8%;*/
+    margin-left: 46.8%;
+    padding-top: 6%;
+  }
+  .aikit_body_title p{
+    font-size:14px ;
+
+  }
+  .aikit_body_title .content{
+    margin-top: 10px;
+  }
+  .pro_det{
+    margin-left: 18.8%;
+    font-weight: bold;
+    font-size: 36px;
+    margin-top: 50px;
+  }
+  .pro_show{
+    width: 62.4%;
+    margin: 0 auto;
+  }
+  .pro_show_div{
+
+    font-weight: bold;
+
+    border-bottom: 44px solid #3254DC;
+    border-left: 30px solid #3254DC;
+    border-right: 30px solid transparent;
+    width: 126.72px;
+    position: relative;
+    /*box-shadow: #2aabd2 2px 2px 2px;*/
+
+  }
+  .pro_show_div span{
+    position: absolute;
+    color: white;
+    top:13px;
+    font-size: 16px;
+
+  }
+  .pro_show_div_border{
+    border-bottom: 1.5px solid #3254DC;
+    margin-top: 20px;
+  }
+  .pro_advs{
+    margin-left: 2.8%;
+  }
+
+  .adv_span2{
+    /*margin-left: 50px;*/
+    margin-top: 10px;
+    /*margin-left: 15px;*/
+    text-align: left;
+    /*text-indent: -7rem;*/
+    font-size: 12px;
+  }
+  .adv_span1{
+    display: block;
+    /*margin:10px 0 0 115px;*/
+    /*s*/
+    font-weight: bold;
+    font-size: 14px;
+    width: 400px;
+    text-align: left;
+    /*margin-left: 13px;*/
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+  }
+
+  .fixTi1 {
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 5;
+  }
+  .tabs_tabs1 {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding-left: 16.6%;
+    padding-top: 10px;
+    padding-right: 16.6%;
+    font-size: 18px;
+    /*margin-top: 10px;*/
+    margin-bottom: 10px;
+    box-shadow:2px 2px 10px #909090;
+    width: 100%;
+  }
+  .pro_show td,th{
+    padding-left: 15px;
+  }
+  p{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    line-height:1.7em;
+    margin-bottom:10px;
+    line-height:1.7em;
+    font-size:12px;
+    font-family:Arial, Helvetica,sansserif;
+  }
+  ul{
+    /*width: 85%;*/
+    /*margin-left: auto;*/
+    margin-right: auto;
+    text-align: left;
+    line-height:1.7em;
+    margin-bottom:10px;
+    padding-left: 12px;
+    line-height:1.7em;
+    font-size:12px;
+    font-family:Arial, Helvetica,sansserif;
+  }
 </style>

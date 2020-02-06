@@ -33,9 +33,9 @@ const router =new Router({
         {path:'/instance',component:Instance,meta:{keepAlive:false}},
         {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
-        {path:"/order/orderList",component:orderList,},
+
     ],
-   
+
 })
 
 
