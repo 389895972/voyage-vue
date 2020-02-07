@@ -93,6 +93,7 @@
     .header_head{
        border-bottom: 1px solid grey;
         border-color: rgba(151, 151, 151, 0.3);
+        padding: 0;
     }
     .el-header {
         background-color: #101c3d;
@@ -175,9 +176,10 @@
             /*display: flex;*/
             /*justify-content: space-between;*/
             /*line-height: 6;*/
-            padding-left: 18.1%;
-            padding-right: 18.1%;
-
+            /*padding-left: 18.1%;*/
+            /*padding-right: 18.1%;*/
+            margin: 0 auto;
+            width: 1280px;
         }
     }
 </style>

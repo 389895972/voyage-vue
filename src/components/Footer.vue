@@ -1,9 +1,9 @@
 <template>
-    <div>
-    <el-footer height="600px">
-        <el-row :offset="3"><img  class="footer_img" src="../../public/logo.png" alt=""></el-row>
+    <div style="background-color: #101C3D;">
+    <el-footer  class="footer_el" height="600px">
+        <el-row  :offset="3"><img  class="footer_img" src="../../public/logo.png" alt=""></el-row>
         <el-row>
-            <el-col :span="3" :offset="4">
+            <el-col :span="4" >
                 <div class="footer_block">
                     <span class="footer_block_title" >产品</span>
                     <span class="footer_block_content"> <a href=""> AIKIT </a> </span>
@@ -12,7 +12,7 @@
                     <span class="footer_block_content"><a href="">Intel Nuc </a></span>
                 </div>
             </el-col>
-            <el-col :span="3">
+            <el-col :span="4">
 
                 <div class="footer_block">
                     <span class="footer_block_title">社区</span>
@@ -23,7 +23,7 @@
                     <span class="footer_block_content"><a href="">智慧城市 </a></span>
                 </div>
             </el-col>
-            <el-col :span="3">
+            <el-col :span="4">
                 <div class="footer_block">
                     <span class="footer_block_title">教程</span>
                     <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
@@ -32,7 +32,7 @@
                     <span class="footer_block_content"><a href="">AI工具</a></span>
                 </div>
             </el-col>
-            <el-col :span="3">
+            <el-col :span="4">
                 <div class="footer_block">
                     <span class="footer_block_title">关于我们 </span>
                     <span class="footer_block_content"> <a href="" > 关于我们</a> </span>
@@ -41,7 +41,7 @@
                     <span class="footer_block_content"><a href="">关于我们</a></span>
                 </div>
             </el-col>
-            <el-col :span="3">
+            <el-col :span="4">
                 <div class="footer_block">
                     <span class="footer_block_title">其他</span>
                     <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
@@ -79,7 +79,7 @@
                     :data-clipboard-text="email"
                     @click="copy"
             >复制</el-button>
-            <span style="margin-left: 31%">
+            <span style="margin-left: 11%">
           <img src="../assets/images/home/Twitter.png" alt="">
           <img src="../assets/images/home/Facebook.png" alt="">
           <img src="../assets/images/home/weixin.png" alt="">
@@ -96,7 +96,9 @@
         <!--        </el-col>-->
 
     </el-footer>
+        <span style="background-color: #0B152E;">
     <span class="footer_footer"> Copyright &copy; 2018~2020.Rescord license ICP备案号：181470003号 All rights reserved. </span>
+ </span>
    </div>
 </template>
 
@@ -111,6 +113,7 @@ export default {
 }
 </script>
 <style scoped>
+
     .footer_block {
         margin-top: 60px;
         height: 60%;
@@ -121,10 +124,11 @@ export default {
         text-align: left;
     }
     .footer_block_title{
-        margin-left:30%
+        /*margin-left:16%;*/
+        font-size: 16px;
     }
     .footer_block_content{
-        /*margin-left:30%;*/
+        /*margin-left:16%;*/
         font-size:14px;
         color:white;
         margin-top: 8%;
@@ -132,11 +136,14 @@ export default {
     }
     .footer_img{
         margin-top: 50px;
-        margin-left: 18.8%;
+        /*margin-left: 18.8%;*/
     }
     .el-footer {
         /*background-color: rgb(58, 58, 58);*/
         background-color: #101C3D;
+        padding: 0;
+        width: 1280px;
+        margin:0 auto;
 
     }
     span {
@@ -146,7 +153,7 @@ export default {
         color: #7785AC;
         display: inline;
         font-size: 12px;
-        margin-left: 18.8%;
+        /*margin-left: 18.8%;*/
         margin-right: 0;
         margin-top: 10px;
         width: 40%;
@@ -166,10 +173,12 @@ export default {
         background-color: #0B152E;
         height: 90px;
         line-height: 90px;
-        padding-left: 19.2%;
+        /*padding-left: 19.2%;*/
+        width: 1280px;
+        margin: 0 auto;
     }
     .item{
-        width: 62.5%;
+        /*width: 62.5%;*/
         margin: 0 auto;
         text-align: left;
     }
@@ -181,7 +190,7 @@ export default {
     }
     .footer_title_ours{
         color: white;
-        margin-left: 18.8%;
+        /*margin-left: 18.8%;*/
         margin-top: 60px;
     }
     .footer_input >>> .el-input__inner{
@@ -198,4 +207,5 @@ export default {
         width: 25px;
         margin-left: 8px;
     }
+
 </style>

@@ -1,8 +1,10 @@
 <template>
     <el-container>
         <div class="home-container">
+
             <div class="fixTi1" :class="{fixTitle:whether}" v-if="whether">
                 <div class="tabs_tabs1">
+                    <div style="margin: 0 auto;width: 1280px;display: flex">
                     <el-tabs class="tab_pane" @tab-click="handleClick1">
                         <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
                         <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
@@ -14,6 +16,7 @@
                         <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
                         <!--                                </div>-->
                     </el-tabs>
+                    </div>
                 </div>
             </div>
 
@@ -241,13 +244,13 @@
                     </div>
                     <div class="pro_advs">
                         <span class="adv_span1">Robotics DragaonBoard™845c的规格</span>
-                        <table border="1" style="font-size:12px;border-collapse:collapse;width:100%;text-align:center;line-height:2em;">
+                        <table border="1" style="border:1px solid #F1F3F5;font-size:12px;border-collapse:collapse;width:100%;text-align:left;line-height:2em;">
                             <tbody>
-                            <tr style="background-color:#526fe1;color:#fff;font-weight:700;">
+                            <tr style="background-color:#E4E7EB;color:black;font-weight:700;">
                                 <td style="width:15%;">
                                     Component
                                 </td>
-                                <td>
+                                <td style="text-align: left;">
                                     Qualcomm<sup>&reg;</sup> Robotics RB3 Development Kit
                                 </td>
                             </tr>
@@ -366,7 +369,226 @@
                         <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
                     </div>
                     <span class="adv_span1" style="margin-left: 25px">相关文档</span>
+                    <div class="product_documents">
+                        <div class = "product_document">
+                            <div class="product_document_left">
+                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <span class="document_name">相关操作文档.pdf</span>
+                            </div>
+                            <div class="product_document_right">
+                                <span class="document_size">1MB</span>
+                                <span class="document_time">2020/1/23</span>
+                                <span><a class="document_link">立即下载</a></span>
+                            </div>
+
+                        </div>
+                        <hr class="document_hr">
+
+                        <div class = "product_document">
+                            <div class="product_document_left">
+                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <span class="document_name">相关操作文档.pdf</span>
+                            </div>
+                            <div class="product_document_right">
+                                <span class="document_size">1MB</span>
+                                <span class="document_time">2020/1/23</span>
+                                <span><a class="document_link">立即下载</a></span>
+                            </div>
+
+                        </div>
+                        <hr class="document_hr">
+
+                        <div class = "product_document">
+                            <div class="product_document_left">
+                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <span class="document_name">相关操作文档.pdf</span>
+                            </div>
+                            <div class="product_document_right">
+                                <span class="document_size">1MB</span>
+                                <span class="document_time">2020/1/23</span>
+                                <span><a class="document_link">立即下载</a></span>
+                            </div>
+
+                        </div>
+                        <hr class="document_hr">
+
+                        <div v-if="isMore" class="more">
+                            <div class = "product_document">
+                                <div class="product_document_left">
+                                    <img class="document_image" src="../../assets/icons/pdf.svg">
+                                    <span class="document_name">相关操作文档.pdf</span>
+                                </div>
+                                <div class="product_document_right">
+                                    <span class="document_size">1MB</span>
+                                    <span class="document_time">2020/1/23</span>
+                                    <span><a class="document_link">立即下载</a></span>
+                                </div>
+
+                            </div>
+                            <hr class="document_hr">
+                            <el-button class="more_button" @click="showLess">收起 &lt; &lt;</el-button>
+                        </div>
+
+                        <div v-else class="less">
+                            <el-button class="more_button" @click="showMore">更多&gt;&gt;</el-button>
+                        </div>
+
+
+                    </div>
                     <span class="adv_span1" style="margin-left: 25px">相关教程</span>
+                    <el-row>
+                        <el-col span="8">
+                            <div class="vedio_block_left">
+                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_middle">
+                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_right">
+                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                    <el-row v-if="isMoreVedio">
+                        <el-col span="8">
+                            <div class="vedio_block_left">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_middle">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_right">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+                        <div style="width: 100%;text-align: center">
+                            <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>
+                        </div>
+
+                    </el-row>
+
+                    <el-row v-else>
+                        <div style="width: 100%;text-align: center">
+                            <el-button class="more_button" @click="showMoreVedio">更多 &lt; &lt;</el-button>
+                        </div>
+                    </el-row>
+<!--                    <table border="1" style="margin-top:20px;width:100%;font-size:12px;line-height:2em;text-align:left;border-color:cornflowerblue;" cellspacing="0" class="doc">-->
+<!--                        <tbody><tr><td rowspan="17" style="font-weight:550;text-align:center;">Documentation</td><td rowspan="13" style="font-weight:550;text-align:center;">Hardware</td><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">Quick Start-->
+<!--                                                    Guide</span> </a></td></tr>-->
+<!--                        <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
+<!--                            DragonBoard 845c Spec</span></a></td></tr>-->
+<!--                                               <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
+<!--                                                   Navigation Mezzanine Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics Machine-->
+<!--                                                    Communication Mezzanine Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Main-->
+<!--                                                    Camera Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Tracking Camera-->
+<!--                                                    Spec</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">ToFCamera Hardware User Guide</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">SLM-->
+<!--                                                    Camera Hardware User Guide</span></a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Hardware User Guide</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Schematics</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform  STEP Models</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM Datasheet</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM GPIO Pin Assignment</a></td></tr>-->
+<!--                                                <tr><td rowspan="4" style="font-weight:550;text-align:center;">Software</td><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Linux User Guide</a></td></tr>-->
+<!--                                                &lt;!&ndash; <tr>-->
+<!--                                                    <td class="doc_td_left">-->
+<!--                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
+<!--                                                ick="getDocument('220')">Qualcomm Robotics RB3 LE SDK User Manual</a>-->
+<!--                                                    </td>-->
+<!--                                                </tr> &ndash;&gt;-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Qualcomm Robotics RB3 Platform Release notes</span></a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SLM Camera ImageViewer.pdf</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">RB3 Robomaker Guide</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td colspan="2" rowspan="2" style="font-weight:550px;text-align:center;">Firmware</td>-->
+<!--                                                    &lt;!&ndash;-->
+<!--                                                                    <td class="doc_td_left">-->
+<!--                                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
+<!--                                                    ick="getDocument('166')">Qualcomm Robotics-->
+<!--                                                                                    RB3 Platform Image_20190222</a>-->
+<!--                                                                    </td>-->
+<!--                                                    &ndash;&gt;<td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Image_20191029</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Readme</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td rowspan="11" colspan="2" style="font-weight:550;text-align:center;">Samples-apps-codes</td><td class="doc_td_left"><a title="docment" rel="nofollow">button_test.tar</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">can-test.tar</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">bt-app_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">aplay_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">hal_play_test.tar</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">sns_hal_tests.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">camera_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">omx_test.tar</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">gst_test.tar</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">opengles_test.tar</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">ros_test.tar</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td rowspan="5" colspan="2" style="font-weight:550;text-align:center;">testResource</td><td class="doc_td_left"><a title="docment" rel="nofollow">Audio</a>-->
+<!--                                                </td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">FastCV</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">OpenGLES</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Video</a></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SNPE</a></td></tr>-->
+<!--                                                <tr><td rowspan="6" colspan="2" style="font-weight:550;text-align:center;">Tools</td><td class="doc_td_left"><a title="docment" rel="nofollow">SLM-->
+<!--                                                            Camera Image-->
+<!--                                                            Viewer.exe</a></td></tr><tr>-->
+<!--                                                </tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">App-->
+<!--                                                            Toolchain-->
+<!--                                                            SDK</a></td></tr><tr><td class="doc_td_left"><a title="docment" rel="nofollow">QTI-->
+<!--                                                            USB driver</a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">TFlash</span> </a></td></tr>-->
+<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;text-align: left">Thundersoft_Flash_Programmer_Tool_User_Guide</span> </a></td></tr>-->
+<!--                                                </tbody>-->
+<!--                                                </table>-->
+
                 </div>
             </div>
 
@@ -857,7 +1079,9 @@
                 //home:this.$t('nav.document')
                 vm:vm,
                 whether:false,
-                curId:0
+                curId:0,
+                isMore:false,
+                isMoreVedio:false
             }
         },
         methods:{
@@ -901,6 +1125,18 @@
                     }
                 );
 
+            },
+            showMore(){
+                this.isMore=true;
+            },
+            showLess(){
+                this.isMore=false;
+            },
+            showMoreVedio(){
+                this.isMoreVedio=true;
+            },
+            showLessVedio(){
+                this.isMoreVedio=false;
             }
 
 
@@ -911,6 +1147,150 @@
     }
 </script>
 <style scoped lang="less">
+    .product_documents{
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .product_document{
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: inline-flex;
+        margin-left: 20px;
+    }
+    .product_document_left{
+
+    }
+    .product_document_right{
+        text-align: right;
+    }
+    .document_image{
+        width: 31px;
+        height: 36px;
+    }
+    .document_name{
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #1F1F25;
+        margin-left: 10px;
+    }
+    .document_size{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #16161D;
+
+        margin-left: 20px;
+    }
+    .document_time{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #737A89;
+
+        margin-left: 20px;
+    }
+    .document_link{
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #3254DC;
+        line-height: 12px;
+
+        margin-left: 20px;
+        margin-right: 0px;
+    }
+    .document_hr{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .less{
+        text-align: center;
+        width: 100%;
+        height: 25px;
+    }
+    .more{
+        text-align: center;
+        width: 100%;
+    }
+    .product_vedios{
+        width: 100%;
+    }
+    .el-row{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    .vedio_block_left{
+
+        margin-left: 0;
+        width: 90%;
+        height: 12vw;
+
+    }
+
+    .vedio_block_middle{
+
+
+        margin-left: auto;
+        margin-right: auto;;
+        width: 90%;
+        height: 12vw;
+    }
+    .vedio_block_right{
+
+        margin-left: auto;
+        width: 90%;
+        height: 12vw;
+    }
+
+    .vedio_image{
+        /*background-image: linear-gradient(181deg, rgba(0,0,0,0.00) 71%, #000000 100%);*/
+        border-radius: 5px;
+        background-image: url("../../assets/images/AiKit/aikit_vedio.png");
+        background-size: 360px 200px;
+        width: 360px;
+        height: 200px;
+        position:relative;
+    }
+    .vedio_title{
+        font-family: PingFangSC-Semibold;
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 16px;
+        z-index: 1;
+        display: flow;
+        margin-bottom: 10px;
+
+        position:absolute;
+        left :20px;
+        bottom:20px;
+    }
+    .vedio_desc{
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #FFFFFF;
+        line-height: 20px;
+        z-index: 1;
+
+
+    }
+
+
+
+    .more_button{
+
+
+        width: 360px;
+        background: #E4E7EB;
+        border-radius: 3px;
+
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #16161D;
+    }
+    .button_p{
+
+    }
 
  /*td{*/
  /*   text-align: left;*/
@@ -1227,4 +1607,338 @@
     display: flex;
   }
 </style>
+<style   lang="less" scoped>
+    .first {
+        /*display: flex;*/
+        display: inline-block;
+        background-color: white;
+    }
+    #index_pic {
+        /*background-image: url("../../assets/images/ailit_bg.png");*/
+        /*  background-size: cover;*/
+        /*  width: 100%;*/
+        /*  height: 445px;*/
+        position: relative;
+    }
 
+    .main {
+        background-color: white;
+        /*padding: 25px 25px;*/
+    }
+
+    .index_btn {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        bottom: 100px;
+        width: 300px;
+        margin-right: 50px;
+        /*margin-left: 1300px;*/
+        margin-left: auto;
+        justify-content: space-between;
+    }
+    .el-button {
+        margin-left: 20px;
+    }
+    a {
+        text-decoration: none;
+        margin: 0 55px;
+        width: 110px;
+    }
+
+    .product_indexs {
+        display: flex;
+        border: 1px solid;
+        background-color: white;
+        color: #4a4a4d;
+        margin-top: 30px;
+        font-size: 21px;
+        height: 50px;
+        align-items: center;
+        overflow: hidden;
+    }
+    .product_index {
+        display: flex;
+        margin-left: 25px;
+    }
+    .product_show {
+        /*display: flex;*/
+        /*justify-content:space-around;*/
+        text-align: center;
+        background-color: white;
+        width: 100%;
+        padding-bottom: 30px;
+        padding-top: 10px;
+    }
+    .product_show_span {
+        margin-top: 50px;
+        margin-right: 300px;
+        margin-left: 118px;
+        font-size: 21px;
+
+        /*margin-top: 50px;*/
+        /*margin-right: 130px;*/
+        /*margin-left:120px;*/
+        /*font-size: 21px;*/
+    }
+    .product_btn {
+        border: 0;
+        background-color: white;
+        /*font-size: 21px;*/
+        margin-left: 30px;
+        height: 28px;
+        /*width: 160px;*/
+        cursor: pointer;
+    }
+    .product {
+        margin-top: 40px;
+    }
+    .product_det {
+        font-weight: bold;
+        font-size: 21px;
+    }
+
+    .product_show_div {
+        width: 200px;
+        margin: 0 0 10px 30px;
+        /*margin-left: 2.3%;*/
+        padding: 20px;
+        font-size: 21px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .advantages {
+        display: block;
+    }
+    .advantages_span1 {
+        display: block;
+        /*margin:10px 0 0 115px;*/
+        margin-left: 7.5%;
+        font-weight: bold;
+        font-size: 18px;
+        width: 118px;
+        text-align: left;
+    }
+    .advantages_span2 {
+        display: inline-block;
+        margin: 5px 0 10px 0;
+        text-align: left;
+        /*display: block;*/
+        width: 85%;
+    }
+    .index_pic_details {
+        background-color: white;
+        width: 40%;
+    }
+    .el-table {
+        width: 85%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .pro_border {
+        width: 85%;
+        margin: 0 auto;
+        margin-bottom: 80px;
+    }
+    .table2 {
+        border: 1px;
+        margin: 0px auto;
+        padding: 0px;
+        background-color: #ffffff;
+        width: 100%;
+        color: #454545;
+        font-family: Roboto, sans-serif;
+        font-size: 1em;
+    }
+    .download-btn {
+        border: none;
+
+        line-height: 2em;
+        color: #fff;
+        background-color: #0aa0e8;
+        text-align: center;
+        font-size: 1em;
+        border-radius: 8px;
+        width: 85%;
+        margin: 0 auto;
+        margin-bottom: 80px;
+        cursor: pointer;
+    }
+    .aikit_title {
+        margin: 40px auto 0 0;
+        font-size: 21px;
+        font-weight: bold;
+    }
+
+    .aikit_introduce {
+        margin: 40px 5px 0 0;
+    }
+    .aikit_btn {
+        /*margin: 60px  auto 101.5px 0;*/
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    #aikit_ours {
+        height: 100%;
+        background-color: white;
+        padding: 0;
+        margin-left: 5%;
+        margin-top: 0.5%;
+    }
+    #aikit_ours1 {
+        height: 100%;
+        background-color: white;
+        padding: 0;
+        margin-left: 5%;
+        margin-top: 0.5%;
+    }
+    .aikit_img_div {
+    }
+    .prohard {
+        display: block;
+        /*margin:10px 0 0 115px;*/
+        margin-left: 7.5%;
+        font-weight: bold;
+        font-size: 18px;
+        width: 118px;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+    .fixTitle {
+        position: fixed;
+        top: 0;
+        display: flex;
+    }
+    .fixTitle1 {
+        background-color: #cccccc;
+        width: 97.3%;
+        padding: 0;
+        margin: 0;
+        z-index: 5;
+    }
+    .tabs {
+        background-color: white;
+        padding-left: 1.2%;
+        padding-top: 10px;
+        padding-right: 7.5%;
+        font-size: 21px;
+        margin-top: 40px;
+        border: 1px solid #0f0f0f;
+    }
+
+    /*!*.tabs_1 {*!*/
+    /*!*    font-size: 50px ;*!*/
+    /*!*}*!*/
+    /*.el-tabs_item{*/
+    /*    font-size: 50px ;*/
+    /*}*/
+
+
+    .aikit_pic{
+        background-image: url("../../assets/images/aikit_pic.png");
+        height: 450px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .aikit_body{
+        width: 100%;
+    }
+    .aikit_body_title{
+        color: white;
+        font-size: 36px;
+        /*margin:  3% 26.1% 7.7% 46.8%;*/
+        margin-left: 46.8%;
+        padding-top: 6%;
+    }
+    .aikit_body_title p{
+        font-size:14px ;
+
+    }
+    .aikit_body_title .content{
+        margin-top: 10px;
+    }
+    .pro_det{
+        /*margin-left: 18.8%;*/
+        font-weight: bold;
+        font-size: 36px;
+        margin-top: 50px;
+       margin-right: auto;
+        margin-left: auto;
+        width: 1280px;
+    }
+    .pro_show{
+        width:1280px;
+        margin: 0 auto;
+    }
+    .pro_show_div{
+
+        font-weight: bold;
+
+        border-bottom: 44px solid #3254DC;
+        border-left: 30px solid #3254DC;
+        border-right: 30px solid transparent;
+        width: 126.72px;
+        position: relative;
+        /*box-shadow: #2aabd2 2px 2px 2px;*/
+
+    }
+    .pro_show_div span{
+        position: absolute;
+        color: white;
+        top:13px;
+        font-size: 16px;
+
+    }
+    .pro_show_div_border{
+        border-bottom: 1.5px solid #3254DC;
+        margin-top: 20px;
+    }
+    .pro_advs{
+        margin-left: 2.8%;
+    }
+
+    .adv_span2{
+        /*margin-left: 50px;*/
+        margin-top: 10px;
+        /*margin-left: 15px;*/
+        text-align: left;
+        /*text-indent: -7rem;*/
+    }
+    .adv_span1{
+        display: block;
+        /*margin:10px 0 0 115px;*/
+        /*s*/
+        font-weight: bold;
+        font-size: 14px;
+        width: 400px;
+        text-align: left;
+        /*margin-left: 13px;*/
+        margin-top: 30px;
+        margin-bottom: 10px;
+
+    }
+
+    .fixTi1 {
+
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        z-index: 5;
+    }
+    .tabs_tabs1 {
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        /*padding-left: 16.6%;*/
+        padding-top: 10px;
+        /*padding-right: 16.6%;*/
+        font-size: 18px;
+        /*margin-top: 10px;*/
+        margin-bottom: 10px;
+        box-shadow:2px 2px 10px #909090;
+        width: 100%;
+    }
+    .pro_show td,th{
+        padding-left: 15px;
+    }
+</style>

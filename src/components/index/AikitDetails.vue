@@ -27,8 +27,8 @@
               <div class="pro_show_div" id="iii"><span >产品优势</span></div>
             </div>
           <div class="pro_advs">
-            <span class="adv_span1">算法SDK</span>
-            <span class="adv_span2">算法SDK包括一些优化算法和演示应用程序的源代码，如人脸识别和目标检测。开发人员可以使用算法SDK开发自己的人工智能应用程序。此外，开发人员还可以集成自己的AI算法，方便地演示应用程序。</span>
+            <span class="adv_span1" >算法SDK</span>
+            <span class="adv_span2" >算法SDK包括一些优化算法和演示应用程序的源代码，如人脸识别和目标检测。开发人员可以使用算法SDK开发自己的人工智能应用程序。此外，开发人员还可以集成自己的AI算法，方便地演示应用程序。</span>
 
           </div>
           <div class="pro_advs">
@@ -53,15 +53,15 @@
           <div class="pro_advs">
             <span class="adv_span1">产品硬件规格</span>
             <table border="1"
-                   style="border-collapse:collapse;width:100%;text-align:center;line-height:2em;margin-left:10px">
+                   style="border:1px solid #F1F3F5;border-collapse:collapse;width:100%;text-align:left;line-height:2em;margin-top: 20px">
               <tbody>
-              <tr style="background-color:#526fe1;color:#fff;font-weight:700;">
+              <tr style="background-color:#E4E7EB;color:black;font-weight:700;font-size: 14px">
                 <td>Module</td>
                 <td>Item</td>
                 <td>Spec</td>
               </tr>
               </tbody>
-              <tbody>
+              <tbody style="font-size: 12px">
               <tr>
                 <td rowspan="4">Computing</td>
                 <td>CPU</td>
@@ -172,52 +172,56 @@
               </tbody>
             </table>
             <span class="adv_span1">产品软件规格</span>
-            <table border="1px solid" style="margin-left:10px;border-collapse:collapse;width:100%;text-align:center;line-height:2em;">
+<!--            <table border="1px solid" style="border:1px solid #F1F3F5;border-collapse:collapse;width:100%;text-align:center;line-height:2em;font-size: 14px">-->
+            <table border="1px solid" style="border:1px solid #F1F3F5;border-collapse:collapse;width:100%;text-align:left;line-height:2em;margin-top: 20px">
+
                 <tbody>
-                <tr><th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Module</th>
-                    <th style="text-align:center;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#526FE1;color:#FFFFFF;">Feature</th>
+                <tr style="text-align:left;font-weight:400;vertical-align:middle;border:1px solid #DCDDE0;background:#E4E7EB;color:black;">
+                  <th >Module</th>
+                  <th >Feature</th>
                 </tr>
                 </tbody>
-                <tbody>
+                <tbody style="font-size: 12px;text-align:left">
                 <tr>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OS</td>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Android O</td>
+<!--                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:left;">OS</td>-->
+                  <td >OS</td>
+                  <td >Android O</td>
                 </tr>
                 <tr>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Framework</td>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Tensorflow, Tensorflow Lite, Caffe/Caffe2, ONNX,SNPE, Android NN</td>
+                  <td >AI Framework</td>
+                  <td >Tensorflow, Tensorflow Lite, Caffe/Caffe2, ONNX,SNPE, Android NN</td>
                 </tr>
                 <tr>
-                  <td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">AI Algorithm SDK</td>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Detection &amp; Face Recognition &amp; Emotion Detection &amp; Age= Detection &amp; Gender Detection algorithm &amp; Eye blink</td>
+                  <td rowspan="2" >AI Algorithm SDK</td>
+                  <td >Face Detection &amp; Face Recognition &amp; Emotion Detection &amp; Age= Detection &amp; Gender Detection algorithm &amp; Eye blink</td>
                 </tr>
                 <tr>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;"
+                  <td
                   >Object Detection algorithm</td>
                 </tr>
                 <tr>
-                  <td rowspan="2" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;"
+                  <td rowspan="2"
                   >AI Sample Application</td>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Face Recognition &amp; Emotion Detection &amp; Age Detection &amp; Gend</td>
+                  <td >Face Recognition &amp; Emotion Detection &amp; Age Detection &amp; Gend</td>
                 </tr>
                 <tr>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;"
+                  <td
                   >Objection Detection algorithm demo</td>
                 </tr>
                 <tr>
-                  <td rowspan="3" style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;"
+                  <td rowspan="3"
                   >Camera</td>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Support USB3.0 Camera, 1080p@30fps</td>
+                  <td >Support USB3.0 Camera, 1080p@30fps</td>
                 </tr>
                 <tr>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Ultra HD camera preview, recording and snapshot</td>
+                  <td >Ultra HD camera preview, recording and snapshot</td>
                 </tr>
                 <tr>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">RTSP Client</td>
+                  <td >RTSP Client</td>
                 </tr>
                 <tr>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">Graphic</td>
-                  <td style="vertical-align:middle;border:1px solid #DCDDE0;text-align:center;">OpenGLES3.2, OpenCL2.0 full</td>
+                  <td >Graphic</td>
+                  <td >OpenGLES3.2, OpenCL2.0 full</td>
                 </tr>
                 </tbody>
               </table>
@@ -234,7 +238,142 @@
                 <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
             </div>
           <span class="adv_span1" style="margin-left: 25px">相关文档</span>
-          <span class="adv_span1" style="margin-left: 25px">相关教程</span>
+            <div class="product_documents">
+                <div class = "product_document">
+                    <div class="product_document_left">
+                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <span class="document_name">相关操作文档.pdf</span>
+                    </div>
+                    <div class="product_document_right">
+                        <span class="document_size">1MB</span>
+                        <span class="document_time">2020/1/23</span>
+                        <span><a class="document_link">立即下载</a></span>
+                    </div>
+
+                </div>
+                <hr class="document_hr">
+
+                <div class = "product_document">
+                    <div class="product_document_left">
+                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <span class="document_name">相关操作文档.pdf</span>
+                    </div>
+                    <div class="product_document_right">
+                        <span class="document_size">1MB</span>
+                        <span class="document_time">2020/1/23</span>
+                        <span><a class="document_link">立即下载</a></span>
+                    </div>
+
+                </div>
+                <hr class="document_hr">
+
+                <div class = "product_document">
+                    <div class="product_document_left">
+                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <span class="document_name">相关操作文档.pdf</span>
+                    </div>
+                    <div class="product_document_right">
+                        <span class="document_size">1MB</span>
+                        <span class="document_time">2020/1/23</span>
+                        <span><a class="document_link">立即下载</a></span>
+                    </div>
+
+                </div>
+                <hr class="document_hr">
+
+                <div v-if="isMore" class="more">
+                    <div class = "product_document">
+                        <div class="product_document_left">
+                            <img class="document_image" src="../../assets/icons/pdf.svg">
+                            <span class="document_name">相关操作文档.pdf</span>
+                        </div>
+                        <div class="product_document_right">
+                            <span class="document_size">1MB</span>
+                            <span class="document_time">2020/1/23</span>
+                            <span><a class="document_link">立即下载</a></span>
+                        </div>
+
+                    </div>
+                    <hr class="document_hr">
+                    <el-button class="more_button" @click="showLess">收起 &lt; &lt;</el-button>
+                </div>
+
+                <div v-else class="less">
+                    <el-button class="more_button" @click="showMore">更多&gt;&gt;</el-button>
+                </div>
+
+
+            </div>
+            <span class="adv_span1" style="margin-left: 25px">相关教程</span>
+            <el-row>
+                <el-col span="8">
+                    <div class="vedio_block_left">
+<!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+
+                <el-col span="8">
+                    <div class="vedio_block_middle">
+<!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+
+                <el-col span="8">
+                    <div class="vedio_block_right">
+<!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
+                        <div class="vedio_image">
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_desc"></span>
+                        </div>
+                    </div>
+                </el-col>
+            </el-row>
+                    <el-row v-if="isMoreVedio">
+                        <el-col span="8">
+                            <div class="vedio_block_left">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_middle">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+
+                        <el-col span="8">
+                            <div class="vedio_block_right">
+                                <div class="vedio_image">
+                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                                    <span class="vedio_desc"></span>
+                                </div>
+                            </div>
+                        </el-col>
+                        <div style="width: 100%;text-align: center">
+                            <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>
+                        </div>
+
+                    </el-row>
+
+                    <el-row v-else>
+                        <div style="width: 100%;text-align: center">
+                            <el-button class="more_button" @click="showMoreVedio">更多 &lt; &lt;</el-button>
+                        </div>
+                    </el-row>
         </div>
       </div>
 
@@ -261,6 +400,7 @@
         <!-- <div> -->
         <div class="fixTi1" :class="{fixTitle:whether}" v-if="whether">
           <div class="tabs_tabs1 ">
+              <div style="margin: 0 auto;width: 1280px;display: flex">
             <el-tabs class="tab_pane" @tab-click="handleClick1">
               <el-tab-pane label="产品优势" name="#i1"></el-tab-pane>
               <el-tab-pane label="产品规格" name="#i2"></el-tab-pane>
@@ -272,6 +412,7 @@
               <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
               <!--                                </div>-->
             </el-tabs>
+              </div>
           </div>
         </div>
 
@@ -569,7 +710,9 @@ export default {
       //home:this.$t('nav.document')
       vm: vm,
       whether: false,
-      curId: 0
+      curId: 0,
+        isMore:false,
+        isMoreVedio:false
     };
   },
 
@@ -620,7 +763,19 @@ export default {
               }
       );
 
-    }
+    },
+      showMore(){
+          this.isMore=true;
+      },
+      showLess(){
+          this.isMore=false;
+      },
+      showMoreVedio(){
+          this.isMoreVedio=true;
+      },
+      showLessVedio(){
+          this.isMoreVedio=false;
+      }
   },
   mounted: function() {
     window.addEventListener("scroll", this.handleScroll);
@@ -648,7 +803,7 @@ export default {
 
 .main {
   background-color: white;
-  padding: 25px 25px;
+  /*padding: 25px 25px;*/
 }
 
 .index_btn {
@@ -864,6 +1019,7 @@ a {
      height: 450px;
      background-repeat: no-repeat;
     background-size: 100% 100%;
+
   }
   .aikit_body{
     width: 100%;
@@ -883,14 +1039,20 @@ a {
    margin-top: 10px;
 }
   .pro_det{
-     margin-left: 18.8%;
+      /*width: 62.5%;*/
+      width: 1280px;
+      margin: 0 auto;
     font-weight: bold;
     font-size: 36px;
     margin-top: 50px;
   }
 .pro_show{
-   width: 62.4%;
+   /*width: 62.4%;*/
+   width: 1280px;
   margin: 0 auto;
+}
+.pro_show td,th{
+  padding-left: 15px;
 }
 .pro_show_div{
 
@@ -907,7 +1069,8 @@ a {
 .pro_show_div span{
    position: absolute;
     color: white;
-    top:15px;
+    top:13px;
+   font-size: 16px;
 
 }
 .pro_show_div_border{
@@ -924,18 +1087,19 @@ a {
       /*margin-left: 15px;*/
       text-align: left;
       /*text-indent: -7rem;*/
+    font-size: 12px;
   }
   .adv_span1{
       display: block;
       /*margin:10px 0 0 115px;*/
       /*s*/
       font-weight: bold;
-      font-size: 18px;
+      font-size: 14px;
       width: 400px;
       text-align: left;
       /*margin-left: 13px;*/
-       margin-top: 10px;
-      margin-bottom: 10px;
+       margin-top: 30px;
+      margin-bottom: 6px;
 
   }
 
@@ -950,9 +1114,9 @@ a {
     display: flex;
     justify-content: space-between;
     background-color: white;
-    padding-left: 16.6%;
+    /*padding-left: 16.6%;*/
     padding-top: 10px;
-    padding-right: 16.6%;
+    /*padding-right: 16.6%;*/
     font-size: 18px;
     /*margin-top: 10px;*/
     margin-bottom: 10px;
@@ -960,6 +1124,158 @@ a {
     width: 100%;
 }
 
+
+     /*教程与文档相关*/
+.product_documents{
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+.product_document{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: inline-flex;
+    margin-left: 20px;
+}
+.product_document_left{
+
+}
+.product_document_right{
+    text-align: right;
+}
+.document_image{
+    width: 31px;
+    height: 36px;
+}
+.document_name{
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #1F1F25;
+    margin-left: 10px;
+}
+.document_size{
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #16161D;
+
+    margin-left: 20px;
+}
+.document_time{
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #737A89;
+
+    margin-left: 20px;
+}
+.document_link{
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #3254DC;
+    line-height: 12px;
+
+    margin-left: 20px;
+    margin-right: 0px;
+}
+.document_hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.less{
+    text-align: center;
+    width: 100%;
+    height: 25px;
+}
+.more{
+    text-align: center;
+    width: 100%;
+}
+.product_vedios{
+    width: 100%;
+}
+.el-row{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.vedio_block_left{
+
+    margin-left: 0;
+    width: 90%;
+    height: 12vw;
+
+}
+
+.vedio_block_middle{
+
+
+    margin-left: auto;
+    margin-right: auto;;
+    width: 90%;
+    height: 12vw;
+}
+.vedio_block_right{
+
+    margin-left: auto;
+    width: 90%;
+    height: 12vw;
+}
+
+.vedio_image{
+    /*background-image: linear-gradient(181deg, rgba(0,0,0,0.00) 71%, #000000 100%);*/
+    border-radius: 5px;
+    background-image: url("../../assets/images/AiKit/aikit_vedio.png");
+    background-size: 360px 200px;
+    width: 360px;
+    height: 200px;
+    position:relative;
+}
+.vedio_title{
+    font-family: PingFangSC-Semibold;
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 16px;
+    z-index: 1;
+    display: flow;
+    margin-bottom: 10px;
+
+    position:absolute;
+    left :20px;
+    bottom:20px;
+}
+.vedio_desc{
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 20px;
+    z-index: 1;
+
+
+}
+
+
+
+.more_button{
+
+
+    width: 360px;
+    background: #E4E7EB;
+    border-radius: 3px;
+
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #16161D;
+}
+.button_p{
+
+}
+
+
+/*手机样式*/
+@media (max-width: 768px) {
+
+}
 </style>
 <style  >
 
@@ -1005,6 +1321,10 @@ a {
     display: block !important;
   }
 }
+
+
+
+
 
 </style>
 
