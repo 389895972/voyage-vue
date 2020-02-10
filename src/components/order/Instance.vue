@@ -1,9 +1,52 @@
 <template>
     <el-container>
         <div class="home-container">
-            <div class="header">
-                <img class="img" src="../../assets/images/logo.png" alt />
+            <div class="content">
+
+                <div class="titles">
+                    <div class="title"> 我的设备
+                        <el-button  style="width: 180px;background-color: #3254DC;color:white;line-height: 25px" v-if="order_status===2"> 管理设备</el-button>
+                    </div>
+                </div>
+                <div class="product_name">
+                    <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
+                    <span style="font-size: 16px;"> 设备列表</span>
+                </div>
+
+                <div class="table_product">
+                    <table  style="width: 100%;height:50px;background-color: #E4E7EB;">
+                        <tr>
+                            <td style="width: 15%">设备名称</td>
+                            <td>设备ID</td>
+                            <td>设备型号<td>
+                            <td>设备OS</td>
+                            <td>状态</td>
+                            <td>配置</td>
+                            <td  style="width: 15%">操作</td>
+                        </tr>
+                          <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                    </table>
+
+
+
+
+
+
+                </div>
+
+
             </div>
+
+
+
 
         <div> 设备列表</div>
             <div>
@@ -56,6 +99,7 @@
                 </el-pagination>
             </div>
         </div>
+
     </el-container>
 </template>
 <script>
@@ -97,3 +141,37 @@
         }
     }
 </script>
+<style scoped>
+    .home-container{
+        background-color: white;
+        border: 1px solid;
+    }
+    .content{
+        width: 1280px;
+        background-color: white;
+        margin: 40px auto 0 auto;
+        padding-bottom: 200px;
+    }
+    .titles{
+        font-weight: bold;
+        font-size: 36px;
+
+    }
+    .title{
+        margin: 20px auto 50px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .table_product td{
+        /*width: 40%;*/
+        padding-left: 20px;
+        line-height: 50px
+    }
+    .order_btn{
+        width: 1281px;
+        text-align: right;
+        margin: 15px auto 15px auto;
+
+
+    }
+</style>
