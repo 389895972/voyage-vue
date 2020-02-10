@@ -11,6 +11,7 @@ import orderList from './components/order/orderList'
 import Confirm from './components/order/Confirm'
 import InstanceDetails from './components/order/InstanceDetails'
 import ToPay from './components/order/ToPay'
+import Tutorial from './components/tutorial/Tutorial'
 //import First from "./components/index/First";
 import Instance from './components/order/Instance'
 import de from './ChangLang'
@@ -33,6 +34,7 @@ const router =new Router({
         {path:'/instance',component:Instance,meta:{keepAlive:false}},
         {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
+        {path:'/tutorial',name:'Tutorial',component:Tutorial}
 
     ],
 

@@ -78,3 +78,24 @@
 <!--    }-->
 
 <!--</style>-->
+
+<template>
+    <div>
+        <a href="http://10.0.20.114:10088">点我进入</a>
+        <a href="http://www.baidu.com">点我进入</a>
+
+    </div>
+
+</template>
+
+<script>
+
+    export default {
+        data () {
+        },
+        methods: {
+
+        },
+
+    };
+</script>

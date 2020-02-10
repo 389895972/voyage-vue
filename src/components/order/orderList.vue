@@ -63,7 +63,7 @@
           </el-table-column>
           <el-table-column width="100px" label="价格" prop="price"></el-table-column>
 
-          <el-table-column width="208px" align="left" label="操作">
+          <el-table-column width="208px" align="left" label="操作" header-align="center">
             <template slot-scope="scope">
               <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
 
@@ -181,17 +181,18 @@ export default {
     //删除订单
     handleDelete(index, row) {
       window.console.log(index, row);
+      var that = this
       this.$http
-        .get("/order/deleteOrder", {
+              .delete("/order/deleteOrder", {
           params: {
-            order_id: row.orderID
+            orderId: row.orderID
           }
         })
         .then(function(response) {
           window.console.log(response);
           if (response.status == 200) {
              // this.$router.go(0);
-            this.filterData.splice(this.page_size*(this.currentPage-1)+index, 1);
+            that.filterData.splice(that.page_size*(that.currentPage-1)+index, 1);
             alert("删除成功");
           }
         })
