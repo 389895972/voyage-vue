@@ -2,103 +2,112 @@
   <!-- .filter(data => !search || data.orderID.toLowerCase().includes(search.toLowerCase())) -->
   <el-container>
     <el-main>
-      <el-form :inline="true" :model="formInline" class="demo-form-inline">
-        <el-form-item label="产品：">
-          <el-input v-model="formInline.search_product" placeholder="搜索产品 "></el-input>
-        </el-form-item>
-        <el-form-item label="时间范围：">
-          <el-select v-model="formInline.search_timescope">
-            <el-option label="全部" value></el-option>
-            <el-option v-for="item in time_scope" :key="item" :label="item" :value="item"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item>
-          <el-form-item label="订单号：">
-            <el-input v-model="formInline.search_ID" placeholder="搜索订单"></el-input>
-          </el-form-item>
+      <div class="middle_size">
+        <h1>订单列表</h1>
+        <el-form :inline="true" :model="formInline" class="demo-form-inline form_height">
+          <div class="form_left">
+            <el-form-item class="product_input">
+              <span class="label_font">产品</span>
+              <el-input v-model="formInline.search_product" placeholder="搜索产品 "></el-input>
+            </el-form-item>
+            <el-form-item>
+              <span class="label_font">订单号</span>
+              <el-input v-model="formInline.search_ID" placeholder="搜索订单"></el-input>
+            </el-form-item>
+            <el-form-item class="time_input">
+              <span class="label_font">时间范围</span><br>
+              <el-select v-model="formInline.search_timescope" >
+                <el-option label="全部" value></el-option>
+                <el-option v-for="item in time_scope" :key="item" :label="item" :value="item"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item class="type_input" >
+              <span class="label_font">类型</span><br>
+              <el-select v-model="formInline.search_type" >
+                <el-option label="全部" value></el-option>
+                <el-option v-for="item in type_scope" :key="item" :label="item" :value="item"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item class="state_input">
+              <span class="label_font">状态</span><br>
+              <el-select v-model="formInline.search_state">
+                <el-option label="全部" value></el-option>
+                <el-option v-for="item in state_scope" :key="item" :label="item" :value="item"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <span class="label_font"></span><br>
+              <el-button type="primary" icon="el-icon-search" @click="set_search" class="query_button">查询</el-button>
+            </el-form-item>
+          </div>
+          <div class="form_right">
+            <el-form-item>
+              <span class="label_font"></span><br>
+              <el-button icon="el-icon-download" type="success" @click="export_exl" class="export_button">导出</el-button>
+            </el-form-item>
+          </div>
 
-          <el-button type="primary" @click="set_search">查询</el-button>
-        </el-form-item>
+        </el-form>
+        <el-table :data="PageData" style="width: 100%" :header-cell-style="{background:'#E4E7EB',color:' #16161D'}">
+          <el-table-column label="订单编号" prop="orderID"></el-table-column>
+          <el-table-column label="产品" prop="product"></el-table-column>
+          <el-table-column width="100px" label="类型" prop="type"></el-table-column>
+          <el-table-column label="创建时间" align="center" prop="create_time"></el-table-column>
+          <el-table-column label="支付时间" align="center" prop="pay_time"></el-table-column>
+          <el-table-column width="100px" label="状态" prop="state" style="color:red;">
+            <template scope="scope">
+              <span v-if="scope.row.state==='已支付'" style="color: green">已支付</span>
+              <span v-else-if="scope.row.state==='已取消'">已取消</span>
+              <span v-else-if="scope.row.state==='未支付'" style="color: red">未支付</span>
+            </template>
+          </el-table-column>
+          <el-table-column width="100px" label="价格" prop="price"></el-table-column>
 
-        <el-form-item>
-          <el-button @click="export_exl">导出</el-button>
-        </el-form-item>
-      </el-form>
-      <el-form :inline="true" :model="formInline" class="demo-form-inline">
-        <el-form-item label="类型：">
-          <el-select v-model="formInline.search_type">
-            <el-option label="全部" value></el-option>
-            <el-option v-for="item in type_scope" :key="item" :label="item" :value="item"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="状态：">
-          <el-select v-model="formInline.search_state">
-            <el-option label="全部" value></el-option>
-            <el-option v-for="item in state_scope" :key="item" :label="item" :value="item"></el-option>
-          </el-select>
-        </el-form-item>
-      </el-form>
+          <el-table-column width="208px" align="left" label="操作">
+            <template slot-scope="scope">
+              <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
 
-      <el-table :data="PageData" style="width: 100%">
-        <el-table-column label="订单编号" prop="orderID"></el-table-column>
-        <el-table-column label="产品" prop="product"></el-table-column>
-        <el-table-column width="100px" label="类型" prop="type"></el-table-column>
-        <el-table-column label="创建时间" align="center" prop="create_time"></el-table-column>
-        <el-table-column label="支付时间" align="center" prop="pay_time"></el-table-column>
-        <el-table-column label="状态" prop="state" style="color:red;">
-          <template scope="scope">
-            <span v-if="scope.row.state==='已支付'" style="color: green">已支付</span>
-            <span v-else-if="scope.row.state==='已取消'">已取消</span>
-            <span v-else-if="scope.row.state==='未支付'" style="color: red">未支付</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="价格" prop="price"></el-table-column>
+              <el-button
+                      v-if="scope.row.state=='未支付'"
+                      size="mini"
+                      type="primary"
+                      @click="handlePay(scope.$index,scope.row)"
+              >支付</el-button>
 
-        <el-table-column align="center" label="操作">
-          <template slot-scope="scope">
-            <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
+              <el-button
+                      v-if="scope.row.state=='未支付'"
+                      size="mini"
+                      type="warning"
+                      @click="handleCancel(scope.$index,scope.row)"
+              >取消</el-button>
 
-            <el-button
-              v-if="scope.row.state=='未支付'"
-              size="mini"
-              type="primary"
-              @click="handlePay(scope.$index,scope.row)"
-            >支付</el-button>
+              <el-button
+                      v-if="scope.row.state=='已支付'"
+                      size="mini"
+                      type="success"
+                      @click="go_control_page(scope.$index,scope.row)"
+              >资源管理</el-button>
 
-            <el-button
-              v-if="scope.row.state=='未支付'"
-              size="mini"
-              type="warning"
-              @click="handleCancel(scope.$index,scope.row)"
-            >取消</el-button>
-
-            <el-button
-              v-if="scope.row.state=='已支付'"
-              size="mini"
-              type="success"
-              @click="go_control_page(scope.$index,scope.row)"
-            >资源管理</el-button>
-
-            <el-button
-              v-if="scope.row.state=='已取消'"
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.$index, scope.row)"
-            >删除</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-
-      <div class="block">
-        <el-pagination
-          background
-          @current-change="handleCurrentChange"
-          :current-page="currentPage"
-          :page-size="page_size"
-          :page-count="total_page"
-          layout="total, prev, pager, next, jumper"
-          :total="total_info"
-        ></el-pagination>
+              <el-button
+                      v-if="scope.row.state=='已取消'"
+                      size="mini"
+                      type="danger"
+                      @click="handleDelete(scope.$index, scope.row)"
+              >删除</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+        <div class="block">
+          <el-pagination
+                  background
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage"
+                  :page-size="page_size"
+                  :page-count="total_page"
+                  layout="total, prev, pager, next, jumper"
+                  :total="total_info"
+          ></el-pagination>
+        </div>
       </div>
     </el-main>
   </el-container>
@@ -112,7 +121,7 @@ export default {
       userId:this.$route.query.user_id,
       //分页属性
       currentPage: 1,
-      page_size: 5,
+      page_size: 10,
 
       //下拉表属性
       type_scope: ["新购", "续费"],
@@ -181,7 +190,8 @@ export default {
         .then(function(response) {
           window.console.log(response);
           if (response.status == 200) {
-             this.$router.go(0);
+             // this.$router.go(0);
+            this.filterData.splice(this.page_size*(this.currentPage-1)+index, 1);
             alert("删除成功");
           }
         })
@@ -406,4 +416,90 @@ export default {
   margin-left: 20px;
   margin-right: 100px;
 }
+.middle_size{
+  width: 1280px;
+  margin:0 auto;
+}
+.el-table .cell {
+    display:table-row-group;
+  }
+
+
+.label_font{
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #16161D;
+  letter-spacing: 0;
+  text-align: center;
+
+  font-weight: bold;
+}
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item{
+  letter-spacing: 0;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  text-align: center;
+  /*font-weight: bolder;*/
+}
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+  background-color:#3254DC;;
+
+
+  color: #FFFFFF;
+
+}
+.el-form-item {
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
+.product_input{
+
+}
+.id_input{
+
+}
+.time_input{
+  width: 100px;
+}
+.type_input{
+  width: 100px;
+
+}
+.state_input{
+  width: 100px;
+
+}
+.form_height{
+  height:100px;
+  display: -webkit-box;
+}
+.form_left{
+  width: 90%;
+}
+.form_right{
+  width: 10%;
+}
+
+.query_button{
+  width: 120px;
+}
+.export_button{
+  width:128px;
+}
+
+
+
+
+
+.el-icon-arrow-up:before {
+  content: "\e790";
+}
+
+
+
+
+
 </style>

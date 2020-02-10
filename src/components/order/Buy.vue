@@ -22,6 +22,7 @@
                           <el-option  v-for="item in configures"  :key="item.value"  :label="item.label"
                             :value="item.value">
                           </el-option>
+
                       </el-select>
                       </div>
                 </div>
@@ -31,29 +32,49 @@
                 <div class="configure" style="height: 165px">
                     <span class="configure_title">操作系统</span>
                     <div class="configure_content" >
-                        <el-radio-group v-model="configure">
-                            <el-radio-button  v-for="item in oss"
+                        <el-radio-group v-model="current_os">
+                       <span style="display:inline-block" v-for="item in oss" :key="item">
+                          <el-radio-button style="display:block"
                                               :key="item"
                                               :label="item"
-                                              :value="item" ></el-radio-button>
+                                              :value="item" >
+                            </el-radio-button>
+                            <el-select  v-model="current_os_version" placeholder="请选择">
+                            <el-option
+                                    v-for="item2 in os_specs[item]"
+                                    :key="item2"
+                                    :label="item2"
+                                    :value="item2">
+                            </el-option>
+
+                        </el-select>
+
+                       </span>
                         </el-radio-group>
+
+
                     <span class="configure_os">
-            <el-select v-model="current_os" placeholder="请选择">
-              <el-option
-                      v-for="item in oss"
-                      :key="item"
-                      :label="item"
-                      :value="item"
-              ></el-option>
-            </el-select>
+<!--            <el-select v-model="current_os" placeholder="请选择">-->
+<!--              <el-option-->
+<!--                      v-for="item in oss"-->
+<!--                      :key="item"-->
+<!--                      :label="item"-->
+<!--                      :value="item"-->
+<!--              ></el-option>-->
+<!--            </el-select>-->
+
+                        {{current_os}}++{{current_os_version}}-- {{os_specs[current_os]}}
+
           </span>
-            <el-select v-model="current_os_version" placeholder="请选择">
-                <el-option
-                      v-for="item in os_specs[current_os]"
-                      :key="item"
-                      :label="item"
-                      :value="item"></el-option>
-                    </el-select>
+<!--            <el-select v-model="current_os_version" placeholder="请选择">-->
+<!--                <el-option-->
+<!--                      v-for="item in os_specs[current_os]"-->
+<!--                      :key="item"-->
+<!--                      :label="item"-->
+<!--                      :value="item"></el-option>-->
+<!--             </el-select>-->
+
+
                     </div>
                 </div>
 <!--                <div class="configure">-->
@@ -86,10 +107,10 @@
                     <div class="configure_content" >
                     <el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
 
-                  <div class="block" style="width: 60%;margin: 20px">
+                  <div class="block" style="width:90%;margin-top: 20px">
 
-                    <span class="demonstration">购买时长</span>
-                   
+                    <span class="configure_title">购买时长</span>
+
                       <el-slider v-model="hire_time" :step="1" :format-tooltip="timestepToolTip" show-stops :max="41" :min="1" ></el-slider>
 
                       {{hire_time}}---{{pay}}---{{hire_time_pa}}
@@ -293,7 +314,9 @@
              },
              hire_time_pa(){
                  return this.toolmsg[this.hire_time_pay]
-             }
+             },
+
+
         }
     }
 </script>
@@ -378,6 +401,14 @@
      .el-button{
          margin-left: 20px;
      }
-
-
+    .block  >>> .el-slider__bar{
+        background-color: #3FB560;
+    }
+    .block  >>> .el-slider__button{
+        border: 2px solid #3FB560;
+    }
+    .configure >>> .el-input__inner{
+        /*background-color: red;*/
+        width: 180px;
+    }
 </style>
