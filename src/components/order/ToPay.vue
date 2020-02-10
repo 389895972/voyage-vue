@@ -1,98 +1,289 @@
 <template>
         <el-container>
             <div class="home-container">
-                <div class="header">
-                    <img class="img" src="../../assets/images/logo.png" alt />
+
+                <div class="content">
+                    <div><a href="">返回</a>|订单管理
+                    </div>
+                    <hr>
+                    {{orderId}}
+                    <div class="titles">
+                        <div class="title"> 订单 管理
+                        <el-button  style="width: 180px;background-color: #3254DC;color:white;line-height: 25px" v-if="order_status===2"> 管理设备</el-button>
+                        </div>
+                    </div>
+                    <div class="product_name">
+                        <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
+                        <span style="font-size: 16px;"> 基本信息</span>
+                    </div>
+                    <div class="table_product">
+                        <table v-if="user===1" style="width: 100%;height:50px;background-color: #E4E7EB;">
+                            <tr>
+                                <td style="width: 17%">订单编号</td>
+                                <td style="width: 15%">订单类型</td>
+                                <td>创建时间</td>
+                                <td>支付时间</td>
+                                <td>支付状态</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 15%;height: 80px;background-color: white" valign="top">
+                                    {{orderId}}
+                                </td>
+                                <td style="padding-top: 0;background-color: white" valign="top">{{pay_status[0].costs}}</td>
+                                <td valign="top" style="background-color: white;width: 20%;">{{create_time}}</td>
+                                <td valign="top" style="background-color: white;width: 30%;">{{os}}</td>
+<!--                                <td valign="top" style="background-color: white">{{hire_time}}</td>-->
+                                <td v-if="order_status===1" valign="top" style="background-color: white;color:red" > 未支付￥{{price}}</td>
+                                <td v-else-if="order_status===2" valign="top" style="background-color: white;color:green" > 已付款￥{{price}}</td>
+                                <td v-else-if="order_status===3" valign="top" style="background-color: white;color:red" > 已取消￥{{price}}</td>
+                            </tr>
+                        </table>
+                        <table v-else-if="user===2" style="width: 100%;height:50px;background-color: #E4E7EB;">
+                            <tr>
+                                <td style="width: 17%">订单编号</td>
+                                <td style="width: 15%">订单类型</td>
+                                <td>用户名</td>
+                                <td>手机号</td>
+                                <td>创建时间</td>
+                                <td>支付时间</td>
+                                <td>支付状态</td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 15%;height: 80px;background-color: white" valign="top">
+                                    {{orderId}}
+                                </td>
+                                <td style="padding-top: 0;background-color: white" valign="top">{{pay_status[0].costs}}</td>
+                                <td style="background-color: white;width: 10%;"></td>
+                                <td style="background-color: white;width: 10%;"></td>
+                                <td valign="top" style="background-color: white;width: 20%;">{{create_time}}</td>
+                                <td valign="top" style="background-color: white;width: 20%;">{{os}}</td>
+<!--                                <td valign="top" style="background-color: white">{{hire_time}}</td>-->
+                                <td v-if="order_status===1" valign="top" style="background-color: white;color:red" > 未支付￥{{price}}</td>
+                                <td v-else-if="order_status===2" valign="top" style="background-color: white;color:green" > 已付款￥{{price}}</td>
+                                <td v-else-if="order_status===3" valign="top" style="background-color: white;color:red" > 已取消￥{{price}}</td>
+                            </tr>
+                        </table>
+                        <div v-if="order_status===2">
+                        <div  class="product_name" style="margin-top：15px">
+                            <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
+                            <span style="font-size: 16px;"> 支付信息</span>
+                        </div>
+                        <div class="table_product" >
+                            <table  style="width: 100%;height:50px;margin-bottom: 55px">
+                                <tr style="border-bottom:1px solid #E7EAED;border-top:1px solid #E7EAED;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                    <td style="width: 15%">支付渠道</td>
+                                    <td>扣款费用</td>
+                                    <td>扣款时间</td>
+                                    <td>支付账户</td>
+
+                                </tr>
+                                <tr  style="border-bottom:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                    <td style="width: 15%;background-color: white" valign="top">
+                                    士大夫
+                                    </td>
+                                    <td style="padding-top: 0;background-color: white;width: 15%" valign="top">{{buy_nums}}</td>
+                                    <td valign="top" style="background-color: white;width: 35%">{{os}}</td>
+                                    <td valign="top" style="background-color: white;text-align: center">{{os}}</td>
+                                </tr>
+                            </table>
+
+
+
+                        </div>
+                        </div>
+
+
+
+                        <div class="product_name">
+                            <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
+                            <span style="font-size: 16px;"> 订单详情</span>
+                        </div>
+                        <div class="table_product" style="margin-bottom: 25px">
+                            <table  style="width: 100%;height:50px;">
+                                <tr style="border-bottom:1px solid #E7EAED;border-top:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                    <td style="width: 23%">产品</td>
+                                    <td>数量</td>
+                                    <td>具体配置</td>
+                                    <td>付款方式</td>
+                                    <td>起止时间</td>
+                                    <td>价格</td>
+                                </tr>
+                                <tr  style="border-bottom:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                    <td style="width: 23%;height: 180px;background-color: white">
+                                        <table>
+
+                                            <tr>
+                                                <td>
+                                                    <img  v-if="product_name==='AI KIT'" src="../../assets/images/aikit.png" style="width:160px;height:98.7px " alt="">
+                                                    <img  v-else-if="product_name==='RB 3'" src="../../assets/images/rb3.png" style="width:160px;height:98.7px " alt="">
+                                                    <img  v-else-if="product_name==='Edge KIT'" src="../../assets/images/edgekit.png" style="width:160px;height:98.7px " alt="">
+                                                </td>
+
+                                            </tr>
+                                            <tr > <span style="text-align: center;width: 100%;display: inline-block"> {{product_name}} </span></tr>
+
+
+                                        </table>
+
+
+                                    </td>
+                                    <td style="padding-top: 0;background-color: white" >{{buy_nums}}</td>
+                                    <td valign="top" style="background-color: white">
+                                        <table>
+                                            <tr>实例规格：</tr>
+                                            <tr>系统盘：</tr>
+                                            <tr>镜像:</tr>
+                                            <tr>网络类型:</tr>
+                                            <tr>分配公网IPV4地址：</tr>
+                                            <tr>带宽计费方式：</tr>
+                                            <tr>自动续费：</tr>
+                                        </table>
+                                    </td>
+                                    <td  style="background-color: white">{{os}}</td>
+                                    <td  style="background-color: white">{{hire_time}}</td>
+                                    <td  style="background-color: white" > ￥{{price}}</td>
+                                </tr>
+                            </table>
+
+
+
+                            <div class="order_btn" v-if="order_status===1">
+                                <div>
+                                    <span style="color: #606879;font-size: 12px">原价：</span>
+                                    <span style="text-decoration: line-through;margin-left: 10px;font-size:24px ">￥{{price}}</span>
+                                </div>
+                                <div style="margin-top: 10px;margin-bottom: 10px">
+                                    <span style="color: #606879;font-size: 12px">应付金额：</span>
+                                    <span style="color: red;font-size: 24px">￥0.00</span>
+                                </div>
+
+                                <el-button   @click="handleCancel" style="width: 180px;">取消订单</el-button>
+                                <el-button  type="primary" @click="buy" style="width: 180px;font-size: 16px;background-color: #3254DC">立即支付</el-button>
+                            </div>
+
+                            <div v-if="user!==1">
+                            <div class="product_name">
+                                <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
+                                <span style="font-size: 16px;"> 操作信息</span>
+                            </div>
+                            <div class="table_product" style="margin-bottom: 25px">
+                                <table  style="width: 100%;height:50px;">
+                                    <tr style="border-bottom:1px solid #E7EAED;border-top:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                        <td style="width: 23%">操作者</td>
+                                        <td>操作时间</td>
+                                        <td>订单状态</td>
+                                        <td>备注</td>
+
+                                    </tr>
+                                    <tr  style="border-bottom:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                        <td style="width: 23%;background-color: white">
+
+                                        </td>
+                                        <td style="padding-top: 0;background-color: white" >{{buy_nums}}</td>
+                                        <td valign="top" style="background-color: white"></td>
+                                        <td  style="background-color: white">{{os}}</td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div><a href="">返回</a>|订单管理
-                </div>
-                <hr>
-                {{orderId}}
-                <el-table
-                        :data="orderInfo"
-                        style="width: 100%">
-                    <el-table-column
-                            prop="order_id"
-                            label="订单基本信息"
-                            width="300">
-                    </el-table-column>
-                    <el-table-column
-                            prop="order_type"
-                            label=""
-                            width="300">
-                    </el-table-column>
-                </el-table>
-                <div v-if="this.order_status===1">  <el-button type="primary" size="mini">立即支付</el-button> <el-button type="info" size="mini" plain @click="handleCancel">取消订单</el-button> </div>
-                <div v-else-if="order_status===2">
-                    <el-table
-                            :data="pay_status"
-                            style="width: 100%">
-                        <el-table-column
-                                prop="pay_channel"
-                                label="支付渠道"
-                                width="300">
-                        </el-table-column>
-                        <el-table-column
-                                prop="costs"
-                                label="扣缴费用"
-                                width="300">
-                        </el-table-column>
-                        <el-table-column
-                                prop="cost_time"
-                                label="扣款时间"
-                                width="300">
-                        </el-table-column>
-                        <el-table-column
-                                prop="pay_account"
-                                label="支付账号"
-                                width="300">
-                        </el-table-column>
-                    </el-table>
-                </div>
-                <div v-else>   </div>
-
-                <el-table
-                        :data="orderInfoDetails"
-
-                        style="width: 100%">
-                    <el-table-column
-                            prop="product_name"
-                            label="产品"
-                            width="300">
-                    </el-table-column>
-                    <el-table-column
-                            prop="product_num"
-                            label="数量"
-                            width="300">
-                    </el-table-column>
-                    <el-table-column
-                            prop="configure"
-                            label="具体配置"
-                            width="200">
-                        <template scope="scope">
-                            <span v-if="scope.row.configure.os"> <span>配置：</span> {{scope.row.configure.os}}</span>
-                        </template>
-                    </el-table-column>
-                    <el-table-column
-                            prop="pay_methods"
-                            label="付款方法"
-                            width="200">
-                    </el-table-column>
-                    <el-table-column
-                            prop="start_end_time"
-                            label="起止时间"
-                            width="200">
-                    </el-table-column>
-                    <el-table-column
-                            prop="pay"
-                            label="金额"
-                            width="200">
-                    </el-table-column>
 
 
-                </el-table>
-                <div style="text-align: right;margin-right: 100px">原价：{{orderInfoDetails[0].pay}}</div>
-                <div style="text-align: right;margin-right: 100px">应付金额：￥0.00</div>
+
+
+
+
+<!--                <el-table-->
+<!--                        :data="orderInfo"-->
+<!--                        style="width: 100%">-->
+<!--                    <el-table-column-->
+<!--                            prop="order_id"-->
+<!--                            label="订单基本信息"-->
+<!--                            width="300">-->
+<!--                    </el-table-column>-->
+<!--                    <el-table-column-->
+<!--                            prop="order_type"-->
+<!--                            label=""-->
+<!--                            width="300">-->
+<!--                    </el-table-column>-->
+<!--                </el-table>-->
+<!--                <div v-if="this.order_status===1">  <el-button type="primary" size="mini">立即支付</el-button> <el-button type="info" size="mini" plain @click="handleCancel">取消订单</el-button> </div>-->
+<!--                <div v-else-if="order_status===2">-->
+<!--                    <el-table-->
+<!--                            :data="pay_status"-->
+<!--                            style="width: 100%">-->
+<!--                        <el-table-column-->
+<!--                                prop="pay_channel"-->
+<!--                                label="支付渠道"-->
+<!--                                width="300">-->
+<!--                        </el-table-column>-->
+<!--                        <el-table-column-->
+<!--                                prop="costs"-->
+<!--                                label="扣缴费用"-->
+<!--                                width="300">-->
+<!--                        </el-table-column>-->
+<!--                        <el-table-column-->
+<!--                                prop="cost_time"-->
+<!--                                label="扣款时间"-->
+<!--                                width="300">-->
+<!--                        </el-table-column>-->
+<!--                        <el-table-column-->
+<!--                                prop="pay_account"-->
+<!--                                label="支付账号"-->
+<!--                                width="300">-->
+<!--                        </el-table-column>-->
+<!--                    </el-table>-->
+<!--                </div>-->
+<!--                <div v-else>   </div>-->
+
+<!--                <el-table-->
+<!--                        :data="orderInfoDetails"-->
+
+<!--                        style="width: 100%">-->
+<!--                    <el-table-column-->
+<!--                            prop="product_name"-->
+<!--                            label="产品"-->
+<!--                            width="300">-->
+<!--                    </el-table-column>-->
+<!--                    <el-table-column-->
+<!--                            prop="product_num"-->
+<!--                            label="数量"-->
+<!--                            width="300">-->
+<!--                    </el-table-column>-->
+<!--                    <el-table-column-->
+<!--                            prop="configure"-->
+<!--                            label="具体配置"-->
+<!--                            width="200">-->
+<!--                        <template scope="scope">-->
+<!--                            <span v-if="scope.row.configure.os"> <span>配置：</span> {{scope.row.configure.os}}</span>-->
+<!--                        </template>-->
+<!--                    </el-table-column>-->
+<!--                    <el-table-column-->
+<!--                            prop="pay_methods"-->
+<!--                            label="付款方法"-->
+<!--                            width="200">-->
+<!--                    </el-table-column>-->
+<!--                    <el-table-column-->
+<!--                            prop="start_end_time"-->
+<!--                            label="起止时间"-->
+<!--                            width="200">-->
+<!--                    </el-table-column>-->
+<!--                    <el-table-column-->
+<!--                            prop="pay"-->
+<!--                            label="金额"-->
+<!--                            width="200">-->
+<!--                    </el-table-column>-->
+
+
+<!--                </el-table>-->
+<!--                <div style="text-align: right;margin-right: 100px">原价：{{price}}</div>-->
+<!--                <div style="text-align: right;margin-right: 100px">应付金额：￥0.00</div>-->
             </div>
 
         </el-container>
@@ -101,9 +292,15 @@
     export default {
         data() {
             return {
-               orderId:this.$route.params.orderId,
+                user:1,
+                kong:'',
+                price:0,
+                buy_nums:0,
+                product_name:'',
+                orderId:this.$route.params.orderId,
                // orderId:"200119193113462975",
                 order_status:'',
+                create_time:'',
                 orderInfo: [{
                     order_id: '订单编号：',
                     order_type: '订单类型：',
@@ -151,7 +348,7 @@
 
                 pay_status: [{
                     pay_channel: '-',
-                    costs: '订单类型：新购',
+                    costs: '新购',
                     cost_time:'',
                     pay_account:'',
                 },
@@ -170,10 +367,13 @@
 
                     this.orderInfo[0].order_id ="订单编号："+res.data.order_id
                     this.orderInfo[1].order_id ="创建时间："+this.tranDate(res.data.create_time)
+                     this.create_time=this.tranDate(res.data.create_time)
                      this.orderInfoDetails = []
                      this.orderInfoDetails[0]={}
                      this.orderInfoDetails[0].product_name=res.data.goods_name
                      this.orderInfoDetails[0].product_num=res.data.num
+                     this.buy_nums=res.data.num
+                     this.product_name=res.data.goods_name
                       this.orderInfoDetails[0].configure={}
                       this.orderInfoDetails[0].configure.os=res.data.o__s
                    //  this.orderInfoDetails[0].configure=res.data.o__s
@@ -190,12 +390,15 @@
                      if(res.data.status==="1"){
                          this.orderInfo[3].order_id= '支付状态：未支付 ￥'+res.data.price
                          this.order_status=1
+                         this.price=res.data.price
                      }else if(res.data.status==="2"){
                          this.orderInfo[3].order_id= '支付状态：已支付 ￥'+res.data.price
                          this.order_status=2
+                         this.price=res.data.price
                      }else if(res.data.status==="3"){
                          this.orderInfo[3].order_id= '支付状态：已取消 ￥'+res.data.price
                          this.order_status=3
+                         this.price=res.data.price
                      }
                 }else{
                      this.$message.error("查询失败！")
@@ -238,6 +441,12 @@ let hour=d.getHours();
                     this.getOrder();
                 }
 
+            },
+            async buy_pay() {
+               // const {data: res} = await this.$http.get('/order/changeStatus', {params: {orderId: this.orderId}})
+                // window.console.log(res)
+                // if (res.code == 20000) {
+                // }
             }
 
         },
@@ -252,6 +461,37 @@ let hour=d.getHours();
 
     }
 </script>
-<style>
+<style scoped>
+    .home-container{
+        background-color: white;
+        border: 1px solid;
+    }
+    .content{
+        width: 1280px;
+        background-color: white;
+        margin: 40px auto 0 auto;
+        padding-bottom: 200px;
+    }
+    .titles{
+        font-weight: bold;
+        font-size: 36px;
 
+    }
+    .title{
+        margin: 20px auto 50px 0;
+         display: flex;
+        justify-content: space-between;
+    }
+    .table_product td{
+        /*width: 40%;*/
+        padding-left: 20px;
+        line-height: 50px
+    }
+    .order_btn{
+        width: 1281px;
+        text-align: right;
+        margin: 15px auto 15px auto;
+
+
+    }
 </style>

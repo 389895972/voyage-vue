@@ -76,7 +76,7 @@
                      <span style="text-align: center"> 硬件分时</span>
                      <span style="text-align: center"> 共享平台</span>
                     <hr style="opacity:0.4;margin: 0 auto;text-align: center;width:85px;height: 0.1px">
-                    <span style="font-size:38px;margin:0 auto;width:80px;text-align:center;letter-spacing:2px">
+                    <span style="font-size:38px;margin:0 auto;width:80px;text-align:center;letter-spacing:2px;color: #FCD131">
                         优势
                     </span>
                   </span>
@@ -829,12 +829,14 @@
               <div class="service_contents">
                 <table>
                   <tr>
-                    <td>
+                    <td style="width: 100%">
                       <span class="service_querstion">支付后实例列表中没有创建新的实例</span>
-                      <div style="width:80%;text-align:left">
+                      <div style="width:100%;text-align:left">
                         <p class="service_querstion_p"> 稍等几秒，尝试刷新页面。若多次刷新后还没有新的实例，请联系客服人员。</p>
                       </div>
                     </td>
+                  </tr>
+                    <tr>
                     <td>
                       <span class="service_querstion">
                         访问控制台出错：403
@@ -851,6 +853,8 @@
                         </p>
                       </div>
                     </td>
+                  </tr>
+                    <tr>
                     <td>
                       <span class="service_querstion"> 若遇到实例中设备宕机，无法访问，请联系客服人员。</span>
                     </td>

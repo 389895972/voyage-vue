@@ -5,6 +5,12 @@
             <div class="nav_layout_right">
                 <div class="nav_item">
                     <a class="nav_a" href="#">
+                        <span class="nav_font">我的教程</span>
+                    </a>
+                </div>
+
+                <div class="nav_item">
+                    <a class="nav_a" href="#">
                         <span class="nav_font">控制台</span>
                     </a>
                 </div>
