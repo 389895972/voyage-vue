@@ -109,7 +109,29 @@ export default {
            email:"E-mail:service@45iot.com",
 
        }
-   }
+   },
+    methods:{
+        copy() {
+            // var _this = this;
+            // var clipboard = new Clipboard(".btn"); //单页面引用
+            var clipboard = new this.Clipboard(".btn"); //在main.js中引用
+            clipboard.on("success", e => {
+                // 释放内存
+                clipboard.destroy();
+                window.console.log(e)
+            });
+            clipboard.on("error", e => {
+                // 不支持复制
+                window.console.log(e)
+                this.Message({
+                    message: "该浏览器不支持自动复制",
+                    type: "warning"
+                });
+                // 释放内存
+                clipboard.destroy();
+            });
+        },
+    }
 }
 </script>
 <style scoped>

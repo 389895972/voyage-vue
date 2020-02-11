@@ -1,3 +1,4 @@
+
 <!--<template>-->
 <!--    <el-form :model="inServForm" ref="inServForm"  label-width="130px" size="small">-->
 <!--        <el-form-item label="输入参数列表"  prop="servin" >-->
@@ -79,12 +80,14 @@
 
 <!--</style>-->
 
+
 <template>
     <div>
         <a href="http://10.0.20.114:10088">点我进入</a>
         <a href="http://www.baidu.com">点我进入</a>
 
     </div>
+
 
 </template>
 
@@ -95,7 +98,10 @@
         },
         methods: {
 
+
         },
 
+
     };
+
 </script>
