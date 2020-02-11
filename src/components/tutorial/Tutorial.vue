@@ -96,7 +96,7 @@
                 <el-col span="8">
                     <div class="vedio_block_middle">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/rb3/rb3_tutorial.jpg')})`}">
-                            <span class="vedio_title">A高通RB3平台机器人开发人员手册</span>
+                            <span class="vedio_title">高通RB3平台机器人开发人员手册</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -380,6 +380,11 @@
     }
     .el-radio-button is-active{
         background-color: #3254DC;
+    }
+
+
+    @media (max-width: 768px) {
+
     }
 
 

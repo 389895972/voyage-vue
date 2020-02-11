@@ -1,5 +1,4 @@
 <template>
-  <!-- .filter(data => !search || data.orderID.toLowerCase().includes(search.toLowerCase())) -->
   <el-container>
     <el-main>
       <div class="middle_size">
@@ -491,17 +490,6 @@ export default {
 .export_button{
   width:128px;
 }
-
-
-
-
-
-.el-icon-arrow-up:before {
-  content: "\e790";
-}
-
-
-
 
 
 </style>
