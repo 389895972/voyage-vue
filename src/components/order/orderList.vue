@@ -63,7 +63,7 @@
           </el-table-column>
           <el-table-column width="100px" label="价格" prop="price"></el-table-column>
 
-          <el-table-column width="208px" align="left" label="操作">
+          <el-table-column width="208px" align="left" label="操作" header-align="center">
             <template slot-scope="scope">
               <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
 
@@ -490,9 +490,9 @@ export default {
 .export_button{
   width:128px;
 }
- .cell{
-  text-align: left;
-}
+/* .el-table >>>.cell{*/
+/*  text-align: left;*/
+/*}*/
 
 
 

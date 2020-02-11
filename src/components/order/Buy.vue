@@ -61,7 +61,6 @@
 <!--              ></el-option>-->
 <!--            </el-select>-->
 
-                        {{current_os}}++{{current_os_version}}-- {{os_specs[current_os]}}
 
           </span>
 <!--            <el-select v-model="current_os_version" placeholder="请选择">-->

@@ -3,16 +3,27 @@
             <div class="home-container">
 
                 <div class="content">
-                    <div><a href="">返回</a>|订单管理
+                    <div> <el-button>&larr;返回</el-button>
                     </div>
-                    <hr>
-                    {{orderId}}
+
+
                     <div class="titles">
                         <div class="title"> 订单 管理
                         <el-button  style="width: 180px;background-color: #3254DC;color:white;line-height: 25px" v-if="order_status===2"> 管理设备</el-button>
                         </div>
                     </div>
-                    <div class="product_name">
+                    <div v-if="order_status===1" style="background-color: #FDEDEC;color: red;text-align:center;height: 50px;font-size: 16px">
+                        <!-- 这里是显示还未结束时的内容，这里只是我这得布局，你可以随意。 -->
+                        <div class="time" v-show="!isShow" style="height: 50px">
+                            <!--                <span class="hour">{{myDay}}</span> :-->
+                           离取消订单还有 <span class="hour">{{myHours}}</span> :
+                            <span style="display: inline-block;height: 50px;line-height: 50px" class="minute">{{myMinutes}}</span> :
+                            <span style="display: inline-block;height: 50px;line-height: 50px" class="second">{{mySeconds}}</span>
+                        </div>
+                        <!-- 这里是显示结束后的内容 -->
+                        <span style="display: inline-block;height: 50px;line-height: 50px" class="second" v-show="isShow">{{clocker}}</span>
+                    </div>
+                    <div class="product_name" style="margin-top: 20px">
                         <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
                         <span style="font-size: 16px;"> 基本信息</span>
                     </div>
@@ -37,6 +48,7 @@
                                 <td v-if="order_status===1" valign="top" style="background-color: white;color:red" > 未支付￥{{price}}</td>
                                 <td v-else-if="order_status===2" valign="top" style="background-color: white;color:green" > 已付款￥{{price}}</td>
                                 <td v-else-if="order_status===3" valign="top" style="background-color: white;color:red" > 已取消￥{{price}}</td>
+                                <td v-else valign="top" style="background-color: white;color:red" > </td>
                             </tr>
                         </table>
                         <table v-else-if="user===2" style="width: 100%;height:50px;background-color: #E4E7EB;">
@@ -55,14 +67,15 @@
                                     {{orderId}}
                                 </td>
                                 <td style="padding-top: 0;background-color: white" valign="top">{{pay_status[0].costs}}</td>
-                                <td style="background-color: white;width: 10%;"></td>
-                                <td style="background-color: white;width: 10%;"></td>
+                                <td valign="top" style="background-color: white;width: 10%;"> {{infoForm1[0].name}}</td>
+                                <td  valign="top" style="background-color: white;width: 10%;">{{infoForm1[0].phone_num}}</td>
                                 <td valign="top" style="background-color: white;width: 20%;">{{create_time}}</td>
                                 <td valign="top" style="background-color: white;width: 20%;">{{os}}</td>
 <!--                                <td valign="top" style="background-color: white">{{hire_time}}</td>-->
                                 <td v-if="order_status===1" valign="top" style="background-color: white;color:red" > 未支付￥{{price}}</td>
                                 <td v-else-if="order_status===2" valign="top" style="background-color: white;color:green" > 已付款￥{{price}}</td>
                                 <td v-else-if="order_status===3" valign="top" style="background-color: white;color:red" > 已取消￥{{price}}</td>
+                                <td v-else valign="top" style="background-color: white;color:red" ></td>
                             </tr>
                         </table>
                         <div v-if="order_status===2">
@@ -81,19 +94,17 @@
                                 </tr>
                                 <tr  style="border-bottom:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
                                     <td style="width: 15%;background-color: white" valign="top">
-                                    士大夫
+                                   --
                                     </td>
-                                    <td style="padding-top: 0;background-color: white;width: 15%" valign="top">{{buy_nums}}</td>
-                                    <td valign="top" style="background-color: white;width: 35%">{{os}}</td>
-                                    <td valign="top" style="background-color: white;text-align: center">{{os}}</td>
+                                    <td style="padding-top: 0;background-color: white;width: 15%" valign="top">--</td>
+                                    <td valign="top" style="background-color: white;width: 35%">--</td>
+                                    <td valign="top" style="background-color: white;text-align: center"></td>
                                 </tr>
                             </table>
 
 
-
                         </div>
                         </div>
-
 
 
                         <div class="product_name">
@@ -130,19 +141,24 @@
 
                                     </td>
                                     <td style="padding-top: 0;background-color: white" >{{buy_nums}}</td>
-                                    <td valign="top" style="background-color: white">
+                                    <td  style="background-color: white">
                                         <table>
-                                            <tr>实例规格：</tr>
-                                            <tr>系统盘：</tr>
-                                            <tr>镜像:</tr>
-                                            <tr>网络类型:</tr>
-                                            <tr>分配公网IPV4地址：</tr>
-                                            <tr>带宽计费方式：</tr>
-                                            <tr>自动续费：</tr>
+                                            <tr>标准版</tr>
+                                            <tr>{{os}}</tr>
+<!--                                            <tr>镜像:</tr>-->
+<!--                                            <tr>网络类型:</tr>-->
+<!--                                            <tr>分配公网IPV4地址：</tr>-->
+<!--                                            <tr>带宽计费方式：</tr>-->
+<!--                                            <tr>自动续费：</tr>-->
                                         </table>
                                     </td>
-                                    <td  style="background-color: white">{{os}}</td>
-                                    <td  style="background-color: white">{{hire_time}}</td>
+                                    <td  style="background-color: white">{{pay_method}}</td>
+                                    <td  style="background-color: white">
+                                        <table>
+                                            <tr>{{start_time}}</tr>
+                                            <tr>{{due_time}}</tr>
+                                        </table>
+                                    </td>
                                     <td  style="background-color: white" > ￥{{price}}</td>
                                 </tr>
                             </table>
@@ -160,9 +176,43 @@
                                 </div>
 
                                 <el-button   @click="handleCancel" style="width: 180px;">取消订单</el-button>
-                                <el-button  type="primary" @click="buy" style="width: 180px;font-size: 16px;background-color: #3254DC">立即支付</el-button>
+                                <el-button  type="primary" @click="buy_pay" style="width: 180px;font-size: 16px;background-color: #3254DC">立即支付</el-button>
                             </div>
 
+                            <div v-if="user!==1">
+                            <div  class="product_name">
+                                <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
+                                <span style="font-size: 16px;"> 个人信息</span>
+                            </div>
+
+                            <el-table
+                                    :data="infoForm1"
+                                    :span-method="objectSpanMethod"
+                                    border
+                                    style="width: 100%; margin: 20px auto 30px auto;">
+                                <el-table-column
+                                        prop="name"
+                                        label="姓名"
+                                        width="360">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="department"
+                                        label="部门">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="sex"
+                                        label="性别">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="phone_num"
+                                        label="电话">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="purpose"
+                                        label="用途">
+                                </el-table-column>
+                            </el-table>
+                            </div>
                             <div v-if="user!==1">
                             <div class="product_name">
                                 <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
@@ -292,14 +342,27 @@
     export default {
         data() {
             return {
+                infoForm1:[{}],
+                start_time:'2020-02-09 19:40:30',
+                due_time:'2020-02-09 19:40:30',
+                pay_method:'-----',
                 user:1,
+                os:'',
                 kong:'',
                 price:0,
                 buy_nums:0,
+                isShow: false, // 控制显示结束或还未结束显示的内容
+                clocker: '', // 结束后显示的内容
+                timeObj: null, // 时间对象,下方会用到
+                myDay: '', // 我定义来接收计算出来的 天 的
+                myHours: '', // 我定义来接收计算出来的 小时 的
+                myMinutes: '', // 我定义来接收计算出来的 分钟 的
+                mySeconds: '',// 我定义来接收计算出来的 秒钟 的
                 product_name:'',
                 orderId:this.$route.params.orderId,
                // orderId:"200119193113462975",
-                order_status:'',
+                order_status:0,
+                due_order_time:0,
                 create_time:'',
                 orderInfo: [{
                     order_id: '订单编号：',
@@ -356,12 +419,19 @@
 
             }
         },
-        mounted(){
+        created(){
             this.getOrder();
+          //  this.getOrderTime();
+        },
+        mounted(){
+
+
+
         },
         methods:{
-            async getOrder(){
-                 const {data:res}=await this.$http.get('/order/findNoPayOrders',{params:{orderId:this.orderId}})
+           async getOrder(){
+                const {data:res}=await this.$http.get('/order/findNoPayOrders',{params:{orderId:this.orderId}})
+                this.$http.get('/order/findNoPayOrders',{params:{orderId:this.orderId}})
                  if(res.code===20000){
                      window.console.log(res.data)
 
@@ -380,7 +450,15 @@
                      this.orderInfoDetails[0].pay_methods='默认'
                      this.orderInfoDetails[0].start_end_time='默认'
                      this.orderInfoDetails[0].pay='￥'+res.data.price
+                     this.due_order_time=res.data.due_order_time
 
+                     this.os=res.data.o__s
+
+                     this.infoForm1[0].name=res.data.name
+                     this.infoForm1[0].department=res.data.department
+                     this.infoForm1[0].sex=res.data.sex
+                     this.infoForm1[0].phone_num=res.data.phone_num
+                     this.infoForm1[0].purpose=res.data.purpose
                      if(res.data.payment_type==="1"){
                          this.orderInfo[0].order_type= '订单类型：新购'
 
@@ -390,6 +468,8 @@
                      if(res.data.status==="1"){
                          this.orderInfo[3].order_id= '支付状态：未支付 ￥'+res.data.price
                          this.order_status=1
+                         this.getOrderTime()
+                        // window.console.log("getOrder"+this.order_status)
                          this.price=res.data.price
                      }else if(res.data.status==="2"){
                          this.orderInfo[3].order_id= '支付状态：已支付 ￥'+res.data.price
@@ -442,14 +522,71 @@ let hour=d.getHours();
                 }
 
             },
-            async buy_pay() {
-               // const {data: res} = await this.$http.get('/order/changeStatus', {params: {orderId: this.orderId}})
+            async buy_pay(){
+                const {data:res}=await this.$http.get('/order/changeStatus',{params:{ orderId:this.orderId}})
                 // window.console.log(res)
-                // if (res.code == 20000) {
-                // }
+                if(res.code==20000) {
+                   this.$message.success("支付成功！")
+                    this.getOrder();
+                }
+
+            },
+            getOrderTime(){
+                // let time1=this.order_status
+                window.console.log("getOrderTime"+this.order_status)
+                if(this.order_status===1){
+                    window.console.log("4---"+this.order_status)
+
+                // 计算时间差
+                // let timeLag = (this.endTime - this.startTime) / 1000
+                //let timeLag = 43200000 / 1000
+                let nowdate=new  Date().getTime()
+                //let timeLag = (this.due_order_time - nowdate) / 1000
+                window.console.log(nowdate)
+                let timeLag = 20000/ 1000
+                // 判断当前是否时分秒的值是否大于10
+                let add = num => {
+                    return num < 10 ? '0' + num : num
+                }
+                // 时间倒计时运算的方法
+                let timeFunction = () => {
+                    let time = timeLag--
+                    this.timeObj = { // 时间对象
+                        seconds: Math.floor(time % 60),
+                        minutes: Math.floor(time / 60) % 60,
+                        hours: Math.floor(time / 60 / 60) % 24,
+                        days: Math.floor(time / 60 / 60 / 24)
+                    }
+                    // 计算出时分秒
+                    this.myDay = `${add(this.timeObj.days)}`
+                    this.myHours = `${add(this.timeObj.hours)}`
+                    this.myMinutes = `${add(this.timeObj.minutes)}`
+                    this.mySeconds = `${add(this.timeObj.seconds)}`
+                    // 当时间差小于等于0时,停止倒计时
+                    if (time <= 0) {
+                        this.isShow = true
+                        this.clocker = this.endMsg || '订单结束'
+                        clearInterval(go)
+                        this.handleCancel()
+                    }
+                }
+                // 开始执行倒计时
+                timeFunction()
+                // 每一秒执行一次
+                let go = setInterval(() => {
+                    timeFunction()
+                }, 1000)
+               }
             }
 
         },
+        // watch:{
+        //     order_status(){
+        //         if(this.order_status==1){
+        //             this.getOrderTime();
+        //         }
+        //     }
+        // }
         // computed:{
         //     tableData(){
         //         const t = this.orderInfoDetails;
@@ -478,7 +615,7 @@ let hour=d.getHours();
 
     }
     .title{
-        margin: 20px auto 50px 0;
+        margin: 20px auto 20px 0;
          display: flex;
         justify-content: space-between;
     }

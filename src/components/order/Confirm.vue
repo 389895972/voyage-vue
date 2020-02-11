@@ -11,7 +11,7 @@
                     <span style="font-size: 16px;"> 参数配置</span>
                 </div>
                 <div class="table_product">
-                    <table  style="width: 100%;height:50px;background-color: #E4E7EB;">
+                    <table  style="width: 100%;height:50px;background-color: #E4E7EB;margin-top: 5px">
                         <tr>
                             <td style="width: 40%">商品</td>
                             <td>数量</td>
@@ -173,6 +173,7 @@
            return{
               // time: 1516703495241,
                dialogVisible: false,
+               due_order_time:0,
                orderID: 0,
                status:1,
                good_id:'',
@@ -263,6 +264,8 @@
             },
 
            async buy(){
+               this.due_order_time=new  Date().getTime()+86400000
+
                 const {data:res}=await this.$http.post('/order/insert',{
                     product_name:this.product_name,
                     userId:this.user_id,
@@ -276,6 +279,7 @@
                     infoForm:this.infoForm,
                     order_status:2,
                     due_time:this.due_time,
+                    due_order_time:this.due_order_time
                 }) ;
 
                if(res.code===20000){
