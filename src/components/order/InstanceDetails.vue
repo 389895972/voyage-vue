@@ -2,10 +2,10 @@
     <el-container>
         <div class="home-container">
             <div class="content">
-            <div> <el-button>&larr;返回</el-button></div>
+            <div> <el-button @click="back">&larr;返回</el-button></div>
 
                 <div class="titles" >
-                    <div class="title" style="display: flex;justify-content: space-between"> 确认订单
+                    <div class="title" style="display: flex;justify-content: space-between"> 实例详情
                     <el-button type="primary" @click="instancedialog=true" style="width: 180px;height: 50px;font-size: 16px;color:white;background-color:#3254DC ">进入控制台</el-button>
                 </div>
                 </div>
@@ -32,13 +32,15 @@
 <!--                        <template slot-scope="scope">-->
                         <template >
 
+
                             <!--                                               {{scope.row}}-->
-                            <el-button type="primary" icon="el-icon-edit" size="mini" @click="modifydialog = true" style="color:blue;background-color:white;border: white;font-size:14px">修改</el-button>
-                            <el-button type="success" icon="el-icon-copy-document" size="mini"  class="btn" :data-clipboard-text="device_name" style="color:blue;background-color:white;border: white;font-size:14px"
+                            <el-button type="primary" icon="el-icon-edit" size="mini" @click="modify_instance" style="color:blue;background-color:white;border: white;font-size:14px">修改</el-button>
+                            <el-button type="primary" icon="el-icon-copy-document" size="mini"  id="bbtn" :data-clipboard-text="tableData[0].device_name" style="color:blue;background-color:white;border: white;font-size:14px"
                                        @click="copy1">复制</el-button>
-                            <el-button type="primary" icon="el-icon-edit" size="mini"  @click="modifydialog = true" >修改</el-button>
-                            <el-button type="success" icon="el-icon-copy-document" size="mini"  class="btn" :data-clipboard-text="device_name"
-                                       @click="copy1">复制</el-button>
+
+<!--                            <el-button type="primary" icon="el-icon-edit" size="mini"    @click="modifydialog = true" >修改</el-button>-->
+<!--                            <el-button type="success" icon="el-icon-copy-document" size="mini"  id="bbtn" :data-clipboard-text="tableData[0].device_name"-->
+<!--                                       @click="copy1">复制</el-button>-->
 
                         </template>
                     </el-table-column>
@@ -91,6 +93,7 @@
                         style="background-color: #3FB560;color: white;width: 70px"
                         @click="copy"
                 >  去下载</el-button></div>
+
                 <el-dialog
                         title="连接到您的实例"
                         :visible.sync="instancedialog"
@@ -144,9 +147,9 @@
                     :visible.sync="modifydialog"
                     width="360px" height="200px" @close="closedDialog"
                     >
-                <el-form ref="Dialogform" :model="instance"  :label-position="'top'" label-width="80px">
-                    <el-form-item >
-                        <el-input  v-model="ins"></el-input>
+                <el-form ref="Dialogform"  :rules="rules" :model="tableData[0]"  :label-position="'top'" label-width="80px">
+                    <el-form-item prop="ins" >
+                        <el-input  v-model="tableData[0].ins"></el-input>
                     </el-form-item>
                 </el-form>
                 <span slot="footer" class="dialog-footer">
@@ -176,10 +179,11 @@
     export default {
         data(){
             return{
-                secret_key:'www.123456789.com',
-                device_id:'2019110617444500',
-                device_name:'我是设备名称我是设备名称',
-                device_model:'WES1343452',
+                orderId:this.$route.params.orderId,
+                 secret_key:'www.123456789.com',
+                // device_id:'2019110617444500',
+                //  instance:'我是设备名称我是设备名称',
+                // device_model:'WES1343452',
                 ip:'192.168.12.10',
                 gpu:'Adreno 630 GPU',
                 disk:'ABCD1234',
@@ -188,14 +192,22 @@
                 radio:"1",
                 id:111,
                 instancedialog:false,
+
                 modifydialog: false,
-                instance:'aikit001',
+                instance:'我是设备名称我是设备名称',
                 ins:'',
+                rules: {
+                    ins: [
+                         { required: true, message: '请输入实例名称', trigger: 'blur' },
+                        { min: 2, max: 128, message: '长度限制在 2 到 128 个字符', trigger: 'blur' }
+                    ],
+                },
                 tableData:[
                     {
                         device_id:'2019110617444500',
                         device_name:'我是设备名称我是设备名称',
                         device_model:'WES1343452',
+                        ins:''
                     }
                 ]
             }
@@ -204,12 +216,26 @@
             go(){
 
             },
+
             init(){
-                this.ins=this.instance;
+                this.tableData[0].ins=this.tableData[0].device_name;
+            },
+            modify_instance(){
+               this.modifydialog = true
+                this.tableData[0].ins=this.tableData[0].device_name
             },
             modified_instance(){
-                this.modifydialog = false;
-                this.instance = this.ins;
+                this.$refs.Dialogform.validate(valid=>{
+                    window.console.log(valid)
+                    if(valid){
+                        this.modifydialog = false;
+                        this.tableData[0].device_name= this.tableData[0].ins;
+                    }else{
+                        this.$message.error("请正确填写实例名称")
+                    }
+
+                })
+
 
                // const res= this.$http.get('/xxx',{params:{Instance_name:this.ins}})
                //  if(res.code===200){
@@ -227,10 +253,11 @@
             copy1() {
                 // var _this = this;
                 // var clipboard = new Clipboard(".btn"); //单页面引用
-                var clipboard = new this.Clipboard(".btn"); //在main.js中引用
+                var clipboard = new this.Clipboard("#bbtn"); //在main.js中引用
                 clipboard.on("success", e => {
                     // 释放内存
                     clipboard.destroy();
+                    this.$message.success("已复制")
                     window.console.log(e)
                 });
                 clipboard.on("error", e => {
@@ -244,8 +271,16 @@
                     clipboard.destroy();
                 });
             },
-
-
+            async getInstance() {
+                const {data: res} = await this.$http.get('/goodsitem/findAll', {params: {goodsid: this.good_id}})
+                // window.console.log(res)
+                if (res.code == 20000) {
+                    window.console.log(111)
+                }
+            },
+           back(){
+            this.$router.go(-1);//返回上一层
+         },
         },
         created(){
             this.init()

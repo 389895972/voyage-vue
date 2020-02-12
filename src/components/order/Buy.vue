@@ -1,3 +1,4 @@
+
 <template>
     <keep-alive>
     <el-container>
@@ -107,7 +108,7 @@
                   <div class="block" style="width:90%;margin-top: 20px">
 
                     <span class="configure_title">购买时长</span>
-                   
+
                       <el-slider v-model="hire_time" :step="1" :format-tooltip="timestepToolTip" show-stops :max="41" :min="1" ></el-slider>
 
 

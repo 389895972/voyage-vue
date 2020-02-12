@@ -3,7 +3,7 @@
             <div class="home-container">
 
                 <div class="content">
-                    <div> <el-button>&larr;返回</el-button>
+                    <div> <el-button >&larr;返回</el-button>
                     </div>
 
 
@@ -29,7 +29,7 @@
                     </div>
                     <div class="table_product">
                         <table v-if="user===1" style="width: 100%;height:50px;background-color: #E4E7EB;">
-                            <tr>
+                            <tr style="font-weight:bold">
                                 <td style="width: 17%">订单编号</td>
                                 <td style="width: 15%">订单类型</td>
                                 <td>创建时间</td>
@@ -43,7 +43,7 @@
                                 </td>
                                 <td style="padding-top: 0;background-color: white" valign="top">{{pay_status[0].costs}}</td>
                                 <td valign="top" style="background-color: white;width: 20%;">{{create_time}}</td>
-                                <td valign="top" style="background-color: white;width: 30%;">{{os}}</td>
+                                <td valign="top" style="background-color: white;width: 30%;">{{payment_time}}</td>
 <!--                                <td valign="top" style="background-color: white">{{hire_time}}</td>-->
                                 <td v-if="order_status===1" valign="top" style="background-color: white;color:red" > 未支付￥{{price}}</td>
                                 <td v-else-if="order_status===2" valign="top" style="background-color: white;color:green" > 已付款￥{{price}}</td>
@@ -233,7 +233,7 @@
                                         </td>
                                         <td style="padding-top: 0;background-color: white" >{{buy_nums}}</td>
                                         <td valign="top" style="background-color: white"></td>
-                                        <td  style="background-color: white">{{os}}</td>
+                                        <td  style="background-color: white">{{marks}}</td>
 
                                     </tr>
                                 </table>
@@ -342,10 +342,12 @@
     export default {
         data() {
             return {
+                marks:'----',
+                payment_time:'------',
                 infoForm1:[{}],
-                start_time:'2020-02-09 19:40:30',
-                due_time:'2020-02-09 19:40:30',
-                pay_method:'-----',
+                start_time:'---- ----',
+                due_time:'---- ----',
+                pay_method:'--------',
                 user:1,
                 os:'',
                 kong:'',
@@ -431,13 +433,23 @@
         methods:{
            async getOrder(){
                 const {data:res}=await this.$http.get('/order/findNoPayOrders',{params:{orderId:this.orderId}})
-                this.$http.get('/order/findNoPayOrders',{params:{orderId:this.orderId}})
                  if(res.code===20000){
                      window.console.log(res.data)
+                     window.console.log(2222)
 
-                    this.orderInfo[0].order_id ="订单编号："+res.data.order_id
-                    this.orderInfo[1].order_id ="创建时间："+this.tranDate(res.data.create_time)
+                    //this.orderInfo[0].order_id ="订单编号："+res.data.order_id
+                    //this.orderInfo[1].order_id ="创建时间："+this.tranDate(res.data.create_time)
                      this.create_time=this.tranDate(res.data.create_time)
+                     // var timezone = 8; //目标时区时间，东八区
+                     // var offset_GMT = new Date().getTimezoneOffset(); // 本地时间和格林威治的时间差，单位为分钟
+                     // //var nowDate = new Date().getTime(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+                     //  var i=new Date(res.data.create_time).getTime()
+                     //
+                     // var targetDate = new Date(i+ offset_GMT * 60 * 1000 + timezone * 60 * 60 * 1000);
+                     // window.console.log("东8区现在是：" + this.tranDate(targetDate));
+                     // window.console.log("东9区现在是：" + targetDate);
+                     // window.console.log("东：" + i);
+
                      this.orderInfoDetails = []
                      this.orderInfoDetails[0]={}
                      this.orderInfoDetails[0].product_name=res.data.goods_name
@@ -451,6 +463,7 @@
                      this.orderInfoDetails[0].start_end_time='默认'
                      this.orderInfoDetails[0].pay='￥'+res.data.price
                      this.due_order_time=res.data.due_order_time
+
 
                      this.os=res.data.o__s
 
@@ -466,18 +479,27 @@
                          this.orderInfo[0].order_type= '订单类型：续费'
                      }
                      if(res.data.status==="1"){
-                         this.orderInfo[3].order_id= '支付状态：未支付 ￥'+res.data.price
+                         //this.orderInfo[3].order_id= '支付状态：未支付 ￥'+res.data.price
                          this.order_status=1
-                         this.getOrderTime()
-                        // window.console.log("getOrder"+this.order_status)
+                         this.marks='用户已下单未支付'
+
+                         window.console.log("getOrder"+this.order_status)
                          this.price=res.data.price
+
+                         this.getOrderTime()
+
                      }else if(res.data.status==="2"){
                          this.orderInfo[3].order_id= '支付状态：已支付 ￥'+res.data.price
                          this.order_status=2
+                         this.marks='用户已支付'
                          this.price=res.data.price
+                         this.payment_time=this.tranDate(res.data.payment_time)
+                         this.start_time=this.tranDate(res.data.start_time)
+                         this.due_time=this.tranDate(res.data.due_time)
                      }else if(res.data.status==="3"){
                          this.orderInfo[3].order_id= '支付状态：已取消 ￥'+res.data.price
                          this.order_status=3
+                         this.marks='用户已取消支付'
                          this.price=res.data.price
                      }
                 }else{
@@ -485,10 +507,10 @@
                  }
             },
             tranDate(standard_time){
-                let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0000',''));
+                let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
                 let month=d.getMonth()+1;
                 let day=d.getDate();
-let hour=d.getHours();
+                let hour=d.getHours();
                 let minutes=d.getMinutes();
                 let seconds=d.getSeconds();
                 if(month<10){

@@ -20,30 +20,38 @@
                         <el-table-column
                                 prop="date"
                                 label="设备名称"
-                                width="180">
+                                width="140px">
                         </el-table-column>
                         <el-table-column
                                 prop="name"
                                 label="设备ID"
-                                width="180">
+                                width="140px">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="设备型号">
+                                label="设备型号"
+                                width="140px">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="设备os">
+                                label="设备os"
+                                width="140px">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="状态">
+                                label="状态"
+                                          width="130px">
+                        </el-table-column>
+                        <el-table-column  width="150px"
+                                          prop="address"
+                                          label="到期时间"
+                        >
                         </el-table-column>
                         <el-table-column
                                 prop="address"
                                 label="配置">
                         </el-table-column>
-                        <el-table-column label="操作">
+                        <el-table-column label="操作" >
                             <template slot-scope="scope">
                                 <!--                                               {{scope.row}}-->
                                 <el-button type="primary" icon="el-icon-edit" size="mini" @click="manage(scope.row.id)">管理</el-button>

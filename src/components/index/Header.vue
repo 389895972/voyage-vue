@@ -4,13 +4,13 @@
             <img class="logo" src="../../assets/images/logo.png" alt />
             <div class="nav_layout_right">
                 <div class="nav_item">
-                    <a class="nav_a" href="#">
+                    <a class="nav_a" @click="go_tutorial" href="#">
                         <span class="nav_font">我的教程</span>
                     </a>
                 </div>
 
                 <div class="nav_item">
-                    <a class="nav_a" href="#">
+                    <a class="nav_a"  @click="go_instance" href="#">
                         <span class="nav_font">控制台</span>
                     </a>
                 </div>
@@ -69,6 +69,22 @@
                         query:{
                             user_id: 1,
                         }
+                    }
+                );
+
+            },
+            go_tutorial() {
+                this.$router.push(
+                    { path: '/tutorial',
+
+                    }
+                );
+
+            },
+            go_instance() {
+                this.$router.push(
+                    { path: '/instance',
+
                     }
                 );
 

@@ -1353,6 +1353,7 @@ span {
   color: rgba(102, 102, 102, 0.874509803921569);
 }
 
+
 .el-card {
   /*box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04) !important;*/
   /*box-shadow: none;*/

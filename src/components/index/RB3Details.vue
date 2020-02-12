@@ -502,7 +502,7 @@
 
                     <el-row v-else>
                         <div style="width: 100%;text-align: center">
-                            <el-button class="more_button" @click="showMoreVedio">更多 &lt; &lt;</el-button>
+                            <el-button class="more_button" @click="showMoreVedio">更多 &gt; &gt;</el-button>
                         </div>
                     </el-row>
 <!--                    <table border="1" style="margin-top:20px;width:100%;font-size:12px;line-height:2em;text-align:left;border-color:cornflowerblue;" cellspacing="0" class="doc">-->

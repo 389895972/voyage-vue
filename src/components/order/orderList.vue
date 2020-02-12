@@ -121,7 +121,7 @@ export default {
       userId:this.$route.query.user_id,
       //分页属性
       currentPage: 1,
-      page_size: 5,
+      page_size: 10,
 
       //下拉表属性
       type_scope: ["新购", "续费"],
@@ -181,17 +181,18 @@ export default {
     //删除订单
     handleDelete(index, row) {
       window.console.log(index, row);
+      var that = this
       this.$http
-        .get("/order/deleteOrder", {
+              .delete("/order/deleteOrder", {
           params: {
-            order_id: row.orderID
+            orderId: row.orderID
           }
         })
         .then(function(response) {
           window.console.log(response);
           if (response.status == 200) {
              // this.$router.go(0);
-            this.filterData.splice(this.page_size*(this.currentPage-1)+index, 1);
+            that.filterData.splice(that.page_size*(that.currentPage-1)+index, 1);
             alert("删除成功");
           }
         })
@@ -245,7 +246,7 @@ export default {
     },
     //转换日期
     tranDate(standard_time) {
-        let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0000',''));
+        let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
       let month = d.getMonth() + 1;
       let day = d.getDate();
       let hour = d.getHours();
@@ -490,9 +491,7 @@ export default {
 .export_button{
   width:128px;
 }
-/* .el-table >>>.cell{*/
-/*  text-align: left;*/
-/*}*/
+
 
 
 

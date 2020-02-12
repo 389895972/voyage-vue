@@ -12,7 +12,7 @@
                 </div>
                 <div class="table_product">
                     <table  style="width: 100%;height:50px;background-color: #E4E7EB;margin-top: 5px">
-                        <tr>
+                        <tr style="font-weight: bold">
                             <td style="width: 40%">商品</td>
                             <td>数量</td>
                             <td>规格配置</td>
