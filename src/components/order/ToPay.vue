@@ -485,7 +485,7 @@
                  }
             },
             tranDate(standard_time){
-                let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0000',''));
+                let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
                 let month=d.getMonth()+1;
                 let day=d.getDate();
 let hour=d.getHours();
