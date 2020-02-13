@@ -67,6 +67,9 @@
                                 <el-button type="success" icon="el-icon-thumb" size="mini" @click="go(scope.row.assetuuid)">进入控制台</el-button>
                             </template>
                         </el-table-column>
+                        <div slot="empty">
+                            <span>暂无相关设备，请<a href="/home">立即购买</a></span>
+                        </div>
                     </el-table>
                     <el-pagination
                             background
@@ -105,7 +108,11 @@
             async getList(){
                 const { data: res } = await this.$http.get("example/findExampleList", {
                     params: { userId: 3 }
+                }).catch(function(error) {
+                    window.console.log(error);
+                    alert("连接服务器失败");
                 });
+
 
                 if (res.code == 20000) {
                     let status_map = { "1": "运行中", "2": "即将过期", "3": "已过期" };
@@ -123,7 +130,7 @@
                     this.tableData = [...data];
                     this.total=this.tableData.length
                     this.dataLoading=false
-                    window.console.log(this.tableData)
+
 
 
                 } else {
