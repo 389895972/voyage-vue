@@ -167,7 +167,8 @@
                 return t;
             },
             manage(id){
-                this.$router.push({ path: "InstanceDetails", params: {instanceId: id}});
+                window.console.log(id)
+                this.$router.push({ name: "InstanceDetails", params: {instanceId: id}});
             },
             go(assetsId){
                 window.location.href = 'http://10.0.20.114:10088/luna/?login_to='+assetsId;
