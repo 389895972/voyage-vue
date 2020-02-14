@@ -179,7 +179,8 @@
     export default {
         data(){
             return{
-                orderId:this.$route.params.orderId,
+                instanceId:this.$route.params.instanceId,
+                //instanceId:"990225200212155947",
                  secret_key:'www.123456789.com',
                 // device_id:'2019110617444500',
                 //  instance:'我是设备名称我是设备名称',
@@ -272,10 +273,14 @@
                 });
             },
             async getInstance() {
-                const {data: res} = await this.$http.get('/goodsitem/findAll', {params: {goodsid: this.good_id}})
+                const {data: res} = await this.$http.get('example/findExampleEntity', {params: {id: this.instanceId}})
                 // window.console.log(res)
                 if (res.code == 20000) {
-                    window.console.log(111)
+                    this.ip=res.data.ip
+                    this.tableData[0].device_name=res.data.nickname
+                    this.tableData[0].device_id=res.data.id
+                    this.tableData[0].device_model=res.data.goodsname
+
                 }
             },
            back(){
@@ -284,6 +289,7 @@
         },
         created(){
             this.init()
+            this.getInstance()
         }
     }
 </script>

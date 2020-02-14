@@ -494,8 +494,8 @@
                          this.marks='用户已支付'
                          this.price=res.data.price
                          this.payment_time=this.tranDate(res.data.payment_time)
-                         this.start_time=this.tranDate(res.data.start_time)
-                         this.due_time=this.tranDate(res.data.due_time)
+                         this.start_time=this.tranDate(res.data.createtime)
+                         this.due_time=this.tranDate(res.data.finishtime)
                      }else if(res.data.status==="3"){
                          this.orderInfo[3].order_id= '支付状态：已取消 ￥'+res.data.price
                          this.order_status=3
@@ -589,7 +589,8 @@
                         this.isShow = true
                         this.clocker = this.endMsg || '订单结束'
                         clearInterval(go)
-                        this.handleCancel()
+                        // this.handleCancel()
+                        this.getOrder()
                     }
                 }
                 // 开始执行倒计时
@@ -650,6 +651,7 @@
         width: 1281px;
         text-align: right;
         margin: 15px auto 15px auto;
+
 
 
     }

@@ -29,14 +29,18 @@
                                            <img  v-else-if="product_name==='RB 3'" src="../../assets/images/rb3.png" style="width:160px;height:98.7px " alt="">
                                            <img  v-else-if="product_name==='Edge KIT'" src="../../assets/images/edgekit.png" style="width:160px;height:98.7px " alt="">
                                        </td>
-                                       <td valign="top">{{product_name}}</td>
+                                       <td valign="top">
+                                          <span v-if="product_name==='AI KIT'">Thundercomm TurboX™ AI KIT </span>
+                                          <span v-else-if="product_name==='RB 3'">Qualcomm® Robotics RB3 Platform(SDA845)</span>
+                                          <span v-else-if="product_name==='Edge KIT'">TurboX Edge</span></td>
+
                                    </tr>
                                </table>
 
 
                             </td>
                             <td style="padding-top: 0;background-color: white" valign="top">{{buy_nums}}</td>
-                            <td valign="top" style="background-color: white">{{os}}</td>
+                            <td valign="top" style="background-color: white">标准版</td>
                             <td valign="top" style="background-color: white">{{os}}</td>
                             <td valign="top" style="background-color: white">{{hire_time}}</td>
                             <td valign="top" style="background-color: white" > ￥{{pay}}</td>
@@ -163,6 +167,18 @@
     <el-button type="primary" @click="buy_pay">确 定</el-button>
   </span>
         </el-dialog>
+
+        <el-dialog
+                title="提示"
+                :visible.sync="dialogVisible1"
+                width="30%"
+                >
+            <span>订单已失效！</span>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="tohome">取 消</el-button>
+    <el-button type="primary" @click="tohome">确 定</el-button>
+  </span>
+        </el-dialog>
     </el-container>
 </template>
 <script>
@@ -172,7 +188,9 @@
         data(){
            return{
               // time: 1516703495241,
+               product_name_details:'',
                dialogVisible: false,
+               dialogVisible1: false,
                due_order_time:0,
                orderID: 0,
                status:1,
@@ -242,6 +260,9 @@
                 this.orderData[0].pay=this.$route.params.pay;
                 this.infoForm1[0]=this.$route.params.info;
                 this.infoForm=this.$route.params.info;
+                if(this.$route.params.os===undefined){
+                    this.dialogVisible1 = true
+                }
 
             },
             objectSpanMethod({  rowIndex, columnIndex }) {
@@ -364,6 +385,16 @@
             },
             pay_confi(){
                 this.dialogVisible = true
+            },
+            tohome(){
+                this.$router.push(
+                    {
+                        path:'home',
+                        params:{
+                            orderId:this.orderId,
+
+                        }
+                    });
             }
 
         },
@@ -385,7 +416,14 @@
             hire_time_pa(){
                 return this.toolmsg[this.hire_time_pay]
             }
-        }
+        },
+        // watch:{
+        //     product_name(){
+        //         if(this.product_name==='AI KIT'){
+        //             this.product_name_details='Thundercomm TurboX™ AI KIT'
+        //         }
+        //     }
+        // }
     }
 </script>
 <style scoped>
