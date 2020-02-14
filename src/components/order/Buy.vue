@@ -11,20 +11,20 @@
                 </div>
                 <!--{{os_specs}}-->
                 <div style="display: flex;justify-content:space-around;width: 100%;">
-                    <div style="width: 66.8%">
-                <div class="configure" style="height: 130px">
+                    <div style="width: 100%">
+                 <div class="configure" style="height: 130px">
                      <span class="configure_title"> 规格配置</span>
                       <div class="configure_content" >
                           <el-radio-group v-model="configure">
                               <el-radio-button label="标准版"></el-radio-button>
                           </el-radio-group>
 
-                      <el-select v-model="configure" placeholder="请选择">
-                          <el-option  v-for="item in configures"  :key="item.value"  :label="item.label"
-                            :value="item.value">
-                          </el-option>
+<!--                      <el-select v-model="configure" placeholder="请选择">-->
+<!--                          <el-option  v-for="item in configures"  :key="item.value"  :label="item.label"-->
+<!--                            :value="item.value">-->
+<!--                          </el-option>-->
 
-                      </el-select>
+<!--                      </el-select>-->
                       </div>
                 </div>
 
@@ -42,14 +42,15 @@
 
                             </el-radio-button>
 
-                            <el-select v-model="current_os_version" placeholder="请选择">
+
+                            </span>
+                            <el-select  v-if="current_os!==''" style="display:block;width:200px" v-model="current_os_version" placeholder="请选择">
                                 <el-option
                                         v-for="item in os_specs[current_os]"
                                         :key="item"
                                         :label="item"
                                         :value="item"></el-option>
                             </el-select>
-                            </span>
                         </el-radio-group>
 
                     <span class="configure_os">
@@ -103,7 +104,7 @@
                 <div class="configure" style="height: 235px;margin-top: 15px">
                     <span class="configure_title">购买数量</span>
                     <div class="configure_content" >
-                    <el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+                    <el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="1" label="描述文字"></el-input-number>
 
                   <div class="block" style="width:90%;margin-top: 20px">
 
@@ -133,7 +134,7 @@
                                 <el-radio label="女"></el-radio>
                             </el-radio-group>
                         </el-form-item>
-                        <el-form-item label="手机号"  style="margin-left:55%">
+                        <el-form-item label="手机号"  style="margin-left:36.5%">
                             <el-input v-model="ruleForm.tel"></el-input>
                         </el-form-item>
                         </div>
@@ -148,18 +149,34 @@
 <!--                   <span>费用合计：</span><span style="text-decoration:line-through">￥{{pay}} </span> <span style="color:red">￥{{topay}}</span><el-button  type="primary" @click="buy">确认订单</el-button>-->
 <!--                </div>-->
                     </div>
-                    <div class="configure_configure">
-                        <span class="configure_title"> 当前配置</span>
-                        <div style="margin-top: 20px">
-                        <span class="config_title"> 规格配置 <span style="margin-left: 40px;color:black"> {{configure}}</span></span>
-                        <span class="config_title"> 操作系统<span style="margin-left: 40px;color:black"> {{current_os}} {{current_os_version}}</span></span>
-                        <span class="config_title"> 购买数量 <span style="margin-left: 40px;color:black"> {{buy_nums}}</span></span>
-                        <span class="config_title" style="margin-top: 40px;margin-bottom: 0px"> 配置费用 </span>
-                        <span class="config_title" style="margin-top: 10px;margin-bottom: 0px" > <span style="text-decoration:line-through;font-size: 24px;color: black">￥{{pay}} </span> </span>
-                        <span class="config_title" style="margin-top: 0px"> <span style="color:red;font-size:36px">￥{{topay}}</span></span>
-                        <span class="config_title"> <el-button  type="primary"  style="background-color: #3254DC;width: 180px;margin-left: 0"  @click="buy">立即下单</el-button></span>
-                    </div></div>
+<!--                    <div class="configure_configure">-->
+<!--                        <span class="configure_title"> 当前配置</span>-->
+<!--                        <div style="margin-top: 20px">-->
+<!--                        <span class="config_title"> 规格配置 <span style="margin-left: 40px;color:black"> {{configure}}</span></span>-->
+<!--                        <span class="config_title"> 操作系统<span style="margin-left: 40px;color:black"> {{current_os}} {{current_os_version}}</span></span>-->
+<!--                        <span class="config_title"> 购买数量 <span style="margin-left: 40px;color:black"> {{buy_nums}}</span></span>-->
+<!--                        <span class="config_title" style="margin-top: 40px;margin-bottom: 0px"> 配置费用 </span>-->
+<!--                        <span class="config_title" style="margin-top: 10px;margin-bottom: 0px" > <span style="text-decoration:line-through;font-size: 24px;color: black">￥{{pay}} </span> </span>-->
+<!--                        <span class="config_title" style="margin-top: 0px"> <span style="color:red;font-size:36px">￥{{topay}}</span></span>-->
+<!--                        <span class="config_title"> <el-button  type="primary"  style="background-color: #3254DC;width: 180px;margin-left: 0"  @click="buy">立即下单</el-button></span>-->
+<!--                    </div></div>-->
+
                 </div>
+            </div>
+            <div class="configure_foot">
+                 <div class="order_btn">
+                      <span style="display: inline-block;text-align: right;width: 800px;height: 100px">
+                          <span style="color:red;font-size:36px;display: block">  <span style="color:black;font-size:16px">配置费用:</span> ￥{{topay}}</span>
+                          <span style="text-decoration:line-through;font-size: 24px;color: black;display: block;font-weight:bold">￥{{pay}} </span>
+                      </span>
+
+                     <div style="display: inline-block;line-height: 100px;
+vertical-align:middle;">
+<!--                     <span style="display: inline-block;line-height: 100px;height: 100px">-->
+                     <el-button  type="primary"  style="background-color: #3254DC;width: 180px;margin-bottom: 35%;height:50px"  @click="buy">立即下单</el-button>
+<!--                     </span>-->
+                     </div>
+                 </div>
             </div>
         </div>
     </el-container>
@@ -381,7 +398,7 @@
     .configure_content >>>.el-radio-button__inner{
         margin-right: 10px;
         /*background-color: #3FB560;*/
-        width: 140px;
+        width: 200px;
         color: black;
     }
     .configure_content >>> .el-radio-button__orig-radio:checked+.el-radio-button__inner{
@@ -399,8 +416,15 @@
         background-color: #3FB560;
         color: white;
     }
+    #os_config  >>> .el-radio-button__orig-radio:checked+.el-radio-button__inner{
+        margin-right: 10px;
+        background-color: #3FB560;
+        color: white;
+        border-color: #3FB560;
+        width: 200px;
+    }
     #os_config >>> .el-input__inner{
-        width: 140px;
+        width: 200px;
         /*background-color: #3FB560;*/
     }
     .configure_os{
@@ -425,11 +449,12 @@
         top:30%
     }
     .order_btn{
-        width: 90%;
+        width: 1280px;
         text-align: right;
-        margin: 20px auto 0 80px;
-        padding: 20px 40px 10px 30px;
-        border: 1px solid ;
+        height: 100px;
+        margin: 0 auto;
+        /*padding: 20px 40px 10px 30px;*/
+        vertical-align: middle;
     }
     .configure_configure{
         width: 30.1%;
@@ -450,6 +475,9 @@
     }
     #config >>> .el-input__inner{
         /*background-color: red;*/
+        width: 200px;
+    }
+    #config >>>  .el-input--suffix is-focus{
         width: 200px;
     }
     #radiosex >>> .el-radio__input.is-checked .el-radio__inner{
@@ -475,11 +503,17 @@
     }
     #config >>> .el-input__inner{
         /*background-color: red;*/
+        width: 200px;
         margin-left: -40px;
         margin-right: 60px;
     }
     #config >>> .el-form-item__error{
         margin-left: -40px;
     }
-
+    .configure_foot{
+        width: 100%;
+        height: 100px;
+        box-shadow:2px 2px 13px #909090;
+        margin-top: 40px;
+    }
 </style>

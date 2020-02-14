@@ -492,13 +492,6 @@ export default {
   width:128px;
 }
 
-/* .el-table >>>.cell{*/
-/*  text-align: left;*/
-/*}*/
-
-
-
-
 
 .el-icon-arrow-up:before {
   content: "\e790";
