@@ -83,11 +83,6 @@
                     </el-pagination>
                 </div>
             </div>
-
-
-
-
-
         </div>
 
     </el-container>
@@ -167,7 +162,7 @@
                 return t;
             },
             manage(id){
-                this.$router.push({ name: "instanceDetails", params: {instanceId: id}});
+                this.$router.push({ name: "InstanceDetails", params: {instanceId: id}});
             },
             go(assetsId){
                 window.location.href = 'http://10.0.20.114:10088/luna/?login_to='+assetsId;
