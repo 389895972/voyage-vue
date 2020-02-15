@@ -273,6 +273,7 @@
                 });
             },
             async getInstance() {
+
                 const {data: res} = await this.$http.get('example/findExampleEntity', {params: {id: this.instanceId}})
                 // window.console.log(res)
                 if (res.code == 20000) {
@@ -284,7 +285,7 @@
                 }
             },
            back(){
-            this.$router.go(-1);//返回上一层
+               this.$router.push({ path: "Instance", });
          },
         },
         created(){

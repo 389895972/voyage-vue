@@ -55,6 +55,7 @@
                         </el-table-column>
                         <el-table-column
                                 prop="finishtime"
+                                sortable
                                 label="到期日期">
                         </el-table-column>
                         <el-table-column
@@ -102,7 +103,7 @@
         methods:{
             async getList(){
                 const { data: res } = await this.$http.get("example/findExampleList", {
-                    params: { userId: 3 }
+                    params: { userId: 1 }
                 }).catch(function(error) {
                     window.console.log(error);
                     alert("连接服务器失败");
@@ -134,6 +135,9 @@
 
             },
             tranDate(standard_time) {
+                if(standard_time==null){
+                    return null
+                }
                 let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
                 let month = d.getMonth() + 1;
                 let day = d.getDate();
@@ -163,7 +167,8 @@
                 return t;
             },
             manage(id){
-                this.$router.push({ path: "InstanceDetails", params: {instanceId: id}});
+                window.console.log(id)
+                this.$router.push({ name: "InstanceDetails", params: {instanceId: id}});
             },
             go(assetsId){
                 window.location.href = 'http://10.0.20.114:10088/luna/?login_to='+assetsId;

@@ -86,7 +86,7 @@
                       size="mini"
                       type="success"
                       @click="go_control_page(scope.$index,scope.row)"
-              >资源管理</el-button>
+              >管理设备</el-button>
 
               <el-button
                       v-if="scope.row.state=='已取消'"
@@ -103,9 +103,8 @@
                   @current-change="handleCurrentChange"
                   :current-page="currentPage"
                   :page-size="page_size"
-                  :page-count="total_page"
-                  layout="total, prev, pager, next, jumper"
                   :total="total_info"
+                  layout="total, prev, pager, next, jumper"
           ></el-pagination>
         </div>
       </div>
@@ -207,7 +206,6 @@ export default {
         params: { userId: 1 }
       });
       if (res.code == 20000) {
-        window.console.log(res.data);
         let status_map = { "1": "未支付", "2": "已支付", "3": "已取消" };
         let type_map = { "1": "新购", "2": "续费" };
 
@@ -222,12 +220,18 @@ export default {
             res.data[index]["create_time"]
           );
           this.tableData[index]["pay_time"] = this.tranDate(
-            res.data[index]["update_time"]
+            res.data[index]["payment_time"]
           );
           this.tableData[index]["state"] =
             status_map[res.data[index]["status"]];
           this.tableData[index]["price"] = res.data[index]["price"];
+
         }
+        window.console.log(this.tableData)
+        this.tableData.sort(function (a,b) {
+          return Date.parse(b.create_time)-Date.parse(a.create_time);
+        })
+
       } else {
         alert("连接服务器失败");
       }
@@ -246,7 +250,10 @@ export default {
     },
     //转换日期
     tranDate(standard_time) {
-        let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
+      if(standard_time==null){
+        return null
+      }
+      let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
       let month = d.getMonth() + 1;
       let day = d.getDate();
       let hour = d.getHours();
@@ -387,12 +394,8 @@ export default {
       let f = this.filterData;
       return f.slice((cp - 1) * ps, cp * ps);
     },
-    //过滤数据总页数
-    total_page() {
-      let f = this.filterData;
 
-      return Math.round(f.length / this.page_size + 0.5);
-    },
+
     //过滤数据总条数
     total_info() {
       return this.filterData.length;

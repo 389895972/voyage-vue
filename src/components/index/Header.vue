@@ -73,140 +73,22 @@
                 </el-select>
                 <el-input style="width: 200px;margin-left: 10px" v-model="tel" placeholder="请输入手机号"></el-input>
                 <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
-                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>
+<!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
+                <el-button  :class="btn_code"   id="code_span1" @click="countDown" >{{content}}</el-button>
                 <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">立即登录</el-button>
                 <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
                     <span style="font-size:14px;color: #606879;">没有账号？</span>
-                    <span style="font-size:14px;color:#3254DC"> 5秒注册</span>
-                    <span style="font-size:14px;color:#FCA200;margin-left: 100px"> 忘记密码？</span>
+                    <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register"> 5秒注册</span>
+                    <span style="font-size:14px;color:#FCA200;margin-left: 100px;cursor:pointer" @click="modify_pwd1"> 忘记密码？</span>
                 </div>
                 <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px"> 其他登录方式</div>
                  <div style="height: 60px">
-                     <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" alt="" style="margin-bottom: 30px"> <span style="display: inline-block;width: 100px"><hr></span>
+                     <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" @click="wx_login" alt="" style="margin-bottom: 30px;cursor:pointer"> <span style="display: inline-block;width: 100px"><hr></span>
                  </div>
             </div>
 
         </el-dialog>
-            <el-dialog
-                    title="微信扫码，安全登录"
-                    :visible.sync="weixin_login_dialog"
-                    width="380px"
-            >
-                <hr style="margin: 0;width: 100%;">
-                <div style="width: 200px;margin: 0 auto;">
 
-                     <div style="width: 180px;height:180px;margin:20px auto 0 auto;border: 1px solid #E4E7EB;display: flex;align-items: center;justify-content: center;">
-                         <img src="../../assets/images/aikit.png" alt="" style="width: 150px;height: 150px;">
-                     </div>
-                    <div style="width: 200px;height:40px;vertical-align:middle;margin:0 auto;text-align: center">
-                        <span style="font-size:14px;color: #606879;margin-right: 5px">没有账号？</span>
-                        <span style="font-size:14px;color:#3254DC;margin-left: 10px"> 5秒注册</span>
-                    </div>
-                    <div style="font-size: 16px;color: #606879;margin:10px auto 0 auto;width:100px"> 其他登录方式</div>
-
-                    <div style="text-align: center;height: 40px">
-                        <span style="margin-right: 10px">手机密码登录</span>|
-                        <span style="margin-left: 10px">手机快捷登录</span>
-                    </div>
-                    <div style="height: 40px"></div>
-                </div>
-
-            </el-dialog>
-            <el-dialog
-                    title="重置密码"
-                    :visible.sync="login_dialog"
-                    width="380px"
-            >
-                <hr style="margin: 0;width: 100%;">
-                <div style="width: 300px;margin:10px auto 0 auto">
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入手机号"></el-input>
-                    <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
-                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>
-                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">下一步</el-button>
-                    <div style="width: 200px;height:40px;vertical-align:middle;margin:140px auto 30px auto;text-align: center">
-                        <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
-                        <span style="font-size:14px;color:#3254DC;margin-left: 10px">马上登录></span>
-                    </div>
-                      <div style="height: 2px"></div>
-
-
-                </div>
-
-            </el-dialog>
-            <el-dialog
-                    title="重置密码"
-                    :visible.sync="login_dialog"
-                    width="380px"
-            >
-                <hr style="margin: 0;width: 100%;">
-                <div style="width: 300px;margin:10px auto 0 auto">
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入新密码"></el-input>
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请重复新密码"></el-input>
-                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">确定</el-button>
-                    <div style="width: 200px;height:40px;vertical-align:middle;margin:140px auto 30px auto;text-align: center">
-                        <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
-                        <span style="font-size:14px;color:#3254DC;margin-left: 10px">马上登录></span>
-                    </div>
-                    <div style="height: 2px"></div>
-
-
-                </div>
-
-            </el-dialog>
-            <el-dialog
-                    title="注册登录"
-                    :visible.sync="login_dialog"
-                    width="380px"
-            >
-                <hr style="margin: 0;width: 100%;">
-                <div style="width: 300px;margin:0 auto">
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入用户名"></el-input>
-                    <el-select v-model="prefix" placeholder="请选择" >
-                        <el-option
-                                v-for="item in options"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </el-option>
-                    </el-select>
-                    <el-input style="width: 200px;margin-left: 10px" v-model="tel" placeholder="请输入手机号"></el-input>
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入用户名" prefix-icon="el-icon-lock" suffix-icon="el-icon-lock" ></el-input>
-                    <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
-                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span2" @click="countDown" >{{content}}</el-button>
-                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">立即登录</el-button>
-                    <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
-                        <span style="font-size:14px;color: #606879;">已有账号？</span>
-                        <span style="font-size:14px;color:#3254DC"> 马上登录></span>
-                        <span style="font-size:14px;color:#3254DC;margin-left: 100px"> 微信注册</span>
-                    </div>
-                    <div style="height: 50px"></div>
-                </div>
-
-            </el-dialog>
-            <el-dialog
-                    title="微信注册"
-                    :visible.sync="_login_dialog"
-                    width="380px"
-            >
-                <hr style="margin: 0;width: 100%;">
-                <div style="width: 200px;margin: 0 auto;">
-
-                    <div style="width: 180px;height:180px;margin:60px auto 0 auto;border: 1px solid #E4E7EB;display: flex;align-items: center;justify-content: center;">
-                        <img src="../../assets/images/aikit.png" alt="" style="width: 150px;height: 150px;">
-                    </div>
-                    <div style="width: 200px;height:40px;vertical-align:middle;margin:0 auto;text-align: center">
-                        <span style="font-size:14px;color:#3254DC;margin-left: 10px"> 手机号注册></span>
-                    </div>
-                    <div style="width: 200px;height:40px;vertical-align:middle;margin: 90px auto 0 auto;text-align: center">
-                        <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
-                        <span style="font-size:14px;color:#3254DC;margin-left: 10px"> 马上登录></span>
-                    </div>
-
-
-                    <div style="height: 40px"></div>
-                </div>
-
-            </el-dialog>
         </div>
     </el-header>
 </template>
@@ -218,9 +100,20 @@
                 prefix:'+86',
                 isLogin:false,
                 login_dialog:true,
+                register_dialog:false,
+                modify_pwd_dialog1:false,
+                modify_pwd_dialog2:false,
+                wx_login_dialog:false,
+                wx_register_dialog:false,
+
                 content: '获取验证码',  // 按钮里显示的内容
                 totalTime: 10 ,     //记录具体倒计时时间
-                canClick: true //添加canClick
+                canClick: true ,//添加canClick
+                btn_code:'canCli' ,
+                tell:0,
+                icon:"el-input__icon el-icon-view",
+                passw:"password",
+                tips:' 用户名或密码错误'
             };
         },
         methods:{
@@ -269,8 +162,12 @@
                 this.isLogin=true;
             },
             countDown(){
-                if (!this.canClick) return
-                this.canClick = false
+                // if (!this.canClick) return
+                // this.canClick = false
+                if(!this.btn_code==='canCli') {
+                    return
+                }else {
+                this.btn_code='noCli'
                 this.content = this.totalTime + 's'
                 let clock = window.setInterval(() => {
                     //console.log(clock)
@@ -281,17 +178,81 @@
                         this.content = '重新发送'
                         this.totalTime = 10
                         this.canClick = true  //这里重新开启
+                        this.btn_code = 'canCli'  //这里重新开启
                     }
-                },1000)
+                },1000)}
             },
+            showPass(){
+                //点击图标是密码隐藏或显示
+                if( this.passw=="text"){
+                    this.passw="password";
+                    //更换图标
+                    this.icon="el-input__icon el-icon-view";
+                }else {
+                    this.passw="text";
+                    this.icon="el-input__icon el-icon-loading";
+                }
+            },
+            register(){
+                this.login_dialog=false
+                this.register_dialog=true
+            },
+            modify_pwd1(){
+                this.login_dialog=false
+                this.modify_pwd_dialog1=true
+            },
+            wx_login(){
+                this.login_dialog=false
+                this.wx_login_dialog=true
+            },
+            wx_to_login(){
+                this.wx_login_dialog=false
+                this.register_dialog=true
+            },
+            to_modify2(){
+                this.modify_pwd_dialog1=false
+                this.modify_pwd_dialog2=true
+            },
+            async modify_password(){
+                this.modify_pwd_dialog2=false
+                    const {data: res} = await this.$http.get('example/findExampleEntity', {params: {id: this.instanceId}})
+                    // window.console.log(res)
+                    if (res.code == 20000) {
+                   window.console.log("444")
 
+                    }
+            },
+           to_login1(){
+                this.modify_pwd_dialog1=false
+                this.login_dialog=true
+           },
+            to_login2(){
+                this.modify_pwd_dialog2=false
+                this.login_dialog=true
+            },
+            reg_to_login(){
+                this.register_dialog=false
+                this.login_dialog=true
+            },
+            wx_register(){
+                this.register_dialog=false
+                this.wx_register_dialog=true
+            },
+            wx_reg_to_login(){
+                this.wx_register_dialog=false
+                this.login_dialog=true
+            },
+            wx_reg_to_reg(){
+                this.wx_register_dialog=false
+                this.register_dialog=true
+            }
         }
     };
 </script>
 
 <style  scoped>
     .header_head{
-       border-bottom: 1px solid grey;
+        border-bottom: 1px solid grey;
         border-color: rgba(151, 151, 151, 0.3);
         padding: 0;
     }
@@ -300,6 +261,18 @@
         color: white;
         line-height: 60px;
 
+    }
+    .canCli{
+        width: 100px;
+        background-color: #3254DC;
+        color:white;
+        height: 40px
+    }
+    .noCli{
+        width: 100px;
+        background-color: #C0C3C9;
+        color:white;
+        height: 40px
     }
     .logo{
         width: 64px;
@@ -358,16 +331,16 @@
         width: 44px;
         border-radius: 22px;
     }
-    .el-button--primary{
+    .nav_layout >>>  .el-button--primary{
         background-color: #3254DC;
     }
-    .el-button--primary:focus, .el-button--primary:hover {
+    .nav_layout >>> .el-button--primary:focus, .el-button--primary:hover {
         background-color: #5171F0;
     }
-    .el-dropdown-menu__item{
+    .nav_layout >>> .el-dropdown-menu__item{
         line-height: 0;
     }
-    .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
+    .nav_layout >>> .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
         /* background-color: #ecf5ff; */
         color: #66b1ff;
     }
@@ -407,8 +380,32 @@
 
 
     }
-    #code_span,#code_span1,#code_span2 >>> span{
+    #code_span1 >>> span{
         margin-left: -4px;
     }
+    #code_span1 {
+        height: 44px;
+    }
+
+    /*#login_dia >>>  .el-button:focus, .el-button:hover{*/
+    /*    background-color: #C0C3C9;*/
+    /*    border-color: #C0C3C9;*/
+    /*    color: white;*/
+    /*}*/
+    /*#code_span1 >>> .el-button:focus , .el-button:hover{*/
+    /*    !*background-color: #3254DC;*!*/
+    /*    !*background-color: #C0C3C9;*!*/
+    /*    !*border-color: #C0C3C9;*!*/
+    /*    !*color: white;*!*/
+    /*}*/
+    #code_span2 >>> span{
+        margin-left: -4px;
+        height: 44px;
+    }
+    #code_span3 >>> span{
+        margin-left: -4px;
+        height: 44px;
+    }
+
 
 </style>
