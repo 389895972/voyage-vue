@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/index/Home'
+import Personal from './components/index/Personal'
 import AikitDetails from './components/index/AikitDetails'
 import RB3Details from './components/index/RB3Details'
 import test from './components/test'
@@ -34,7 +35,8 @@ const router =new Router({
         {path:'/instance',component:Instance,meta:{keepAlive:false}},
         {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
-        {path:'/tutorial',name:'Tutorial',component:Tutorial,meta:{keepAlive:false}}
+        {path:'/tutorial',name:'Tutorial',component:Tutorial,meta:{keepAlive:false}},
+        {path:'/personal',name:'Personal',component:Personal,meta:{keepAlive:false}}
 
     ],
 

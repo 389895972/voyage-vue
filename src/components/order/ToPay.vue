@@ -507,6 +507,9 @@
                  }
             },
             tranDate(standard_time){
+                if(standard_time){
+                    return  null
+                }
                 let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
                 let month=d.getMonth()+1;
                 let day=d.getDate();
