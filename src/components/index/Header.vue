@@ -74,7 +74,7 @@
                 <el-input style="width: 200px;margin-left: 10px" v-model="tel" placeholder="请输入手机号"></el-input>
                 <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
 <!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
-                <el-button  :class="btn_code"   id="code_span1" @click="countDown" >{{content}}</el-button>
+                <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>
                 <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">立即登录</el-button>
                 <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
                     <span style="font-size:14px;color: #606879;">没有账号？</span>
@@ -88,12 +88,136 @@
             </div>
 
         </el-dialog>
+            <el-dialog
+                    title="微信扫码，安全登录"
+                    :visible.sync="wx_login_dialog"
+                    width="380px"
+            >
+                <hr style="margin: 0;width: 100%;">
+                <span style="background-color:#E84948;color: white">{{}}</span>
+                <div style="width: 200px;margin: 0 auto;">
 
+                     <div style="width: 180px;height:180px;margin:20px auto 0 auto;border: 1px solid #E4E7EB;display: flex;align-items: center;justify-content: center;">
+                         <img src="../../assets/images/aikit.png" alt="" style="width: 150px;height: 150px;">
+                     </div>
+                    <div style="width: 200px;height:40px;vertical-align:middle;margin:0 auto;text-align: center">
+                        <span style="font-size:14px;color: #606879;margin-right: 5px">没有账号？</span>
+                        <span style="font-size:14px;color:#3254DC;margin-left: 10px;cursor: pointer" @click="wx_to_login"> 5秒注册</span>
+                    </div>
+                    <div style="font-size: 16px;color: #606879;margin:10px auto 0 auto;width:100px"> 其他登录方式</div>
+
+                    <div style="text-align: center;height: 40px">
+                        <span style="margin-right: 10px">手机密码登录</span>|
+                        <span style="margin-left: 10px">手机快捷登录</span>
+                    </div>
+                    <div style="height: 40px"></div>
+                </div>
+
+            </el-dialog>
+            <el-dialog
+                    title="重置密码"
+                    :visible.sync="modify_pwd_dialog1"
+                    width="380px"
+            >
+                <hr style="margin: 0;width: 100%;">
+                <div style="width: 300px;margin:10px auto 0 auto">
+                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入手机号"></el-input>
+                    <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
+<!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>-->
+                    <el-button  :class="btn_code"   id="code_span2" @click="countDown" >{{content}}</el-button>
+                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="to_modify2">下一步</el-button>
+                    <div style="width: 200px;height:40px;vertical-align:middle;margin:140px auto 30px auto;text-align: center">
+                        <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
+                        <span style="font-size:14px;color:#3254DC;margin-left: 10px;cursor:pointer" @click="to_login1">马上登录></span>
+                    </div>
+                      <div style="height: 2px"></div>
+
+
+                </div>
+
+            </el-dialog>
+            <el-dialog
+                    title="重置密码"
+                    :visible.sync="modify_pwd_dialog2"
+                    width="380px"
+            >
+                <hr style="margin: 0;width: 100%;">
+                <div style="width: 300px;margin:10px auto 0 auto">
+                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入新密码"></el-input>
+                    <el-input style="width: 300px;" v-model="tel" placeholder="请重复新密码"></el-input>
+                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="modify_password">确定</el-button>
+                    <div style="width: 200px;height:40px;vertical-align:middle;margin:140px auto 30px auto;text-align: center">
+                        <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
+                        <span style="font-size:14px;color:#3254DC;margin-left: 10px;cursor:pointer" @click="to_login2">马上登录></span>
+                    </div>
+                    <div style="height: 2px"></div>
+
+
+                </div>
+
+            </el-dialog>
+            <el-dialog
+                    title="注册登录"
+                    :visible.sync="register_dialog"
+                    width="380px"
+            >
+                <hr style="margin: 0;width: 100%;">
+                <div style="width: 300px;margin:0 auto">
+                    <span style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
+                            src="../../assets/icons/注意.png" alt="">{{tips}}</span>
+                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入用户名"></el-input>
+                    <el-select v-model="prefix" placeholder="请选择" >
+                        <el-option
+                                v-for="item in options"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </el-option>
+                    </el-select>
+                    <el-input style="width: 200px;margin-left: 10px" v-model="tel" placeholder="请输入手机号"></el-input>
+                    <el-input style="width: 300px;"  :type="passw" v-model="tell" placeholder="请输入用户名" prefix-icon="el-icon-lock"  ><i slot="suffix" :class="icon" @click="showPass"></i></el-input>
+                    <el-input style="width: 200px;"  v-model="tel" placeholder="请输入内容"></el-input>
+<!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span2" @click="countDown" >{{content}}</el-button>-->
+                    <el-button  :class="btn_code"   id="code_span3" @click="countDown" >{{content}}</el-button>
+                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">立即登录</el-button>
+                    <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
+                        <span style="font-size:14px;color: #606879;">已有账号？</span>
+                        <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="reg_to_login"> 马上登录></span>
+                        <span style="font-size:14px;color:#3254DC;margin-left: 100px;cursor:pointer" @click="wx_register"> 微信注册</span>
+                    </div>
+                    <div style="height: 50px"></div>
+                </div>
+
+            </el-dialog>
+            <el-dialog
+                    title="微信注册"
+                    :visible.sync="wx_register_dialog"
+                    width="380px"
+            >
+                <hr style="margin: 0;width: 100%;">
+                <div style="width: 200px;margin: 0 auto;">
+
+                    <div style="width: 180px;height:180px;margin:60px auto 0 auto;border: 1px solid #E4E7EB;display: flex;align-items: center;justify-content: center;">
+                        <img src="../../assets/images/aikit.png" alt="" style="width: 150px;height: 150px;">
+                    </div>
+                    <div style="width: 200px;height:40px;vertical-align:middle;margin:0 auto;text-align: center">
+                        <span style="font-size:14px;color:#3254DC;margin-left: 10px;cursor:pointer" @click="wx_reg_to_reg"> 手机号注册></span>
+                    </div>
+                    <div style="width: 200px;height:40px;vertical-align:middle;margin: 90px auto 0 auto;text-align: center">
+                        <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
+                        <span style="font-size:14px;color:#3254DC;margin-left: 10px;cursor: pointer" @click="wx_reg_to_login"> 马上登录></span>
+                    </div>
+
+
+                    <div style="height: 40px"></div>
+                </div>
+
+            </el-dialog>
         </div>
     </el-header>
 </template>
 
-<script>
+<script >
     export default {
         data() {
             return {
@@ -262,18 +386,6 @@
         line-height: 60px;
 
     }
-    .canCli{
-        width: 100px;
-        background-color: #3254DC;
-        color:white;
-        height: 40px
-    }
-    .noCli{
-        width: 100px;
-        background-color: #C0C3C9;
-        color:white;
-        height: 40px
-    }
     .logo{
         width: 64px;
         height:64px;
@@ -405,6 +517,19 @@
     #code_span3 >>> span{
         margin-left: -4px;
         height: 44px;
+    }
+
+    #canCli{
+       width: 100px;
+        background-color: #3254DC;
+        color:white;
+        height: 40px
+    }
+    #noCli{
+        width: 100px;
+        background-color: #C0C3C9;
+        color:white;
+        height: 40px
     }
 
 

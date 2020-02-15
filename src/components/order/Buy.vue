@@ -108,7 +108,7 @@
 
                   <div class="block" style="width:90%;margin-top: 20px">
 
-                    <span class="configure_title">购买时长</span>
+                    <span class="configure_title">购买时长 <span style="margin-left:30px;font-weight:normal">{{ buy_time}}</span></span>
 
                       <el-slider v-model="hire_time" :step="1" :format-tooltip="timestepToolTip" show-stops :max="41" :min="1" ></el-slider>
 
@@ -187,6 +187,7 @@ vertical-align:middle;">
     export default {
         data() {
             return {
+
                 topay:'0.00',
                 timestep:10,
                 volume: 600,
@@ -341,6 +342,7 @@ vertical-align:middle;">
                    let buy_nums=this.buy_nums
                 if(time>=0 && time<=29){
                     pay=10*time*buy_nums
+
                 }else if(time>=30 && time<=40){
                    pay=40*(time-29)*buy_nums
                 }else{
@@ -348,6 +350,20 @@ vertical-align:middle;">
                 }
                  return pay;
              },
+            buy_time(){
+              let buy_time=''
+                let time = this.hire_time;
+
+                if(time>=0 && time<=29){
+
+                    buy_time=time+'天'
+                }else if(time>=30 && time<=40){
+                    buy_time=(time-29)+'月'
+                }else{
+                    buy_time='1年'
+                }
+                return buy_time;
+            },
              hire_time_pa(){
                  return this.toolmsg[this.hire_time_pay]
              }
