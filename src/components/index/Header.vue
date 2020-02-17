@@ -56,8 +56,10 @@
                 title="登录"
                 :visible.sync="login_dialog"
                 width="380px"
-                >
+                style="position: absolute">
+
             <hr style="margin: 0;width: 100%;">
+
             <div style="width: 300px;margin:0 auto">
                 <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">
                    <span style="font-size:16px;color: #606879;font-weight: bold;margin-right: 5px">手机登录</span> |
@@ -71,11 +73,12 @@
                             :value="item.value">
                     </el-option>
                 </el-select>
-                <el-input style="width: 200px;margin-left: 10px" v-model="tel" placeholder="请输入手机号"></el-input>
-                <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
+                <el-input style="width: 200px;margin-left: 10px" v-model="login_tel" placeholder="请输入手机号"></el-input>
+                <el-input style="width: 200px;" v-model="login_code" placeholder="请输入四位验证码"></el-input>
 <!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
-                <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>
-                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">立即登录</el-button>
+                <el-button  :id="btn_code"   style="height: 44px"  @click="log_send_code(login_tel)" >{{content}}</el-button>
+
+                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login(login_tel,login_code)" >立即登录</el-button>
                 <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
                     <span style="font-size:14px;color: #606879;">没有账号？</span>
                     <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register"> 5秒注册</span>
@@ -86,7 +89,7 @@
                      <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" @click="wx_login" alt="" style="margin-bottom: 30px;cursor:pointer"> <span style="display: inline-block;width: 100px"><hr></span>
                  </div>
             </div>
-
+<!--            <div style="position: relative;top: -125px">123</div>-->
         </el-dialog>
             <el-dialog
                     title="微信扫码，安全登录"
@@ -165,7 +168,7 @@
                 <div style="width: 300px;margin:0 auto">
                     <span style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
                             src="../../assets/icons/注意.png" alt="">{{tips}}</span>
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入用户名"></el-input>
+                    <el-input style="width: 300px;" v-model="reg_username" placeholder="请输入用户名"></el-input>
                     <el-select v-model="prefix" placeholder="请选择" >
                         <el-option
                                 v-for="item in options"
@@ -174,12 +177,12 @@
                                 :value="item.value">
                         </el-option>
                     </el-select>
-                    <el-input style="width: 200px;margin-left: 10px" v-model="tel" placeholder="请输入手机号"></el-input>
-                    <el-input style="width: 300px;"  :type="passw" v-model="tell" placeholder="请输入用户名" prefix-icon="el-icon-lock"  ><i slot="suffix" :class="icon" @click="showPass"></i></el-input>
-                    <el-input style="width: 200px;"  v-model="tel" placeholder="请输入内容"></el-input>
+                    <el-input style="width: 200px;margin-left: 10px" v-model="reg_tel" placeholder="请输入手机号"></el-input>
+                    <el-input style="width: 300px;"  :type="passw" v-model="reg_password" placeholder="请输入密码" prefix-icon="el-icon-lock"  ><i slot="suffix" :class="icon" @click="showPass"></i></el-input>
+                    <el-input style="width: 200px;"  v-model="reg_code" placeholder="请输入内容"></el-input>
 <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span2" @click="countDown" >{{content}}</el-button>-->
-                    <el-button  :class="btn_code"   id="code_span3" @click="countDown" >{{content}}</el-button>
-                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="countDown">立即登录</el-button>
+                    <el-button  :id="btn_code"   style="height: 44px"  @click="reg_send_code(reg_tel)" >{{content}}</el-button>
+                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="regist(reg_username,reg_tel,reg_password,reg_code)">立即注册</el-button>
                     <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
                         <span style="font-size:14px;color: #606879;">已有账号？</span>
                         <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="reg_to_login"> 马上登录></span>
@@ -218,6 +221,7 @@
 </template>
 
 <script >
+    import Axios from "axios";
     export default {
 
         data() {
@@ -236,9 +240,17 @@
                 canClick: true ,//添加canClick
                 btn_code:'canCli' ,
                 tell:0,
+                tel:'',
                 icon:"el-input__icon el-icon-view",
                 passw:"password",
-                tips:' 用户名或密码错误'
+                tips:' 用户名或密码错误',
+                login_tel:'',
+                login_code:'',
+
+                reg_tel:'',
+                reg_code:'',
+                reg_username:'',
+                reg_password:'',
             };
         },
         methods:{
@@ -305,7 +317,8 @@
                         this.canClick = true  //这里重新开启
                         this.btn_code = 'canCli'  //这里重新开启
                     }
-                },1000)}
+                },1000)
+                }
             },
             showPass(){
                 //点击图标是密码隐藏或显示
@@ -370,7 +383,97 @@
             wx_reg_to_reg(){
                 this.wx_register_dialog=false
                 this.register_dialog=true
-            }
+            },
+            async reg_send_code(tel){
+                this.countDown()
+                const newAixos = Axios.create({
+                    baseURL: 'http://10.0.20.114:9002',
+                   // timeout: 1000,
+                });
+                newAixos.post("/tbUser/sendSms/"+tel)
+                    .then(function(response) {
+                        window.console.log(response);
+                        if (response.status == 200) {
+                            this.$message.success("验证码已发送")
+                        }
+                    })
+                    .catch(function(error) {
+                        window.console.log(error);
+                        this.$message.success("服务器错误")
+                    });
+
+            },
+            async log_send_code(tel){
+                this.countDown()
+                const newAixos = Axios.create({
+                    baseURL: 'http://10.0.20.114:9002',
+                   // timeout: 1000,
+                });
+                newAixos.post("/tbUser/loginSms/"+tel)
+                    .then(function(response) {
+                        window.console.log(response);
+                        if (response.status == 200) {
+                            this.$message.success("验证码已发送")
+                        }
+                    })
+                    .catch(function(error) {
+                        window.console.log(error);
+                        this.$message.success("服务器错误")
+                    });
+
+            },
+            async regist(username,tel,password,code){
+                const newAixos = Axios.create({
+                    baseURL: 'http://10.0.20.114:9002',
+                   // timeout: 1000,
+                });
+                newAixos.post("/tbUser/register/"+code,{
+
+                        nikeName:username,
+                        mobile:tel,
+                        password:password,
+
+                    }
+                )
+                    .then(function(response) {
+                        window.console.log(response);
+                        if (response.status == 200) {
+                            this.$message.success("验证码已发送")
+                        }
+                    })
+                    .catch(function(error) {
+                        window.console.log(error);
+                        this.$message.success("服务器错误")
+                    });
+
+            },
+            async login(tel,code){
+                const newAixos = Axios.create({
+                    baseURL: 'http://10.0.20.114:9002',
+                   // timeout: 1000,
+                });
+                newAixos.get("/tbUser/login",{
+
+                    params: {
+                        mobile: tel,
+                        code:code,
+                    }
+                    }
+                )
+                    .then(function(response) {
+                        window.console.log(response);
+                        if (response.status == 200) {
+                            this.$message.success("验证码已发送")
+                        }
+                    })
+                    .catch(function(error) {
+                        window.console.log(error);
+                        this.$message.success("服务器错误")
+                    });
+
+            },
+
+
         }
     };
 </script>
@@ -531,6 +634,9 @@
         background-color: #C0C3C9;
         color:white;
         height: 40px
+    }
+    #canCli >>> span{
+        margin-left: -4px;
     }
 
 
