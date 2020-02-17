@@ -27,8 +27,8 @@
                       <div style="width: 450px;display: flex;margin-bottom: 10px">
                         <img src="../../assets/images/person/tel_no.png" alt="">
                          <div style="margin-left: 10px">
-                             <div style="font-size:14px;color：#16161D;font-weight: bold">手机未绑定</div>
-                             <div style="font-size:13px;color：#606879">您可以享受手机相关的安全及提醒</div>
+                             <div style="font-size:14px;color:#16161D;font-weight: bold">手机未绑定</div>
+                             <div style="font-size:13px;color:#606879">您可以享受手机相关的安全及提醒</div>
                          </div>
                         <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC">绑定手机</el-button>
                       </div>
@@ -40,10 +40,10 @@
                         <div style="width: 450px;display: flex;margin-bottom: 10px">
                             <img src="../../assets/images/person/email_yes.png" style="height: 26px;margin-top: 10px" alt="">
                             <div style="margin-left: 10px">
-                                <div style="font-size:14px;color：#16161D;font-weight: bold">邮箱已绑定</div>
-                                <div style="font-size:13px;color：#606879">您可以使用邮箱保障您的账号安全</div>
+                                <div style="font-size:14px;color:#16161D;font-weight: bold">邮箱已绑定</div>
+                                <div style="font-size:13px;color:#606879">您可以使用邮箱保障您的账号安全</div>
                             </div>
-                            <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC">修改邮箱</el-button>
+                            <el-button size="mini" style="margin-left:90px;border-color:#3254DC;color: #3254DC">修改邮箱</el-button>
                         </div>
                         <hr>
                     </div>
@@ -51,8 +51,8 @@
                         <div style="width: 450px;display: flex;margin-bottom: 10px">
                             <img src="../../assets/images/person/tel_yes.png" alt="">
                             <div style="margin-left: 10px">
-                                <div style="font-size:14px;color：#16161D;font-weight: bold">手机已绑定（）</div>
-                                <div style="font-size:13px;color：#606879">您可以享受手机相关的安全及提醒</div>
+                                <div style="font-size:14px;color:#16161D;font-weight: bold">手机已绑定（）</div>
+                                <div style="font-size:13px;color:#606879">您可以享受手机相关的安全及提醒</div>
                             </div>
                             <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC">修改手机</el-button>
                         </div>
@@ -62,8 +62,8 @@
                         <div style="width: 450px;display: flex;margin-bottom: 10px">
                             <img src="../../assets/images/person/email_no.png" style="height: 26px;margin-top: 10px" alt="">
                             <div style="margin-left: 10px">
-                                <div style="font-size:14px;color：#16161D;font-weight: bold">邮箱未绑定</div>
-                                <div style="font-size:13px;color：#606879">您可以使用邮箱保障您的账号安全</div>
+                                <div style="font-size:14px;color:#16161D;font-weight: bold">邮箱未绑定</div>
+                                <div style="font-size:13px;color:#606879">您可以使用邮箱保障您的账号安全</div>
                             </div>
                             <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC">绑定邮箱</el-button>
                         </div>
@@ -73,8 +73,8 @@
                         <div style="width: 450px;display: flex;margin-bottom: 10px">
                             <img src="../../assets/images/person/pwd.png" style="height: 28px;width:34px;margin-top: 10px" alt="">
                             <div style="margin-left: 10px">
-                                <div style="font-size:14px;color：#16161D;font-weight: bold">登录密码</div>
-                                <div style="font-size:13px;color：#606879">密码强度越强，账号安全越强</div>
+                                <div style="font-size:14px;color:#16161D;font-weight: bold">登录密码</div>
+                                <div style="font-size:13px;color:#606879">密码强度越强，账号安全越强</div>
                             </div>
                             <el-button size="mini" style="margin-left:105px;border-color: #3254DC;color: #3254DC">修改密码</el-button>
                         </div>

@@ -227,7 +227,6 @@ export default {
           this.tableData[index]["price"] = res.data[index]["price"];
 
         }
-        window.console.log(this.tableData)
         this.tableData.sort(function (a,b) {
           return Date.parse(b.create_time)-Date.parse(a.create_time);
         })

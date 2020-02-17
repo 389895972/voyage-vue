@@ -55,6 +55,8 @@ const  i18n = new VueI18n({
     'en': require('./lang/en'),
   }
 })
+
+
 new Vue({
   router,
   i18n,

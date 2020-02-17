@@ -15,6 +15,8 @@ import ToPay from './components/order/ToPay'
 import Tutorial from './components/tutorial/Tutorial'
 //import First from "./components/index/First";
 import Instance from './components/order/Instance'
+import adminOrderList from './components/admin/orderList'
+
 import de from './ChangLang'
 
 Vue.use(Router)
@@ -36,7 +38,8 @@ const router =new Router({
         {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
         {path:'/tutorial',name:'Tutorial',component:Tutorial,meta:{keepAlive:false}},
-        {path:'/personal',name:'Personal',component:Personal,meta:{keepAlive:false}}
+        {path:'/personal',name:'Personal',component:Personal,meta:{keepAlive:false}},
+        {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}}
 
     ],
 

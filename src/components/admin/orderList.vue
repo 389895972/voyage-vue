@@ -48,6 +48,11 @@
 
         </el-form>
         <el-table :data="PageData" style="width: 100%" :header-cell-style="{background:'#E4E7EB',color:' #16161D'}">
+          <el-table-column
+                  label="全选"
+                  type="selection"
+                  width="55">
+          </el-table-column>
           <el-table-column label="订单编号" prop="orderID"></el-table-column>
           <el-table-column label="产品" prop="product"></el-table-column>
           <el-table-column width="100px" label="类型" prop="type"></el-table-column>
@@ -245,6 +250,9 @@ export default {
     },
     //转换日期
     tranDate(standard_time) {
+      if(standard_time==null){
+        return null
+      }
         let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
       let month = d.getMonth() + 1;
       let day = d.getDate();
