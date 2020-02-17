@@ -139,7 +139,7 @@
                 }
             },
             tranDate(standard_time) {
-                if(standard_time){
+                if(standard_time==null){
                     return  null
                 }
                 let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
