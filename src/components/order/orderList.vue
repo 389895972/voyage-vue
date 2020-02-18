@@ -66,27 +66,12 @@
           <el-table-column width="208px" align="left" label="操作" header-align="center">
             <template slot-scope="scope">
               <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
-
-              <el-button
-                      v-if="scope.row.state=='未支付'"
-                      size="mini"
-                      type="primary"
-                      @click="handlePay(scope.$index,scope.row)"
-              >支付</el-button>
-
-              <el-button
-                      v-if="scope.row.state=='未支付'"
-                      size="mini"
-                      type="warning"
-                      @click="handleCancel(scope.$index,scope.row)"
-              >取消</el-button>
-
               <el-button
                       v-if="scope.row.state=='已支付'"
                       size="mini"
                       type="success"
-                      @click="go_control_page(scope.$index,scope.row)"
-              >管理设备</el-button>
+                      @click="dredge_instance(scope.$index,scope.row)"
+              >开通</el-button>
 
               <el-button
                       v-if="scope.row.state=='已取消'"
@@ -130,11 +115,6 @@ export default {
       //数据属性
       tableData: [],
       //过滤属性
-      search_ID: "",
-      search_product: "",
-      search_type: "",
-      search_timescope: "",
-      search_state: "",
       formInline: {
         search_ID: "",
         search_product: "",
@@ -147,7 +127,6 @@ export default {
   methods: {
     //设置当前页
     handleCurrentChange(val) {
-      this.currentPage = val;
     },
     //跳转到订单详情
     go_order_detaile(index, row) {
@@ -157,26 +136,7 @@ export default {
     go_control_page(index, row) {
       window.console.log(index, row);
     },
-    //取消订单
-    handleCancel(index, row) {
-      var that = this
-      this.$http
-        .get("/order/cancelOrder", {
-          params: {
-            orderId: row.orderID
-          }
-        })
-        .then(function(response) {
-          // window.console.log(response);
-          if (response.status == 200) {
-            that.$set(that.PageData[index], "state", "已取消");
-          }
-        })
-        .catch(function(error) {
-          window.console.log(error);
-          alert("取消失败")
-        });
-    },
+
     //删除订单
     handleDelete(index, row) {
       window.console.log(index, row);
