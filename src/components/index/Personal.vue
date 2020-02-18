@@ -267,13 +267,13 @@
                 icon:"el-input__icon el-icon-view",
                 passw:"password",
                 tips:' 用户名或密码错误',
-                imageUrl: this.fileData.files,
+                imageUrl: 111,
                 fileData: '',
                 introduce:'456',
                 username:'123',
                 fileList:[]
 
-            }
+            };
         },
         methods:{
             countDown(){
