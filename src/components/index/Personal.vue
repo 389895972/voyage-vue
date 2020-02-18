@@ -28,36 +28,34 @@
                                 action="http://127.0.0.1:8088/upload"
                                 :show-file-list="false"
                                 :file-list="fileList"
+                                :http-request="uploadFile"
+                                ref="upload"
+                                :auto-upload="false"
                                 :on-success="handleAvatarSuccess"
                                 style="width: 140px;height: 140px;" >
                             <img v-if="imageUrl" :src="imageUrl" class="avatar">
-<!--                            <i v-else class="el-icon-plus avatar-uploader-icon"></i>-->
-                            <el-form style="width: 100px;height: 100px" v-else class="el-icon-plus avatar-uploader-icon" action='uploadFile.php' enctype="multipart/form-data" type='post'>
-                                <input type='file' >
-                                <input type='hidden' name='userid'>
-                                <input type='hidden' name='signature'>
-                                <button>提交</button>
-                            </el-form>
+                            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+
                         </el-upload>
 
-                        <div style="width: 140px;height: 140px;border:1px solid red">
-                            <img v-if="imageUrl" :src="imageUrl" class="avatar">
-<!--                            <i v-else class="el-icon-plus avatar-uploader-icon">-->
-<!--                               </i>-->
-                            <el-form style="width: 100px;height: 100px" v-else class="el-icon-plus avatar-uploader-icon" action='uploadFile.php' enctype="multipart/form-data" type='post'>
-                                <input type='file' >
-                                <input type='hidden' name='userid'>
-                                <input type='hidden' name='signature'>
-                                <button>提交</button>
-                            </el-form>
-                        </div>
+<!--                        <div style="width: 140px;height: 140px;border:1px solid red">-->
+<!--                            <img v-if="imageUrl" :src="imageUrl" class="avatar">-->
+<!--&lt;!&ndash;                            <i v-else class="el-icon-plus avatar-uploader-icon">&ndash;&gt;-->
+<!--&lt;!&ndash;                               </i>&ndash;&gt;-->
+<!--                            <el-form style="width: 100px;height: 100px" v-else class="el-icon-plus avatar-uploader-icon" action='uploadFile.php' enctype="multipart/form-data" type='post'>-->
+<!--                                <input type='file' >-->
+<!--                                <input type='hidden' name='userid'>-->
+<!--                                <input type='hidden' name='signature'>-->
+<!--                                <button @click="submitUpload">提交</button>-->
+<!--                            </el-form>-->
+<!--                        </div>-->
 
                     </div>
                     <div style="height: 500px"></div>
                     <div style="display: inline-block;height: 140px;margin: 40px 0 100px 0">
                         <div style="border: 1px solid #E4E7EB;width: 358px;height: 50px;vertical-align: middle;display: table-cell;font-size: 18px;font-weight: bold;padding-left: 15px">
                             <el-input style="width: 260px">521</el-input>
-                            <el-button type="primary" size="mini"  @click="modify_instance" style="color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:10px ">确定</el-button>
+                            <el-button type="primary" size="mini"  @click="submitUpload" style="color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:10px ">确定</el-button>
                         </div>
                         <div style="border: 1px solid #E4E7EB;width: 358px;height: 90px;padding: 10px ">
                             <div style="font-size: 14px;font-weight: bold">个人简介</div>
@@ -251,11 +249,12 @@
     </el-container>
 </template>
 <script >
+    import Axios from "axios";
     export default {
         data() {
             return {
                 prefix:'+86',
-                email_dialog:false,
+                email_dialog:true,
                 modify_pwd_dialog:false,
                 modify_tel_dialog1:false,
                 modify_tel_dialog2:false,
@@ -268,8 +267,12 @@
                 icon:"el-input__icon el-icon-view",
                 passw:"password",
                 tips:' 用户名或密码错误',
-                imageUrl: '',
-                fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+                imageUrl: this.fileData.files,
+                fileData: '',
+                introduce:'456',
+                username:'123',
+                fileList:[]
+
             }
         },
         methods:{
@@ -296,6 +299,7 @@
             },
             bind_email(){
                 this.email_dialog=true;
+
             },
             modify_pwd(){
                 this.modify_pwd_dialog=true
@@ -315,7 +319,57 @@
             handleAvatarSuccess(res, file) {
                 this.imageUrl = URL.createObjectURL(file.raw);
             },
+            uploadFile(file) {
+                this.fileData.append('files', file.file);
+                window.console.log("333"+this.username)
+            },
+            // 上传到服务器
+            submitUpload() {
+            //  let introduce= this.introduce
+                let username=this.username
+                window.console.log("11111"+username)
+                window.console.log("222"+this.content)
+                window.console.log("222"+this.tell)
+                // let fieldData = this.fileData;
+                // if (fieldData.id === '') {
+                //     this.$message({
+                //         message: '请选择上传机构',
+                //         type: 'warning'
+                //     })
+                // } else
+                //     if (this.fileList.length === 0) {
+                //     this.$message({
+                //         message: '请先选择文件',
+                //         type: 'warning'
+                //     })
+                // } else {
+                //     const isLt100M = this.fileList.every(file => file.size / 1024 / 1024 < 100);
+                //     if (!isLt100M) {
+                //         this.$message.error('请检查，上传文件大小不能超过100MB!');
+                //     } else {
+                        this.fileData = new FormData();
+                         this.$refs.upload.submit();
+                         this.fileData.append('username',username);
+                         this.fileData.append('introduce', this.introduce);
 
+                        const newAixos = Axios.create({
+                            baseURL: 'http://127.0.0.1:8888',
+                            // timeout: 1000,
+                        });
+                        newAixos.post("/upload",this.fileData)
+                            .then(function(response) {
+                                window.console.log(response);
+                                if (response.status == 200) {
+                                    this.$message.success("验证码已发送")
+                                }
+                            })
+                            .catch(function(error) {
+                                window.console.log(error);
+                                this.$message.success("服务器错误")
+                            });
+                    // }
+                // }
+            },
 
         }
     }
