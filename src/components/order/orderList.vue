@@ -204,7 +204,8 @@ export default {
     //获取订单数据
     async get_order_list() {
       const { data: res } = await this.$http.get("/order/findOrders", {
-        params: { userId: 1 }
+        params: { userId: 1 ,
+         token:window.sessionStorage.getItem('token')}
       });
       if (res.code == 20000) {
         window.console.log(res.data);

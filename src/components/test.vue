@@ -1,331 +1,155 @@
 <template>
-    <div  style="display: flex">
-        <div style="width: 140px;height: 140px;display: inline-block;margin: 40px 0 100px 15px">
-
-
-
-
-        <div  style="display: flex">
-        <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid red;width: 140px;height:140px">
-            <label>
-                <input type="file"   style="display: none" @change="uploadImg">
-                 <i class="el-icon-plus avatar-uploader-icon"></i>
-            </label>
-        </div>
-        <div class="img-list-item common mb_10" v-if="isShow">
-            <img :src="src" class="common" style="width: 140px;height: 140px">
-            <i class="del-img" @click="forkImage"></i>
-        </div>
-
-        <div style="display: inline-block;height: 140px;margin: 40px 0 100px 0">
-            <div style="border: 1px solid #E4E7EB;width: 358px;height: 50px;vertical-align: middle;display: table-cell;font-size: 18px;font-weight: bold;padding-left: 15px">
-                <el-input style="width: 260px">521</el-input>
-                <el-button type="primary" size="mini"  @click="submitUpload" style="color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:10px ">确定</el-button>
+    <div class="login_container">
+        <div class="login_box">
+            <div class="avatar_box">
+                <img src="../assets/logo.png" alt="">
             </div>
-            <div style="border: 1px solid #E4E7EB;width: 358px;height: 90px;padding: 10px ">
-                <div style="font-size: 14px;font-weight: bold">个人简介</div>
-
-                <el-input type="textarea"> </el-input>
-            </div>
-
+            <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" class="login_form" label-width=" 0px">
+                  <span>
+                  <el-form-item  prop="username">
+                      <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user"></el-input>
+                  </el-form-item>
+                  <el-form-item prop="password" >
+                      <el-input   type="password" v-model="loginForm.password" prefix-icon="iconfont icon-mima"></el-input>
+                  </el-form-item>
+                  <el-form-item prop="vcode" >
+                      <el-input   type="vcode" v-model="loginForm.vcode" prefix-icon="iconfont icon-mima" class="vcode"></el-input>
+                      <el-button class="button" :class="{disabled: !this.canClick}" @click="countDown">{{content}}</el-button>
+                  </el-form-item>
+                  <el-form-item class="btns">
+                      <el-button type="primary" @click="login">登录</el-button>
+                      <el-button type="info" @click="resetLoginForm">重置</el-button>
+                  </el-form-item>
+                      </span>
+                <span>dfasdffsaf</span>
+            </el-form>
         </div>
-        <el-button @click="ii">1232</el-button>
-
-    </div>
-
-        </div>
-
-
-
     </div>
 </template>
-<script >
-    import Axios from "axios";
+
+<script>
+
     export default {
         data(){
             return {
-                reg:{
-                    reg_username:'',
-                    name:'',
+                loginForm:{
+                    username:'zs123',
+                    password:'123456798',
+                    vcode:''
                 },
-                reg_username:'',
-                src: '',
-                isShow:false,
-                formData:'',
-                rules: {
-                    reg_username: [
-                        { required: true, message: '请输入用户名', trigger: 'blur' },
-                        { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                loginFormRules:{
+                    //验证用户名是否合法
+                    username:[
+                        { required: true, message: '请输入登录名称', trigger: 'blur' },
+                        { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
                     ],
-                    name: [
-                        { required: true, message: '请输入用户名', trigger: 'blur' },
-                        { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-                    ],
-                }
+                    password:[
+                        { required: true, message: '请输入密码', trigger: 'blur' },
+                        { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
+                    ]
+                },
+                content: '发送验证码',  // 按钮里显示的内容
+                totalTime: 10 ,     //记录具体倒计时时间
+                canClick: true //添加canClick
             }
-
         },
-
         methods:{
-            uploadImg (e) {
-                let _this = this;
-                let files = e.target.files[0];
-                if (!e || !window.FileReader) return; // 看支持不支持FileReader
-                let reader = new FileReader();
-                reader.readAsDataURL(files); // 这里是最关键的一步，转换就在这里
-                reader.onloadend = function () {
-                    _this.src = this.result;
-                    _this.isShow = true;
-                };
-
-                _this.formData = new FormData();
-                _this.formData.append('file', files);
-                _this.formData.append('username', "123");
-                _this.formData.append('introduce', "123");
+            resetLoginForm(){
+                //  console.log(this);
+                this.$refs.loginFormRef.resetFields();
             },
+            login(){
+                this.$refs.loginFormRef.validate(async valic =>{
+                    window.console.log(valic);
+                    if(!valic) return;
+                    const {data: res}= await this.$http.post('login',this.loginForm);
 
-            forkImage () {
-                this.src = '';
-                this.isShow = false;
-            },
-            ii(){
-
-                const newAixos = Axios.create({
-                    baseURL: 'http://127.0.0.1:8888',
-                    // timeout: 1000,
+                    //const res= await this.$http.post('login',this.loginForm);
+                    if(res.meta.status!=200) return  this.$message.error('登录失败');
+                    this.$message.success('登录成功');
+                    window.sessionStorage.setItem('token',res.data.token);
+                    await this.$router.push("/home");
                 });
-                newAixos.post("/upload",this.formData,{headers: {'Content-Type': 'multipart/form-data'}})
-                    .then(function(response) {
-                        window.console.log(response);
-                        if (response.status == 200) {
-                            this.$message.success("验证码已发送")
-                        }
-                    })
-                    .catch(function(error) {
-                        window.console.log(error);
-                        this.$message.success("服务器错误")
-                    });
             },
-            jjj(file){
-                var fileObj = file;
-                this.formData = new FormData();
-                this.formData.append('file', fileObj);
-                this.formData.append('username', "123");
-                this.formData.append('introduce', "123");
+            countDown(){
+                if (!this.canClick) return
+                this.canClick = false
+                this.content = this.totalTime + 's后重新发送'
+                let clock = window.setInterval(() => {
+                    window.console.log(clock)
+                    this.totalTime--
+                    this.content = this.totalTime + 's后重新发送'
+                    if (this.totalTime < 0) {
+                        window.clearInterval(clock)
+                        this.content = '重新发送验证码'
+                        this.totalTime = 10
+                        this.canClick = true  //这里重新开启
+                    }
+                },1000)
+            },
 
+
+        }
+    }
+</script>
+
+<style lang="less" scoped>
+    .login_container{
+        background-color: #2b4b6b;
+        height: 100%;
+    }
+    .login_box{
+        width: 450px;
+        height: 400px;
+        background-color: white;
+        border-radius: 3px;
+        position: absolute;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        .avatar_box{
+            height: 130px;
+            width: 130px;
+            border: 1px solid white;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 10px #ddd;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: white;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: #EEE5DD;
             }
         }
-
-
-    };
-</script>
-<style scoped>
-    .el-header {
-        background-color: #101c3d;
-        color: white;
-        line-height: 60px;
-
     }
-    .content{
-        width: 1280px;
-        background-color: white;
-        margin: 40px auto 0 auto;
-        padding-bottom: 200px;
+    .btns{
+        display: flex;
+        justify-content: flex-end;
     }
-    .content >>> .el-upload__input{
-        display: none;
+    .login_form{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
     }
-    .avatar-uploader .el-upload {
-        border: 1px dashed #d9d9d9;
-        border-radius: 6px;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
+    .vcode{
+        width: 50%;
+        margin-right: 30px;
     }
-    .avatar-uploader .el-upload:hover {
-        border-color: #409EFF;
+    .disabled{
+        background-color: #dddddd;
+        border-color: #dddddd;
+        color:#57a3f3;
+        cursor: not-allowed; // 鼠标变化
     }
-    .avatar-uploader-icon {
-        /*display:none;*/
-        color: #8c939d;
-        width: 140px;
-        height: 140px;
-        line-height: 140px;
-        text-align: center;
-
-    }
-
-    .avatar {
-        width: 140px;
-        height: 140px;
-        display: block;
-    }
-    #login_dia >>> .el-dialog__body{
-        padding: 0;
-    }
-    #login_dia >>> .el-dialog__header{
-        padding-left: 38px;
-        padding-bottom: 0;
-        font-weight: bold;
-        font-size: 24px
-
-    }
-    #login_dia >>> .el-dialog__title{
-
-        font-size: 24px
-
-    }
-    #login_dia >>> .el-input{
-
-        width: 90px;
-
-    }
-    #login_dia >>> .el-input__inner{
-        height: 44px;
-        margin-top: 15px;
-
-    }
-    #login_dia >>> .el-step__head.is-finish{
-        color:white;
-        border-color:  #3FB560;
-
-    }
-    #login_dia >>> .el-step__title.is-finish{
-        color:#3FB560;
-        font-size: 14px;
-
-
-    }
-    #el-step1 >>> .el-step__title.is-finish{
-        color:#3FB560;
-        font-size: 14px;
-        margin-left: -13px;
-
-    }
-    #el-step4 >>> .el-step__title.is-finish{
-        color:#3FB560;
-        font-size: 14px;
-        margin-left: -13px;
-
-    }
-    #el-step5 >>> .el-step__title.is-finish{
-        color:#3FB560;
-        font-size: 14px;
-        margin-left: -27px;
-
-    }
-    #el-step2 >>> .el-step__title.is-process{
-        color:#3FB560;
-        font-size: 14px;
-        margin-left: -27px;
-
-    }
-    #login_dia >>> .el-step__title.is-process{
-        color: grey;
-        font-weight: normal;
-        font-size: 14px;
-
-    }
-    #login_dia >>> .el-step__title.is-wait{
-        color: grey;
-        font-size: 14px;
-
-
-    }
-    #login_dia >>> .el-step__head.is-process{
-        color:white;
-        border-color: #FFFFFF;
-
-
-    }
-    #login_dia >>> .el-step__icon.is-process{
-        background: red;
-    }
-    #login_dia >>> .el-step__icon{
-        background: #3FB560;
-    }
-    #login_dia >>> .el-step__head.is-wait{
-        color: white;
-
-    }
-    #el-step1 >>> .el-step__icon{
-        background: #3FB560;
-        border-color: white;
-    }
-    #el-step2 >>> .el-step__icon{
-        background: #C0C3C9;
+    .button{
+        background-color: #57a3f3;
+        border-color: #57a3f3;
         color: white;
     }
-    #el-step3 >>> .el-step__icon{
-        background:#C0C3C9;
-        border-color: white;
-    }
-    #el-step4 >>> .el-step__icon{
-        background: #ABE5BB;
-        border-color:  white;
-    }
-    #el-step5 >>> .el-step__icon{
-        background:#3FB560;
-        border-color:  white;
-    }
-
-    #el-step6 >>> .el-step__icon{
-        background: #C0C3C9;
-    }
-    #el-step7 >>> .el-step__icon{
-        background: #ABE5BB;
-        border-color:  white;
-    }
-    #el-step8 >>> .el-step__icon{
-        background: #ABE5BB;
-        border-color:  white;
-    }
-    #el-step9 >>> .el-step__icon{
-        background:#3FB560;
-        border-color:  white;
-    }
-
-    /*#login_dia >>> .el-step__icon{*/
-    /*     background-color:red;*/
-    /* }*/
-
-    #code_span1 >>> span{
-        margin-left: -4px;
-    }
-    #code_span1 {
-        height: 44px;
-    }
-
-    /*#login_dia >>>  .el-button:focus, .el-button:hover{*/
-    /*    background-color: #C0C3C9;*/
-    /*    border-color: #C0C3C9;*/
-    /*    color: white;*/
-    /*}*/
-    /*#code_span1 >>> .el-button:focus , .el-button:hover{*/
-    /*    !*background-color: #3254DC;*!*/
-    /*    !*background-color: #C0C3C9;*!*/
-    /*    !*border-color: #C0C3C9;*!*/
-    /*    !*color: white;*!*/
-    /*}*/
-    #code_span2 >>> span{
-        margin-left: -4px;
-        height: 44px;
-    }
-    #code_span3 >>> span{
-        margin-left: -4px;
-        height: 44px;
-    }
-    #canCli{
-        width: 100px;
-        background-color: #3254DC;
-        color:white;
-        height: 40px
-    }
-    #noCli{
-        width: 100px;
-        background-color: #C0C3C9;
-        color:white;
-        height: 40px
-    }
-
 </style>

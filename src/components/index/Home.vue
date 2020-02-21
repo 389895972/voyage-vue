@@ -742,7 +742,7 @@
          </div>
           <div class="home_reg_img2">
              <span>免费注册</span>
-             <span>选择设备</span>
+             <span style="margin-left: 30px">选择设备</span>
              <span>远程登录设备</span>
           </div>
           <div class="home_reg_icon">
@@ -757,7 +757,7 @@
         </div>
 
         <div>
-          <el-button class="home_reg_btn" size="small" type="primary">立即注册并试用</el-button>
+          <el-button class="home_reg_btn" size="small" type="primary">免费体验</el-button>
         </div>
       </div>
 
@@ -863,138 +863,11 @@
               </div>
             </el-tab-pane>
           </el-tabs>
-<!--          <hr style="margin-bottom:1px" />-->
+
         </div>
-        <!-- <div class="service_contents">
-                    <table>
-                        <tr>
-                            <td><span class="service_querstion">注册账号都需要那些条件？</span>
-                                <div style="width:80%"><p>
-                                    注册账号时需要提供您真实有效的邮箱和手机号，我们会在验证过程中向index邮箱或者手机号发送验证码，只有验证通过才能使用我们的设备。</p></div>
-                            </td>
-                            <td><span class="service_querstion">什么是使用服务？</span>
-                                <p>适用服务是我们为使用者提供的免费使用本平台指定设备的服务。</p></td>
-                        </tr>
-                        <tr>
-                            <td><span class="service_querstion">收不到邮箱验证码怎么办？</span>
-                                <div style="width:80%"><p>可能被邮箱判断为垃圾邮件，请您打开垃圾邮箱所在文件夹查看是否收到。<br>
-                                    如果任然无法收到验证码，您可尝试切换手机号进行验证。</p></div>
-                            </td>
-                            <td><span class="service_querstion">试用过后如何计费？</span>
-                                <p>30天以下：按日计费<br>
-                                    30天以上：按月计费<br>
-                                    可选择：1~29日或者1~12月<br>
-                                    订单页面选择日期后，费用自动生成</p></td>
-                        </tr>
-                        <tr>
-                            <td><span class="service_querstion">收不到短信验证码怎么办？</span>
-                                <div style="width:80%"><p>
-                                    可能会由于手机停机、存储信息已满、网络延迟等原因没有及时收到验证码，这时请检查您的手机，保证手机可正常接收短信后，尝试重新获取验证码。<br>
-                                    如果仍然无法收到验证码您可尝试邮箱进行验证。</p></div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
 
-        </div>-->
       </div>
-<!--      <el-footer height="600px">-->
-<!--        <el-row :offset="3"><img  class="footer_img" src="../../../public/logo.png" alt=""></el-row>-->
-<!--        <el-row>-->
-<!--        <el-col :span="3" :offset="4">-->
-<!--          <div class="footer_block">-->
-<!--            <span class="footer_block_title" >产品</span>-->
-<!--            <span class="footer_block_content"> <a href=""> AIKIT </a> </span>-->
-<!--            <span class="footer_block_content"><a href="">RB3 </a></span>-->
-<!--            <span class="footer_block_content"><a href="">Rasybarry Pie </a></span>-->
-<!--            <span class="footer_block_content"><a href="">Intel Nuc </a></span>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="3">-->
 
-<!--          <div class="footer_block">-->
-<!--            <span class="footer_block_title">社区</span>-->
-<!--            <span class="footer_block_content"> <a href=""> 5G</a> </span>-->
-<!--            <span class="footer_block_content"><a href="">消费电子产品</a></span>-->
-<!--            <span class="footer_block_content"><a href="">智能汽车</a></span>-->
-<!--            <span class="footer_block_content"><a href="">智慧家居</a></span>-->
-<!--            <span class="footer_block_content"><a href="">智慧城市 </a></span>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="3">-->
-<!--          <div class="footer_block">-->
-<!--            <span class="footer_block_title">教程</span>-->
-<!--            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>-->
-<!--            <span class="footer_block_content"><a href="">AI服务</a></span>-->
-<!--            <span class="footer_block_content"><a href="">AI模块</a></span>-->
-<!--            <span class="footer_block_content"><a href="">AI工具</a></span>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="3">-->
-<!--          <div class="footer_block">-->
-<!--            <span class="footer_block_title">关于我们 </span>-->
-<!--            <span class="footer_block_content"> <a href="" > 关于我们</a> </span>-->
-<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
-<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
-<!--            <span class="footer_block_content"><a href="">关于我们</a></span>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        <el-col :span="3">-->
-<!--          <div class="footer_block">-->
-<!--            <span class="footer_block_title">其他</span>-->
-<!--            <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>-->
-<!--            <span class="footer_block_content"><a href="">AI服务</a></span>-->
-<!--            <span class="footer_block_content"><a href="">AI模块</a></span>-->
-<!--            <span class="footer_block_content"><a href="">AI工具</a></span>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--        </el-row>-->
-<!--        <el-row ><span class="footer_title_ours">联系我们</span></el-row>-->
-
-
-<!--          <span class="footer_title_email">邮箱联系</span>-->
-<!--          <span class="footer_title_email2">其他联系</span>-->
-
-
-<!--        <el-table-column fixed="right" label="操作" width="150">-->
-<!--          <template slot-scope="scope">-->
-<!--            <el-button-group>-->
-<!--              <el-tooltip class="item" effect="dark" content="复制内容" placement="top">-->
-<!--                <el-button type="warning" size="mini" v-clipboard:copy="scope.row.content" v-clipboard:success="onCopy" v-clipboard:error="onError">-->
-<!--                  <i class="fa fa-copy"></i>-->
-<!--                </el-button>-->
-<!--              </el-tooltip>-->
-<!--            </el-button-group>-->
-<!--          </template>-->
-<!--        </el-table-column>-->
-<!--        <div class="item">-->
-<!--        <el-input  v-model="email" class="footer_input" size="mini"></el-input>-->
-<!--&lt;!&ndash;          <span class="footer_input"> {{email}}</span>&ndash;&gt;-->
-<!--          <el-button-->
-<!--                  type="primary"-->
-<!--                  class="btn"-->
-<!--                  size="mini"-->
-<!--                  :data-clipboard-text="email"-->
-<!--                  @click="copy"-->
-<!--          >复制</el-button>-->
-<!--          <span style="margin-left: 31%">-->
-<!--          <img src="../../assets/images/home/Twitter.png" alt="">-->
-<!--          <img src="../../assets/images/home/Facebook.png" alt="">-->
-<!--          <img src="../../assets/images/home/weixin.png" alt="">-->
-<!--            </span>-->
-
-<!--        </div>-->
-
-<!--        &lt;!&ndash;        <el-col :span="3">&ndash;&gt;-->
-<!--&lt;!&ndash;          <div class="footer_block_final">&ndash;&gt;-->
-<!--&lt;!&ndash;            <span style="margin-left:10%;padding-top:10px">联系我们</span>&ndash;&gt;-->
-<!--&lt;!&ndash;            <p style="margin:10% 0 0 10%;font-size:16px">Email</p>&ndash;&gt;-->
-<!--&lt;!&ndash;            <p style="margin-left:10%;font-size:16px">service@45iot.com</p>&ndash;&gt;-->
-<!--&lt;!&ndash;          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        </el-col>&ndash;&gt;-->
-
-<!--      </el-footer>-->
-<!--      <span class="footer_footer"> Copyright &copy; 2018~2020.Rescord license ICP备案号：181470003号 All rights reserved. </span>-->
     </div>
   </el-container>
 </template>
@@ -1010,6 +883,7 @@ export default {
   },
   methods: {
     buy_aikit() {
+
       this.$router.push(
               { path: '/buy',
                 query:{
@@ -1032,6 +906,7 @@ export default {
         );
       },
       buy_rb3(){
+
         this.$router.push(
                 { path: '/buy',
                   query:{
@@ -1117,8 +992,8 @@ div {
   border: 1px solid;
   text-align: center;
   /*background-color: #f5f5f5;*/
-  background-image: url("../../assets/images/home/bj_pic1.png");
-  background-size: 100% 100%;
+  background-image: url("../../assets/images/home/home_bg1.png");
+  /*background-size: 100% 100%;*/
   height: 450px;
 
 }
@@ -1168,7 +1043,7 @@ div {
 .block_title_info {
   margin-top: 10px;
   display: block;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .block_inner {
@@ -1185,7 +1060,7 @@ div {
   margin-top: 15px;
   margin-bottom: 45px;
   color: white;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 span {
@@ -1275,12 +1150,12 @@ span {
 }
 .adv_content_title1{
      text-align: center;
-    font-size: 16px;
+    font-size: 18px;
 }
 .adv_content_title2{
     text-align: center;
     margin: 0 auto;
-    font-size: 13px;
+    font-size: 12px;
      width: 144px;
 }
 .adv_image{
@@ -1512,10 +1387,10 @@ a:link{
   padding-top: 2%;
   padding-bottom: 5%;
   background-image: url("../../assets/images/home/bg_logo.png");
-  background-size: 360px 260px;
+  background-size: 400px 360px;
   background-repeat: no-repeat;
   /*opacity: 0.9;*/
-  background-position: 78%;
+  background-position: 75%;
 
 }
 
@@ -1524,15 +1399,15 @@ a:link{
 .home_reg_img {
   align-content: center;
   margin: 0 auto;
-  width: 26%;
+  width: 634px;
   /*opacity: 0.5;*/
   text-align: center;
 
-  background-color: #404964;
+  /*background-color: #404964;*/
 }
 .home_reg_img1 {
   display: flex;
-  margin-top: 20px;
+  margin-top: 40px;
   justify-content: space-around;
 
 }
@@ -1545,7 +1420,7 @@ a:link{
   margin-left: 5px;
   justify-content: space-around;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .home_reg_title{
@@ -1558,11 +1433,11 @@ a:link{
   text-align: left;
 }
 .home_reg_introduce  {
-  margin-top: 20px;
+
   color: white;
-  font-size: 24px;
-    width: 507px;
-    margin: 0 auto;
+  font-size: 30px;
+    width: 634px;
+    margin: 30px auto 0 auto;
 }
 
 .home_reg_btn {
@@ -1571,7 +1446,7 @@ a:link{
   border: 1px solid #3254DC;
     width: 180px;
     height: 50px;
-    font-size: 16px;
+    font-size: 18px;
   /*color: white;*/
   /*cursor: pointer;*/
 }

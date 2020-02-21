@@ -108,7 +108,8 @@
         methods:{
             async getList(){
                 const { data: res } = await this.$http.get("example/findExampleList", {
-                    params: { userId: 1 }
+                    params: { userId: 1 ,
+                        token:window.sessionStorage.getItem('token')}
                 }).catch(function(error) {
                     window.console.log(error);
                     alert("连接服务器失败");

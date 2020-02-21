@@ -14,7 +14,7 @@
              </div>
              <div class="aikit_btn">
                <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
-               <el-button style="background-color: #101C3D;color: white;width: 150px" >管理设备</el-button>
+               <el-button style="background-color: #101C3D;color: white;width: 150px" @click="dev_mag">管理设备</el-button>
              </div>
            </div>
 
@@ -409,7 +409,7 @@
             </el-tabs>
             <el-tabs class="tab_btn" @tab-click="handleClick1">
               <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
-              <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
+              <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary"  @click="dev_mag">管理设备</el-button>
               <!--                                </div>-->
             </el-tabs>
               </div>
@@ -717,6 +717,21 @@ export default {
   },
 
   methods: {
+      dev_mag(){
+          const tokenStr=window.sessionStorage.getItem('token');
+
+          if(!tokenStr){
+              this.$message.error("请先登录！")
+              this.login_dialog1=true
+          }else {
+              this.$router.push(
+                  {
+                      path: '/instance',
+
+                  }
+              );
+          }
+      },
     download() {
       this.$i18n.locale = "en";
       // console.log($i18n.locale)
@@ -754,15 +769,22 @@ export default {
       document.querySelector(tab.name).scrollIntoView(true);
     },
     buy_aikit() {
-      this.$router.push(
-              { path: '/buy',
-              query:{
-                name:'AI KIT',
-                good_id: 1682320,
-              }
-              }
-      );
+        const tokenStr=window.sessionStorage.getItem('token');
 
+        if(!tokenStr){
+            this.$message.error("请先登录！")
+            this.login_dialog1=true
+        }else {
+            this.$router.push(
+                {
+                    path: '/buy',
+                    query: {
+                        name: 'AI KIT',
+                        good_id: 1682320,
+                    }
+                }
+            );
+        }
     },
       showMore(){
           this.isMore=true;

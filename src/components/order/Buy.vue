@@ -218,6 +218,7 @@ vertical-align:middle;">
                     {value: '选项1', label: '标准版'},
 
                 ],
+
                 ruleForm: {
                     name: '',
                     dept: '',
@@ -292,12 +293,15 @@ vertical-align:middle;">
             // },
             buy(){
                 this.$refs.ruleForm.validate(valid=>{
-
+                    const tokenStr=window.sessionStorage.getItem('token');
                 if(this.current_os===''||this.current_os_version===''){
                     this.$message.error("请选择操作系统版本")
                 }else if(!valid){
                     this.$message.error("请完善个人信息")
-                }else {
+                }else if(!tokenStr){
+                        this.$message.error("请先登录！")
+                        this.login_dialog1=true
+                    }else {
 
                     this.$router.push(
                         {
@@ -348,7 +352,7 @@ vertical-align:middle;">
                 }else{
                      pay=10*365*buy_nums
                 }
-                 return pay;
+                 return pay.toFixed(2);
              },
             buy_time(){
               let buy_time=''

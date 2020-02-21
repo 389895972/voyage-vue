@@ -7,7 +7,7 @@
                     <img src="../../assets/images/person/我的资料.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">我的资料</span>
                 </div>
 <!--                个人信息-->
-                <div v-if="!modify_info" style="display: flex">
+                <div v-if="!modify_info" style="display: flex;height: 300px">
                     <div style="width: 140px;height: 140px;display: inline-block;margin: 40px 0 100px 15px">
                          <img src="../../assets/images/person/u779.png" alt="" style="width: 100%;height: 100%">
                     </div>
@@ -23,33 +23,40 @@
                     </div>
                 </div>
 <!--                修改个人信息-->
-                <div v-if="modify_info" style="display: flex">
-                    <div style="width: 140px;height: 140px;display: inline-block;margin: 40px 0 100px 15px">
+                <div v-if="modify_info" style="height: 300px;width: 800px;margin: 20px">
 
-                        <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid red;width: 140px;height:140px">
+                  <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">用户名:</span>
+                    <el-input style="width: 490px;margin-left: 10px;display: inline-block" v-model="modify_nickname">{{modifynickname}}</el-input></span>
+                    <div style="display: flex;margin-top: 10px">
+                    <div style="height: 44px;vertical-align:middle;display:table-cell;"> <span>个人头像</span> </div>
+
+                    <div style="width: 40px;height: 40px;display: inline;margin-left: 20px">
+
+                        <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 100px;height:100px">
                             <label>
                                 <input type="file"   style="display: none" @change="uploadImg">
                                 <i class="el-icon-plus avatar-uploader-icon"></i>
                             </label>
                         </div>
                         <div class="img-list-item common mb_10" v-if="isShow">
-                            <img :src="src" class="common" style="width: 140px;height: 140px">
+                            <img :src="src" class="common" style="width: 100px;height: 100px">
                             <i class="del-img" @click="forkImage"></i>
                         </div>
 
                     </div>
-                    <div style="height: 500px"></div>
-                    <div style="display: inline-block;height: 140px;margin: 40px 0 100px 0">
-                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 50px;vertical-align: middle;display: table-cell;font-size: 18px;font-weight: bold;padding-left: 15px">
-                            <el-input style="width: 260px" v-model="modify_nickname">{{modifynickname}}</el-input>
-                            <el-button type="primary" size="mini"  @click="submitUpload" style="color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:10px ">确定</el-button>
-                        </div>
-                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 90px;padding: 10px ">
-                            <div style="font-size: 14px;font-weight: bold">个人简介</div>
-
-                            <el-input type="textarea">{{modify_introduce}} </el-input>
-                        </div>
+                    <div style="margin-left: 70px">
+                         <el-button  style="color:#3254DC;background-color: white" @click="mod">更换图片</el-button>
+                        <br>
+                        <span style="display: inline-block;width: 400px">图片比例为1：1，建议上传128*128@2x分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB</span>
                     </div>
+
+                    </div>
+                    <div style="display: flex;margin-top: 50px">
+                       <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">个人简介:</span></span>
+                        <el-input type="textarea" style="width: 490px">{{modify_introduce}} </el-input>
+                    </div>
+                    <div>         <el-button type="primary"   @click="submitUpload" style="text-align: right;color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:490px ;margin-top:20px">确定</el-button></div>
+                     <div style="height: 100px"></div>
                 </div>
                 <div style="margin-top:50px;width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell">
                     <img src="../../assets/images/person/安全.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">安全设置</span>
@@ -84,7 +91,7 @@
                         <div style="width: 450px;display: flex;margin-bottom: 10px">
                             <img src="../../assets/images/person/tel_yes.png" alt="">
                             <div style="margin-left: 10px">
-                                <div style="font-size:14px;color:#16161D;font-weight: bold">手机已绑定（{{mobile}}}）</div>
+                                <div style="font-size:14px;color:#16161D;font-weight: bold">手机已绑定（{{trans(mobile)}}}）</div>
                                 <div style="font-size:13px;color:#606879">您可以享受手机相关的安全及提醒</div>
                             </div>
                             <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC" @click="modify_tel">修改手机</el-button>
@@ -270,7 +277,10 @@
                 modify_nickname:'',
                 introduce:'456',
                 modify_introduce:'',
-                modify_info:false
+                modify_info:false,
+                imgData: {
+                    accept: 'image/gif, image/jpeg, image/png, image/jpg',
+                }
             }
         },
         created(){
@@ -317,7 +327,10 @@
                 this.modify_tel_dialog2=false
                 this.modify_tel_dialog3=true
             },
-
+             mod(){
+                this.src=''
+                 this.isShow=false
+             },
             // 上传到服务器
             submitUpload() {
             //  let introduce= this.introduce
@@ -374,6 +387,16 @@
             uploadImg (e) {
                 let _this = this;
                 let files = e.target.files[0];
+                let type=files.type;//文件的类型，判断是否是图片
+                let size=files.size;//文件的大小，判断图片的大小
+                if(this.imgData.accept.indexOf(type) == -1){
+                    this.$message.error('请选择我们支持的图片格式！');
+                    return false;
+                }
+                if(size>102400){
+                    this.$message.error('请选择100kb以内的图片！');
+                    return false;
+                }
                 if (!e || !window.FileReader) return; // 看支持不支持FileReader
                 let reader = new FileReader();
                 reader.readAsDataURL(files); // 这里是最关键的一步，转换就在这里
@@ -392,6 +415,10 @@
             },
             modify_instance(){
                 this.modify_info=true
+            },
+            trans(tel){
+                var hide_tel=tel.substr(0,3)+'****'+tel.substr(7)
+                return hide_tel
             }
         }
     }
@@ -425,9 +452,9 @@
     .avatar-uploader-icon {
         font-size: 28px;
         color: #8c939d;
-        width: 140px;
-        height: 140px;
-        line-height: 140px;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
         text-align: center;
     }
     .avatar {

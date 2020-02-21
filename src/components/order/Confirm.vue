@@ -194,7 +194,7 @@
                due_order_time:0,
                orderID: 0,
                status:1,
-               good_id:'',
+               good_id:this.$route.params.good_id,
                user_id:"1",
                pay:this.$route.params.pay,
                topay:'0.00',
@@ -286,7 +286,7 @@
 
            async buy(){
                this.due_order_time=new  Date().getTime()+86400000
-
+              window.console.log( "1548"+window.sessionStorage.getItem('token'))
                 const {data:res}=await this.$http.post('/order/insert',{
                     product_name:this.product_name,
                     userId:this.user_id,
@@ -300,7 +300,8 @@
                     infoForm:this.infoForm,
                     order_status:2,
                     due_time:this.due_time,
-                    due_order_time:this.due_order_time
+                    due_order_time:this.due_order_time,
+                    token:window.sessionStorage.getItem('token')
                 }) ;
 
                if(res.code===20000){
