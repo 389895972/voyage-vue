@@ -6,8 +6,11 @@ RUN npm install && npm run build
 
 FROM tomcat:9.0-jdk8-corretto
 WORKDIR /usr/local/tomcat/
+
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' >/etc/timezone
+
+
 RUN cp /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps/ -r
 RUN rm webapps/ROOT/index.jsp
 COPY --from=builder /daas_vue/dist/ /usr/local/tomcat/webapps/daas_vue/
