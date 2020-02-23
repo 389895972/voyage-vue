@@ -16,6 +16,7 @@ import Tutorial from './components/tutorial/Tutorial'
 //import First from "./components/index/First";
 import Instance from './components/order/Instance'
 import adminOrderList from './components/admin/orderList'
+import adminLogin from './components/admin/Login'
 
 import de from './ChangLang'
 
@@ -39,7 +40,9 @@ const router =new Router({
         {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
         {path:'/tutorial',name:'Tutorial',component:Tutorial,meta:{keepAlive:false}},
         {path:'/personal',name:'Personal',component:Personal,meta:{keepAlive:false}},
-        {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}}
+        {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}},
+        {path:'/admin/login',name:'adminLogin',component:adminLogin,meta:{keepAlive:false}}
+
 
     ],
 

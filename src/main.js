@@ -18,6 +18,7 @@ Vue.prototype.Clipboard=Clipboard;
 Vue.prototype.$http=axios;
 
 axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
+axios.defaults.withCredentials = true
 //axios.defaults.baseURL='/api'
 //process.env.NODE_ENV === "production" ? "axios.defaults.baseURL='http://10.0.20.114:9001'" : "axios.defaults.baseURL='/api'",
 //axios.defaults.baseURL='http://10.0.20.114:9001'
@@ -37,7 +38,6 @@ axios.create({
     baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
     timeout: 5000 // 请求超时时间
 })
-
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(router)

@@ -1,4 +1,5 @@
 <template>
+  <!-- .filter(data => !search || data.orderID.toLowerCase().includes(search.toLowerCase())) -->
   <el-container>
     <el-main>
       <div class="middle_size">
@@ -15,50 +16,76 @@
             </el-form-item>
             <el-form-item class="time_input">
               <span class="label_font">时间范围</span><br>
-              <el-select v-model="formInline.search_timescope" >
+              <el-select v-model="formInline.search_timescope">
                 <el-option label="全部" value></el-option>
-                <el-option v-for="item in time_scope" :key="item" :label="item" :value="item"></el-option>
+                <el-option v-for="item in time_scope" :key="item" :label="item"
+                           :value="item"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item class="type_input" >
+            <el-form-item class="type_input">
               <span class="label_font">类型</span><br>
-              <el-select v-model="formInline.search_type" >
+              <el-select v-model="formInline.search_type">
                 <el-option label="全部" value></el-option>
-                <el-option v-for="item in type_scope" :key="item" :label="item" :value="item"></el-option>
+                <el-option v-for="item in type_scope" :key="item" :label="item"
+                           :value="item"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item class="state_input">
               <span class="label_font">状态</span><br>
               <el-select v-model="formInline.search_state">
                 <el-option label="全部" value></el-option>
-                <el-option v-for="item in state_scope" :key="item" :label="item" :value="item"></el-option>
+                <el-option v-for="item in state_scope" :key="item" :label="item"
+                           :value="item"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item>
               <span class="label_font"></span><br>
-              <el-button type="primary" icon="el-icon-search" @click="set_search" class="query_button">查询</el-button>
+              <el-button type="primary" icon="el-icon-search" @click="set_search" class="query_button">
+                查询
+              </el-button>
             </el-form-item>
           </div>
           <div class="form_right">
             <el-form-item>
               <span class="label_font"></span><br>
-              <el-button icon="el-icon-download" type="success" @click="export_exl" class="export_button">导出</el-button>
+              <el-button icon="el-icon-download" type="success" @click="handleDownload" class="export_button">
+                导出
+              </el-button>
             </el-form-item>
           </div>
 
         </el-form>
-        <el-table :data="PageData" style="width: 100%" :header-cell-style="{background:'#E4E7EB',color:' #16161D'}">
-          <el-table-column
-                  label="全选"
-                  type="selection"
-                  width="55">
+        <el-table :data="tableData" style="width: 100%"
+                  :header-cell-style="{background:'#E4E7EB',color:' #16161D'}"
+                  header-row-class-name="headerStyle"
+                  v-loading="dataLoading">
+          <el-checkbox-group v-model="checkedOrder">
+          <el-table-column width="100" >
+            <template slot="header">
+              <el-popover trigger="manual" popper-class="tooltipStyle" placement="top" :value="isPopover" width="120">
+                <div @click="deleteOrderList">
+                  <i class="el-icon-delete" style="margin-right: 10px;"></i>
+                  <span>批量删除</span>
+                </div>
+                <el-checkbox slot="reference" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange" class="label_text">全选</el-checkbox>
+              </el-popover>
+            </template>
+
+              <template scope="scope">
+                <el-checkbox-group v-model="checkedOrder">
+                  <el-checkbox :label="scope.row.orderID" :disabled="scope.row.state!=='已取消'" >{{null}}</el-checkbox>
+                </el-checkbox-group>
+
+              </template>
           </el-table-column>
-          <el-table-column label="订单编号" prop="orderID"></el-table-column>
-          <el-table-column label="产品" prop="product"></el-table-column>
-          <el-table-column width="100px" label="类型" prop="type"></el-table-column>
-          <el-table-column label="创建时间" align="center" prop="create_time"></el-table-column>
-          <el-table-column label="支付时间" align="center" prop="pay_time"></el-table-column>
-          <el-table-column width="100px" label="状态" prop="state" style="color:red;">
+          </el-checkbox-group>
+
+          <el-table-column label="订单编号" prop="orderID" width="200"></el-table-column>
+          <el-table-column label="产品" prop="product" width="120"></el-table-column>
+          <el-table-column width="60" label="类型"  prop="type"></el-table-column>
+          <el-table-column label="创建时间" align="center" prop="create_time" width="200"></el-table-column>
+          <el-table-column label="支付时间" align="center" prop="pay_time" width="200"></el-table-column>
+          <el-table-column width="80" label="状态" prop="state" style="color:red;">
             <template scope="scope">
               <span v-if="scope.row.state==='已支付'" style="color: green">已支付</span>
               <span v-else-if="scope.row.state==='已取消'">已取消</span>
@@ -71,33 +98,24 @@
             <template slot-scope="scope">
               <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
 
-              <el-button
-                      v-if="scope.row.state=='未支付'"
-                      size="mini"
-                      type="primary"
-                      @click="handlePay(scope.$index,scope.row)"
-              >支付</el-button>
-
-              <el-button
-                      v-if="scope.row.state=='未支付'"
-                      size="mini"
-                      type="warning"
-                      @click="handleCancel(scope.$index,scope.row)"
-              >取消</el-button>
-
+<!--              这块需要返回是否已经开通-->
               <el-button
                       v-if="scope.row.state=='已支付'"
+                      v-loading="activeLoading"
                       size="mini"
                       type="success"
-                      @click="go_control_page(scope.$index,scope.row)"
-              >资源管理</el-button>
+                      @click="active(scope.$index,scope.row)"
+              >开通
+              </el-button>
+
 
               <el-button
                       v-if="scope.row.state=='已取消'"
                       size="mini"
                       type="danger"
                       @click="handleDelete(scope.$index, scope.row)"
-              >删除</el-button>
+              >删除
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -107,9 +125,8 @@
                   @current-change="handleCurrentChange"
                   :current-page="currentPage"
                   :page-size="page_size"
-                  :page-count="total_page"
+                  :total="total"
                   layout="total, prev, pager, next, jumper"
-                  :total="total_info"
           ></el-pagination>
         </div>
       </div>
@@ -118,196 +135,289 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      //用户Id
-      userId:this.$route.query.user_id,
-      //分页属性
-      currentPage: 1,
-      page_size: 10,
+  export default {
+    data() {
+      return {
+        //用户Id
+        userId: this.$route.query.user_id,
+        //分页属性
+        currentPage: 1,
+        page_size: 10,
+        total:10,
 
-      //下拉表属性
-      type_scope: ["新购", "续费"],
-      time_scope: ["一个月内", "二个月内", "三个月内"],
-      state_scope: ["已支付", "已取消", "未支付"],
+        //下拉表属性
+        type_scope: ["新购", "续费"],
+        time_scope: ["一个月内", "二个月内", "三个月内"],
+        state_scope: ["已支付", "已取消", "未支付"],
 
-      //数据属性
-      tableData: [],
-      //过滤属性
-      search_ID: "",
-      search_product: "",
-      search_type: "",
-      search_timescope: "",
-      search_state: "",
-      formInline: {
-        search_ID: "",
-        search_product: "",
-        search_type: "",
-        search_timescope: "",
-        search_state: ""
-      }
-    };
-  },
-  methods: {
-    //设置当前页
-    handleCurrentChange(val) {
-      this.currentPage = val;
+        //数据属性
+        tableData: [],
+        //过滤属性
+        formInline: {
+          search_ID: "",
+          search_product: "",
+          search_type: "",
+          search_timescope: "",
+          search_state: ""
+        },
+        //复选
+        checkedOrder:[],
+        checkAll:false,
+        isIndeterminate:false,
+        orderOptions:[],
+
+
+        //下载表格
+        list: null,
+        listLoading: true,
+        filename: '',
+        autoWidth: true,
+        bookType: 'xlsx',
+
+        //加载
+        dataLoading:true,
+        activeLoading:false,
+
+      };
     },
-    //跳转到订单详情
-    go_order_detaile(index, row) {
-      this.$router.push({ name: "ToPay", params: { orderId: row.orderID } });
-    },
-    //跳转到资源列表
-    go_control_page(index, row) {
-      window.console.log(index, row);
-    },
-    //取消订单
-    handleCancel(index, row) {
-      var that = this
-      this.$http
-        .get("/order/cancelOrder", {
-          params: {
-            orderId: row.orderID
+    methods: {
+      //设置当前页
+      handleCurrentChange(val) {
+        this.currentPage=val
+        // 获取请求数据
+
+      },
+      //跳转到订单详情（这里跳转到管理员视图的订单详情）
+      go_order_detaile(index, row) {
+        this.$router.push({name: "ToPay", params: {orderId: row.orderID}});
+      },
+      //开通设备
+      active(index,row){
+        this.activeLoading=true
+        window.console.log(index,row)
+        var that = this
+        this.$http
+                .put("/xxx/xxx", {
+                  params: {
+                    orderId: row.orderID
+                  }
+                })
+                .then(function (response) {
+                  if (response.status == 200) {
+                    // this.$router.go(0);
+                    // that.$set(that.PageData[index], "state", "已取消");
+                    // that.$set(that.tableData[index], "state");
+                    alert("开通成功");
+                    that.activeLoading=false;
+                  }
+                })
+                .catch(function (error) {
+                  window.console.log(error);
+                  alert("开通失败");
+                  that.activeLoading=false;
+                });
+      },
+      //删除订单
+      handleDelete(index, row) {
+        window.console.log(index, row);
+        var that = this
+        this.$http
+                .delete("/order/deleteOrder", {
+                  params: {
+                    orderId: row.orderID
+                  }
+                })
+                .then(function (response) {
+                  if (response.status == 200) {
+                    // this.$router.go(0);
+                    that.tableData.splice(that.page_size * (that.currentPage - 1) + index, 1);
+                    alert("删除成功");
+                  }
+                })
+                .catch(function (error) {
+                  window.console.log(error);
+                  alert("删除失败");
+                });
+      },
+      //删除订单列表
+      deleteOrderList(){
+        var that = this
+        this.$http
+                .delete("/order/deleteOrderList", {
+                  params: {
+                    orderList: this.checkedOrder
+                  }
+                })
+                .then(function (response) {
+                  if (response.status == 200) {
+                    // this.$router.go(0);
+                    for(var i in that.checkedOrder){
+                      that.tableData.splice(that.tableData.indexOf(that.checkedOrder[i]),1)
+                    }
+                    that.checkedOrder=[];
+                    alert("删除成功");
+                  }
+                })
+                .catch(function (error) {
+                  window.console.log(error);
+                  alert("删除失败");
+                });
+
+      },
+
+      //下载表格
+      handleDownload() {
+
+        require.ensure([], () => {
+          const { export_json_to_excel } = require('../../ventor/Export2Excel.js');
+          const tHeader = Object.keys(this.tableData[0])
+          const list = this.filterData
+          const filterVal = []
+          for(var i in tHeader){
+            filterVal.push(tHeader[i])
           }
+          window.console.log(filterVal)
+
+          const data = this.formatJson(filterVal, list)
+          export_json_to_excel({
+            header: tHeader,
+            data,
+            filename: this.filename,
+            autoWidth: this.autoWidth,
+            bookType: this.bookType
+          })
         })
-        .then(function(response) {
-          // window.console.log(response);
-          if (response.status == 200) {
-            that.$set(that.PageData[index], "state", "已取消");
+
+      },
+      //下载的表格数据格式化
+      formatJson(filterVal, jsonData) {
+        return jsonData.map(v => filterVal.map(j => {
+          if (j === 'timestamp') {
+            return v[j]
+          } else {
+            return v[j]
           }
-        })
-        .catch(function(error) {
-          window.console.log(error);
-          alert("取消失败")
+        }))
+      },
+      //获取订单数据（这里仅测试用，将由获取过滤分页数据替换）
+      async get_order_list() {
+        this.dataLoading=true
+        const {data: res} = await this.$http.get("/order/findOrders", {
+          params: {userId: 1}
         });
-    },
-    //删除订单
-    handleDelete(index, row) {
-      window.console.log(index, row);
-      var that = this
-      this.$http
-              .delete("/order/deleteOrder", {
-          params: {
-            orderId: row.orderID
-          }
-        })
-        .then(function(response) {
-          window.console.log(response);
-          if (response.status == 200) {
-             // this.$router.go(0);
-            that.filterData.splice(that.page_size*(that.currentPage-1)+index, 1);
-            alert("删除成功");
-          }
-        })
-        .catch(function(error) {
-          window.console.log(error);
-          alert("删除失败");
-        });
-    },
-    //获取订单数据
-    async get_order_list() {
-      const { data: res } = await this.$http.get("/order/findOrders", {
-        params: { userId: 1 }
-      });
-      if (res.code == 20000) {
-        window.console.log(res.data);
-        let status_map = { "1": "未支付", "2": "已支付", "3": "已取消" };
-        let type_map = { "1": "新购", "2": "续费" };
+        if (res.code == 20000) {
+          let status_map = {"1": "未支付", "2": "已支付", "3": "已取消"};
+          let type_map = {"1": "新购", "2": "续费"};
 
-        this.tableData = [];
-        for (var index in res.data) {
-          this.tableData[index] = {};
-          this.tableData[index]["orderID"] = res.data[index]["order_id"];
-          this.tableData[index]["product"] = res.data[index]["goods_name"];
-          this.tableData[index]["type"] =
-            type_map[res.data[index]["payment_type"]];
-          this.tableData[index]["create_time"] = this.tranDate(
-            res.data[index]["create_time"]
-          );
-          this.tableData[index]["pay_time"] = this.tranDate(
-            res.data[index]["update_time"]
-          );
-          this.tableData[index]["state"] =
-            status_map[res.data[index]["status"]];
-          this.tableData[index]["price"] = res.data[index]["price"];
+          let testIndex=0;
+          for (var index in res.data) {
+            this.tableData[index] = {};
+            this.tableData[index]["orderID"] = res.data[index]["order_id"];
+            this.tableData[index]["product"] = res.data[index]["goods_name"];
+            this.tableData[index]["type"] =
+                    type_map[res.data[index]["payment_type"]];
+            this.tableData[index]["create_time"] = this.tranDate(
+                    res.data[index]["create_time"]
+            );
+            this.tableData[index]["pay_time"] = this.tranDate(
+                    res.data[index]["payment_time"]
+            );
+            this.tableData[index]["state"] =
+                    status_map[res.data[index]["status"]];
+            this.tableData[index]["price"] = res.data[index]["price"];
+            testIndex++;
+            if(this.tableData[index]["state"]==='已取消'){
+              this.orderOptions.push(this.tableData[index]["orderID"])
+            }
+
+            if(testIndex>20){
+              break;
+            }
+
+          }
+          this.tableData.sort(function (a, b) {
+            return Date.parse(b.create_time) - Date.parse(a.create_time);
+          })
+          this.dataLoading=false
+          window.console.log(this.tableData.length)
+
+        } else {
+          alert("连接服务器失败");
         }
-      } else {
-        alert("连接服务器失败");
-      }
-    },
-    //设置过滤参数
-    set_search() {
-      this.search_product = this.formInline.search_product;
-      this.search_timescope = this.formInline.search_timescope;
-      this.search_ID = this.formInline.search_ID;
-      this.search_type = this.formInline.search_type;
-      this.search_state = this.formInline.search_state;
-    },
-    //导出表格
-    export_exl() {
-      alert("暂未开放");
-    },
-    //转换日期
-    tranDate(standard_time) {
-      if(standard_time==null){
-        return null
-      }
-        let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
-      let month = d.getMonth() + 1;
-      let day = d.getDate();
-      let hour = d.getHours();
-      let minutes = d.getMinutes();
-      let seconds = d.getSeconds();
-      if (month < 10) {
-        month = "0" + month;
-      }
+      },
+      //获取分页过滤订单数据
+      async get_order_list_filter() {
+        this.dataLoading=true
+        var that=this
+        const {data: res} = await this.$http.post("/order/findOrders", {
+          token: window.sessionStorage.getItem('token'),
+          filterDate:that.formInline,
+          page:that.currentPage
+        });
+        if (res.code == 20000) {
+          let status_map = {"1": "未支付", "2": "已支付", "3": "已取消"};
+          let type_map = {"1": "新购", "2": "续费"};
 
-      if (day < 10) {
-        day = "0" + day;
-      }
-      if (hour < 10) {
-        hour = "0" + hour;
-      }
+          this.tableData=[]
+          for (var index in res.data) {
+            this.tableData[index] = {};
+            this.tableData[index]["orderID"] = res.data[index]["order_id"];
+            this.tableData[index]["product"] = res.data[index]["goods_name"];
+            this.tableData[index]["type"] =
+                    type_map[res.data[index]["payment_type"]];
+            this.tableData[index]["create_time"] = this.tranDate(
+                    res.data[index]["create_time"]
+            );
+            this.tableData[index]["pay_time"] = this.tranDate(
+                    res.data[index]["payment_time"]
+            );
+            this.tableData[index]["state"] =
+                    status_map[res.data[index]["status"]];
+            this.tableData[index]["price"] = res.data[index]["price"];
+            if(this.tableData[index]["state"]==='已取消'){
+              this.orderOptions.push(this.tableData[index]["orderID"])
+            }
 
-      if (minutes < 10) {
-        minutes = "0" + minutes;
-      }
 
-      if (seconds < 10) {
-        seconds = "0" + seconds;
-      }
-      let time = " " + hour + ":" + minutes + ":" + seconds;
-      let t = d.getFullYear() + "-" + month + "-" + day + time;
-      return t;
-    },
-    //获取n个月前日期
-    addDate(months, type) {
-      var d = new Date();
-      var is_last_year = false;
-      window.console.log(d);
-      d.setDate(d.getDate());
-      var month = d.getMonth() + 1 + months;
-      if (month <= 0) {
-        month = d.getMonth() + 13 + months;
-        is_last_year = true;
-      }
+          }
+          this.tableData.sort(function (a, b) {
+            return Date.parse(b.create_time) - Date.parse(a.create_time);
+          })
+          this.dataLoading=false
+        } else {
+          alert("连接服务器失败");
+        }
+      },
+      //检测订单复选状态
+      handleCheckedOrderChange(value) {
+        let checkedCount = value.length;
+        this.checkAll = checkedCount === this.orderOptions.length;
+        this.isIndeterminate = checkedCount > 0 && checkedCount < this.orderOptions.length;
+      },
+      handleCheckAllChange(val) {
+        this.checkedOrder = val ? this.orderOptions : [];
+        this.isIndeterminate = false;
+      },
 
-      var day = d.getDate();
-      var hour = d.getHours();
-      var minutes = d.getMinutes();
-      var seconds = d.getSeconds();
+      //转换日期
+      tranDate(standard_time) {
 
-      if (month < 10) {
-        month = "0" + month;
-      }
+        if (standard_time == null) {
+          return null
+        }
+        let d = new Date(standard_time.replace(/-/g, '/').replace('T', ' ').replace('.000+0800', ''));
+        let month = d.getMonth() + 1;
+        let day = d.getDate();
+        let hour = d.getHours();
+        let minutes = d.getMinutes();
+        let seconds = d.getSeconds();
+        if (month < 10) {
+          month = "0" + month;
+        }
 
-      if (day < 10) {
-        day = "0" + day;
-      }
-      var time = "";
-      //type不是空字符串 表示需要时分秒
-      if (type != null && "" != type) {
+        if (day < 10) {
+          day = "0" + day;
+        }
         if (hour < 10) {
           hour = "0" + hour;
         }
@@ -319,185 +429,150 @@ export default {
         if (seconds < 10) {
           seconds = "0" + seconds;
         }
-        time = " " + hour + ":" + minutes + ":" + seconds;
-      }
-      var val = d.getFullYear() + "-" + month + "-" + day + time;
-      if (is_last_year) {
-        val = d.getFullYear() - 1 + "-" + month + "-" + day + time;
-      }
+        let time = " " + hour + ":" + minutes + ":" + seconds;
+        let t = d.getFullYear() + "-" + month + "-" + day + time;
+        return t;
+      },
+      //后台过滤查询
+      set_search(){
+          this.get_order_list_filter()
+      },
 
-      window.console.log(val);
-      return val;
     },
-    //过滤时间
-    time_filter(order_create_time, t_scope) {
-      let type = "0";
-      let start_time = "";
-      switch (t_scope) {
-        case "一个月内":
-          start_time = this.addDate(-1, type);
-          break;
-        case "二个月内":
-          start_time = this.addDate(-2, type);
-          break;
-        case "三个月内":
-          start_time = this.addDate(-3, type);
-          break;
-        default:
-          break;
-      }
 
-      let st = new Date(start_time);
-
-      let ort = new Date(order_create_time);
-      if (ort >= st) {
-        return true;
+    computed: {
+      isPopover(){
+        return this.checkedOrder.length>0;
       }
-      return false;
-    }
-  },
-  computed: {
-    //过滤数据
-    filterData() {
-      const tableData = this.tableData;
-      const search_ID = this.search_ID;
-      const search_product = this.search_product;
-      const search_type = this.search_type;
-      const search_timescope = this.search_timescope;
-      const search_state = this.search_state;
-      let f = tableData;
-      if (search_ID) {
-        f = tableData.filter(p => p.orderID == search_ID);
-      }
-      if (search_product) {
-        f = f.filter(p =>
-          p.product.toLowerCase().includes(search_product.toLowerCase())
-        );
-      }
-      if (search_type) {
-        f = f.filter(p => p.type.includes(search_type));
-      }
-
-      if (search_timescope) {
-        f = f.filter(p => this.time_filter(p.create_time, search_timescope));
-      }
-      if (search_state) {
-        f = f.filter(p => p.state && p.state.includes(search_state));
-      }
-
-      return f;
     },
-    //分页数据
-    PageData() {
-      let cp = this.currentPage;
-      let ps = this.page_size;
-      let f = this.filterData;
-      return f.slice((cp - 1) * ps, cp * ps);
+
+    //加载前调用
+    mounted() {
+      this.get_order_list();
     },
-    //过滤数据总页数
-    total_page() {
-      let f = this.filterData;
 
-      return Math.round(f.length / this.page_size + 0.5);
-    },
-    //过滤数据总条数
-    total_info() {
-      return this.filterData.length;
-    }
-  },
-
-  //加载前调用
-  mounted() {
-    this.get_order_list();
-  },
-  watch: {
-    //当过滤数据发生变化设当前页为1，否则获取不到过滤数据
-    filterData() {
-      this.currentPage = 1;
-    }
-
-  },
-
-};
+  };
 </script>
 <style scoped>
-.el-form-item {
-  margin-left: 20px;
-  margin-right: 100px;
-}
-.middle_size{
-  width: 1280px;
-  margin:0 auto;
-}
-.el-table .cell {
-    display:table-row-group;
+  .el-form-item {
+    margin-left: 20px;
+    margin-right: 100px;
+  }
+
+  .middle_size {
+    width: 1280px;
+    margin: 0 auto;
+  }
+
+  .el-table .cell {
+    display: table-row-group;
   }
 
 
-.label_font{
-  font-family: PingFangSC-Medium;
-  font-size: 14px;
-  color: #16161D;
-  letter-spacing: 0;
-  text-align: center;
+  .label_font {
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #16161D;
+    letter-spacing: 0;
+    text-align: center;
 
-  font-weight: bold;
-}
+    font-weight: bold;
+  }
 
-.el-select-dropdown__item.hover, .el-select-dropdown__item{
-  letter-spacing: 0;
-  font-family: PingFangSC-Regular;
-  font-size: 14px;
-  text-align: center;
-  /*font-weight: bolder;*/
-}
+  .el-select-dropdown__item.hover, .el-select-dropdown__item {
+    letter-spacing: 0;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    text-align: center;
+    /*font-weight: bolder;*/
+  }
 
-.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
-  background-color:#3254DC;;
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+    background-color: #3254DC;;
 
 
-  color: #FFFFFF;
+    color: #FFFFFF;
 
-}
-.el-form-item {
-  margin-left: 0px;
-  margin-right: 20px;
-}
+  }
 
-.product_input{
+  .el-form-item {
+    margin-left: 0px;
+    margin-right: 20px;
+  }
 
-}
-.id_input{
+  .product_input {
 
-}
-.time_input{
-  width: 100px;
-}
-.type_input{
-  width: 100px;
+  }
 
-}
-.state_input{
-  width: 100px;
+  .id_input {
 
-}
-.form_height{
-  height:100px;
-  display: -webkit-box;
-}
-.form_left{
-  width: 90%;
-}
-.form_right{
-  width: 10%;
-}
+  }
 
-.query_button{
-  width: 120px;
-}
-.export_button{
-  width:128px;
-}
+  .time_input {
+    width: 100px;
+  }
+
+  .type_input {
+    width: 100px;
+
+  }
+
+  .state_input {
+    width: 100px;
+
+  }
+
+  .form_height {
+    height: 100px;
+    display: -webkit-box;
+  }
+
+  .form_left {
+    width: 90%;
+  }
+
+  .form_right {
+    width: 10%;
+  }
+
+  .query_button {
+    width: 120px;
+  }
+
+  .export_button {
+    width: 128px;
+  }
+
+
+
+
 
 
 </style>
+<style type="text/css">
+  .label_text{
+    font-family: PingFangSC-Medium;
+    font-size: 15px;
+    color: #16161D;
+    letter-spacing: 0;
+    font-weight: bolder;
+  }
+
+  .tooltipStyle{
+    /*background-color: #E84948 !important;*/
+    background: #E84948;
+    height: 36px;
+    min-width: 100px;
+    vertical-align: center;
+
+    color: white;
+    cursor:pointer;
+  }
+  .el-popper[x-placement^=top] .popper__arrow{
+    border-top-color:#E84948;
+  }
+  .el-popper[x-placement^=top] .popper__arrow::after{
+    border-top-color:#E84948;
+  }
+</style>
+
