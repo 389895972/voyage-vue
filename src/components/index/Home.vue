@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <Header ref="ff" style="display: none" ></Header>
-    <el-button @click="ii"> 112</el-button>
+
 
     <div class="home-container" style="background-color: #D7D7DB">
 <!--      <div class="header">-->

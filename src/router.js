@@ -23,7 +23,7 @@ import Vuex from "vuex";
 import axios from 'axios'
 
 Vue.prototype.$http = axios;
- Vue.prototype.$http.defaults.withCredentials=true;
+// Vue.prototype.$http.defaults.withCredentials=true;
 Vue.use(Router)
 Vue.use(Vuex);
 const router =new Router({
@@ -63,14 +63,15 @@ router.beforeEach((to, from, next)=>{
 
 })
 
-Vue.prototype.$http.interceptors.response.use(response => {
-    window.console.log(response)
-    if (response.status== 304) {
+axios.interceptors.response.use(response => {
+    window.console.log("888888888888")
+    window.console.log(response+"888888888888")
+    if (response.status== 200) {
         localStorage.clear();
-        alert(response.data.resMsg)
+       // alert(response.data.resMsg)
 
         router.push({
-            name:'login'
+            name:'test'
         })
     }
     return response;

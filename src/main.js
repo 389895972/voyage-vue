@@ -19,7 +19,7 @@ import Clipboard from 'clipboard';
 Vue.prototype.Clipboard=Clipboard;
 
 Vue.prototype.$http=axios;
- Vue.prototype.$http.defaults.withCredentials=true;
+// Vue.prototype.$http.defaults.withCredentials=true;
 
 axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
 //axios.defaults.baseURL='/api'
@@ -59,10 +59,9 @@ const  i18n = new VueI18n({
     'en': require('./lang/en'),
   }
 })
-
-
-Vue.prototype.$http.interceptors.response.use(response => {
+axios.interceptors.response.use(response => {
     window.console.log(response+'123465')
+    window.console.log('123465')
     if (response.status== 200) {
         localStorage.clear();
         alert(response.data.resMsg)
@@ -93,6 +92,8 @@ Vue.prototype.$http.interceptors.response.use(response => {
     }
     return Promise.reject(error);
 });
+
+
 new Vue({
     router,
     i18n,
