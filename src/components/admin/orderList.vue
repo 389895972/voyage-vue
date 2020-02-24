@@ -100,8 +100,8 @@
 
 <!--              这块需要返回是否已经开通-->
               <el-button
+                      :id = "scope.$index"
                       v-if="scope.row.state=='已支付'"
-                      v-loading="activeLoading"
                       size="mini"
                       type="success"
                       @click="active(scope.$index,scope.row)"
@@ -176,7 +176,6 @@
 
         //加载
         dataLoading:true,
-        activeLoading:false,
 
       };
     },
@@ -193,9 +192,17 @@
       },
       //开通设备
       active(index,row){
-        this.activeLoading=true
         window.console.log(index,row)
         var that = this
+        const loading = this.$loading({
+          target:document.getElementById(index),
+          lock: false,
+          spinner: 'el-icon-loading',
+          background: '#67C23A'
+        });
+        setTimeout(() => {
+          loading.close();
+        }, 1000);
         this.$http
                 .put("/xxx/xxx", {
                   params: {
@@ -207,13 +214,21 @@
                     // this.$router.go(0);
                     // that.$set(that.PageData[index], "state", "已取消");
                     // that.$set(that.tableData[index], "state");
-                    alert("开通成功");
+                    that.$message({
+                      showClose: true,
+                      message: '开通成功',
+                      type: 'success'
+                    });
                     that.activeLoading=false;
                   }
                 })
                 .catch(function (error) {
                   window.console.log(error);
-                  alert("开通失败");
+                  that.$message({
+                    showClose: true,
+                    message: '开通失败',
+                    type: 'error'
+                  });
                   that.activeLoading=false;
                 });
       },
@@ -230,7 +245,7 @@
                 .then(function (response) {
                   if (response.status == 200) {
                     // this.$router.go(0);
-                    that.tableData.splice(that.page_size * (that.currentPage - 1) + index, 1);
+                    that.tableData.splice(index, 1);
                     alert("删除成功");
                   }
                 })
@@ -573,6 +588,16 @@
   }
   .el-popper[x-placement^=top] .popper__arrow::after{
     border-top-color:#E84948;
+  }
+  .el-loading-spinner {
+    top: 85%;
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    position: absolute;
+  }
+  .el-loading-spinner i {
+     color: white;
   }
 </style>
 
