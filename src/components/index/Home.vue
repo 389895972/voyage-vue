@@ -1,5 +1,8 @@
 <template>
   <el-container>
+    <Header ref="ff" style="display: none" ></Header>
+    <el-button @click="ii"> 112</el-button>
+
     <div class="home-container" style="background-color: #D7D7DB">
 <!--      <div class="header">-->
 <!--        <img class="img" src="../../assets/images/logo.png" alt />-->
@@ -701,7 +704,7 @@
             <div class="iblock">多种产品形式，灵活适用各类业务场景</div>
             <div class="blocks">
               <div class="block">
-                <img src="../../assets/images/home/编组 7.png" class="block_img" alt="">
+                <img src="../../assets/images/home/bianzu7.png" class="block_img" alt="">
                 <span class="block_title_info">按需分配 减少初期投入</span>
                 <div class="block_inners">
 <!--                  <p class="block_inner">-->
@@ -711,14 +714,14 @@
                 </div>
               </div>
               <div class="block">
-                 <img src="../../assets/images/home/编组 8.png" class="block_img" alt="">
+                 <img src="../../assets/images/home/bianzu8.png" class="block_img" alt="">
                 <span class="block_title_info">随时放心存储</span>
                 <div class="block_inners">
                   随时保存设备镜像，工作进度可保存在云端。主动管理和生命周期服务
                 </div>
               </div>
               <div class="block">
-                <img src="../../assets/images/home/编组 9.png"  class="block_img" alt="">
+                <img src="../../assets/images/home/bianzu9.png"  class="block_img" alt="">
                 <span class="block_title_info">支持多种操作系统</span>
                 <div class="block_inners">
                   我们帮助你解决系统、驱动层面的问题。专注于AI算法的问题处理。
@@ -757,7 +760,7 @@
         </div>
 
         <div>
-          <el-button class="home_reg_btn" size="small" type="primary">免费体验</el-button>
+          <el-button class="home_reg_btn" size="small" type="primary" @click="free_tiyan">免费体验</el-button>
         </div>
       </div>
 
@@ -873,7 +876,13 @@
 </template>
 
 <script>
+  import{ globalBus }from'../../../globalBus';
+  import Header from './Header';
+
 export default {
+  components:{
+    Header
+  },
   data() {
     return {
       home_reg_activeName: "home_reg_first",
@@ -973,11 +982,37 @@ export default {
         clipboard.destroy();
       });
     },
+    ii(){
+     //  window.console.log("ddd")
+        globalBus.$emit('header:go_login',);
+     //  this.$emit('app-header:go_login',true)
+     //  this.$emit('header.go_login()')
+     //
+     //  this.$emit('header:kk')
+     //  this.$emit('header:go_login',false)
+     // this.$parent.$refs.ff.go_login();
+     //  this.$parent.$emit('go_login',true)
+     //  window.console.log("fff")
+    },
+      free_tiyan(){
+          const tokenStr=window.sessionStorage.getItem('token');
+
+          if(!tokenStr){
+              this.$message.error("请先登录！")
+              this.login_dialog1=true
+          }else{
+              this.$router.push({
+                  name:'instance',
+
+              })
+          }
+      }
   },
   created(){
-    // this.$emit('header',false);
+   // this.$emit('header',false);
     //this.$emit('footer',false);
-  }
+  },
+
 };
 </script>
 <style scoped>

@@ -461,7 +461,7 @@
                    //  this.orderInfoDetails[0].configure=res.data.o__s
                      this.orderInfoDetails[0].pay_methods='默认'
                      this.orderInfoDetails[0].start_end_time='默认'
-                     this.orderInfoDetails[0].pay='￥'+res.data.price
+                     this.orderInfoDetails[0].pay='￥'+res.data.price.toFixed(2)
                      this.due_order_time=res.data.due_order_time
 
 
@@ -484,7 +484,7 @@
                          this.marks='用户已下单未支付'
 
                          window.console.log("getOrder"+this.order_status)
-                         this.price=res.data.price
+                         this.price=res.data.price.toFixed(2)
 
                          this.getOrderTime()
 
@@ -492,7 +492,7 @@
                          this.orderInfo[3].order_id= '支付状态：已支付 ￥'+res.data.price
                          this.order_status=2
                          this.marks='用户已支付'
-                         this.price=res.data.price
+                         this.price=res.data.price.toFixed(2)
                          this.payment_time=this.tranDate(res.data.payment_time)
                          this.start_time=this.tranDate(res.data.createtime)
                          this.due_time=this.tranDate(res.data.finishtime)
@@ -500,7 +500,7 @@
                          this.orderInfo[3].order_id= '支付状态：已取消 ￥'+res.data.price
                          this.order_status=3
                          this.marks='用户已取消支付'
-                         this.price=res.data.price
+                         this.price=res.data.price.toFixed(2)
                      }
                 }else{
                      this.$message.error("查询失败！")

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+
+import Vuex from 'vuex'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router.js'
@@ -12,10 +14,12 @@ import locale from 'element-ui/lib/locale/lang/en'
 import routes from "./rout";
 import  VueI18n from 'vue-i18n'
 
+Vue.use(Vuex);
 import Clipboard from 'clipboard';
 Vue.prototype.Clipboard=Clipboard;
 
 Vue.prototype.$http=axios;
+ Vue.prototype.$http.defaults.withCredentials=true;
 
 axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
 //axios.defaults.baseURL='/api'
@@ -55,10 +59,43 @@ const  i18n = new VueI18n({
     'en': require('./lang/en'),
   }
 })
-new Vue({
-  router,
-  i18n,
-  routes,
-  render: h => h(App),
-}).$mount('#app')
 
+
+Vue.prototype.$http.interceptors.response.use(response => {
+    window.console.log(response+'123465')
+    if (response.status== 200) {
+        localStorage.clear();
+        alert(response.data.resMsg)
+        alert(1234765)
+
+        router.push({
+            name:'login'
+        })
+    }
+    return response;
+}, error => {
+    if (error && error.response) {
+        switch (error.response.status) {
+            case 404:
+                window.console.log("404错误")
+                router.push({name:'test'});
+                // error.message = '请求出错(404)'
+                break;
+
+            case 500:
+                window.console.log("500错误")
+                router.push({ name:'test'});
+                //  error.message = '服务器错误(500)';
+                break;
+
+            default: error.message = `连接出错(${error.response.status})!`;
+        }
+    }
+    return Promise.reject(error);
+});
+new Vue({
+    router,
+    i18n,
+    routes,
+    render: h => h(App),
+}).$mount('#app')

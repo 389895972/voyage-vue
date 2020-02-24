@@ -50,6 +50,9 @@ export default {
     //是否显示底部
     footer:function (bool) {
       this.footer_show = bool;
+    },
+    go_login(){
+       alert(111)
     }
   }
 }

@@ -346,6 +346,7 @@
 </template>
 
 <script >
+
     import Axios from "axios";
     export default {
         data() {
@@ -460,6 +461,7 @@
         },
         created(){
             this.init();
+            this.$root.$on('go_login')
         },
         methods:{
             init(){

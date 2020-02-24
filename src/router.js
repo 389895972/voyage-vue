@@ -17,9 +17,15 @@ import Tutorial from './components/tutorial/Tutorial'
 //import First from "./components/index/First";
 import Instance from './components/order/Instance'
 import de from './ChangLang'
+import Vuex from "vuex";
 
+
+import axios from 'axios'
+
+Vue.prototype.$http = axios;
+ Vue.prototype.$http.defaults.withCredentials=true;
 Vue.use(Router)
-
+Vue.use(Vuex);
 const router =new Router({
     routes:[
         {path:'/',redirect: '/home'},
@@ -28,7 +34,7 @@ const router =new Router({
         {path:'/aikitdetails', component: AikitDetails,meta:{keepAlive:false}},
         {path:'/rb3details', component: RB3Details,meta:{keepAlive:false}},
         {path:'/de', component: de,meta:{keepAlive:false}},
-        {path:'/test', component: test,meta:{keepAlive:false}},
+        {path:'/test', name:'Test',component: test,meta:{keepAlive:false}},
         {path:'/edgekitdetails',component: EdgekitDetails,meta:{keepAlive:false}},
         {path:'/buy',component: Buy,meta:{keepAlive:true}},
         {path:'/confirm',name:'Confirm',component: Confirm,meta:{keepAlive:false}},
@@ -47,7 +53,7 @@ router.beforeEach((to, from, next)=>{
     //to 将要访问的路径
     //from从哪个路径跳转而来
     //next 函数    表示放行 next（'/login'）
-    if(to.path==='/buy'||to.path==='/order/orderList'||to.path==='/instance'||to.path==='/tutorial'){
+    if(to.path==='/order/orderList'||to.path==='/instance'||to.path==='/tutorial'||to.path==='/instancedetails'||to.path==='instancedetails'||to.path==='/personal'||to.path==='/topay'){
     //获取token
     const tokenStr=window.sessionStorage.getItem('token');
     // const islogin = this.$http.post('/loginConfirm',tokenStr1);
@@ -57,4 +63,35 @@ router.beforeEach((to, from, next)=>{
 
 })
 
+Vue.prototype.$http.interceptors.response.use(response => {
+    window.console.log(response)
+    if (response.status== 304) {
+        localStorage.clear();
+        alert(response.data.resMsg)
+
+        router.push({
+            name:'login'
+        })
+    }
+    return response;
+}, error => {
+    if (error && error.response) {
+        switch (error.response.status) {
+            case 404:
+                window.console.log("404错误")
+                router.push({name:'test'});
+                // error.message = '请求出错(404)'
+                break;
+
+            case 500:
+                window.console.log("500错误")
+                router.push({ name:'test'});
+                //  error.message = '服务器错误(500)';
+                break;
+
+            default: error.message = `连接出错(${error.response.status})!`;
+        }
+    }
+    return Promise.reject(error);
+});
 export default router
