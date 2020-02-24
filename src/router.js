@@ -47,6 +47,18 @@ const router =new Router({
     ],
 
 })
-
+// router.beforeEach((to, from, next)=>{
+// //     //to 将要访问的路径
+// //     //from从哪个路径跳转而来
+// //     //next 函数    表示放行 next（'/login'）
+// //     if(to.path==='/buy'||to.path==='/order/orderList'||to.path==='/instance'||to.path==='/tutorial'){
+// //     //获取token
+// //     const tokenStr=window.sessionStorage.getItem('token');
+// //     // const islogin = this.$http.post('/loginConfirm',tokenStr1);
+// //      window.console.log(tokenStr)
+// //     if(!tokenStr){  return  next('/home');}else {next()}
+// //     }else{ next()}
+// //
+// // })
 
 export default router

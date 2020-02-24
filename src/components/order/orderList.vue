@@ -520,6 +520,7 @@
     .el-form-item {
         margin-left: 20px;
         margin-right: 100px;
+
     }
 
     .middle_size {

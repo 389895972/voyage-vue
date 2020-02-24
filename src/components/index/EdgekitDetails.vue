@@ -12,8 +12,8 @@
             <el-tab-pane label="教程与文档" name="#i4"></el-tab-pane>
           </el-tabs>
           <el-tabs class="tab_btn" @tab-click="handleClick1">
-            <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
-            <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
+            <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_edgekit">立即购买</el-button>
+            <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary"  @click="dev_mag">管理设备</el-button>
             <!--                                </div>-->
           </el-tabs>
             </div>
@@ -24,14 +24,12 @@
         <div class="aikit_pic">
 
           <div class="aikit_body_title">
-            Thundercomm TurboX
-            <SUP>TM</SUP>AI套件
+              TurboX Edge Kit
             <div class="content">
-              <p>Thundercomm AI Kit是面向开发人员的功能最强大的设备上具有AI视觉功能的边缘设备。</p>
-              <p> Thundercomm AI Kit可帮助开发人员和终端制造商移植其AI算法和AI应用程序。 </p>
+                <p style="width:670px;margin:30px auto auto 0">EdgeKit的目标是致力于驱动和实现在日常生活中运行的健壮、可靠和智能的通用边缘计算E2E解决方案。为了加速边缘计算服务的部署，EdgeKit的团队与LF EdGE、AWS和高通公司合作，它们提供可互操作的、灵活的和可伸缩的边缘计算服务平台、云基础设施和芯片组。Edge-Kit是高通SNPE公司推出的一款基于设备的人工智能产品，能够满足日益增长的机器视觉、人工智能算法、预测性维护等需求。EdgeKit最初支持Edge-X，它对于任何供应商都是中立的，公共开放框架为AIOT中的边缘计算架构提供了简化和标准化的基础。EdgeKit是一个易于操作的DevKit，有很好的文档和教程。</p>
             </div>
             <div class="aikit_btn">
-              <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
+              <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_edgekit">立即购买</el-button>
               <el-button style="background-color: #101C3D;color: white;width: 150px" >管理设备</el-button>
             </div>
           </div>
@@ -577,6 +575,21 @@ export default {
     };
   },
   methods: {
+      dev_mag(){
+          const tokenStr=window.sessionStorage.getItem('token');
+
+          if(!tokenStr){
+              this.$message.error("请先登录！")
+              this.login_dialog1=true
+          }else {
+              this.$router.push(
+                  {
+                      path: '/instance',
+
+                  }
+              );
+          }
+      },
     download() {
       this.$i18n.locale = "en";
       //console.log($i18n.locale)
@@ -608,12 +621,20 @@ export default {
       document.querySelector(tab.name).scrollIntoView(true);
     },
     buy_edgekit() {
-      this.$router.push(
-              { path: '/buy',
-                query:{ name:'Edge KIT'}
-              }
-      );
+        const tokenStr=window.sessionStorage.getItem('token');
 
+        if(!tokenStr){
+            this.$message.error("请先登录！")
+            this.login_dialog1=true
+        }else {
+            this.$router.push(
+                {
+                    path: '/buy',
+                    query: {name: 'Edge KIT',
+                        good_id: 1682320,}
+                }
+            );
+        }
     },
       showMore(){
           this.isMore=true;
@@ -980,7 +1001,7 @@ a {
 }
 .aikit_btn {
   /*margin: 60px  auto 101.5px 0;*/
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 #aikit_ours {
@@ -1320,7 +1341,7 @@ a {
   }
   .aikit_btn {
     /*margin: 60px  auto 101.5px 0;*/
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 20px;
   }
   #aikit_ours {
@@ -1380,7 +1401,7 @@ a {
 
 
   .aikit_pic{
-    background-image: url("../../assets/images/aikit_pic.png");
+    background-image: url("../../assets/images/edgekit_pic.jpg");
     height: 450px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -1393,7 +1414,7 @@ a {
     font-size: 36px;
     /*margin:  3% 26.1% 7.7% 46.8%;*/
     margin-left: 46.8%;
-    padding-top: 6%;
+    padding-top: 4%;
   }
   .aikit_body_title p{
     font-size:14px ;

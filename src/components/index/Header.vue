@@ -28,13 +28,13 @@
                         <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
                             <el-dropdown-item icon="el-icon-user-solid">
                                 <a class="nav_a" href="#">
-                                    <span class="nav_dropdown_font">个人中心</span>
+                                    <span class="nav_dropdown_font" @click="to_person">个人中心</span>
                                 </a>
                             </el-dropdown-item>
                             <hr style="opacity: 0.15;background: #FFFFFF;margin-left: 5px">
                             <el-dropdown-item icon="el-icon-switch-button">
                                 <a href="#">
-                                    <span class="nav_dropdown_font">退出登陆</span>
+                                    <span class="nav_dropdown_font" @click="quit">退出登陆</span>
                                 </a>
                             </el-dropdown-item>
                         </el-dropdown-menu>
@@ -54,18 +54,25 @@
         <div id="login_dia">
         <el-dialog
                 title="登录"
-                :visible.sync="login_dialog"
+                :visible.sync="login_dialog1"
                 width="380px"
                 style="position: absolute">
 
             <hr style="margin: 0;width: 100%;">
 
             <div style="width: 300px;margin:0 auto">
+
+
+                <el-form  :model="log" :rules="rules" ref="log_ruleForm"  >
+             <span v-if="log_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
+                     src="../../assets/icons/注意.png" alt="">{{log_tips}}</span>
                 <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">
-                   <span style="font-size:16px;color: #606879;font-weight: bold;margin-right: 5px">手机登录</span> |
+
+                   <span style="cursor: pointer;font-size:16px;color: #606879;font-weight: bold;margin-right: 5px;" @click="to_pwd_log">手机密码登录</span> |
                    <span style="font-size:16px;color:#3254DC;font-weight: bold;margin-left: 10px"> 手机快捷登录</span>
                  </div>
-                <el-select v-model="prefix" placeholder="请选择" >
+                    <table> <tr> <td>
+                <el-select v-model="prefix" placeholder="请选择"  style="margin-top: 3px;">
                     <el-option
                             v-for="item in options"
                             :key="item.value"
@@ -73,24 +80,84 @@
                             :value="item.value">
                     </el-option>
                 </el-select>
-                <el-input style="width: 200px;margin-left: 10px" v-model="login_tel" placeholder="请输入手机号"></el-input>
-                <el-input style="width: 200px;" v-model="login_code" placeholder="请输入四位验证码"></el-input>
-<!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
-                <el-button  :id="btn_code"   style="height: 44px"  @click="log_send_code(login_tel)" >{{content}}</el-button>
-
-                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login(login_tel,login_code)" >立即登录</el-button>
-                <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
+                    </td> <td>
+                        <el-form-item  prop="login_tel">
+                <el-input style="width: 200px;margin-left: 10px" v-model="log.login_tel" placeholder="请输入手机号"></el-input>
+                        </el-form-item>
+                    </td>  </tr></table>
+                    <table> <tr> <td>
+                       <el-form-item  prop="login_code">
+                <el-input style="width: 200px;" v-model="log.login_code" placeholder="请输入六位验证码"></el-input>
+                       </el-form-item>
+              </td> <td>
+                        <!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
+                <el-button  :id="btn_code"   style="height: 44px;margin-top: 7px"  @click="log_send_code(log.login_tel)" >{{content}}</el-button>
+                    </td>  </tr></table>
+                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login(log.login_tel,log.login_code)" >立即登录</el-button>
+                <div style="width: 300px;height:40px;vertical-align:middle;display:table-cell;">
                     <span style="font-size:14px;color: #606879;">没有账号？</span>
                     <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register"> 5秒注册</span>
-                    <span style="font-size:14px;color:#FCA200;margin-left: 100px;cursor:pointer" @click="modify_pwd1"> 忘记密码？</span>
+                    <span style="font-size:14px;color:#FCA200;float:right;cursor:pointer" @click="modify_pwd1"> 忘记密码？</span>
                 </div>
                 <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px"> 其他登录方式</div>
                  <div style="height: 60px">
                      <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" @click="wx_login" alt="" style="margin-bottom: 30px;cursor:pointer"> <span style="display: inline-block;width: 100px"><hr></span>
                  </div>
+                </el-form>
             </div>
 <!--            <div style="position: relative;top: -125px">123</div>-->
         </el-dialog>
+            <el-dialog  id="log2"
+                    title="登录"
+                    :visible.sync="login_dialog2"
+                    width="380px"
+                    style="position: absolute">
+
+                <hr style="margin: 0;width: 100%;">
+
+                <div style="width: 300px;margin:0 auto">
+
+
+                    <el-form  :model="log2" :rules="rules" ref="log2_ruleForm"  >
+             <span v-if="log_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
+                     src="../../assets/icons/注意.png" alt="">{{log_tips}}</span>
+                        <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">
+
+                            <span style="font-size:16px;color:#3254DC;font-weight: bold;margin-right: 5px"> 手机密码登录</span> |
+                            <span style="font-size:16px;color: #606879;font-weight: bold;margin-left: 5px" @click="to_tel_log">手机快捷登录</span>
+
+                        </div>
+                        <table> <tr> <td>
+                            <el-select v-model="prefix" placeholder="请选择"  style="margin-top: 3px;">
+                                <el-option
+                                        v-for="item in options"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </td> <td>
+                            <el-form-item  prop="login_tel">
+                                <el-input style="width: 200px;margin-left: 10px" v-model="log2.login_tel" placeholder="请输入手机号"></el-input>
+                            </el-form-item>
+                        </td>  </tr></table>
+                        <el-form-item  prop="login_pwd">
+                        <el-input style="width: 300px;"  :type="passw" v-model="log2.login_pwd" placeholder="请输入密码" prefix-icon="el-icon-lock"  ><i slot="suffix" :class="icon" @click="showPass"></i></el-input>
+                        </el-form-item>
+                        <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login2(log2.login_tel,log.login_pwd)" >立即登录</el-button>
+                        <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
+                            <span style="font-size:14px;color: #606879;">没有账号？</span>
+                            <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register2"> 5秒注册</span>
+                            <span style="font-size:14px;color:#FCA200;margin-left: 100px;cursor:pointer" @click="modify_pwd2"> 忘记密码？</span>
+                        </div>
+                        <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px"> 其他登录方式</div>
+                        <div style="height: 60px">
+                            <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" @click="wx_login1" alt="" style="margin-bottom: 30px;cursor:pointer"> <span style="display: inline-block;width: 100px"><hr></span>
+                        </div>
+                    </el-form>
+                </div>
+                <!--            <div style="position: relative;top: -125px">123</div>-->
+            </el-dialog>
             <el-dialog
                     title="微信扫码，安全登录"
                     :visible.sync="wx_login_dialog"
@@ -123,11 +190,22 @@
                     width="380px"
             >
                 <hr style="margin: 0;width: 100%;">
-                <div style="width: 300px;margin:10px auto 0 auto">
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入手机号"></el-input>
-                    <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
-<!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>-->
-                    <el-button  :class="btn_code"   id="code_span2" @click="countDown" >{{content}}</el-button>
+                <div style="width: 300px;margin:30px auto 0 auto">
+
+                    <el-form  :model="mod_pwd" :rules="rules" ref="mod1_ruleForm"  >
+                        <el-form-item  prop="mod_tel">
+
+                        <el-input style="width: 300px;" v-model="mod_pwd.mod_tel" placeholder="请输入手机号"></el-input>
+                        </el-form-item>
+
+                        <table> <tr> <td>
+                        <el-form-item  prop="mod_code">
+                        <el-input style="width: 200px;" v-model="mod_pwd.mod_code" placeholder="请输入内容"></el-input>
+                        </el-form-item></td><td>
+                            <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>-->
+
+                            <el-button  :id="btn_code"   style="height: 44px;margin-top: 7px"  @click="log_send_code(log.login_tel)" >{{content}}</el-button>
+                        </td></tr> </table>
                     <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="to_modify2">下一步</el-button>
                     <div style="width: 200px;height:40px;vertical-align:middle;margin:140px auto 30px auto;text-align: center">
                         <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
@@ -135,7 +213,7 @@
                     </div>
                       <div style="height: 2px"></div>
 
-
+                    </el-form>
                 </div>
 
             </el-dialog>
@@ -146,8 +224,16 @@
             >
                 <hr style="margin: 0;width: 100%;">
                 <div style="width: 300px;margin:10px auto 0 auto">
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入新密码"></el-input>
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请重复新密码"></el-input>
+
+                    <el-form  :model="mod_pwd2" :rules="rules" ref="mod2_ruleForm"  >
+                        <el-form-item  prop="mod_tel1">
+
+                        <el-input style="width: 300px;" v-model="mod_pwd2.mod_tel1" placeholder="请输入新密码"></el-input>
+                        </el-form-item>
+                            <el-form-item  prop="mod_tel2">
+                    <el-input style="width: 300px;" v-model="mod_pwd2.mod_tel2" placeholder="请重复新密码"></el-input>
+                            </el-form-item>
+                    </el-form>
                     <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="modify_password">确定</el-button>
                     <div style="width: 200px;height:40px;vertical-align:middle;margin:140px auto 30px auto;text-align: center">
                         <span style="font-size:14px;color: #606879;margin-right: 5px">已有账号？</span>
@@ -165,11 +251,21 @@
                     width="380px"
             >
                 <hr style="margin: 0;width: 100%;">
-                <div style="width: 300px;margin:0 auto">
-                    <span style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
-                            src="../../assets/icons/注意.png" alt="">{{tips}}</span>
-                    <el-input style="width: 300px;" v-model="reg_username" placeholder="请输入用户名"></el-input>
-                    <el-select v-model="prefix" placeholder="请选择" >
+<!--                {{reg_tips}} <button @click="ii"></button>-->
+                <div style="width: 300px;margin:15px auto 0 auto">
+                    <el-form style="" :model="reg" :rules="rules" ref="reg_ruleForm"  >
+
+                    <span v-if="reg_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
+                            src="../../assets/icons/注意.png" alt="">{{reg_tips}}</span>
+
+
+                     <el-form-item  prop="reg_username">
+
+                    <el-input style="width: 300px;" v-model="reg.reg_username" placeholder="请输入用户名"></el-input>
+                    </el-form-item>
+                           <table style="margin: 0">
+                             <tr style="height: 45px;">  <td>
+                    <el-select v-model="prefix" placeholder="请选择" style="top:0px" >
                         <el-option
                                 v-for="item in options"
                                 :key="item.value"
@@ -177,18 +273,30 @@
                                 :value="item.value">
                         </el-option>
                     </el-select>
-                    <el-input style="width: 200px;margin-left: 10px" v-model="reg_tel" placeholder="请输入手机号"></el-input>
-                    <el-input style="width: 300px;"  :type="passw" v-model="reg_password" placeholder="请输入密码" prefix-icon="el-icon-lock"  ><i slot="suffix" :class="icon" @click="showPass"></i></el-input>
-                    <el-input style="width: 200px;"  v-model="reg_code" placeholder="请输入内容"></el-input>
-<!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span2" @click="countDown" >{{content}}</el-button>-->
-                    <el-button  :id="btn_code"   style="height: 44px"  @click="reg_send_code(reg_tel)" >{{content}}</el-button>
-                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="regist(reg_username,reg_tel,reg_password,reg_code)">立即注册</el-button>
+                             </td><td style="width: 200px;height: 44px">
+                        <el-form-item width="200px" prop="reg_tel">
+                           <el-input style="width: 200px;margin-left: 10px;margin-top: 0" v-model="reg.reg_tel" placeholder="请输入手机号"></el-input>
+                        </el-form-item>
+                                 </td>
+                             </tr></table>
+                        <el-form-item  prop="reg_password">
+                            <el-input style="width: 300px;"  :type="passw" v-model="reg.reg_password" placeholder="请输入密码" prefix-icon="el-icon-lock"  ><i slot="suffix" :class="icon" @click="showPass"></i></el-input>
+                        </el-form-item>
+                        <table> <tr> <td>
+                        <el-form-item  prop="reg_code">
+                      <el-input style="width: 200px;"  v-model="reg.reg_code" placeholder="请输入内容"></el-input>
+                        </el-form-item></td> <td style="height: 44px">
+                    <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span2" @click="countDown" >{{content}}</el-button>-->
+                    <el-button  :id="btn_code"   style="height: 44px;margin-top: 8px"  @click="reg_send_code(reg.reg_tel)" >{{content}}</el-button>
+                        </td> </tr></table>
+                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin-bottom: 25px" @click="regist(reg.reg_username,reg.reg_tel,reg.reg_password,reg.reg_code)">立即注册</el-button>
                     <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
                         <span style="font-size:14px;color: #606879;">已有账号？</span>
                         <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="reg_to_login"> 马上登录></span>
                         <span style="font-size:14px;color:#3254DC;margin-left: 100px;cursor:pointer" @click="wx_register"> 微信注册</span>
                     </div>
                     <div style="height: 50px"></div>
+                         </el-form>
                 </div>
 
             </el-dialog>
@@ -216,6 +324,23 @@
                 </div>
 
             </el-dialog>
+            <el-dialog
+
+                    :visible.sync="register_ok_dialog"
+                    width="380px"
+            >
+
+                <div style="width: 200px;margin: 0 auto;">
+                        <img src="../../assets/images/person/成功.png"  style="width: 58px;height: 58px;margin-left: 35%" alt="">
+                        <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">注册成功！</div>
+
+
+
+                    <div style="height: 40px"></div>
+                </div>
+
+            </el-dialog>
+
         </div>
     </el-header>
 </template>
@@ -226,77 +351,192 @@
 
         data() {
             return {
+                userInfo:'',
+                roles:'',
                 prefix:'+86',
                 isLogin:false,
-                login_dialog:true,
+                login_dialog1:false,
+                login_dialog2:false,
                 register_dialog:false,
                 modify_pwd_dialog1:false,
                 modify_pwd_dialog2:false,
                 wx_login_dialog:false,
                 wx_register_dialog:false,
-
+                register_ok_dialog:false,
                 content: '获取验证码',  // 按钮里显示的内容
                 totalTime: 10 ,     //记录具体倒计时时间
                 canClick: true ,//添加canClick
-                btn_code:'canCli' ,
+                btn_code:'canCli',
                 tell:0,
                 tel:'',
                 icon:"el-input__icon el-icon-view",
                 passw:"password",
-                tips:' 用户名或密码错误',
-                login_tel:'',
-                login_code:'',
+                reg_tip_status:0,
+                reg_tips:'11',
+                log_tip_status:0,
+                log_tips:'11',
+                log:{
+                    login_tel:'',
+                    login_code:'',
+                },
+                log2:{
+                    login_tel:'',
+                    login_pwd:'',
+                },
+                reg:{
+                    reg_tel:'',
+                    reg_code:'',
+                    reg_username:'',
+                    reg_password:'',
+                },
+                mod_pwd:{
+                    mod_tel:'',
+                    mod_code:''
+                },
+                mod_pwd2:{
+                    mod_tel1:'',
+                    mod_tel2:'',
+                },
+                options: [{
+                    value: '选项1',
+                   label:'中国大陆'+ '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'  +'+86'
+                }, {
+                    value: '选项2',
 
-                reg_tel:'',
-                reg_code:'',
-                reg_username:'',
-                reg_password:'',
-            };
+                }, {
+                    value: '选项3',
+
+                }, {
+                    value: '选项4',
+
+                }, {
+                    value: '选项5',
+
+                }],
+
+                rules: {
+                    reg_username: [
+                      { required: true, message: '请输入用户名', trigger: 'blur' },
+                      { min:5, max: 18, message: '长度在 5 到 18 个字符', trigger: 'blur' }
+                    ],
+                    reg_tel: [
+                        { required: true, message: '请输入手机号', trigger: 'blur' },
+                        { pattern:/^\d{11}$/, message: '请输入正确的手机号', trigger: 'blur' }
+                    ],
+                    login_tel: [
+                        { required: true, message: '请输入手机号', trigger: 'blur' },
+                        { pattern:/^\d{11}$/, message: '请输入正确的手机号', trigger: 'blur' }
+                    ],
+                    reg_password: [
+                        { required: true, message: '请输入密码', trigger: 'blur' },
+                        { min: 6, max: 18, message: '密码长度在 6 到 18 个字符', trigger: 'blur' }
+                    ],
+                    reg_code: [
+                        { required: true, message: '请输入验证码', trigger: 'blur' },
+                        { pattern:/^\d{6}$/, message: '请输入六位验证码', trigger: 'blur'}
+                    ],
+                    login_code: [
+                        { required: true, message: '请输入验证码', trigger: 'blur' },
+                        { pattern:/^\d{6}$/, message: '请输入六位验证码', trigger: 'blur'}
+                    ],
+                    mod_tel: [
+                        { required: true, message: '请输入手机号', trigger: 'blur' },
+                        { pattern:/^\d{11}$/, message: '请输入正确的手机号', trigger: 'blur' }
+                    ],
+                    mod_code: [
+                        { required: true, message: '请输入验证码', trigger: 'blur' },
+                        { pattern:/^\d{6}$/, message: '请输入六位验证码', trigger: 'blur'}
+                    ],
+                    mod_tel1: [
+                        { required: true, message: '请输入新密码', trigger: 'blur' },
+                        { min:5, max: 18, message: '长度在 5 到 18 个字符', trigger: 'blur' }
+                    ],
+                    mod_tel2: [
+                        { required: true, message: '请重复输入新密码', trigger: 'blur' },
+                        { min:5, max: 18, message: '长度在 5 到 18 个字符', trigger: 'blur' }
+                    ],
+                },
+            }
+
+        },
+        created(){
+            this.init();
         },
         methods:{
+            init(){
+
+            },
+            ii(){
+                window.console.log("777"+this.reg_tips)
+            },
             //进入订单列表
             go_orderList() {
+                const tokenStr=window.sessionStorage.getItem('token');
+
+                if(!tokenStr){
+                    this.$message.error("请先登录！")
+                    this.login_dialog1=true
+                }else{
                 this.$router.push(
                     { path: '/order/orderList',
                         query:{
                             user_id: 1,
                         }
                     }
-                );
+                );}
 
             },
             go_tutorial() {
+                const tokenStr=window.sessionStorage.getItem('token');
+
+                if(!tokenStr){
+                    this.$message.error("请先登录！")
+                    this.login_dialog1=true
+                }else{
                 this.$router.push(
                     { path: '/tutorial',
 
                     }
                 );
-
+                }
             },
             go_instance() {
-                this.$router.push(
-                    { path: '/instance',
+                const tokenStr=window.sessionStorage.getItem('token');
 
-                    }
-                );
+                if(!tokenStr){
+                    this.$message.error("请先登录！")
+                    this.login_dialog1=true
+                }else {
+                    this.$router.push(
+                        {
+                            path: '/instance',
 
+                        }
+                    );
+                }
             },
             //进入实例列表
             go_instanceList(){
+                const tokenStr=window.sessionStorage.getItem('token');
+
+                if(!tokenStr){
+                    this.$message.error("请先登录！")
+                    this.login_dialog1=true
+                }else{
                 this.$router.push(
                     { path: '/',
                         query:{
                             user_id: 1,
                         }
                     }
-                );
+                );}
             },
             go_login(){
                 // this.$router.push(
                 //     { path: '/login',
                 //     }
                 // );
-                this.isLogin=true;
+                this.login_dialog1=true
             },
             countDown(){
                 // if (!this.canClick) return
@@ -332,15 +572,27 @@
                 }
             },
             register(){
-                this.login_dialog=false
+                this.login_dialog1=false
+                this.register_dialog=true
+            },
+            register2(){
+                this.login_dialog2=false
                 this.register_dialog=true
             },
             modify_pwd1(){
-                this.login_dialog=false
+                this.login_dialog1=false
+                this.modify_pwd_dialog1=true
+            },
+            modify_pwd2(){
+                this.login_dialog2=false
                 this.modify_pwd_dialog1=true
             },
             wx_login(){
-                this.login_dialog=false
+                this.login_dialog1=false
+                this.wx_login_dialog=true
+            },
+            wx_login1(){
+                this.login_dialog2=false
                 this.wx_login_dialog=true
             },
             wx_to_login(){
@@ -348,29 +600,44 @@
                 this.register_dialog=true
             },
             to_modify2(){
-                this.modify_pwd_dialog1=false
-                this.modify_pwd_dialog2=true
+                this.$refs.mod1_ruleForm.validate(valid=> {
+
+                    if (!valid) {
+                        this.$message.error("请完善表单")
+                    } else {
+                        this.modify_pwd_dialog1 = false
+                        this.modify_pwd_dialog2 = true
+                    }
+                })
             },
             async modify_password(){
-                this.modify_pwd_dialog2=false
-                    const {data: res} = await this.$http.get('example/findExampleEntity', {params: {id: this.instanceId}})
-                    // window.console.log(res)
-                    if (res.code == 20000) {
-                   window.console.log("444")
+                let that=this
+                that.$refs.mod2_ruleForm.validate(valid=> {
 
+                    if (!valid) {
+                        that.$message.error("请完善表单")
+                    } else {
+                    this.modify_pwd_dialog2=false
+                  //  const {data: res}= await that.$http.get('example/findExampleEntity', {params: {id: this.instanceId}})
+                    // window.console.log(res)
+                   //  if (res.code == 20000) {
+                   // window.console.log("444")
+                   //
+                   //  }
                     }
+                })
             },
            to_login1(){
                 this.modify_pwd_dialog1=false
-                this.login_dialog=true
+                this.login_dialog1=true
            },
             to_login2(){
                 this.modify_pwd_dialog2=false
-                this.login_dialog=true
+                this.login_dialog1=true
             },
             reg_to_login(){
                 this.register_dialog=false
-                this.login_dialog=true
+                this.login_dialog1=true
             },
             wx_register(){
                 this.register_dialog=false
@@ -378,11 +645,23 @@
             },
             wx_reg_to_login(){
                 this.wx_register_dialog=false
-                this.login_dialog=true
+                this.login_dialog1=true
             },
             wx_reg_to_reg(){
                 this.wx_register_dialog=false
                 this.register_dialog=true
+            },
+            to_pwd_log(){
+               this.login_dialog1=false
+               this.login_dialog2=true
+            },
+            to_tel_log(){
+                this.login_dialog2=false
+                this.login_dialog1=true
+            },
+            quit(){
+                window.sessionStorage.clear()
+                this.isLogin=false
             },
             async reg_send_code(tel){
                 this.countDown()
@@ -423,56 +702,143 @@
 
             },
             async regist(username,tel,password,code){
-                const newAixos = Axios.create({
-                    baseURL: 'http://10.0.20.114:9002',
-                   // timeout: 1000,
-                });
-                newAixos.post("/tbUser/register/"+code,{
+                this.$refs.reg_ruleForm.validate(valid=> {
 
-                        nikeName:username,
-                        mobile:tel,
-                        password:password,
+                    if (!valid) {
+                        this.$message.error("请完善注册表单")
+                    } else {
+                        let that = this;
+                        const newAixos = Axios.create({
+                            baseURL: 'http://10.0.20.114:9002',
+                            // timeout: 1000,
+                        });
+                        newAixos.post("/tbUser/register/" + code, {
 
+                                nickname: username,
+                                mobile: tel,
+                                password: password,
+
+                            })
+                            .then(function (response) {
+                                window.console.log(response);
+                                if (response.data.code === 20001) {
+                                    window.console.log("888" + response.data.message)
+                                    that.reg_tips = response.data.message
+                                    that.reg_tip_status = 1
+                                    window.console.log("666" + that)
+                                } else if (response.data.code === 20000) {
+                                    that.register_ok_dialog = true
+                                    setInterval("close_reg()", 3000)
+                                }
+                            })
+                            .catch(function (error) {
+                                window.console.log(error);
+                                this.$message.success("服务器错误")
+                            });
                     }
-                )
-                    .then(function(response) {
-                        window.console.log(response);
-                        if (response.status == 200) {
-                            this.$message.success("验证码已发送")
-                        }
-                    })
-                    .catch(function(error) {
-                        window.console.log(error);
-                        this.$message.success("服务器错误")
-                    });
-
+                })
+            },
+            close_reg(){
+                this.register_ok_dialog=false
+                this.register_dialog=false
             },
             async login(tel,code){
+                this.$refs.log_ruleForm.validate(valid=> {
+
+                    if (!valid) {
+                        this.$message.error("请完善登录表单")
+                    } else {
+                let that=this;
                 const newAixos = Axios.create({
                     baseURL: 'http://10.0.20.114:9002',
                    // timeout: 1000,
                 });
-                newAixos.get("/tbUser/login",{
+                newAixos.post("/tbUser/login",{
 
-                    params: {
                         mobile: tel,
                         code:code,
-                    }
+
                     }
                 )
                     .then(function(response) {
                         window.console.log(response);
-                        if (response.status == 200) {
-                            this.$message.success("验证码已发送")
+                        if (response.data.code == 20001) {
+                            that.log_tips=response.data.message
+                            that.log_tip_status=1
+                        }else if(response.data.code == 20000){
+                           that.login_dialog1=false
+
+                            window.console.log("789"+response.data.data.token)
+                            window.sessionStorage.setItem('token',response.data.data.token)
+                            window.console.log("token---"+window.sessionStorage.getItem('token')) ;
+                            that.isLogin=true
+                            that.userInfo=response.data.data.userInfo
+                            that.roles=response.data.data.roles
+                            window.console.log("userinfo-"+response.data.data.userInfo.nickname) ;
+                            window.console.log("roles--"+response.data.data.roles) ;
+                            that.$message.success("登录成功！")
+
                         }
                     })
                     .catch(function(error) {
                         window.console.log(error);
                         this.$message.success("服务器错误")
-                    });
+                    });}})
 
             },
+            async login2(tel,pwd){
+                this.$refs.log2_ruleForm.validate(valid=> {
 
+                    if (!valid) {
+                        this.$message.error("请完善登录表单")
+                    } else {
+                        let that=this;
+                        const newAixos = Axios.create({
+                            baseURL: 'http://10.0.20.114:9002',
+                            // timeout: 1000,
+                        });
+                        newAixos.post("/tbUser/login",{
+
+                                mobile: tel,
+                                code:pwd,
+
+                            }
+                        )
+                            .then(function(response) {
+                                window.console.log(response);
+                                if (response.data.code == 20001) {
+                                    that.log_tips=response.data.message
+                                    that.log_tip_status=1
+                                }else if(response.data.code == 20000){
+                                    that.login_dialog2=false
+
+                                    window.console.log("789"+response.data.data.token)
+                                    window.sessionStorage.setItem('token',response.data.data.token)
+                                    window.console.log("token---"+window.sessionStorage.getItem('token')) ;
+                                    that.isLogin=true
+                                    that.userInfo=response.data.data.userInfo
+                                    that.roles=response.data.data.roles
+                                    window.console.log("userinfo-"+response.data.data.userInfo.nickname) ;
+                                    window.console.log("roles--"+response.data.data.roles) ;
+                                    that.$message.success("登录成功！")
+
+                                }
+                            })
+                            .catch(function(error) {
+                                window.console.log(error);
+                                this.$message.success("服务器错误")
+                            });}})
+
+            },
+            to_person(){
+                this.$router.push({
+                    name:'Personal',
+                    params:{
+                        userInfo:this.userInfo,
+                        roles:this.roles
+                    }
+                })
+            },
 
         }
     };
@@ -593,8 +959,33 @@
     }
     #login_dia >>> .el-input__inner{
          height: 44px;
+        vertical-align: top;
 
 
+    }
+    #login_dia >>> .el-form-item{
+        margin-bottom: 12px;
+    }
+    #login_dia >>> .el-form-item__error{
+        padding-top: 3px;
+        font-size: 9px;
+    }
+    #login_dia >>> .el-select .el-input .el-select__caret{
+        margin-top: -8px;
+        vertical-align: top;
+    }
+    #login_dia >>> .el-select-dropdown.el-popper.el-select-dropdown__list{
+        width: 300px;
+    }
+    #login_dia >>> .el-select-dropdown__item{
+        width: 300px;
+    }
+    #login_dia >>> .el-scrollbar__wrap{
+        width: 300px;
+    }
+    #log2 >>> .el-input__icon{
+        vertical-align: top;
+        /*margin-top: -6px;*/
     }
     #code_span1 >>> span{
         margin-left: -4px;
@@ -627,13 +1018,15 @@
        width: 100px;
         background-color: #3254DC;
         color:white;
-        height: 40px
+        height: 40px;
+        vertical-align: text-bottom;
     }
     #noCli{
         width: 100px;
         background-color: #C0C3C9;
         color:white;
-        height: 40px
+        height: 40px;
+        vertical-align: text-bottom;
     }
     #canCli >>> span{
         margin-left: -4px;

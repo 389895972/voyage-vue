@@ -12,8 +12,8 @@
                         <el-tab-pane label="教程与文档" name="#i4"></el-tab-pane>
                     </el-tabs>
                     <el-tabs class="tab_btn" @tab-click="handleClick1">
-                        <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
-                        <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary">管理设备</el-button>
+                        <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_rb3">立即购买</el-button>
+                        <el-button style="background-color: white ;color: #3254DC;width: 150px;border-color: #3254DC" type="primary" @click="dev_mag">管理设备</el-button>
                         <!--                                </div>-->
                     </el-tabs>
                     </div>
@@ -24,15 +24,15 @@
                 <div class="aikit_pic">
 
                     <div class="aikit_body_title">
-                        Thundercomm TurboX
-                        <SUP>TM</SUP>AI套件
+                        Qualcomm®Robotics RB3平台（SDA845）
+<!--                        <SUP>TM</SUP>AI套件-->
                         <div class="content">
-                            <p>Thundercomm AI Kit是面向开发人员的功能最强大的设备上具有AI视觉功能的边缘设备。</p>
-                            <p> Thundercomm AI Kit可帮助开发人员和终端制造商移植其AI算法和AI应用程序。 </p>
+                            <p style="width: 670px;margin-left: 0;margin-top: 30px">高通机器人公司RB3开发套件通过将高性能异构计算、高通®人工智能（AI）引擎（用于设备上机器学习、计算机视觉、保险库式安全、多媒体和Wi-Fi以及蜂窝连接（4G/LTE和CBRS）。包括一套全面的软件和硬件，包括业界最好的六轴运动传感器（ICM 42688）、顶级端口PDM传声器（ICS 41351）和气压传感器（ICP—10101），来自TDK VANSENSENS。高通机器人Rb3开发套件旨在帮助制造商和开发人员创建机器人产品。从大型工业和企业机器人到具有挑战性的功耗和散热要求的小型电池驱动机器人。</p>
+
                         </div>
                         <div class="aikit_btn">
-                            <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
-                            <el-button style="background-color: #101C3D;color: white;width: 150px" >管理设备</el-button>
+                            <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_rb3">立即购买</el-button>
+                            <el-button style="background-color: #101C3D;color: white;width: 150px"  @click="dev_mag">管理设备</el-button>
                         </div>
                     </div>
 
@@ -505,566 +505,13 @@
                             <el-button class="more_button" @click="showMoreVedio">更多 &gt; &gt;</el-button>
                         </div>
                     </el-row>
-<!--                    <table border="1" style="margin-top:20px;width:100%;font-size:12px;line-height:2em;text-align:left;border-color:cornflowerblue;" cellspacing="0" class="doc">-->
-<!--                        <tbody><tr><td rowspan="17" style="font-weight:550;text-align:center;">Documentation</td><td rowspan="13" style="font-weight:550;text-align:center;">Hardware</td><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">Quick Start-->
-<!--                                                    Guide</span> </a></td></tr>-->
-<!--                        <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
-<!--                            DragonBoard 845c Spec</span></a></td></tr>-->
-<!--                                               <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
-<!--                                                   Navigation Mezzanine Spec</span></a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics Machine-->
-<!--                                                    Communication Mezzanine Spec</span></a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Main-->
-<!--                                                    Camera Spec</span></a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Tracking Camera-->
-<!--                                                    Spec</span></a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">ToFCamera Hardware User Guide</span></a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">SLM-->
-<!--                                                    Camera Hardware User Guide</span></a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Hardware User Guide</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Schematics</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform  STEP Models</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM Datasheet</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM GPIO Pin Assignment</a></td></tr>-->
-<!--                                                <tr><td rowspan="4" style="font-weight:550;text-align:center;">Software</td><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Linux User Guide</a></td></tr>-->
-<!--                                                &lt;!&ndash; <tr>-->
-<!--                                                    <td class="doc_td_left">-->
-<!--                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
-<!--                                                ick="getDocument('220')">Qualcomm Robotics RB3 LE SDK User Manual</a>-->
-<!--                                                    </td>-->
-<!--                                                </tr> &ndash;&gt;-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Qualcomm Robotics RB3 Platform Release notes</span></a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SLM Camera ImageViewer.pdf</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">RB3 Robomaker Guide</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr>-->
-<!--                                                    <td colspan="2" rowspan="2" style="font-weight:550px;text-align:center;">Firmware</td>-->
-<!--                                                    &lt;!&ndash;-->
-<!--                                                                    <td class="doc_td_left">-->
-<!--                                                                        <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
-<!--                                                    ick="getDocument('166')">Qualcomm Robotics-->
-<!--                                                                                    RB3 Platform Image_20190222</a>-->
-<!--                                                                    </td>-->
-<!--                                                    &ndash;&gt;<td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Image_20191029</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Readme</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td rowspan="11" colspan="2" style="font-weight:550;text-align:center;">Samples-apps-codes</td><td class="doc_td_left"><a title="docment" rel="nofollow">button_test.tar</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">can-test.tar</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">bt-app_test.tar</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">aplay_test.tar</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">hal_play_test.tar</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">sns_hal_tests.tar</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">camera_test.tar</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">omx_test.tar</a>-->
-<!--                                                </td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">gst_test.tar</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">opengles_test.tar</a>-->
-<!--                                                </td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">ros_test.tar</a>-->
-<!--                                                </td></tr>-->
-<!--                                                <tr><td rowspan="5" colspan="2" style="font-weight:550;text-align:center;">testResource</td><td class="doc_td_left"><a title="docment" rel="nofollow">Audio</a>-->
-<!--                                                </td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">FastCV</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">OpenGLES</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Video</a></td>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SNPE</a></td></tr>-->
-<!--                                                <tr><td rowspan="6" colspan="2" style="font-weight:550;text-align:center;">Tools</td><td class="doc_td_left"><a title="docment" rel="nofollow">SLM-->
-<!--                                                            Camera Image-->
-<!--                                                            Viewer.exe</a></td></tr><tr>-->
-<!--                                                </tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow">App-->
-<!--                                                            Toolchain-->
-<!--                                                            SDK</a></td></tr><tr><td class="doc_td_left"><a title="docment" rel="nofollow">QTI-->
-<!--                                                            USB driver</a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">TFlash</span> </a></td></tr>-->
-<!--                                                <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;text-align: left">Thundersoft_Flash_Programmer_Tool_User_Guide</span> </a></td></tr>-->
-<!--                                                </tbody>-->
-<!--                                                </table>-->
+
 
                 </div>
             </div>
 
 
-<!--            <div class="main">-->
-<!--                <div class="first">-->
-<!--&lt;!&ndash;                    <div   class="col-md-4 col-xs-11 aikit_img_div" style="background-color: white;padding: 0;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <img src="../../assets/images/rb3/rb3.png" alt=""  width="100%" >&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div id="aikit_ours" class="col-md-4 col-xs-11" >&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div class="aikit_title">Qualcomm  <SUP>&reg;</SUP> Robotics RB3 Platform <sapn>(SDA845)</sapn></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div class="aikit_introduce"> The Qualcomm Robotics RB3 development kit supports the development of smart, power-efficient and cost-effective robots by combining high-performance heterogeneous computing, Qualcomm® Artificial Intelligence (AI) Engine for on-device machine learning, computer vision, vault-like security, multimedia and Wi-Fi and cellular connectivity (4G/LTE and CBRS). Comprised of a comprehensive set of software & hardware, including the industry’s best performing 6-Axis Motion Sensor (ICM-42688), Top Port PDM Microphone (ICS-41351), and Barometric Pressure Sensor (ICP-10101) from TDK InvenSense.The Qualcomm Robotics RB3 development kit is designed to help manufacturers and developers create robotic products ranging from large industrial and enterprise robots to small battery-operated one’s with challenging power and thermal dissipation requirements.</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div class="aikit_btn">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-button type="primary">Buy Now</el-button>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-button type="primary">Device Management</el-button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                    <div   class="col-md-7 col-xs-12 aikit_img_div1" style="background-color: white;padding: 0;height:100%">-->
-<!--                        <img src="../../assets/images/3rb3.png" alt=""  width="100%" >-->
-<!--                    </div>-->
-<!--                    <div id="aikit_ours1" class="col-md-4 col-xs-11" >-->
-<!--                        <div class="aikit_title">Qualcomm  <SUP>&reg;</SUP> Robotics RB3 Platform <sapn>(SDA845)</sapn></div>-->
-<!--                        <div class="aikit_introduce"> The Qualcomm Robotics RB3 development kit supports the development of smart, power-efficient and cost-effective robots by combining high-performance heterogeneous computing, Qualcomm® Artificial Intelligence (AI) Engine for on-device machine learning, computer vision, vault-like security, multimedia and Wi-Fi and cellular connectivity (4G/LTE and CBRS). Comprised of a comprehensive set of software & hardware, including the industry’s best performing 6-Axis Motion Sensor (ICM-42688), Top Port PDM Microphone (ICS-41351), and Barometric Pressure Sensor (ICP-10101) from TDK InvenSense.The Qualcomm Robotics RB3 development kit is designed to help manufacturers and developers create robotic products ranging from large industrial and enterprise robots to small battery-operated one’s with challenging power and thermal dissipation requirements.</div>-->
-<!--                        <div class="aikit_btn">-->
-<!--                            <el-button type="primary"  @click="buy_rb3">Buy Now</el-button>-->
-<!--                            <el-button type="primary" @click="devMan">Device Management</el-button>-->
-<!--                        </div>-->
-<!--                    </div>-->
 
-<!--                </div>-->
-<!--                &lt;!&ndash;                            悬浮框&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="fixTitle1" :class="{fixTitle:whether}"  v-if="whether" >&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div  class="tabs1 col-md-12 col-xs-11" >&ndash;&gt;-->
-
-<!--&lt;!&ndash;                        <el-tabs   class="tab_pane" @tab-click="handleClick1">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-tab-pane label="Key Advantage" name="#i1"></el-tab-pane>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-tab-pane label="Product Specification" name="#i2"></el-tab-pane>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-tab-pane label="Product Characteristics" name="#i3"></el-tab-pane>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-tab-pane label="Tutorials and Documentation" name="#i4"></el-tab-pane>&ndash;&gt;-->
-<!--&lt;!&ndash;                            &lt;!&ndash;                                <div class="aikit_btn">&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                            &lt;!&ndash;                                    <el-button type="primary">Buy Now</el-button>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                            &lt;!&ndash;                                    <el-button type="primary">Device Management</el-button>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                            &lt;!&ndash;                                </div>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                        </el-tabs>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <el-tabs   class="tab_btn" @tab-click="handleClick1">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-button type="primary"  @click="buy_rb3">Buy Now</el-button>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <el-button type="primary" >Device Management</el-button>&ndash;&gt;-->
-<!--&lt;!&ndash;                            &lt;!&ndash;                                </div>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                        </el-tabs>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                <div>-->
-<!--                    <div class="product">-->
-<!--                        <span class="product_det">Product Details</span>-->
-<!--                        <div  class="tabs">-->
-<!--                            <el-tabs  id="iii" class="tabs_1" @tab-click="handleClick">-->
-<!--                                <el-tab-pane label="Key Advantage" name="#i1"></el-tab-pane>-->
-<!--                                <el-tab-pane label="Product Specification" name="#i2"></el-tab-pane>-->
-<!--                                <el-tab-pane label="Product Characteristics" name="#i3"></el-tab-pane>-->
-<!--                                <el-tab-pane label="Tutorials and Documentation" name="#i4"></el-tab-pane>-->
-<!--                            </el-tabs>-->
-<!--                        </div>-->
-<!--&lt;!&ndash;                        <div class="product_indexs" >&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="product_index"   >&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="product_btn" @click="counter3">Key Advantage</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="product_btn" @click="counter7">Product Specification</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="product_btn" @click="counter4">Product Characteristics</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="product_btn" @click="counter5">Tutorials and Documentation</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div> /</div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--                        <div class="product_show">-->
-<!--                            <div class="product_show_div" id="i1">Key Advantage</div>-->
-<!--                            <span class="prohard">Introduction</span>-->
-<!--                            <div>-->
-<!--                                <p >-->
-<!--                                    The Qualcomm Robotics RB3 development kit includes the purpose-built robotics-focused DragonBoard<sup>TM</sup> 845c development board, based on the Qualcomm<sup>&reg;</sup> SDA845 processor and compliant with the 96Boards open hardware specification to support a broad range of mezzanine-board expansions.-->
-<!--                                </p>-->
-<!--                                <p>-->
-<!--                                    The Qualcomm SDA845 processor is a heterogeneous computing architecture and integrates an Octa Core Qualcomm <sup> &reg;</sup> Kryo<sup>TM</sup> CPU withperformance up to 2.8GHz a Qualcomm<sup>&reg;</sup> AdrenoQualcomm<sup>TM</sup> 630 Visual Processing Subsystem (including GPU, VPU and DPU), and a Qualcomm<sup>&reg;</sup> HexagonQualcomm<sup>TM</sup> 685 DSP with Hexagon Vector Extensions (HVX) delivering sophisticated, on-device AI processing and mobile-optimized computer vision (CV) capabilities for perception, navigation and manipulation.-->
-<!--                                </p>-->
-<!--                                <p >-->
-<!--                                    The development board supports Linux and Robotics Operating System (ROS), while also including support for the Qualcomm<sup>&reg;</sup> Neural Processing software development kit (SDK) for advanced on-device AI, the Qualcomm<sup>&reg;</sup> Computer Vision Suite, the Qualcomm<sup>&reg;</sup> Hexagon DSP SDK, and<a href="https://aws.amazon.com/robomaker/" target="_blank" rel="nofollow" style="text-decoration: underline !important;">AWS RoboMaker</a>.-->
-<!--                                </p>-->
-<!--                                <p>-->
-<!--                                    The kit includes:-->
-<!--                                </p>-->
-
-<!--                                <ul >-->
-<!--                                    <li>-->
-<!--                                        Robotics DragonBoard Qualcomm<sup>TM</sup> 845c development board featuring Qualcomm<sup>&reg;</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        Qualcomm Robotics navigation mezzanine featuring time-of-flight, trackingcamera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        Sensor support including the industry&prime;s best performing ICM-426886-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        Qualcomm Robotics cellular mezzanine (optional)-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        Multi-Mic support-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                                        Power supply-->
-<!--                                    </li>-->
-<!--                                </ul>-->
-
-
-<!--                            </div>-->
-<!--                            <hr class="all_hr">-->
-<!--                        </div>-->
-
-<!--                        <div class="product_show" id="i2">-->
-<!--                            <span class="prohard">Highlights</span>-->
-<!--                            <div class="product_hightlight">-->
-<!--                            <table style="font-size:16px;font-family:Arial, Helvetica, sans-serif;">-->
-<!--                            <tbody>-->
-<!--                            <tr>-->
-<!--                                <td>-->
-<!--                                    <img src="../../assets/images/rb3/rb3-1.png" alt="">-->
-<!--                                </td>-->
-<!--                                <td>-->
-<!--                                    <img src="../../assets/images/rb3/rb3-2.png" alt=""> -->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 3% 0 0;height:50px;color:#495a75;">-->
-<!--                                On-device intelligence powered by Artificial Intelligence Engine (AIE)-->
-<!--                                </td>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">-->
-<!--                                Power efficient and cost-effective-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                The Qualcomm <sup>&reg;</sup> AI Engine on the Qualcomm<sup>&reg;</sup> Robotics RB3 Platform includes the Qualcomm&reg; Neural Processing SDK,which encompasses analysis, optimization, and debugging tools designed to allow developers and manufacturers to port trained deep learning networks on the various heterogeneous compute blocks offered by the platform.-->
-<!--                                </td>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                The Qualcomm <sup>&reg;</sup> Robotics RB3 Platform is designed to support large industrial and enterpriseenterprise robot&prime;s as well as small battery-operated robots with challenging power and thermal dissipation requirements.-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td>-->
-<!--                                    <br>-->
-<!--                                    <img src="../../assets/images/rb3/rb3-3.png" alt="">-->
-<!--                                </td>-->
-<!--                                <td>-->
-<!--                                    <br>-->
-<!--                                    <img src="../../assets/images/rb3/rb3-4.png" alt="">-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">-->
-<!--                                Comprehensive development kit-->
-<!--                                </td>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">-->
-<!--                                Flexible design options for commercialization-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                Further reduce development time and complexity for intelligent high-performance robots using a feature packed development kit. The kit includes the robotics-focused DragonBoard<sup>TM</sup> 845c development board, compliant with the 96Boards open hardware specification for supporting a broad range of mezzanine-board expansions and range of sensor support like time-of-flight (ToF), active stereo camera, multi-mic, IMU and proximity.-->
-<!--                                </td>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                In addition to a feature packed development kit, the platform offers a range of solutions for commercialization from off-the-shelf System-on-Module (SoM) solutions to speed commercialization, to the flexibility for chip-on-board designs for cost-optimization at scale.-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            &lt;!&ndash; =E6=96=B0=E5=A2=9E=E5=BC=80=E5=A7=8B1 &ndash;&gt;-->
-<!--                            <tr>-->
-<!--                                <td>-->
-<!--                                    <br>-->
-<!--                                    <img src="../../assets/images/rb3/rb3-5.png" alt="">-->
-<!--                                </td>-->
-<!--                                <td>-->
-<!--                                    <br>-->
-<!--                                    <img src="../../assets/images/rb3/rb3-6.png" alt="">-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">-->
-<!--                                High resolution depth sensing-->
-<!--                                </td>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">-->
-<!--                                Time-of-Flight (ToF) camera-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                Powered by Qualcomm Spectra<sup>TM</sup> 280 ISP for high resolution and high accuracy depth sensing-->
-<!--                                </td>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                Time-of-flight for gestures and hand tracking use cases-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            &lt;!&ndash; =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F &ndash;&gt;-->
-<!--                            &lt;!&ndash; =E6=96=B0=E5=A2=9E=E5=BC=80=E5=A7=8B2 &ndash;&gt;-->
-<!--                            <tr><td><br><img src="../../assets/images/rb3/rb3-7.png" ></td><td><br><img src="../../assets/images/rb3/rb3-8.png" alt=""></td></tr>-->
-<!--                            <tr>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">-->
-<!--                                Tracking camera-->
-<!--                                </td>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">-->
-<!--                                Advanced security-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                Sensor module to do visual Simultaneous Localization and Mapping (vSLAM=-->
-<!--                                )-->
-<!--                                </td>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">-->
-<!--                                Qualcomm <sup>&reg;</sup>Secure Processing Unit, hardware root of trust, trusted execution environment, secure boot, camera security-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            &lt;!&ndash; =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F &ndash;&gt;-->
-<!--                            &lt;!&ndash; =E6=96=B0=E5=A2=9E=E5=BC=80=E5=A7=8B3 &ndash;&gt;-->
-<!--                            <tr>-->
-<!--                                <td><br><img src="../../assets/images/rb3/rb3-9.png" alt=""></td><td><br><img src="../../assets/images/rb3/rb3-10.png" alt=""></td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">-->
-<!--                                Sensor Core-->
-<!--                                </td>-->
-<!--                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;color:#495a75;">-->
-<!--                                Connectivity-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                            <tr><td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">Support for multiple sensors and 3rd party algorithms through Sensor Software Framework</td>-->
-<!--                                <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">Wi-Fi integrated 802.11ac 2x2 with MU-MIMO and support for Bluetooth 5.0 and cellular mezzanines for LTE and CBRS</td>-->
-<!--                            </tr>-->
-<!--                            &lt;!&ndash; =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F &ndash;&gt;-->
-<!--                            </tbody>-->
-<!--                            </table>-->
-<!--                            </div>-->
-<!--                            <hr class="all_hr">-->
-<!--                        </div>-->
-
-<!--                        <div class="product_show" id="i3">-->
-<!--                            <div class="product_show_div" >Product Specification</div>-->
-<!--                            <span class="prohard">Specifications of the Robotics DragaonBoard™ 845c</span>-->
-<!--                            <div class="pro_border">-->
-
-<!--                                <table border="1" style="border-collapse:collapse;width:100%;text-align:center;line-height:2em;">-->
-<!--                                <tbody>-->
-<!--                                <tr style="background-color:#526fe1;color:#fff;font-weight:700;">-->
-<!--                                    <td style="width:15%;">-->
-<!--                                        Component-->
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        Qualcomm<sup>&reg;</sup> Robotics RB3 Development Kit-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td>-->
-<!--                                        SoC-->
-<!--                                    </td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">-->
-<!--                                        Qualcomm<sup>&reg;</sup>&nbsp;SDA845-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td>-->
-<!--                                        CPU-->
-<!--                                    </td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">-->
-<!--                                        SDA845 8x Kryo 385 CPU, up to 2.8 GHz-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                                <tr><td>GPU</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">Qualcomm<sup>&reg;</sup> Adreno<sup>TM</sup> 630 GPU with support for OpenGL ES 3.2 and Open CL 2.0</td></tr>-->
-<!--                                <tr><td>DSP</td><td style="text-align:left;padding-left:10px;">Qualcomm<sup>&reg;</sup> Hexagon<sup>TM</sup> 685 DSP with 3rd Gen Vector Extensions</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                </tr>-->
-<!--                                <tr><td>ISP</td><td style="text-align:left;padding-left:10px;">Qualcomm<sup>&reg;</sup> Spectra<sup>TM</sup> 280 Image Signal Processor with new architecture for 14-bit image signal processing</td></tr>-->
-<!--                                <tr><td>RAM</td><td style="text-align:left;padding-left:10px;">4GB LPDDR4x SDRAM @ 1866 MHz</td></tr>-->
-<!--                                <tr><td>Memory</td><td style="text-align:left;padding-left:10px;">LPDDR4x, 4x16 bit; up to 1866MHz, 4GB RAM</td>-->
-<!--                                </tr><tr></tr>-->
-<!--                                <tr><td>Storage</td><td style="text-align:left;padding-left:10px;">64GB UFS 2.1 on-board storage and 1 x MicroSD card slot</td>-->
-<!--                                </tr><tr><td>Ethernet</td><td style="text-align:left;padding-left:10px;">1x GbE Ethernet</td>-->
-<!--                                </tr><tr><td>-->
-<!--                                        Wireless</td><td style="text-align:left;padding-left:10px;">Wi-Fi integrated 802.11ac 2x2 with MU-MIMO; Tri-band Wi-Fi: 2.4 GHz and5 GHz with Dual Band Simultaneous (DBS).<br>Qualcomm <sup>&reg;</sup> TrueWireless<sup>TM</sup> Bluetooth 5.0</td>-->
-<!--                                </tr>-->
-<!--                                <tr><td>Location</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">GPS, Glonass, BeiDou, Galileo, QZSS, and SBAS</td>-->
-<!--                                </tr>-->
-<!--                                <tr><td>-->
-<!--                                        USB</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">-->
-<!--                                        1 x USB 2.0 Micro B (Debug only)<br>-->
-<!--                                        1 x USB 3.0 Type C (OTG mode)<br>-->
-<!--                                        2x USB 3.0 Type A (Host mode only)</td>-->
-<!--                                </tr>-->
-<!--                                <tr><td>-->
-<!--                                        Display</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">-->
-<!--                                        Two 4-lane DSI, D-PHY 1.2 or C-PHY 1.0; VESA DSC 1.1<br>-->
-<!--                                        1 x HDMI 1.4 (Type A - full) connector</td>-->
-<!--                                </tr>-->
-<!--                                <tr><td>Video</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">Ultra HD Premium video capture @ 4K (3840x2160) 60fps, 10bit HDR, Rec 2020 color gamut; H.264 (AVC), H.265 (HEVC) and VP9 support; Slow motion HEVC video encoding of either HD (720p) video up to 480fps or FHD (1080p) up to 240fps</td></tr>-->
-<!--                                <tr><td>Audio</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">MP3; aacPlus, eAAC; WMA 9/Pro-->
-<!--                                    </td></tr>-->
-<!--                                <tr><td>Camera</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">Single HFR 16 MPix camera at 60fps ZSL, Dual 16 MPix cameras at 30fps ZSL, Single 32 MPix camera at 30fps ZSL</td></tr>-->
-<!--                                <tr><td>Sensor</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">ICM-42688 6-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense.</td></tr>-->
-<!--                                <tr><td>Expansion Interfaces</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">2 x 60 pin High-Speed connectors , 2 x 40 pin Low-Speed connectors, 1 x20 pin Low-Speed connector</td></tr>-->
-<!--                                <tr><td>LED</td><td style="text-align:left;padding-left:10px;">7 x LED indicators</td></tr>-->
-<!--                                <tr><td>Button</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">Power ,Volume Up/Down,Force Usb Boot, DIP Switch</td>-->
-<!--                                </tr>-->
-<!--                                <tr><td>Power Source</td>-->
-<!--                                    <td style="text-align:left;padding-left:10px;">12V@2.5A adapter with a DC plug</td></tr>-->
-<!--                                <tr><td>OS Support</td><td style="text-align:left;padding-left:10px;">LE</td></tr>-->
-<!--                                <tr><td>Size</td><td style="text-align:left;padding-left:10px;">85mm by 54 mm</td>-->
-<!--                                </tr>-->
-<!--                                </tbody>-->
-<!--                                </table>-->
-<!--                            </div>-->
-<!--                            <hr class="all_hr">-->
-<!--                        </div>-->
-<!--                        <div class="product_show" id="i4">-->
-<!--                            <div class="product_show_div" >Product Characteristics</div>-->
-<!--                            <span class="prohard">Applications</span>-->
-<!--                            <div class="pro_border">-->
-<!--                                <img src="../../assets/images/rb3/rb3-11.png" alt="">-->
-<!--                            </div>-->
-
-<!--                            <hr class="all_hr">-->
-<!--                        </div>-->
-<!--                        <div class="product_show" id="i5">-->
-<!--                            <span class="prohard">Feature Demo</span>-->
-<!--                            <div class="product_hightlight">-->
-<!--                                <div class="contain">-->
-<!--                                    <div class="row">-->
-<!--                                        <div class="col-md-2">-->
-<!--                                            <p class="p" style="line-height:1.7em;margin-right:50px;text-align:justify;">-->
-<!--                                                Qualcomm&prime;s Robotics RB3 Platform with ROS has been seamlessly integrated with and drives Kobuki mobile research base. RB3 platform&prime;s ToF camera or structured light camera can be used for depth mapping and development of navigation algorithms to drive the Kobuki. RB3 platform&prime;s tracking camera can be used for visual simultaneous location and mapping (vSLAM), and the high resolution camera can be used for video recording.-->
-<!--                                            </p>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-md-2">-->
-<!--                                            <video width="100%" height="auto" controls="controls">-->
-<!--                                                <source src="../../assets/video/basic kit.mp4" type="video/mp4">-->
-<!--                                            </video>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <hr class="all_hr">-->
-<!--                        </div>-->
-<!--                        <div class="product_show" id="i6">-->
-<!--                            <span class="prohard">Compatible With</span>-->
-<!--                            <div class="pro_border">-->
-<!--                                <div class="col-md-1" style="margin-bottom: 30px">-->
-<!--                                    <img src="../../assets/images/rb3/rb3-12.png" alt="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;-->
-<!--                                    <a class="robomaker" href="https://aws.amazon.com/robomaker/" target="_blank">-->
-<!--                                        <img src="https://thundercomm.s3-ap-northeast-1.amazonaws.com/shop/1544580412842651/e975e3a2475948ab9e8231ea596bea0c&#45;&#45;1003843795" alt="" width="250" height="138"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;-->
-<!--                                    <img src="https://thundercomm.s3-ap-northeast-1.amazonaws.com/shop/1544580412842651/6a2050580563482aa2165faac637a517&#45;&#45;2105746679" alt="" width="250" height="100" title="" align="">-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            <hr class="all_hr"  >-->
-<!--                        </div>-->
-<!--                        <div class="product_show" id="i7">-->
-<!--                        <span class="prohard">Compatible With</span>-->
-<!--                        <div class="pro_border">-->
-<!--                            <table border="1" style="width:100%;font-size:16px;line-height:2em;text-align:left;border-color:cornflowerblue;" cellspacing="0" class="doc">-->
-<!--                            <tbody>-->
-<!--                            <tr><td rowspan="17" style="font-weight:550;text-align:center;">Documentation</td><td rowspan="13" style="font-weight:550;text-align:center;">Hardware</td><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">Quick Start-->
-<!--                                        Guide</span> </a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
-<!--                                        DragonBoard 845c Spec</span></a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics-->
-<!--                                        Navigation Mezzanine Spec</span></a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Robotics Machine-->
-<!--                                        Communication Mezzanine Spec</span></a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Main-->
-<!--                                        Camera Spec</span></a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Tracking Camera-->
-<!--                                        Spec</span></a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">ToFCamera Hardware User Guide</span></a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">SLM-->
-<!--                                        Camera Hardware User Guide</span></a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Hardware User Guide</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Schematics</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform  STEP Models</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM Datasheet</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">D845 SOM GPIO Pin Assignment</a></td></tr>-->
-<!--                            <tr><td rowspan="4" style="font-weight:550;text-align:center;">Software</td><td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Linux User Guide</a></td></tr>-->
-<!--                            &lt;!&ndash; <tr>-->
-<!--                                <td class="doc_td_left">-->
-<!--                                    <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
-<!--                            ick="getDocument('220')">Qualcomm Robotics RB3 LE SDK User Manual</a> -->
-<!--                                </td>-->
-<!--                            </tr> &ndash;&gt;-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow"><span style="color:blue;text-decoration:underline;">Qualcomm Robotics RB3 Platform Release notes</span></a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SLM Camera ImageViewer.pdf</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">RB3 Robomaker Guide</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <td colspan="2" rowspan="2" style="font-weight:550px;text-align:center;">Firmware</td>-->
-<!--                                &lt;!&ndash;-->
-<!--                                                <td class="doc_td_left">-->
-<!--                                                    <a title="docment" rel="nofollow" href="javascript:void(0)" oncl=-->
-<!--                                ick="getDocument('166')">Qualcomm Robotics-->
-<!--                                                                RB3 Platform Image_20190222</a> -->
-<!--                                                </td>-->
-<!--                                &ndash;&gt;<td class="doc_td_left"><a title="docment" rel="nofollow">Qualcomm Robotics RB3 Platform Image_20191029</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Readme</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td rowspan="11" colspan="2" style="font-weight:550;text-align:center;">Samples-apps-codes</td><td class="doc_td_left"><a title="docment" rel="nofollow">button_test.tar</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">can-test.tar</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">bt-app_test.tar</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">aplay_test.tar</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">hal_play_test.tar</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">sns_hal_tests.tar</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">camera_test.tar</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">omx_test.tar</a>-->
-<!--                            </td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">gst_test.tar</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">opengles_test.tar</a>-->
-<!--                            </td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">ros_test.tar</a>-->
-<!--                            </td></tr>-->
-<!--                            <tr><td rowspan="5" colspan="2" style="font-weight:550;text-align:center;">testResource</td><td class="doc_td_left"><a title="docment" rel="nofollow">Audio</a>-->
-<!--                            </td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">FastCV</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">OpenGLES</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">Video</a></td>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">SNPE</a></td></tr>-->
-<!--                            <tr><td rowspan="6" colspan="2" style="font-weight:550;text-align:center;">Tools</td><td class="doc_td_left"><a title="docment" rel="nofollow">SLM-->
-<!--                                        Camera Image-->
-<!--                                        Viewer.exe</a></td></tr><tr>-->
-<!--                            </tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow">App-->
-<!--                                        Toolchain-->
-<!--                                        SDK</a></td></tr><tr><td class="doc_td_left"><a title="docment" rel="nofollow">QTI-->
-<!--                                        USB driver</a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;">TFlash</span> </a></td></tr>-->
-<!--                            <tr><td class="doc_td_left"><a title="docment" rel="nofollow" target="_blank"><span style="color:blue;text-decoration:underline;text-align: left">Thundersoft_Flash_Programmer_Tool_User_Guide</span> </a></td></tr>-->
-<!--                            </tbody>-->
-<!--                            </table>-->
-<!--                        </div>-->
-
-<!--                        <hr class="all_hr"  >-->
-<!--                    </div>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--                &lt;!&ndash;            <div class="footer">&ndash;&gt;-->
-<!--                &lt;!&ndash;                <div  class="footer_inners">&ndash;&gt;-->
-<!--                &lt;!&ndash;                    <div class="footer_inner">&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <span class="footer_span1">CONTACT INFO联系方式</span>&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <span class="footer_span11">中科创达股份有限公司是智能操作系统产品和技术提供商。自2008年成立依赖，公司致力于提供智能化操作系统系列产品、技术及解决方案。</span>&ndash;&gt;-->
-<!--                &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;                    <div class="footer_inner">&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <span class="footer_span2">(86)10-62662686</span>&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <span class="footer_span21">biz@thundersoft.com</span>&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <span class="footer_span22">北京市海淀区清华东路9号院3号楼创达大厦 邮编：100083</span>&ndash;&gt;-->
-<!--                &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            </div>-->
         </div>
     </el-container>
 
@@ -1085,6 +532,21 @@
             }
         },
         methods:{
+            dev_mag(){
+                const tokenStr=window.sessionStorage.getItem('token');
+
+                if(!tokenStr){
+                    this.$message.error("请先登录！")
+                    this.login_dialog1=true
+                }else {
+                    this.$router.push(
+                        {
+                            path: '/instance',
+
+                        }
+                    );
+                }
+            },
             download(){
                 this.$i18n.locale = 'en'
                 //console.log($i18n.locale)
@@ -1119,11 +581,18 @@
                 document.querySelector(tab.name).scrollIntoView(true);
             },
             buy_rb3() {
+                const tokenStr=window.sessionStorage.getItem('token');
+
+                if(!tokenStr){
+                    this.$message.error("请先登录！")
+                    this.login_dialog1=true
+                }else {
                 this.$router.push(
                     { path: '/buy',
-                        query:{ name:'RB3'}
+                        query:{ name:'RB 3',
+                            good_id: 1682320,}
                     }
-                );
+                );}
 
             },
             showMore(){
@@ -1491,7 +960,7 @@
     }
     .aikit_btn{
         /*margin: 60px  auto 101.5px 0;*/
-        margin-top: 50px;
+        margin-top:30px;
         margin-bottom: 20px;
     }
     #aikit_ours{
@@ -1775,7 +1244,7 @@
     }
     .aikit_btn {
         /*margin: 60px  auto 101.5px 0;*/
-        margin-top: 60px;
+        margin-top: 20px;
         margin-bottom: 20px;
     }
     #aikit_ours {
@@ -1835,7 +1304,7 @@
 
 
     .aikit_pic{
-        background-image: url("../../assets/images/aikit_pic.png");
+        background-image: url("../../assets/images/rb3_pic.jpg");
         height: 450px;
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -1848,7 +1317,7 @@
         font-size: 36px;
         /*margin:  3% 26.1% 7.7% 46.8%;*/
         margin-left: 46.8%;
-        padding-top: 6%;
+        padding-top: 4%;
     }
     .aikit_body_title p{
         font-size:14px ;

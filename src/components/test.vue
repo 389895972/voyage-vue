@@ -1,4 +1,5 @@
 <template>
+
     <div>
 <!--        <div class="act-form">-->
 <!--            <iframe :src="src" width="400px" height="500px" ref="iframe"></iframe>-->
@@ -9,10 +10,12 @@
                    @click="activeLoading=!activeLoading">test111</el-button>
 
 
+
     </div>
 
 </template>
 <script>
+
     export default {
         data(){
             return{
@@ -25,6 +28,7 @@
         methods:{
 
 
+
         },
         mounted(){
 
@@ -35,6 +39,7 @@
     }
 </script>
 <style scoped>
+
 
 </style>
 <style>
