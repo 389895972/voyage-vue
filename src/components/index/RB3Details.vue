@@ -24,7 +24,7 @@
                 <div class="aikit_pic">
 
                     <div class="aikit_body_title">
-                        Qualcomm®Robotics RB3平台（SDA845）
+                        Qualcomm<sup>&reg;</sup>Robotics RB3平台（SDA845）
 <!--                        <SUP>TM</SUP>AI套件-->
                         <div class="content">
                             <p style="width: 670px;margin-left: 0;margin-top: 30px">高通机器人公司RB3开发套件通过将高性能异构计算、高通®人工智能（AI）引擎（用于设备上机器学习、计算机视觉、保险库式安全、多媒体和Wi-Fi以及蜂窝连接（4G/LTE和CBRS）。包括一套全面的软件和硬件，包括业界最好的六轴运动传感器（ICM 42688）、顶级端口PDM传声器（ICS 41351）和气压传感器（ICP—10101），来自TDK VANSENSENS。高通机器人Rb3开发套件旨在帮助制造商和开发人员创建机器人产品。从大型工业和企业机器人到具有挑战性的功耗和散热要求的小型电池驱动机器人。</p>
@@ -45,55 +45,8 @@
                         <div class="pro_show_div" id="iii"><span >产品优势</span></div>
                     </div>
                     <div class="pro_advs">
-                        <span class="adv_span1">介绍</span>
-                        <div>
-                            <p >
-<!--                                The Qualcomm Robotics RB3 development kit includes the purpose-built robotics-focused DragonBoard<sup>TM</sup> 845c development board, based on the Qualcomm<sup>&reg;</sup> SDA845 processor and compliant with the 96Boards open hardware specification to support a broad range of mezzanine-board expansions.-->
-                                Qualcomm Robotics RB3开发套件包括专门针对机器人技术的DragonBoardTM 845c开发板，该开发板基于Qualcomm®SDA845处理器并符合96Boards开放式硬件规格，以支持多种夹层板扩展。
-                            </p>
-                            <p>
-<!--                                The Qualcomm SDA845 processor is a heterogeneous computing architecture and integrates an Octa Core Qualcomm <sup> &reg;</sup> Kryo<sup>TM</sup> CPU withperformance up to 2.8GHz a Qualcomm<sup>&reg;</sup> AdrenoQualcomm<sup>TM</sup> 630 Visual Processing Subsystem (including GPU, VPU and DPU), and a Qualcomm<sup>&reg;</sup> HexagonQualcomm<sup>TM</sup> 685 DSP with Hexagon Vector Extensions (HVX) delivering sophisticated, on-device AI processing and mobile-optimized computer vision (CV) capabilities for perception, navigation and manipulation.-->
-                                Qualcomm SDA845处理器是一种异构计算架构，集成了性能高达2.8GHz的Octa Core Qualcomm®KryoTM CPU，Qualcomm®AdrenoQualcommTM 630视觉处理子系统（包括GPU，VPU和DPU）以及Qualcomm®HexagonQualcommTM 685 DSP和Hexagon Vector 扩展程序（HVX）提供先进的设备上AI处理功能和针对感知，导航和操纵的针对移动设备优化的计算机视觉（CV）功能。
-                            </p>
-                            <p >
-<!--                                The development board supports Linux and Robotics Operating System (ROS), while also including support for the Qualcomm<sup>&reg;</sup> Neural Processing software development kit (SDK) for advanced on-device AI, the Qualcomm<sup>&reg;</sup> Computer Vision Suite, the Qualcomm<sup>&reg;</sup> Hexagon DSP SDK, and<a href="https://aws.amazon.com/robomaker/" target="_blank" rel="nofollow" style="text-decoration: underline !important;">AWS RoboMaker</a>.-->
-                                该开发板支持Linux和机器人操作系统（ROS），还包括用于高级设备上AI的Qualcomm®神经处理软件开发套件（SDK），Qualcomm®Computer Vision Suite，Qualcomm®Hexagon DSP SDK，和AWS RoboMaker。
-                            </p>
-                            <p>
-<!--                                The kit includes:-->
-                                该套件包括：
-                            </p>
 
-                            <ul >
-                                <li>
-<!--                                    Robotics DragonBoard Qualcomm<sup>TM</sup> 845c development board featuring Qualcomm<sup>&reg;</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification-->
-                                    Robotics DragonBoard QualcommTM 845c开发板具有Qualcomm®SDA / SDM845处理器并符合96Boards开放式硬件规格
-                                </li>
-                                <li>
-<!--                                    Qualcomm Robotics navigation mezzanine featuring time-of-flight, trackingcamera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification-->
-                                    高通机器人导航夹层具有飞行时间，跟踪摄像头，有源立体摄像头和主摄像头，符合96Boards开放式硬件规格
-                                </li>
-                                <li>
-<!--                                    Sensor support including the industry&prime;s best performing ICM-426886-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense-->
-                                    传感器支持，包括业界性能最佳的ICM-426886轴高性能运动传感器，ICS-41351顶部端口数字麦克风和TDK InvenSense的ICP-10101气压传感器
-                                </li>
-                                <li>
-<!--                                    Qualcomm Robotics cellular mezzanine (optional)-->
-                                    Qualcomm Robotics蜂窝夹层楼（可选）
-                                </li>
-                                <li>
-<!--                                    Multi-Mic support-->
-                                    多麦克风支持
-                                </li>
-                                <li>
-<!--                                    Power supply-->
-                                    电源
-                                </li>
-                            </ul>
-
-
-                        </div>
-                        <span class="adv_span1">强调</span>
+                        <span class="adv_span1">优势</span>
                         <table style="font-size:12px;font-family:Arial, Helvetica, sans-serif;text-align: left">
                             <tbody>
                             <tr>
@@ -112,11 +65,11 @@
                             <tr>
                                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
 <!--                                    The Qualcomm <sup>&reg;</sup> AI Engine on the Qualcomm<sup>&reg;</sup> Robotics RB3 Platform includes the Qualcomm&reg; Neural Processing SDK,which encompasses analysis, optimization, and debugging tools designed to allow developers and manufacturers to port trained deep learning networks on the various heterogeneous compute blocks offered by the platform.-->
-                                    Qualcomm®Robotics RB3平台上的Qualcomm®AI引擎包括Qualcomm®Neural Processing SDK，它包含分析，优化和调试工具，旨在使开发人员和制造商可以将经过训练的深度学习网络移植到由其提供的各种异构计算模块上。
+                                    Qualcomm<sup>&reg;</sup>Robotics RB3平台上的Qualcomm<sup>&reg;</sup>AI引擎包括Qualcomm<sup>&reg;</sup>Neural Processing SDK，它包含分析，优化和调试工具，旨在使开发人员和制造商可以将经过训练的深度学习网络移植到由其提供的各种异构计算模块上。
                                 </td>
                                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
 <!--                                    The Qualcomm <sup>&reg;</sup> Robotics RB3 Platform is designed to support large industrial and enterpriseenterprise robot&prime;s as well as small battery-operated robots with challenging power and thermal dissipation requirements.-->
-                                    Qualcomm®Robotics RB3平台旨在支持具有挑战性的电源和散热要求的大型工业和企业级机器人以及小型电池供电的机器人。
+                                    Qualcomm<sup>&reg;</sup>Robotics RB3平台旨在支持具有挑战性的电源和散热要求的大型工业和企业级机器人以及小型电池供电的机器人。
                                 </td>
                             </tr>
                             <tr>
@@ -202,7 +155,7 @@
                                 </td>
                                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
 <!--                                    Qualcomm <sup>&reg;</sup>Secure Processing Unit, hardware root of trust, trusted execution environment, secure boot, camera security-->
-                                    Qualcomm®安全处理单元，信任的硬件根，信任的执行环境，安全启动，相机安全性
+                                    Qualcomm<sup>&reg;</sup>安全处理单元，信任的硬件根，信任的执行环境，安全启动，相机安全性
                                 </td>
                             </tr>
                             <!-- =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F -->
@@ -211,7 +164,7 @@
                                 <td><br><img src="../../assets/images/rb3/rb3-9.png" alt=""></td><td><br><img src="../../assets/images/rb3/rb3-10.png" alt=""></td>
                             </tr>
                             <tr>
-                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">
+                                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;" >
 <!--                                    Sensor Core-->
                                     传感器核心
                                 </td>
@@ -220,7 +173,7 @@
                                     连接性
                                 </td>
                             </tr>
-                            <tr><td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
+                            <tr><td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;" id="i2">
 <!--                                Support for multiple sensors and 3rd party algorithms through Sensor Software Framework-->
                                 通过传感器软件框架支持多种传感器和第三方算法
                             </td>
@@ -240,7 +193,7 @@
 
                 <div class="pro_show" >
                     <div  class="pro_show_div_border">
-                        <div class="pro_show_div" ><span >产品规格</span></div>
+                        <div class="pro_show_div"><span >产品规格</span></div>
                     </div>
                     <div class="pro_advs">
                         <span class="adv_span1">Robotics DragaonBoard™845c的规格</span>
@@ -318,16 +271,66 @@
                             </tr>
                             <tr><td>Power Source</td>
                                 <td style="text-align:left;padding-left:10px;">12V@2.5A adapter with a DC plug</td></tr>
-                            <tr><td>OS Support</td><td style="text-align:left;padding-left:10px;">LE</td></tr>
+                            <tr id="i3"><td>OS Support</td><td style="text-align:left;padding-left:10px;">LE</td></tr>
                             <tr><td>Size</td><td style="text-align:left;padding-left:10px;">85mm by 54 mm</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="pro_show" id="i3">
+                <div class="pro_show" >
                     <div  class="pro_show_div_border">
                         <div class="pro_show_div" ><span >产品特性</span></div>
+                    </div>
+                    <div class="pro_advs">
+                    <span class="adv_span1">介绍</span>
+                    <div>
+                        <p >
+                            <!--                                The Qualcomm Robotics RB3 development kit includes the purpose-built robotics-focused DragonBoard<sup>TM</sup> 845c development board, based on the Qualcomm<sup>&reg;</sup> SDA845 processor and compliant with the 96Boards open hardware specification to support a broad range of mezzanine-board expansions.-->
+                            Qualcomm Robotics RB3开发套件包括专门针对机器人技术的DragonBoardTM 845c开发板，该开发板基于Qualcomm<sup>&reg;</sup>SDA845处理器并符合96Boards开放式硬件规格，以支持多种夹层板扩展。
+                        </p>
+                        <p>
+                            <!--                                The Qualcomm SDA845 processor is a heterogeneous computing architecture and integrates an Octa Core Qualcomm <sup> &reg;</sup> Kryo<sup>TM</sup> CPU withperformance up to 2.8GHz a Qualcomm<sup>&reg;</sup> AdrenoQualcomm<sup>TM</sup> 630 Visual Processing Subsystem (including GPU, VPU and DPU), and a Qualcomm<sup>&reg;</sup> HexagonQualcomm<sup>TM</sup> 685 DSP with Hexagon Vector Extensions (HVX) delivering sophisticated, on-device AI processing and mobile-optimized computer vision (CV) capabilities for perception, navigation and manipulation.-->
+                            Qualcomm SDA845处理器是一种异构计算架构，集成了性能高达2.8GHz的Octa Core Qualcomm<sup>&reg;</sup>KryoTM CPU，Qualcomm<sup>&reg;</sup>AdrenoQualcommTM 630视觉处理子系统（包括GPU，VPU和DPU）以及Qualcomm<sup>&reg;</sup>HexagonQualcomm <sup>TM</sup> 685 DSP和Hexagon Vector 扩展程序（HVX）提供先进的设备上AI处理功能和针对感知，导航和操纵的针对移动设备优化的计算机视觉（CV）功能。
+                        </p>
+                        <p >
+                            <!--                                The development board supports Linux and Robotics Operating System (ROS), while also including support for the Qualcomm<sup>&reg;</sup> Neural Processing software development kit (SDK) for advanced on-device AI, the Qualcomm<sup>&reg;</sup> Computer Vision Suite, the Qualcomm<sup>&reg;</sup> Hexagon DSP SDK, and<a href="https://aws.amazon.com/robomaker/" target="_blank" rel="nofollow" style="text-decoration: underline !important;">AWS RoboMaker</a>.-->
+                            该开发板支持Linux和机器人操作系统（ROS），还包括用于高级设备上AI的Qualcomm<sup>&reg;</sup>神经处理软件开发套件（SDK），Qualcomm<sup>&reg;</sup>Computer Vision Suite，Qualcomm<sup>&reg;</sup>Hexagon DSP SDK，和AWS RoboMaker。
+                        </p>
+                        <p>
+                            <!--                                The kit includes:-->
+                            该套件包括：
+                        </p>
+
+                        <ul >
+                            <li>
+                                <!--                                    Robotics DragonBoard Qualcomm<sup>TM</sup> 845c development board featuring Qualcomm<sup>&reg;</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification-->
+                                Robotics DragonBoard Qualcomm <SUP>TM</SUP> 845c开发板具有Qualcomm<sup>&reg;</sup>SDA / SDM845处理器并符合96Boards开放式硬件规格
+                            </li>
+                            <li>
+                                <!--                                    Qualcomm Robotics navigation mezzanine featuring time-of-flight, trackingcamera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification-->
+                                高通机器人导航夹层具有飞行时间，跟踪摄像头，有源立体摄像头和主摄像头，符合96Boards开放式硬件规格
+                            </li>
+                            <li>
+                                <!--                                    Sensor support including the industry&prime;s best performing ICM-426886-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense-->
+                                传感器支持，包括业界性能最佳的ICM-426886轴高性能运动传感器，ICS-41351顶部端口数字麦克风和TDK InvenSense的ICP-10101气压传感器
+                            </li>
+                            <li>
+                                <!--                                    Qualcomm Robotics cellular mezzanine (optional)-->
+                                Qualcomm Robotics蜂窝夹层楼（可选）
+                            </li>
+                            <li>
+                                <!--                                    Multi-Mic support-->
+                                多麦克风支持
+                            </li>
+                            <li>
+                                <!--                                    Power supply-->
+                                电源
+                            </li>
+                        </ul>
+
+
+                    </div>
                     </div>
                     <div class="pro_advs">
                         <span class="adv_span1">应用领域</span>
@@ -340,8 +343,8 @@
                         <div class="contain">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <p class="p" style="line-height:1.7em;margin-right:50px;text-align:justify;">
-                                        Qualcomm&prime;s Robotics RB3 Platform with ROS has been seamlessly integrated with and drives Kobuki mobile research base. RB3 platform&prime;s ToF camera or structured light camera can be used for depth mapping and development of navigation algorithms to drive the Kobuki. RB3 platform&prime;s tracking camera can be used for visual simultaneous location and mapping (vSLAM), and the high resolution camera can be used for video recording.
+                                    <p class="p" style="line-height:1.7em;margin-right:50px;text-align:justify; margin-left: 2.8%;">
+                                        高通公司的机器人 rb3平台与罗斯无缝集成和驱动 kobuki 移动研究基地。 Rb3平台的相机或结构光相机可以用于深度制图和开发导航算法来驱动 kobuki 。 Rb3平台的跟踪摄像机可用于视觉同步定位和地图绘制(vslam) ，高分辨率摄像机可用于视频记录。
                                     </p>
                                 </div>
                                 <div class="col-md-2">
@@ -372,7 +375,7 @@
                     <div class="product_documents">
                         <div class = "product_document">
                             <div class="product_document_left">
-                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <img class="document_image" src="../../assets/icons/pdf.png">
                                 <span class="document_name">相关操作文档.pdf</span>
                             </div>
                             <div class="product_document_right">
@@ -386,7 +389,7 @@
 
                         <div class = "product_document">
                             <div class="product_document_left">
-                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <img class="document_image" src="../../assets/icons/pdf.png">
                                 <span class="document_name">相关操作文档.pdf</span>
                             </div>
                             <div class="product_document_right">
@@ -400,7 +403,7 @@
 
                         <div class = "product_document">
                             <div class="product_document_left">
-                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <img class="document_image" src="../../assets/icons/pdf.png">
                                 <span class="document_name">相关操作文档.pdf</span>
                             </div>
                             <div class="product_document_right">
@@ -415,7 +418,7 @@
                         <div v-if="isMore" class="more">
                             <div class = "product_document">
                                 <div class="product_document_left">
-                                    <img class="document_image" src="../../assets/icons/pdf.svg">
+                                    <img class="document_image" src="../../assets/icons/pdf.png">
                                     <span class="document_name">相关操作文档.pdf</span>
                                 </div>
                                 <div class="product_document_right">
@@ -588,7 +591,7 @@
                     this.login_dialog1=true
                 }else {
                 this.$router.push(
-                    { path: '/buy',
+                    { path: '/buy_rb3',
                         query:{ name:'RB 3',
                             good_id: 1682320,}
                     }
@@ -635,8 +638,8 @@
         text-align: right;
     }
     .document_image{
-        width: 31px;
-        height: 36px;
+        width: 28px;
+        height: 29px;
     }
     .document_name{
         font-family: PingFangSC-Regular;
@@ -666,6 +669,7 @@
 
         margin-left: 20px;
         margin-right: 0px;
+        cursor: pointer;
     }
     .document_hr{
         margin-top: 10px;

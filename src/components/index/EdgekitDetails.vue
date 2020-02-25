@@ -26,7 +26,8 @@
           <div class="aikit_body_title">
               TurboX Edge Kit
             <div class="content">
-                <p style="width:670px;margin:30px auto auto 0">EdgeKit的目标是致力于驱动和实现在日常生活中运行的健壮、可靠和智能的通用边缘计算E2E解决方案。为了加速边缘计算服务的部署，EdgeKit的团队与LF EdGE、AWS和高通公司合作，它们提供可互操作的、灵活的和可伸缩的边缘计算服务平台、云基础设施和芯片组。Edge-Kit是高通SNPE公司推出的一款基于设备的人工智能产品，能够满足日益增长的机器视觉、人工智能算法、预测性维护等需求。EdgeKit最初支持Edge-X，它对于任何供应商都是中立的，公共开放框架为AIOT中的边缘计算架构提供了简化和标准化的基础。EdgeKit是一个易于操作的DevKit，有很好的文档和教程。</p>
+                <p style="width:670px;margin:30px auto auto 0">
+                    EdgeKit的目标是致力于驱动和实现在日常生活中运行的强大、可靠和智能的通用边缘计算E2E解决方案。为了加速边缘计算服务的部署，EdgeKit的团队与LF Edge、AWS和高通公司合作，它们提供可互操作的、灵活的和可伸缩的边缘计算服务平台、云基础设施和芯片组。Edge-Kit是高通SNPE公司推出的一款基于设备的人工智能产品，能够满足日益增长的机器视觉、人工智能算法、预测性维护等需求。EdgeKit最初支持Edge-X，它对于任何供应商都是中立的，公共开放框架为AIOT中的边缘计算架构提供了简化和标准化的基础。EdgeKit是一个易于操作的DevKit，有很好的文档和教程。</p>
             </div>
             <div class="aikit_btn">
               <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_edgekit">立即购买</el-button>
@@ -43,52 +44,8 @@
             <div class="pro_show_div" id="iii"><span >产品优势</span></div>
           </div>
           <div class="pro_advs">
-            <span class="adv_span1">介绍</span>
-            <div>
-              <p >
-                TurboX Edge套件包括专门针对机器人的龙板™ 845c开发板，基于高通公司（Qualcomm）SDA845处理器，符合96板开放硬件规范，支持多种夹层板扩展。
-              </p>
-              <p>
-                Qualcomm SDA845处理器是一种异构计算架构，它集成了一个性能高达2.8GHz的八核Qualcomm？Kryo？CPU、一个Qualcomm？Adreno？630视频处理子系统（包括GPU、VPU和DPU）和一个Qualcomm？Hexagon？685数字信号处理器（带有Hexagon Vector Extensions（HVX））来提供复杂的设备内人工智能处理和移动优化计算机视觉（CV）感知、导航和操作能力。
-              </p>
-              <p >
-                开发板支持Linux和Robotics操作系统（ROS），同时还支持用于高级设备人工智能的Qualcomm®神经处理软件开发工具包（SDK）、Qualcomm®计算机视觉套件、Qualcomm®Hexagon DSP SDK。
-              </p>
-              <p>
-                <!--                                The kit includes:-->
-                该套件包括：
-              </p>
 
-              <ul >
-                <li>
-                  <!--                                    Robotics DragonBoard Qualcomm<sup>TM</sup> 845c development board featuring Qualcomm<sup>&reg;</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification-->
-                  Robotics DragonBoard QualcommTM 845c开发板具有Qualcomm®SDA / SDM845处理器并符合96Boards开放式硬件规格
-                </li>
-                <li>
-                  <!--                                    Qualcomm Robotics navigation mezzanine featuring time-of-flight, trackingcamera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification-->
-                  高通机器人导航夹层具有飞行时间，跟踪摄像头，有源立体摄像头和主摄像头，符合96Boards开放式硬件规格
-                </li>
-                <li>
-                  <!--                                    Sensor support including the industry&prime;s best performing ICM-426886-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense-->
-                  传感器支持，包括业界性能最佳的ICM-426886轴高性能运动传感器，ICS-41351顶部端口数字麦克风和TDK InvenSense的ICP-10101气压传感器
-                </li>
-                <li>
-                  <!--                                    Qualcomm Robotics cellular mezzanine (optional)-->
-                  Qualcomm Robotics蜂窝夹层楼（可选）
-                </li>
-                <li>
-                  <!--                                    Multi-Mic support-->
-                  多麦克风支持
-                </li>
-                <li>
-                  <!--                                    Power supply-->
-                  电源
-                </li>
-              </ul>
-
-
-            </div>
-            <span class="adv_span1">强调</span>
+            <span class="adv_span1">优势</span>
             <table style="font-size:12px;font-family:Arial, Helvetica, sans-serif;text-align: left">
               <tbody>
               <tr>
@@ -107,11 +64,11 @@
               <tr>
                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
                   <!--                                    The Qualcomm <sup>&reg;</sup> AI Engine on the Qualcomm<sup>&reg;</sup> Robotics RB3 Platform includes the Qualcomm&reg; Neural Processing SDK,which encompasses analysis, optimization, and debugging tools designed to allow developers and manufacturers to port trained deep learning networks on the various heterogeneous compute blocks offered by the platform.-->
-                  Qualcomm®Robotics RB3平台上的Qualcomm®AI引擎包括Qualcomm®Neural Processing SDK，它包含分析，优化和调试工具，旨在使开发人员和制造商可以将经过训练的深度学习网络移植到由其提供的各种异构计算模块上。
+                  Qualcomm <sup>®</sup>Robotics RB3平台上的Qualcomm<sup>®</sup>AI引擎包括Qualcomm<sup>®</sup>Neural Processing SDK，它包含分析，优化和调试工具，旨在使开发人员和制造商可以将经过训练的深度学习网络移植到由其提供的各种异构计算模块上。
                 </td>
                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
                   <!--                                    The Qualcomm <sup>&reg;</sup> Robotics RB3 Platform is designed to support large industrial and enterpriseenterprise robot&prime;s as well as small battery-operated robots with challenging power and thermal dissipation requirements.-->
-                  Qualcomm®Robotics RB3平台旨在支持具有挑战性的电源和散热要求的大型工业和企业级机器人以及小型电池供电的机器人。
+                  Qualcomm<sup>®</sup>Robotics RB3平台旨在支持具有挑战性的电源和散热要求的大型工业和企业级机器人以及小型电池供电的机器人。
                 </td>
               </tr>
               <tr>
@@ -197,7 +154,7 @@
                 </td>
                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
                   <!--                                    Qualcomm <sup>&reg;</sup>Secure Processing Unit, hardware root of trust, trusted execution environment, secure boot, camera security-->
-                  Qualcomm®安全处理单元，信任的硬件根，信任的执行环境，安全启动，相机安全性
+                  Qualcomm<sup>®</sup>安全处理单元，信任的硬件根，信任的执行环境，安全启动，相机安全性
                 </td>
               </tr>
               <!-- =E6=96=B0=E5=A2=9E=E7=BB=93=E6=9D=9F -->
@@ -236,135 +193,270 @@
 
         <div class="pro_show" >
           <div  class="pro_show_div_border">
-            <div class="pro_show_div" ><span >产品规格</span></div>
+            <div class="pro_show_div" id="i2"><span >产品规格</span></div>
           </div>
 
           <div class="pro_advs">
-            <table
-                    border="1"
-                    style="border:1px solid #F1F3F5;margin-top:10px;border-collapse:collapse;width:100%;text-align:left;line-height:2em;"
-            >
-              <tbody>
-              <tr style="background-color:#E4E7EB;color:black;font-weight:700;">
-                <td>Module</td>
-                <td>Item</td>
-                <td>Spec</td>
-              </tr>
-              </tbody>
-              <tbody>
-              <tr>
-                <td rowspan="4">Computing</td>
-                <td>CPU</td>
-                <td>Qualcomm SDA845 processor, 8x Qualcomm=C2=AE Kryo=E2=84=A2 385 @ 2.8GHz</td>
-              </tr>
-              <tr>
-                <td>GPU</td>
-                <td>Adreno 630 GPU</td>
-              </tr>
-              <tr>
-                <td>DSP</td>
-                <td>Hexgan 685 DSP</td>
-              </tr>
-              <tr>
-                <td>ISP</td>
-                <td>Qualcomm Spectra=E2=84=A2 280 image sensor processor</td>
-              </tr>
-              <tr>
-                <td rowspan="3">Memory</td>
-                <td>RAM</td>
-                <td>8GB LPDDR4</td>
-              </tr>
-              <tr>
-                <td>ROM</td>
-                <td>64GB UFS2.1</td>
-              </tr>
-              <tr>
-                <td>SD Card</td>
-                <td>Support MicroSD Card</td>
-              </tr>
-              <tr>
-                <td rowspan="2">Camera</td>
-                <td>Built in Camera</td>
-                <td>8MP, FOV 120 degree;</td>
-              </tr>
-              <tr>
-                <td>External Camera</td>
-                <td>
-                  <span>USB3.0 camera (accessory, not included in release)</span>=20
-                </td>
-              </tr>
-              <tr>
-                <td rowspan="2">Display</td>
-                <td>HDMI</td>
-                <td>1x Micro HDMI, 4k Ultra HD</td>
-              </tr>
-              <tr>
-                <td>Type C</td>
-                <td>4k Ultra HD</td>
-              </tr>
-              <tr>
-                <td>Video</td>
-                <td>VPU</td>
-                <td>Support for HDR10, HLG, and H.265 (HEVC) 4k@60fps video capture</td>
-              </tr>
-              <tr>
-                <td rowspan="3">Audio</td>
-                <td>Speaker</td>
-                <td>1x speaker</td>
-              </tr>
-              <tr>
-                <td>Audio out</td>
-                <td>1x Headsetout</td>
-              </tr>
-              <tr>
-                <td>Microphone</td>
-                <td>1x microphone</td>
-              </tr>
-              <tr>
-                <td>Wireless Connectivity</td>
-                <td>WIFI</td>
-                <td>2.4G/5G,802.11 a/b/g/n/ac 2x2 MIMO</td>
-              </tr>
-              <tr>
-                <td rowspan="2">Wired Connectivity</td>
-                <td>USB</td>
-                <td>3x USB3.0 host, 1x 3.0 Type C</td>
-              </tr>
-              <tr>
-                <td>Ethernet</td>
-                <td>1x GbE.</td>
-              </tr>
-              <tr>
-                <td>Debug Port</td>
-                <td>Micro USB</td>
-                <td>1x Micro USB (connecting to serial port for debug purpose)</td>
-              </tr>
-              <tr>
-                <td>Indicator</td>
-                <td>LED</td>
-                <td>RGB Led: Power status, WIFI status, Ethernet status;</td>
-              </tr>
-              <tr>
-                <td>Input</td>
-                <td>Buttons</td>
-                <td>Power key/ Volume up/down key/Camera snapshot key</td>
-              </tr>
-              <tr>
-                <td>Sensors</td>
-                <td>9-axis sensor</td>
-                <td>Gyroscope &amp; accelerometer &amp; geomagnetic sensor</td>
-              </tr>
-              <tr>
-                <td>Power</td>
-                <td>Power charging</td>
-                <td>12v DC</td>
-              </tr>
-              </tbody>
-            </table>
+              <span class="adv_span1">Robotics DragaonBoard™845c的规格</span>
+              <table border="1" style="border:1px solid #F1F3F5;font-size:12px;border-collapse:collapse;width:100%;text-align:left;line-height:2em;">
+                  <tbody>
+                  <tr style="background-color:#E4E7EB;color:black;font-weight:700;">
+                      <td style="width:15%;">
+                          Component
+                      </td>
+                      <td style="text-align: left;">
+                          Qualcomm<sup>&reg;</sup> Robotics RB3 Development Kit
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          SoC
+                      </td>
+                      <td style="text-align:left;padding-left:10px;">
+                          Qualcomm<sup>&reg;</sup>&nbsp;SDA845
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          CPU
+                      </td>
+                      <td style="text-align:left;padding-left:10px;">
+                          SDA845 8x Kryo 385 CPU, up to 2.8 GHz
+                      </td>
+                  </tr>
+                  <tr><td>GPU</td>
+                      <td style="text-align:left;padding-left:10px;">Qualcomm<sup>&reg;</sup> Adreno<sup>TM</sup> 630 GPU with support for OpenGL ES 3.2 and Open CL 2.0</td></tr>
+                  <tr><td>DSP</td><td style="text-align:left;padding-left:10px;">Qualcomm<sup>&reg;</sup> Hexagon<sup>TM</sup> 685 DSP with 3rd Gen Vector Extensions</td>
+                  </tr>
+                  <tr>
+                  </tr>
+                  <tr><td>ISP</td><td style="text-align:left;padding-left:10px;">Qualcomm<sup>&reg;</sup> Spectra<sup>TM</sup> 280 Image Signal Processor with new architecture for 14-bit image signal processing</td></tr>
+                  <tr><td>RAM</td><td style="text-align:left;padding-left:10px;">4GB LPDDR4x SDRAM @ 1866 MHz</td></tr>
+                  <tr><td>Memory</td><td style="text-align:left;padding-left:10px;">LPDDR4x, 4x16 bit; up to 1866MHz, 4GB RAM</td>
+                  </tr><tr></tr>
+                  <tr><td>Storage</td><td style="text-align:left;padding-left:10px;">64GB UFS 2.1 on-board storage and 1 x MicroSD card slot</td>
+                  </tr><tr><td>Ethernet</td><td style="text-align:left;padding-left:10px;">1x GbE Ethernet</td>
+                  </tr><tr><td>
+                      Wireless</td><td style="text-align:left;padding-left:10px;">Wi-Fi integrated 802.11ac 2x2 with MU-MIMO; Tri-band Wi-Fi: 2.4 GHz and5 GHz with Dual Band Simultaneous (DBS).<br>Qualcomm <sup>&reg;</sup> TrueWireless<sup>TM</sup> Bluetooth 5.0</td>
+                  </tr>
+                  <tr><td>Location</td>
+                      <td style="text-align:left;padding-left:10px;">GPS, Glonass, BeiDou, Galileo, QZSS, and SBAS</td>
+                  </tr>
+                  <tr><td>
+                      USB</td>
+                      <td style="text-align:left;padding-left:10px;">
+                          1 x USB 2.0 Micro B (Debug only)<br>
+                          1 x USB 3.0 Type C (OTG mode)<br>
+                          2x USB 3.0 Type A (Host mode only)</td>
+                  </tr>
+                  <tr><td>
+                      Display</td>
+                      <td style="text-align:left;padding-left:10px;">
+                          Two 4-lane DSI, D-PHY 1.2 or C-PHY 1.0; VESA DSC 1.1<br>
+                          1 x HDMI 1.4 (Type A - full) connector</td>
+                  </tr>
+                  <tr><td>Video</td>
+                      <td style="text-align:left;padding-left:10px;">Ultra HD Premium video capture @ 4K (3840x2160) 60fps, 10bit HDR, Rec 2020 color gamut; H.264 (AVC), H.265 (HEVC) and VP9 support; Slow motion HEVC video encoding of either HD (720p) video up to 480fps or FHD (1080p) up to 240fps</td></tr>
+                  <tr><td>Audio</td>
+                      <td style="text-align:left;padding-left:10px;">MP3; aacPlus, eAAC; WMA 9/Pro
+                      </td></tr>
+                  <tr><td>Camera</td>
+                      <td style="text-align:left;padding-left:10px;">Single HFR 16 MPix camera at 60fps ZSL, Dual 16 MPix cameras at 30fps ZSL, Single 32 MPix camera at 30fps ZSL</td></tr>
+                  <tr><td>Sensor</td>
+                      <td style="text-align:left;padding-left:10px;">ICM-42688 6-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense.</td></tr>
+                  <tr><td>Expansion Interfaces</td>
+                      <td style="text-align:left;padding-left:10px;">2 x 60 pin High-Speed connectors , 2 x 40 pin Low-Speed connectors, 1 x20 pin Low-Speed connector</td></tr>
+                  <tr><td>LED</td><td style="text-align:left;padding-left:10px;">7 x LED indicators</td></tr>
+                  <tr><td>Button</td>
+                      <td style="text-align:left;padding-left:10px;">Power ,Volume Up/Down,Force Usb Boot, DIP Switch</td>
+                  </tr>
+                  <tr><td>Power Source</td>
+                      <td style="text-align:left;padding-left:10px;">12V@2.5A adapter with a DC plug</td></tr>
+                  <tr id="i3"><td>OS Support</td><td style="text-align:left;padding-left:10px;">LE</td></tr>
+                  <tr><td>Size</td><td style="text-align:left;padding-left:10px;">85mm by 54 mm</td>
+                  </tr>
+                  </tbody>
+              </table>
+<!--            <table-->
+<!--                    border="1"-->
+<!--                    style="border:1px solid #F1F3F5;margin-top:10px;border-collapse:collapse;width:100%;text-align:left;line-height:2em;"-->
+<!--            >-->
+<!--              <tbody>-->
+<!--              <tr style="background-color:#E4E7EB;color:black;font-weight:700;">-->
+<!--                <td>Module</td>-->
+<!--                <td>Item</td>-->
+<!--                <td>Spec</td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--              <tbody>-->
+<!--              <tr>-->
+<!--                <td rowspan="4">Computing</td>-->
+<!--                <td>CPU</td>-->
+<!--                <td>Qualcomm SDA845 processor, 8x Qualcomm<sup>®</sup> Kryo<sup>TM</sup> 385 @ 2.8GHz</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>GPU</td>-->
+<!--                <td>Adreno 630 GPU</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>DSP</td>-->
+<!--                <td>Hexgan 685 DSP</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>ISP</td>-->
+<!--                <td>Qualcomm Spectra<sup>TM</sup> 280 image sensor processor</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td rowspan="3">Memory</td>-->
+<!--                <td>RAM</td>-->
+<!--                <td>8GB LPDDR4</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>ROM</td>-->
+<!--                <td>64GB UFS2.1</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>SD Card</td>-->
+<!--                <td>Support MicroSD Card</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td rowspan="2">Camera</td>-->
+<!--                <td>Built in Camera</td>-->
+<!--                <td>8MP, FOV 120 degree;</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>External Camera</td>-->
+<!--                <td>-->
+<!--                  <span>USB3.0 camera (accessory, not included in release)</span>=20-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td rowspan="2">Display</td>-->
+<!--                <td>HDMI</td>-->
+<!--                <td>1x Micro HDMI, 4k Ultra HD</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Type C</td>-->
+<!--                <td>4k Ultra HD</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Video</td>-->
+<!--                <td>VPU</td>-->
+<!--                <td>Support for HDR10, HLG, and H.265 (HEVC) 4k@60fps video capture</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td rowspan="3">Audio</td>-->
+<!--                <td>Speaker</td>-->
+<!--                <td>1x speaker</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Audio out</td>-->
+<!--                <td>1x Headsetout</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Microphone</td>-->
+<!--                <td>1x microphone</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Wireless Connectivity</td>-->
+<!--                <td>WIFI</td>-->
+<!--                <td>2.4G/5G,802.11 a/b/g/n/ac 2x2 MIMO</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td rowspan="2">Wired Connectivity</td>-->
+<!--                <td>USB</td>-->
+<!--                <td>3x USB3.0 host, 1x 3.0 Type C</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Ethernet</td>-->
+<!--                <td>1x GbE.</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Debug Port</td>-->
+<!--                <td>Micro USB</td>-->
+<!--                <td>1x Micro USB (connecting to serial port for debug purpose)</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Indicator</td>-->
+<!--                <td>LED</td>-->
+<!--                <td>RGB Led: Power status, WIFI status, Ethernet status;</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Input</td>-->
+<!--                <td>Buttons</td>-->
+<!--                <td>Power key/ Volume up/down key/Camera snapshot key</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Sensors</td>-->
+<!--                <td>9-axis sensor</td>-->
+<!--                <td>Gyroscope &amp; accelerometer &amp; geomagnetic sensor</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>Power</td>-->
+<!--                <td>Power charging</td>-->
+<!--                <td>12v DC</td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
           </div>
         </div>
+          <div class="pro_show" id="i3">
+              <div  class="pro_show_div_border">
+                  <div class="pro_show_div" ><span >产品特性</span></div>
+              </div>
+              <div class="pro_advs">
+                  <span class="adv_span1">介绍</span>
+                  <div>
+                      <p >
+                          TurboX Edge套件包括专门针对机器人的龙板™ 845c开发板，基于高通公司（Qualcomm）SDA845处理器，符合96板开放硬件规范，支持多种夹层板扩展。
+                      </p>
+                      <p>
+                          Qualcomm SDA845处理器是一种异构计算架构，它集成了一个性能高达2.8GHz的八核Qualcomm？Kryo？CPU、一个Qualcomm？Adreno？630视频处理子系统（包括GPU、VPU和DPU）和一个Qualcomm？Hexagon？685数字信号处理器（带有Hexagon Vector Extensions（HVX））来提供复杂的设备内人工智能处理和移动优化计算机视觉（CV）感知、导航和操作能力。
+                      </p>
+                      <p >
+                          开发板支持Linux和Robotics操作系统（ROS），同时还支持用于高级设备人工智能的Qualcomm<sup>®</sup>神经处理软件开发工具包（SDK）、Qualcomm<sup>®</sup>计算机视觉套件、Qualcomm<sup>®</sup>Hexagon DSP SDK。
+                      </p>
+                      <p>
+                          <!--                                The kit includes:-->
+                          该套件包括：
+                      </p>
 
-        <div class="pro_show" id="i4">
+                      <ul >
+                          <li>
+                              <!--                                    Robotics DragonBoard Qualcomm<sup>TM</sup> 845c development board featuring Qualcomm<sup>&reg;</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification-->
+                              Robotics DragonBoard QualcommTM 845c开发板具有Qualcomm<sup>®</sup>SDA / SDM845处理器并符合96Boards开放式硬件规格
+                          </li>
+                          <li>
+                              <!--                                    Qualcomm Robotics navigation mezzanine featuring time-of-flight, trackingcamera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification-->
+                              高通机器人导航夹层具有飞行时间，跟踪摄像头，有源立体摄像头和主摄像头，符合96Boards开放式硬件规格
+                          </li>
+                          <li>
+                              <!--                                    Sensor support including the industry&prime;s best performing ICM-426886-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense-->
+                              传感器支持，包括业界性能最佳的ICM-426886轴高性能运动传感器，ICS-41351顶部端口数字麦克风和TDK InvenSense的ICP-10101气压传感器
+                          </li>
+                          <li>
+                              <!--                                    Qualcomm Robotics cellular mezzanine (optional)-->
+                              Qualcomm Robotics蜂窝夹层楼（可选）
+                          </li>
+                          <li>
+                              <!--                                    Multi-Mic support-->
+                              多麦克风支持
+                          </li>
+                          <li>
+                              <!--                                    Power supply-->
+                              电源
+                          </li>
+                      </ul>
+
+
+                  </div>
+              </div>
+              <div class="pro_advs">
+                  <span class="adv_span1">应用领域</span>
+              </div>
+              <img class="imgs" src="../../assets/images/rb3/rb3-11.png" alt width="100%" height="100%"/>
+          </div>
+              <div class="pro_show" id="i4">
           <div  class="pro_show_div_border">
             <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
           </div>
@@ -375,7 +467,7 @@
             <div class="product_documents">
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -389,7 +481,7 @@
 
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -403,7 +495,7 @@
 
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -418,7 +510,7 @@
                 <div v-if="isMore" class="more">
                     <div class = "product_document">
                         <div class="product_document_left">
-                            <img class="document_image" src="../../assets/icons/pdf.svg">
+                            <img class="document_image" src="../../assets/icons/pdf.png">
                             <span class="document_name">相关操作文档.pdf</span>
                         </div>
                         <div class="product_document_right">
@@ -629,7 +721,7 @@ export default {
         }else {
             this.$router.push(
                 {
-                    path: '/buy',
+                    path: '/buy_edgekit',
                     query: {name: 'Edge KIT',
                         good_id: 1682320,}
                 }
@@ -675,8 +767,8 @@ export default {
         text-align: right;
     }
     .document_image{
-        width: 31px;
-        height: 36px;
+        width: 28px;
+        height: 29px;
     }
     .document_name{
         font-family: PingFangSC-Regular;
@@ -706,6 +798,7 @@ export default {
 
         margin-left: 20px;
         margin-right: 0px;
+        cursor: pointer;
     }
     .document_hr{
         margin-top: 10px;

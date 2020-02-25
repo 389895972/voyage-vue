@@ -22,6 +22,7 @@ Vue.prototype.$http=axios;
 // Vue.prototype.$http.defaults.withCredentials=true;
 
 axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
+//axios.defaults.withCredentials = true
 //axios.defaults.baseURL='/api'
 //process.env.NODE_ENV === "production" ? "axios.defaults.baseURL='http://10.0.20.114:9001'" : "axios.defaults.baseURL='/api'",
 //axios.defaults.baseURL='http://10.0.20.114:9001'
@@ -41,7 +42,6 @@ axios.create({
     baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
     timeout: 5000 // 请求超时时间
 })
-
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(router)
@@ -59,17 +59,18 @@ const  i18n = new VueI18n({
     'en': require('./lang/en'),
   }
 })
+
 axios.interceptors.response.use(response => {
     window.console.log(response+'123465')
-    window.console.log('123465')
-    if (response.status== 200) {
+    // window.console.log('123465')
+    if (response.status== 2000) {
         localStorage.clear();
-        alert(response.data.resMsg)
-        alert(1234765)
-
-        router.push({
-            name:'login'
-        })
+        // alert(response.data.resMsg)
+      // alert(1234765)
+      //
+      //   router.push({
+      //       name:'login'
+      //   })
     }
     return response;
 }, error => {
@@ -77,15 +78,16 @@ axios.interceptors.response.use(response => {
         switch (error.response.status) {
             case 404:
                 window.console.log("404错误")
-                router.push({name:'test'});
+                router.push({path:'/test'});
                 // error.message = '请求出错(404)'
                 break;
 
             case 500:
                 window.console.log("500错误")
-                router.push({ name:'test'});
+                router.push({ path:'/test'});
                 //  error.message = '服务器错误(500)';
                 break;
+
 
             default: error.message = `连接出错(${error.response.status})!`;
         }

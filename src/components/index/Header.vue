@@ -1,7 +1,7 @@
 <template>
     <el-header  class="header_head" height="100px">
         <div class="nav_layout">
-            <img class="logo" src="../../assets/images/logo.png" alt />
+            <img class="logo" src="../../assets/images/logo.png" @click="go_home"  style="cursor: pointer" alt />
             <div class="nav_layout_right">
                 <div class="nav_item">
                     <a class="nav_a" @click="go_tutorial" href="#">
@@ -65,7 +65,7 @@
 
                 <el-form  :model="log" :rules="rules" ref="log_ruleForm"  >
              <span v-if="log_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
-                     src="../../assets/icons/注意.png" alt="">{{log_tips}}</span>
+                     src="../../assets/icons/zhuyi.png" alt="">{{log_tips}}</span>
                 <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">
 
                    <span style="cursor: pointer;font-size:16px;color: #606879;font-weight: bold;margin-right: 5px;" @click="to_pwd_log">手机密码登录</span> |
@@ -91,7 +91,7 @@
                        </el-form-item>
               </td> <td>
                         <!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
-                <el-button  :id="btn_code"   style="height: 44px;margin-top: 7px"  @click="log_send_code(log.login_tel)" >{{content}}</el-button>
+                <el-button  :id="btn_code1"   style="height: 44px;margin-top: 7px"  @click="log_send_code(log.login_tel)" >{{content1}}</el-button>
                     </td>  </tr></table>
                 <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login(log.login_tel,log.login_code)" >立即登录</el-button>
                 <div style="width: 300px;height:40px;vertical-align:middle;display:table-cell;">
@@ -120,7 +120,7 @@
 
                     <el-form  :model="log2" :rules="rules" ref="log2_ruleForm"  >
              <span v-if="log_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
-                     src="../../assets/icons/注意.png" alt="">{{log_tips}}</span>
+                     src="../../assets/icons/zhuyi.png" alt="">{{log_tips}}</span>
                         <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">
 
                             <span style="font-size:16px;color:#3254DC;font-weight: bold;margin-right: 5px"> 手机密码登录</span> |
@@ -144,11 +144,11 @@
                         <el-form-item  prop="login_pwd">
                         <el-input style="width: 300px;"  :type="passw" v-model="log2.login_pwd" placeholder="请输入密码" prefix-icon="el-icon-lock"  ><i slot="suffix" :class="icon" @click="showPass"></i></el-input>
                         </el-form-item>
-                        <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login2(log2.login_tel,log.login_pwd)" >立即登录</el-button>
-                        <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
+                        <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login2(log2.login_tel,log2.login_pwd)" >立即登录</el-button>
+                        <div style="width: 300px;height:40px;vertical-align:middle;display:table-cell;">
                             <span style="font-size:14px;color: #606879;">没有账号？</span>
                             <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register2"> 5秒注册</span>
-                            <span style="font-size:14px;color:#FCA200;margin-left: 100px;cursor:pointer" @click="modify_pwd2"> 忘记密码？</span>
+                            <span style="font-size:14px;color:#FCA200;float:right;cursor:pointer" @click="modify_pwd2"> 忘记密码？</span>
                         </div>
                         <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px"> 其他登录方式</div>
                         <div style="height: 60px">
@@ -256,7 +256,7 @@
                     <el-form style="" :model="reg" :rules="rules" ref="reg_ruleForm"  >
 
                     <span v-if="reg_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
-                            src="../../assets/icons/注意.png" alt="">{{reg_tips}}</span>
+                            src="../../assets/icons/zhuyi.png" alt="">{{reg_tips}}</span>
 
 
                      <el-form-item  prop="reg_username">
@@ -287,7 +287,7 @@
                       <el-input style="width: 200px;"  v-model="reg.reg_code" placeholder="请输入内容"></el-input>
                         </el-form-item></td> <td style="height: 44px">
                     <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span2" @click="countDown" >{{content}}</el-button>-->
-                    <el-button  :id="btn_code"   style="height: 44px;margin-top: 8px"  @click="reg_send_code(reg.reg_tel)" >{{content}}</el-button>
+                    <el-button  :id="btn_code2"   style="height: 44px;margin-top: 8px"  @click="reg_send_code(reg.reg_tel)" >{{content2}}</el-button>
                         </td> </tr></table>
                     <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin-bottom: 25px" @click="regist(reg.reg_username,reg.reg_tel,reg.reg_password,reg.reg_code)">立即注册</el-button>
                     <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
@@ -331,7 +331,7 @@
             >
 
                 <div style="width: 200px;margin: 0 auto;">
-                        <img src="../../assets/images/person/成功.png"  style="width: 58px;height: 58px;margin-left: 35%" alt="">
+                        <img src="../../assets/images/person/sucess.png" style="width: 58px;height: 58px;margin-left: 35%" alt="">
                         <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">注册成功！</div>
 
 
@@ -349,6 +349,7 @@
 
     import Axios from "axios";
     export default {
+
         data() {
             return {
                 userInfo:'',
@@ -364,8 +365,20 @@
                 wx_register_dialog:false,
                 register_ok_dialog:false,
                 content: '获取验证码',  // 按钮里显示的内容
-                totalTime: 10 ,     //记录具体倒计时时间
+                content1: '获取验证码',  // 按钮里显示的内容
+                content2: '获取验证码',  // 按钮里显示的内容
+                content3: '获取验证码',  // 按钮里显示的内容
+                totalTime: 60 ,     //记录具体倒计时时间
+                totalTime1: 60 ,     //记录具体倒计时时间
+                totalTime2: 60 ,     //记录具体倒计时时间
+                totalTime3: 60 ,     //记录具体倒计时时间
                 canClick: true ,//添加canClick
+                canClick1: true ,//添加canClick
+                canClick2: true ,//添加canClick
+                canClick3: true ,//添加canClick
+                btn_code1:'canCli',
+                btn_code2:'canCli',
+                btn_code3:'canCli',
                 btn_code:'canCli',
                 tell:0,
                 tel:'',
@@ -397,27 +410,132 @@
                     mod_tel1:'',
                     mod_tel2:'',
                 },
-                options: [{
-                    value: '选项1',
-                   label:'中国大陆'+ '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'  +'+86'
+                options: [
+                    {
+                        label: '中国香港'+'\xa0\xa0\xa0\xa0\xa0'+'+895' ,
+                        value:'+895'
+                    },
+                    {
+                        label: '中国大陆'+'\xa0\xa0\xa0\xa0\xa0'+'+86' ,
+                        value:'+86'
+                    },
+                    {
+                        label: '中国香港'+'\xa0\xa0\xa0\xa0\xa0'+'+895' ,
+                        value:'+895'
+                    },
+                    {
+                     label: '+86' +'\xa0\xa0\xa0\xa0\xa0'+'中国大陆',
+                       value:'+86'
+                     },
+                    {
+                        label: '+852' +'\xa0\xa0\xa0\xa0\xa0'+'中国香港',
+                        value:'+852'
                 }, {
-                    value: '选项2',
+                        label: '+853' +'\xa0\xa0\xa0\xa0\xa0'+'中国澳门',
+                        value:'+853'
 
                 }, {
-                    value: '选项3',
+                        label: '+886' +'\xa0\xa0\xa0\xa0\xa0'+'中国台湾',
+                        value:'+886'
 
                 }, {
-                    value: '选项4',
+                        label: '+82' +'\xa0\xa0\xa0\xa0\xa0'+'韩国',
+                        value:'+82'
 
-                }, {
-                    value: '选项5',
+                },{
+                        label: '+853' +'\xa0\xa0\xa0\xa0\xa0'+'日本',
+                        value:'+853'
 
-                }],
+                    }, {
+                        label: '+1' +'\xa0\xa0\xa0\xa0\xa0'+'美国',
+                        value:'+1'
+
+                    }, {
+                        label: '+1' +'\xa0\xa0\xa0\xa0\xa0'+'加拿大',
+                        value:'+1'
+
+                    },
+                    {
+                        label: '+44' +'\xa0\xa0\xa0\xa0\xa0'+'英国',
+                        value:'+44'
+
+                    }, {
+                        label: '+65' +'\xa0\xa0\xa0\xa0\xa0'+'新加坡',
+                        value:'+65'
+
+                    }, {
+                        label: '+66' +'\xa0\xa0\xa0\xa0\xa0'+'泰国',
+                        value:'+66'
+
+                    }, {
+                        label: '+84' +'\xa0\xa0\xa0\xa0\xa0'+'越南',
+                        value:'+84'
+
+                    },
+                    {
+                        label: '+63' +'\xa0\xa0\xa0\xa0\xa0'+'菲律宾',
+                        value:'+63'
+
+                    }, {
+                        label: '+60' +'\xa0\xa0\xa0\xa0\xa0'+'印度尼西亚',
+                        value:'+60'
+
+                    }, {
+                        label: '+39' +'\xa0\xa0\xa0\xa0\xa0'+'意大利',
+                        value:'+39'
+
+                    },
+                    {
+                        label: '+7' +'\xa0\xa0\xa0\xa0\xa0'+'俄罗斯',
+                        value:'+7'
+
+                    },
+                    {
+                        label: '+64' +'\xa0\xa0\xa0\xa0\xa0'+'新西兰',
+                        value:'+64'
+
+                    }, {
+                        label: '+31' +'\xa0\xa0\xa0\xa0\xa0'+'荷兰',
+                        value:'+31'
+
+                    }, {
+                        label: '+46' +'\xa0\xa0\xa0\xa0\xa0'+'瑞典',
+                        value:'+46'
+
+                    },{
+                        label: '+61' +'\xa0\xa0\xa0\xa0\xa0'+'澳大利亚',
+                        value:'+61'
+
+                    }, {
+                        label: '+380' +'\xa0\xa0\xa0\xa0\xa0'+'乌克兰',
+                        value:'+380'
+
+                    },
+                    {
+                        label: '+33' +'\xa0\xa0\xa0\xa0\xa0'+'法国',
+                        value:'+33'
+
+                    },
+                    {
+                        label: '+49' +'\xa0\xa0\xa0\xa0\xa0'+'德国',
+                        value:'+49'
+
+                    }, {
+                        label: '+31' +'\xa0\xa0\xa0\xa0\xa0'+'荷兰',
+                        value:'+31'
+
+                    }, {
+                        label: '+46' +'\xa0\xa0\xa0\xa0\xa0'+'瑞典',
+                        value:'+46'
+
+                    }
+
+                ],
 
                 rules: {
                     reg_username: [
                       { required: true, message: '请输入用户名', trigger: 'blur' },
-                      { min:5, max: 18, message: '长度在 5 到 18 个字符', trigger: 'blur' }
+                      // { min:5, max: 18, message: '长度在 5 到 18 个字符', trigger: 'blur' }
                     ],
                     reg_tel: [
                         { required: true, message: '请输入手机号', trigger: 'blur' },
@@ -465,7 +583,39 @@
         },
         methods:{
             init(){
+                let that=this
+                window.console.log(123999999999)
+                const tokenStr=window.sessionStorage.getItem('token');
 
+                if(!tokenStr){
+                          window.console.log(123)
+                }else{
+                    window.console.log(123888888)
+                    const newAixos = Axios.create({
+                        baseURL: 'http://10.0.20.114:9002',
+                        // timeout: 1000,
+                    });
+                    // newAixos.get("/tbUser/getToken/"+tokenStr)
+                    newAixos({
+                        method:'get',
+                        url:"/tbUser/getToken",
+                        // data:{token:tokenStr},
+                        headers:{"Authorization":"Bearer "+tokenStr}})
+                        .then(function(response) {
+                            window.console.log(123777)
+                            window.console.log(response);
+                            if (response.data.code == 20000) {
+                                that.isLogin=true
+                                that.userInfo=response.data.data.userInfo
+                                that.roles=response.data.data.roles
+                            }
+                        })
+                        .catch(function(error) {
+                            window.console.log(error);
+                            this.$message.success("服务器错误")
+                        });
+
+                }
             },
             ii(){
                 window.console.log("777"+this.reg_tips)
@@ -554,11 +704,59 @@
                     if (this.totalTime < 0) {
                         window.clearInterval(clock)
                         this.content = '重新发送'
-                        this.totalTime = 10
+                        this.totalTime = 60
                         this.canClick = true  //这里重新开启
                         this.btn_code = 'canCli'  //这里重新开启
                     }
                 },1000)
+                }
+            },
+            countDown1(){
+                // if (!this.canClick) return
+                // this.canClick = false
+                if(!this.btn_code1==='canCli') {
+                    return
+                }else {
+                    this.btn_code1='noCli'
+
+                    this.content1 = this.totalTime1 + 's'
+                    window.console.log( '00000000'+this.content1)
+                    let clock = window.setInterval(() => {
+                        //console.log(clock)
+                        this.totalTime1--
+                        this.content1 = this.totalTime1 + 's'
+                        if (this.totalTime1 < 0) {
+                            window.clearInterval(clock)
+                            this.content1 = '重新发送'
+                            this.totalTime1 = 60
+                            this.canClick1 = true  //这里重新开启
+                            this.btn_code1 = 'canCli'  //这里重新开启
+                        }
+                    },1000)
+                }
+            },
+            countDown2(){
+                // if (!this.canClick) return
+                // this.canClick = false
+                if(!this.btn_code2==='canCli') {
+                    return
+                }else {
+                    this.btn_code2='noCli'
+
+                    this.content2 = this.totalTime1 + 's'
+                    window.console.log( '00000000'+this.content2)
+                    let clock = window.setInterval(() => {
+                        //console.log(clock)
+                        this.totalTime2--
+                        this.content2 = this.totalTime2 + 's'
+                        if (this.totalTime2 < 0) {
+                            window.clearInterval(clock)
+                            this.content2 = '重新发送'
+                            this.totalTime2 = 60
+                            this.canClick2 = true  //这里重新开启
+                            this.btn_code2 = 'canCli'  //这里重新开启
+                        }
+                    },1000)
                 }
             },
             showPass(){
@@ -665,7 +863,7 @@
                 this.isLogin=false
             },
             async reg_send_code(tel){
-                this.countDown()
+                this.countDown2()
                 const newAixos = Axios.create({
                     baseURL: 'http://10.0.20.114:9002',
                    // timeout: 1000,
@@ -684,7 +882,7 @@
 
             },
             async log_send_code(tel){
-                this.countDown()
+                this.countDown1()
                 const newAixos = Axios.create({
                     baseURL: 'http://10.0.20.114:9002',
                    // timeout: 1000,
@@ -728,20 +926,25 @@
                                     that.reg_tip_status = 1
                                     window.console.log("666" + that)
                                 } else if (response.data.code === 20000) {
+                                    that.register_dialog=false
                                     that.register_ok_dialog = true
-                                    setInterval("close_reg()", 3000)
+                                    // setTimeout("close_reg()", 1000)
+                                    setTimeout(function(){
+                                        window.console.log(963)
+                                        that.register_ok_dialog=false
+                                        window.console.log(45663)},1000)
                                 }
                             })
                             .catch(function (error) {
                                 window.console.log(error);
-                                this.$message.success("服务器错误")
+                                that.$message.success("服务器错误")
                             });
                     }
                 })
             },
             close_reg(){
                 this.register_ok_dialog=false
-                this.register_dialog=false
+                // this.register_dialog=false
             },
             async login(tel,code){
                 this.$refs.log_ruleForm.validate(valid=> {
@@ -798,16 +1001,16 @@
                             baseURL: 'http://10.0.20.114:9002',
                             // timeout: 1000,
                         });
-                        newAixos.post("/tbUser/login",{
+                        newAixos.post("/tbUser/passwordLogin",{
 
                                 mobile: tel,
-                                code:pwd,
+                                password:pwd,
 
                             }
                         )
                             .then(function(response) {
                                 window.console.log(response);
-                                if (response.data.code == 20001) {
+                                if (response.data.code == 20002) {
                                     that.log_tips=response.data.message
                                     that.log_tip_status=1
                                 }else if(response.data.code == 20000){
@@ -840,6 +1043,12 @@
                     }
                 })
             },
+            go_home(){
+                this.$router.push({
+                    path:'/home',
+
+                })
+            }
 
         }
     };
@@ -1014,6 +1223,7 @@
         margin-left: -4px;
         height: 44px;
     }
+
     #canCli{
        width: 100px;
         background-color: #3254DC;
@@ -1031,5 +1241,6 @@
     #canCli >>> span{
         margin-left: -4px;
     }
+
 
 </style>

@@ -906,7 +906,7 @@ export default {
       buy_edgekit(){
 
           this.$router.push(
-                { path: '/buy',
+                { path: '/buy_edgekit',
                   query:{
                     name:'Edge KIT',
                     good_id: 1682320,
@@ -917,7 +917,7 @@ export default {
       buy_rb3(){
 
         this.$router.push(
-                { path: '/buy',
+                { path: '/buy_rb3',
                   query:{
                     name:'RB 3',
                     good_id: 1682320,
@@ -1002,7 +1002,7 @@ export default {
               this.login_dialog1=true
           }else{
               this.$router.push({
-                  name:'instance',
+                  path:'instance',
 
               })
           }

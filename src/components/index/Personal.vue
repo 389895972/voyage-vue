@@ -4,7 +4,7 @@
             <div class="content">
                 <span style="font-size: 36px">个人中心</span>
                 <div style="width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell">
-                    <img src="../../assets/images/person/我的资料.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">我的资料</span>
+                    <img src="../../assets/images/person/myintro.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">我的资料</span>
                 </div>
 <!--                个人信息-->
                 <div v-if="!modify_info" style="display: flex;height: 300px">
@@ -47,7 +47,7 @@
                     <div style="margin-left: 70px">
                          <el-button  style="color:#3254DC;background-color: white" @click="mod">更换图片</el-button>
                         <br>
-                        <span style="display: inline-block;width: 400px">图片比例为1：1，建议上传128*128@2x分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB</span>
+                        <span style="display: inline-block;width: 400px">图片长宽比比例为1：1，建议上传128*128@2x分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB</span>
                     </div>
 
                     </div>
@@ -59,7 +59,7 @@
                      <div style="height: 100px"></div>
                 </div>
                 <div style="margin-top:50px;width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell">
-                    <img src="../../assets/images/person/安全.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">安全设置</span>
+                    <img src="../../assets/images/person/safe.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">安全设置</span>
                 </div>
                 <div>
 
@@ -83,7 +83,7 @@
                                 <div style="font-size:14px;color:#16161D;font-weight: bold">邮箱已绑定</div>
                                 <div style="font-size:13px;color:#606879">您可以使用邮箱保障您的账号安全</div>
                             </div>
-                            <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC">修改邮箱</el-button>
+                            <el-button size="mini" style="margin-left:90px;border-color:#3254DC;color: #3254DC">修改邮箱</el-button>
                         </div>
                         <hr>
                     </div>
@@ -91,7 +91,7 @@
                         <div style="width: 450px;display: flex;margin-bottom: 10px">
                             <img src="../../assets/images/person/tel_yes.png" alt="">
                             <div style="margin-left: 10px">
-                                <div style="font-size:14px;color:#16161D;font-weight: bold">手机已绑定（{{trans(mobile)}}}）</div>
+                                <div style="font-size:14px;color:#16161D;font-weight: bold">手机已绑定（{{trans(mobile)}}）</div>
                                 <div style="font-size:13px;color:#606879">您可以享受手机相关的安全及提醒</div>
                             </div>
                             <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC" @click="modify_tel">修改手机</el-button>
@@ -105,7 +105,7 @@
                                 <div style="font-size:14px;color:#16161D;font-weight: bold">邮箱未绑定</div>
                                 <div style="font-size:13px;color:#606879">您可以使用邮箱保障您的账号安全</div>
                             </div>
-                            <el-button @click="bind_email" size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC" >绑定邮箱</el-button>
+                            <el-button @click="bbind_email" size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC" >绑定邮箱</el-button>
                         </div>
                         <hr>
                     </div>
@@ -133,12 +133,19 @@
                 width="380px"
         >
             <hr style="margin:15px;width: 100%;">
-            <div style="width: 300px;margin:15px auto 0 auto">
-                <el-input style="width: 300px;" v-model="tel" placeholder="请输入手机号"></el-input>
-                <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
+            <div style="width: 300px;margin:15px auto 0 auto" id="b_email">
+<!--               <table> <tr><td>-->
+                <el-form :model="bind_email" :rules="rules" ref="bind_email" >
+                <el-form-item  prop="b_email" style="margin-left:0">
+
+                <el-input style="width: 300px;" v-model="bind_email.b_email" placeholder="请输入邮箱号"></el-input>
+                </el-form-item>
+               </el-form>
+<!--               </td></tr></table>-->
+                    <!--                <el-input style="width: 200px;" v-model="tel" placeholder="请输入验证码"></el-input>-->
                 <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>-->
-                <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>
-                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 10px 0 0 0;" @click="to_modify2">下一步</el-button>
+<!--                <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>-->
+                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 10px 0 0 0;" @click="bang_email">绑定邮箱</el-button>
 
                 <div style="height: 190px"></div>
 
@@ -149,16 +156,25 @@
             <el-dialog
                     title="修改密码"
                     :visible.sync="modify_pwd_dialog"
-                    width="380px"
+                    width="380px" id="mod_pwd"
             >
                 <hr style="margin: 10px;width: 100%;">
                 <div style="width: 300px;margin:30px auto 0 auto">
                     <span style="font-size: 16px;color: #16161D;">原密码</span>
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入手机号"></el-input>
+                    <el-form :model="modify_pwdd" :rules="rules" ref="mod_pwdd" >
+
+                        <el-form-item  prop="old_pwd" style="margin-left:0">
+                    <el-input style="width: 300px;" v-model="modify_pwdd.old_pwd" placeholder="请输入原密码"></el-input>
+                        </el-form-item>
                     <div style="font-size: 16px;color: #16161D;margin-top: 10px">新密码</div>
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入手机号"></el-input>
-                    <el-input style="width: 300px;" v-model="tel" placeholder="请输入手机号"></el-input>
-                    <el-button  style="margin-top:10px;width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;" @click="to_modify2">确认修改</el-button>
+                        <el-form-item  prop="new_pwd1" style="margin-left:0">
+                    <el-input style="width: 300px;" v-model="modify_pwdd.new_pwd1" placeholder="请输入新密码"></el-input>
+                        </el-form-item>
+                            <el-form-item  prop="new_pwd2" style="margin-left:0">
+                    <el-input style="width: 300px;" v-model="modify_pwdd.new_pwd2" placeholder="请确认密码"></el-input>
+                            </el-form-item>
+                    </el-form>
+                        <el-button  style="margin-top:10px;width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;" @click="mod_pwd">确认修改</el-button>
 
                     <div style="height: 100px"></div>
 
@@ -167,18 +183,18 @@
 
             </el-dialog>
             <el-dialog
-                    title="手机号修改"
+                    title="确认原手机"
                     :visible.sync="modify_tel_dialog1"
                     width="380px"
             >
                 <hr style="margin: 10px;width: 100%;">
                 <div style="width: 300px;margin:30px auto 0 auto">
-                    <span style="font-size: 18px;color: #16161D;line-height: 14px;"> 手机验证（）</span>
+                    <span style="font-size: 18px;color: #16161D;line-height: 14px;"> 手机验证（{{trans(mobile)}}）</span>
                     <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
                     <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>-->
                     <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>
-                    <el-button  style="margin-top:10px;margin-bottom:170px;width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="to_tel_modi2">下一步</el-button>
-                    <el-steps :active="1" >
+                    <el-button  style="margin-top:10px;margin-bottom:170px;width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin-left: 0" @click="to_tel_modi2">下一步</el-button>
+                    <el-steps :active="1" style="margin-top:10px" >
                         <el-step id="el-step1" title="验证身份"></el-step>
                         <el-step id="el-step2" title="绑定新手机号"></el-step>
                         <el-step id="el-step3" title="完成"></el-step>
@@ -210,12 +226,12 @@
                     <!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
                     <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>
                     <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin:15px 0 130px 0" @click="to_tel_modi3">确认绑定</el-button>
-                    <el-steps :active="2">
-                        <el-step id="el-step4" title="验证身份"></el-step>
-                        <el-step id="el-step5" title="绑定新手机号"></el-step>
-                        <el-step id="el-step6" title="完成"></el-step>
-                    </el-steps>
-                     <div style="height: 40px"></div>
+<!--                    <el-steps :active="2">-->
+<!--                        <el-step id="el-step4" title="验证身份"></el-step>-->
+<!--                        <el-step id="el-step5" title="绑定新手机号"></el-step>-->
+<!--                        <el-step id="el-step6" title="完成"></el-step>-->
+<!--                    </el-steps>-->
+                     <div style="height: 90px"></div>
                 </div>
 
             </el-dialog>
@@ -226,16 +242,48 @@
             >
 
                 <div style="width: 300px;margin:80px auto 0 auto">
-                    <img src="../../assets/images/person/成功.png"  style="width: 58px;height: 58px;margin-left: 120px" alt="">
+                    <img src="../../assets/images/person/sucess.png" style="width: 58px;height: 58px;margin-left: 120px" alt="">
                        <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">手机号 18888888888</div>
                        <div style="margin-bottom:20px;margin-top:10px;text-align: center;font-size: 20px;color:#16161d">绑定成功！</div>
                     <el-button  style="width: 300px;height: 50px;background-color: #3FB560;color:white;font-size: 16px;margin: 0" @click="countDown">完成</el-button>
-                    <el-steps :active="3" style="margin-top: 70px">
-                        <el-step id="el-step7" title="验证身份"></el-step>
-                        <el-step id="el-step8" title="绑定新手机号"></el-step>
-                        <el-step id="el-step9" title="完成"></el-step>
-                    </el-steps>
-                  <div style="height: 40px"></div>
+<!--                    <el-steps :active="3" style="margin-top: 70px">-->
+<!--                        <el-step id="el-step7" title="验证身份"></el-step>-->
+<!--                        <el-step id="el-step8" title="绑定新手机号"></el-step>-->
+<!--                        <el-step id="el-step9" title="完成"></el-step>-->
+<!--                    </el-steps>-->
+                  <div style="height: 180px"></div>
+                </div>
+
+            </el-dialog>
+            <el-dialog
+
+                    :visible.sync="bind_email_ok_dialog"
+                    width="380px"
+            >
+
+                <div style="width: 200px;margin: 0 auto;">
+                    <img src="../../assets/images/person/sucess.png" style="width: 58px;height: 58px;margin-left: 35%" alt="">
+                    <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">绑定邮箱成功！</div>
+
+
+
+                    <div style="height: 40px"></div>
+                </div>
+
+            </el-dialog>
+            <el-dialog
+
+                    :visible.sync="mod_pwd_ok_dialog"
+                    width="380px"
+            >
+
+                <div style="width: 200px;margin: 0 auto;">
+                    <img src="../../assets/images/person/sucess.png" style="width: 58px;height: 58px;margin-left: 35%" alt="">
+                    <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">密码修改成功！</div>
+
+
+
+                    <div style="height: 40px"></div>
                 </div>
 
             </el-dialog>
@@ -248,21 +296,25 @@
         data() {
             return {
                 prefix:'+86',
-                email_dialog:true,
+                email_dialog:false,
                 modify_pwd_dialog:false,
                 modify_tel_dialog1:false,
                 modify_tel_dialog2:false,
                 modify_tel_dialog3:false,
+                bind_email_ok_dialog:false,
                 content: '获取验证码',  // 按钮里显示的内容
-                totalTime: 10 ,     //记录具体倒计时时间
+                totalTime: 60,     //记录具体倒计时时间
                 canClick: true ,//添加canClick
                 btn_code:'canCli' ,
                 tell:0,
                 icon:"el-input__icon el-icon-view",
                 passw:"password",
+
                 tips:'用户名或密码错误',
                  imageUrl: '',
+
                 fileData: '',
+
 
                 username:'123',
                 fileList:[],
@@ -280,8 +332,33 @@
                 modify_info:false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
+                },
+                bind_email:{
+                    b_email:''
+                },
+                rules:{
+                    b_email: [
+                        { required: true, message: '请输入邮箱', trigger: 'blur' },
+                        { pattern:/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, message: '请输入正确的邮箱号', trigger: 'blur' }
+                    ],
+                    old_pwd:[
+                        { required: true, message: '请输入原密码', trigger: 'blur' },
+                    ],
+                    new_pwd1:[
+                        { required: true, message: '请输入新密码', trigger: 'blur' },
+                    ],
+                    new_pwd2:[
+                        { required: true, message: '请重复输入新密码', trigger: 'blur' },
+                    ],
+                },
+                modify_pwdd:{
+                    old_pwd:'',
+                    new_pwd1:'',
+                    new_pwd2:'',
                 }
             }
+
+
         },
         created(){
             this.init()
@@ -302,13 +379,13 @@
                         if (this.totalTime < 0) {
                             window.clearInterval(clock)
                             this.content = '重新发送'
-                            this.totalTime = 10
+                            this.totalTime = 60
                             this.canClick = true  //这里重新开启
                             this.btn_code = 'canCli'  //这里重新开启
                         }
                     },1000)}
             },
-            bind_email(){
+            bbind_email(){
                 this.email_dialog=true;
 
             },
@@ -316,7 +393,7 @@
                 this.modify_pwd_dialog=true
             },
             modify_tel(){
-                this.modify_tel_dialog1=true
+                this.modify_tel_dialog2=true
             },
             to_tel_modi2(){
                 this.modify_tel_dialog1=false
@@ -324,8 +401,13 @@
 
             },
             to_tel_modi3(){
-                this.modify_tel_dialog2=false
-                this.modify_tel_dialog3=true
+                let _this=this
+                _this.modify_tel_dialog2=false
+                _this.modify_tel_dialog3=true
+                setTimeout(function(){
+                    window.console.log(963)
+                    _this.modify_tel_dialog3=false
+                    window.console.log(45663)},1000)
             },
              mod(){
                 this.src=''
@@ -419,6 +501,86 @@
             trans(tel){
                 var hide_tel=tel.substr(0,3)+'****'+tel.substr(7)
                 return hide_tel
+            },
+            bang_email(){
+                let _this=this
+                _this.$refs.bind_email.validate(valid=> {
+
+                    if (!valid) {
+                        _this.$message.error("请完善表单")
+                    } else {
+                _this.email_dialog=false
+                _this.bind_email_ok_dialog=true
+                setTimeout(function(){
+                    window.console.log(963)
+                    _this.bind_email_ok_dialog=false
+                    window.console.log(45663)},1000)}})
+                // const newAixos = Axios.create({
+                //     baseURL: 'http://127.0.0.1:8888',
+                //     // timeout: 1000,
+                // });
+                // newAixos.post("/upload",this.formData,)
+                //     .then(function(response) {
+                //         window.console.log(response);
+                //         if (response.status == 200) {
+                //             _this.email_dialog=false
+                //             _this.bind_email_ok_dialog=true
+                //             setTimeout(function(){
+                //                 window.console.log(963)
+                //                 _this.bind_email_ok_dialog=false
+                //                 window.console.log(45663)},1000)
+                //         }
+                //     })
+                //     .catch(function(error) {
+                //         window.console.log(error);
+                //         this.$message.success("服务器错误")
+                //     });
+            },
+            mod_pwd(){
+
+                let _this=this
+                _this.modify_pwd_dialog=false
+                _this.bind_email_ok_dialog=true
+                setTimeout(function(){
+                    window.console.log(963)
+                    _this.bind_email_ok_dialog=false
+                    window.console.log(45663)},1000)
+                // _this.$refs.bind_email.validate(valid=> {
+                //
+                //     if (!valid) {
+                //         _this.$message.error("请完善表单")
+                //     } else {
+                //
+                //         _this.modify_pwd_dialog=false
+                //         _this.mod_pwd_ok_dialog=true
+                //         setTimeout(function(){
+                //             window.console.log(963)
+                //             _this.bind_email_ok_dialog=false
+                //             window.console.log(45663)},1000)
+                //     }
+                // })
+
+
+                // const newAixos = Axios.create({
+                //     baseURL: 'http://127.0.0.1:8888',
+                //     // timeout: 1000,
+                // });
+                // newAixos.post("/upload",this.formData,)
+                //     .then(function(response) {
+                //         window.console.log(response);
+                //         if (response.status == 200) {
+                //             _this.email_dialog=false
+                //             _this.bind_email_ok_dialog=true
+                //             setTimeout(function(){
+                //                 window.console.log(963)
+                //                 _this.bind_email_ok_dialog=false
+                //                 window.console.log(45663)},1000)
+                //         }
+                //     })
+                //     .catch(function(error) {
+                //         window.console.log(error);
+                //         this.$message.success("服务器错误")
+                //     });
             }
         }
     }
@@ -597,6 +759,9 @@
     #code_span1 {
         height: 44px;
     }
+    #b_email >>> .el-form-item__content{
+        margin-left: 0;
+    }
 
     /*#login_dia >>>  .el-button:focus, .el-button:hover{*/
     /*    background-color: #C0C3C9;*/
@@ -749,13 +914,19 @@
 
 
     }
+    #login_dia >>> .el-select .el-input .el-select__caret{
+        margin-top: 6px;
+        vertical-align: top;
+    }
     #code_span1 >>> span{
         margin-left: -4px;
     }
     #code_span1 {
         height: 44px;
     }
-
+    #mod_pwd >>> .el-input__inner{
+        margin-top: 0;
+    }
     /*#login_dia >>>  .el-button:focus, .el-button:hover{*/
     /*    background-color: #C0C3C9;*/
     /*    border-color: #C0C3C9;*/

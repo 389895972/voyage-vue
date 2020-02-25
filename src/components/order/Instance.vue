@@ -84,11 +84,6 @@
                     </el-pagination>
                 </div>
             </div>
-
-
-
-
-
         </div>
 
     </el-container>
@@ -138,9 +133,11 @@
                 } else {
                     alert("连接服务器失败");
                 }
+
             },
             tranDate(standard_time) {
                 if(standard_time==null){
+
                     return  null
                 }
                 let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
@@ -236,5 +233,12 @@
         margin: 15px auto 15px auto;
 
 
+    }
+
+</style>
+<style type="text/css">
+    .el-icon-arrow-down:before{
+        content: "\e790";
+        font-size: large;
     }
 </style>

@@ -9,7 +9,7 @@
 
                     <div class="titles">
                         <div class="title"> 订单 管理
-                        <el-button  style="width: 180px;background-color: #3254DC;color:white;line-height: 25px" v-if="order_status===2"> 管理设备</el-button>
+                        <el-button  style="width: 180px;background-color: #3254DC;color:white;line-height: 25px" v-if="order_status===2" @click="go_instance"> 管理设备</el-button>
                         </div>
                     </div>
                     <div v-if="order_status===1" style="background-color: #FDEDEC;color: red;text-align:center;height: 50px;font-size: 16px">
@@ -54,7 +54,7 @@
                         <table v-else-if="user===2" style="width: 100%;height:50px;background-color: #E4E7EB;">
                             <tr>
                                 <td style="width: 17%">订单编号</td>
-                                <td style="width: 15%">订单类型</td>
+                                <td style="width: 15%">购买类型</td>
                                 <td>用户名</td>
                                 <td>手机号</td>
                                 <td>创建时间</td>
@@ -118,7 +118,7 @@
                                     <td>数量</td>
                                     <td>具体配置</td>
                                     <td>付款方式</td>
-                                    <td>起止时间</td>
+                                    <td>开通/到期时间</td>
                                     <td>价格</td>
                                 </tr>
                                 <tr  style="border-bottom:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
@@ -508,6 +508,7 @@
             },
             tranDate(standard_time){
                 if(standard_time==null){
+
                     return  null
                 }
                 let d=new Date(standard_time.replace(/-/g,'/').replace('T',' ').replace('.000+0800',''));
@@ -568,7 +569,7 @@
                 let nowdate=new  Date().getTime()
                 //let timeLag = (this.due_order_time - nowdate) / 1000
                 window.console.log(nowdate)
-                let timeLag = 20000/ 1000
+                let timeLag = 200000/ 1000
                 // 判断当前是否时分秒的值是否大于10
                 let add = num => {
                     return num < 10 ? '0' + num : num
@@ -603,6 +604,14 @@
                     timeFunction()
                 }, 1000)
                }
+            },
+            go_instance(){
+                this.$router.push(
+                    {
+                        path: '/instance',
+
+                    }
+                );
             }
 
         },

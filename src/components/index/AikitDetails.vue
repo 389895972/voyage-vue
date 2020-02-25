@@ -9,8 +9,9 @@
              Thundercomm TurboX
              <SUP>TM</SUP>AI套件
              <div class="content">
-             <p>Thundercomm AI Kit是面向开发人员的功能最强大的设备上具有AI视觉功能的边缘设备。</p>
-             <p> Thundercomm AI Kit可帮助开发人员和终端制造商移植其AI算法和AI应用程序。 </p>
+             <p>Thundercomm AI Kit 是一个面向开发者，拥有最强性能的智能视觉的嵌入式开发设备。</p>
+             <p style="width: 700px"> Thundercomm AI Kit基于高通SDA845平台，提供可进行开发的设备、算法SDK、教程、代码，帮助开发人员和终 </p>
+             <p style="width: 700px"> 端厂商进行最终产品的原型设计。 </p>
              </div>
              <div class="aikit_btn">
                <el-button style="width: 200px;background-color: #3254DC;border-color: #3254DC" type="primary" @click="buy_aikit">立即购买</el-button>
@@ -39,7 +40,7 @@
 
           </div>
           <div class="pro_advs">
-            <span class="adv_span1" id="i2">柔性视觉解</span>
+            <span class="adv_span1" id="i2">灵活的视觉解决方案</span>
             <span class="adv_span2">支持多种摄像头解决方案，包括内置超高清相机、USB3.0摄像头和IP摄像头。</span>
           </div>
 
@@ -65,7 +66,7 @@
               <tr>
                 <td rowspan="4">Computing</td>
                 <td>CPU</td>
-                <td>Qualcomm SDA845 processor, 8x Qualcomm=C2=AE Kryo=E2=84=A2 385 @ 2.8GHz</td>
+                <td>Qualcomm SDA845 processor, 8x Qualcomm<sup>&reg;</sup> Kryo <SUP>TM</SUP> 385 @ 2.8GHz</td>
               </tr>
               <tr>
                 <td>GPU</td>
@@ -77,7 +78,7 @@
               </tr>
               <tr>
                 <td>ISP</td>
-                <td>Qualcomm Spectra=E2=84=A2 280 image sensor processor</td>
+                <td>Qualcomm Spectra <sup>TM</sup> 280 image sensor processor</td>
               </tr>
               <tr>
                 <td rowspan="3">Memory</td>
@@ -93,7 +94,7 @@
                 <td>Support MicroSD Card</td>
               </tr>
               <tr>
-                <td rowspan="2">Camera</td>
+                <td rowspan="2" >Camera</td>
                 <td>Built in Camera</td>
                 <td>8MP, FOV 120 degree;</td>
               </tr>
@@ -227,7 +228,7 @@
               </table>
           </div>
         </div>
-        <div class="pro_show" id="i3">
+        <div class="pro_show" >
             <div  class="pro_show_div_border">
                 <div class="pro_show_div" ><span >产品特性</span></div>
             </div>
@@ -241,7 +242,7 @@
             <div class="product_documents">
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -255,7 +256,7 @@
 
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -269,7 +270,7 @@
 
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -284,7 +285,7 @@
                 <div v-if="isMore" class="more">
                     <div class = "product_document">
                         <div class="product_document_left">
-                            <img class="document_image" src="../../assets/icons/pdf.svg">
+                            <img class="document_image" src="../../assets/icons/pdf.png">
                             <span class="document_name">相关操作文档.pdf</span>
                         </div>
                         <div class="product_document_right">
@@ -1167,8 +1168,8 @@ a {
     text-align: right;
 }
 .document_image{
-    width: 31px;
-    height: 36px;
+    width: 28px;
+    height: 29px;
 }
 .document_name{
     font-family: PingFangSC-Regular;
@@ -1198,6 +1199,7 @@ a {
 
     margin-left: 20px;
     margin-right: 0px;
+    cursor: pointer;
 }
 .document_hr{
     margin-top: 10px;

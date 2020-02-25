@@ -282,7 +282,7 @@
                     this.tableData[0].device_name=res.data.nickname
                     this.tableData[0].device_id=res.data.id
                     this.tableData[0].device_model=res.data.goodsname
-
+                       this.os=res.data.os
                 }
             },
            back(){
