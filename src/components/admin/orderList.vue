@@ -557,15 +557,8 @@
   .export_button {
     width: 128px;
   }
-  .popover_scope{
 
-  }
-  .popover_scope /deep/ .el-popper[x-placement^=top] /deep/ .popper__arrow{
-    border-top-color:#E84948;
-  }
-  .popover_scope /deep/ .el-popper[x-placement^=top] /deep/ .popper__arrow::after{
-    border-top-color:#E84948;
-  }
+
 
 
 
@@ -590,12 +583,18 @@
     cursor:pointer;
   }
 
-  .el-popper[x-placement^=bottom] .popper__arrow{
-    border-bottom-color:#E84948;
-  }
-  .el-popper[x-placement^=bottom] .popper__arrow::after{
-    border-bottom-color:#E84948;
-  }
+  /*.el-popper[x-placement^=bottom] .popper__arrow{*/
+  /*  border-bottom-color:#E84948;*/
+  /*}*/
+  /*.el-popper[x-placement^=bottom] .popper__arrow::after{*/
+  /*  border-bottom-color:#E84948;*/
+  /*}*/
+  /*.el-popper[x-placement^=top] /deep/ .popper__arrow{*/
+  /*  border-top-color:#E84948;*/
+  /*}*/
+  /*.el-popper[x-placement^=top] /deep/ .popper__arrow::after{*/
+  /*  border-top-color:#E84948;*/
+  /*}*/
   .el-loading-spinner {
     top: 85%;
     width: 100%;
