@@ -133,8 +133,8 @@
                         </div>
                     </div>
                     <div v-else style="height:165px;padding-top: 35px ;padding-left: 40px">
-                        <el-button @click="uu" style="width: 180px;height: 50px;color:white;background-color: #3254DC;margin-right: 20px">访问设备终端</el-button>
-                        <el-button type="primary" @click="uu" style="width: 180px;height: 50px;color:white;background-color: #3254DC">访问设备桌面</el-button>
+                        <el-button v-if="this.os.toLowerCase()==='linux'" @click="go_to_teminal" style="width: 180px;height: 50px;color:white;background-color: #3254DC;margin-right: 20px">访问设备终端</el-button>
+                        <el-button v-if="this.os.toLowerCase()==='android'" type="primary" @click="go_to_teminal" style="width: 180px;height: 50px;color:white;background-color: #3254DC">访问设备桌面</el-button>
                     </div>
                     <span slot="footer" class="dialog-footer">
 <!--                <el-button @click="instancedialog = false">取 消</el-button>-->
@@ -211,11 +211,18 @@
                         device_model:'WES1343452',
                         ins:''
                     }
-                ]
+                ],
+                os:'',
+                assetsId:''
             }
         },
         methods:{
             go(){
+
+            },
+            go_to_teminal(){
+                this.instancedialog=false
+                window.location.href = 'http://10.0.20.114:10088/luna/?login_to='+this.assetsId;
 
             },
 
@@ -276,7 +283,9 @@
             async getInstance() {
 
                 const {data: res} = await this.$http.get('example/findExampleEntity', {params: {id: this.instanceId}})
-                // window.console.log(res)
+                window.console.log(res)
+                this.os=res.data.os
+                this.assetsId=res.data.assetuuid
                 if (res.code == 20000) {
                     this.ip=res.data.ip
                     this.tableData[0].device_name=res.data.nickname

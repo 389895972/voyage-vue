@@ -20,7 +20,7 @@
                 <el-col span="8">
                     <div class="vedio_block_left">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/aikit/aikit_tutorial.jpg')})`}">
-                            <span class="vedio_title">Edge Kit开发套件</span>
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                 <el-col span="8">
                     <div class="vedio_block_middle">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/aikit/aikit_tutorial.jpg')})`}">
-                            <span class="vedio_title">Edge Kit开发套件</span>
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                 <el-col span="8">
                     <div class="vedio_block_right">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/aikit/aikit_tutorial.jpg')})`}">
-                            <span class="vedio_title">Edge Kit开发套件</span>
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                 <el-col span="8">
                     <div class="vedio_block_left">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/aikit/aikit_tutorial.jpg')})`}">
-                            <span class="vedio_title">Edge Kit开发套件</span>
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
                             <span class="vedio_desc"></span>
                         </div>1
                     </div>
@@ -57,7 +57,7 @@
                 <el-col span="8">
                     <div class="vedio_block_middle">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/aikit/aikit_tutorial.jpg')})`}">
-                            <span class="vedio_title">Edge Kit开发套件</span>
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                 <el-col span="8">
                     <div class="vedio_block_right">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/aikit/aikit_tutorial.jpg')})`}">
-                            <span class="vedio_title">Edge Kit开发套件</span>
+                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                 <el-col span="8">
                     <div class="vedio_block_left">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/edgekit/edgekit_tutorial.jpg')})`}">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_title">Edge Kit开发套件</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                 <el-col span="8">
                     <div class="vedio_block_middle">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/edgekit/edgekit_tutorial.jpg')})`}">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_title">Edge Kit开发套件</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                 <el-col span="8">
                     <div class="vedio_block_right">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/edgekit/edgekit_tutorial.jpg')})`}">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_title">Edge Kit开发套件</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                 <el-col span="8">
                     <div class="vedio_block_left">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/edgekit/edgekit_tutorial.jpg')})`}">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_title">Edge Kit开发套件</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -191,7 +191,7 @@
                 <el-col span="8">
                     <div class="vedio_block_middle">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/edgekit/edgekit_tutorial.jpg')})`}">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_title">Edge Kit开发套件</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>
@@ -200,7 +200,7 @@
                 <el-col span="8">
                     <div class="vedio_block_right">
                         <div class="vedio_image" :style="{backgroundImage:`url(${require('../../assets/images/tutorial/edgekit/edgekit_tutorial.jpg')})`}">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
+                            <span class="vedio_title">Edge Kit开发套件</span>
                             <span class="vedio_desc"></span>
                         </div>
                     </div>

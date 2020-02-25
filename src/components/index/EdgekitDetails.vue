@@ -163,7 +163,7 @@
                 <td><br><img src="../../assets/images/rb3/rb3-9.png" alt=""></td><td><br><img src="../../assets/images/rb3/rb3-10.png" alt=""></td>
               </tr>
               <tr>
-                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;">
+                <td style="font-weight:600;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;color:#495a75;" >
                   <!--                                    Sensor Core-->
                   传感器核心
                 </td>
@@ -172,7 +172,7 @@
                   连接性
                 </td>
               </tr>
-              <tr><td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
+              <tr><td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;" id="i2">
                 <!--                                Support for multiple sensors and 3rd party algorithms through Sensor Software Framework-->
                 通过传感器软件框架支持多种传感器和第三方算法
               </td>
@@ -193,7 +193,7 @@
 
         <div class="pro_show" >
           <div  class="pro_show_div_border">
-            <div class="pro_show_div" id="i2"><span >产品规格</span></div>
+            <div class="pro_show_div" ><span >产品规格</span></div>
           </div>
 
           <div class="pro_advs">
@@ -400,7 +400,7 @@
 <!--            </table>-->
           </div>
         </div>
-          <div class="pro_show" id="i3">
+          <div class="pro_show" >
               <div  class="pro_show_div_border">
                   <div class="pro_show_div" ><span >产品特性</span></div>
               </div>
@@ -454,9 +454,10 @@
               <div class="pro_advs">
                   <span class="adv_span1">应用领域</span>
               </div>
-              <img class="imgs" src="../../assets/images/rb3/rb3-11.png" alt width="100%" height="100%"/>
+              <img  class="imgs" src="../../assets/images/rb3/rb3-11.png" alt width="100%" height="100%"/>
+              <div style="height: 40px" id="i4"></div>
           </div>
-              <div class="pro_show" id="i4">
+              <div class="pro_show" >
           <div  class="pro_show_div_border">
             <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
           </div>
@@ -1203,7 +1204,7 @@ a {
    border-left: 2px solid grey;
   border-right: 2px solid grey;
    font-size: 21px;
-   
+
 }
 
 .service{
@@ -1228,7 +1229,7 @@ a {
   width: 85%;
   margin: 0 auto;
   background-color: #D7D7DB
- 
+
 }
 .service_querstion{
   font-weight: bold;
@@ -1240,7 +1241,7 @@ a {
   font-size:  18px;
   padding-top: 2%;
   padding-bottom: 2%
-  
+
 }
 .home_reg_img{
   align-content: center;

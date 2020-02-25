@@ -41,15 +41,16 @@
 
                             </el-radio-button>
 
-
-                            </span>
-                            <el-select  v-if="current_os!==''" style="display:block;width:200px" v-model="current_os_version" placeholder="请选择">
+                           <el-select  v-bind:class="{isVisible:current_os!==item}"  style="display:block;width:200px;" v-model="current_os_version" placeholder="请选择">
                                 <el-option
-                                        v-for="item in os_specs[current_os]"
-                                        :key="item"
-                                        :label="item"
-                                        :value="item"></el-option>
+                                        v-for="i in os_specs[current_os]"
+                                        :key="i"
+                                        :label="i"
+                                        :value="i"></el-option>
                             </el-select>
+
+                       </span>
+
                         </el-radio-group>
 
                     <span class="configure_os">
@@ -535,4 +536,23 @@ vertical-align:middle;">
         box-shadow:2px 2px 13px #909090;
         margin-top: 40px;
     }
+    .isVisible{
+        visibility: hidden;
+    }
+
+
 </style>
+<!--<style>-->
+<!--    .configure >>> .el-popper[x-placement^=top] .popper__arrow{-->
+<!--        border-top-color:white;-->
+<!--    }-->
+<!--    .configure >>> .el-popper[x-placement^=top] .popper__arrow::after{-->
+<!--        border-top-color:white;-->
+<!--    }-->
+<!--    .el-popper[x-placement^=bottom] .popper__arrow{-->
+<!--        border-bottom-color:white;-->
+<!--    }-->
+<!--    .el-popper[x-placement^=bottom] .popper__arrow::after{-->
+<!--        border-bottom-color:white;-->
+<!--    }-->
+<!--</style>-->

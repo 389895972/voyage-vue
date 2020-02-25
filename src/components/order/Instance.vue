@@ -65,7 +65,7 @@
                         >
                             <template slot-scope="scope">
                                 <el-button type="primary" icon="el-icon-edit" size="mini" @click="manage(scope.row.id)">管理</el-button>
-                                <el-button type="success" icon="el-icon-thumb" size="mini" @click="go(scope.row.assetuuid)">进入控制台</el-button>
+                                <el-button type="success" icon="el-icon-thumb" size="mini" @click="go(scope.row.assetuuid,scope.row.os)">进入控制台</el-button>
                             </template>
                         </el-table-column>
                         <div slot="empty">
@@ -86,6 +86,55 @@
             </div>
         </div>
 
+        <el-dialog
+                title="连接到您的实例"
+                :visible.sync="instancedialog"
+                width="860px" heigth="800px" font-size="30px"
+        >
+            <hr>
+            <div style="display: flex;font-weight: bold">
+
+                <span style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block;margin-right: 5px"></span>
+                <span style="font-size: 16px">连接方式：</span>
+            </div>
+            <div style="display: grid; margin-left:45px;margin-top: 20px">
+                <el-radio-group v-model="radio">
+                    <el-radio  label="1" style="font-size: 16px">本地SSH访问</el-radio>
+                    <el-radio  label="2" style="margin-top: 15px;font-size: 16px;margin-bottom: 20px">WEB页面访问</el-radio>
+                </el-radio-group>
+
+
+            </div>
+            <hr>
+
+
+            <div v-if="radio==='1'">
+                <span style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block;margin-right: 5px"></span>
+                <span style = "font-weight:bold;font-size: 16px">要访问您的实例：</span>
+                <div style="margin-left:55px;font-size: 16px;margin-top: 20px">
+                    <p>1)下载自己的秘钥文件(xxx.pem)</p>
+                    <p>2)修改秘钥文件权限</p>
+                    <p style="text-indent: 20px">sudo chmod 600 xxx.pem</p>
+                    <p>3)本地ssh登录：</p>
+                    <p style="text-indent: 20px">ssh -i xxx.pem -p 2222 username@10.0.20.250</p>
+                    <p>4)登录后可根据提示查看自己当前可访问的设备，或直接输入设备IP登录到设备</p>
+                    <span>示例：</span>
+                    <p style="text-indent: 20px;">chmod 600 baijt.pem</p>
+                    <p style="text-indent: 20px;">ssh -i baijt.pem -p 2222 baijt@10.0.20.250</p>
+                    <p style="text-indent: 20px">>10.0.10.100</p>
+                    即可从本地以SSH的方式登录到IP为10.0.10.100的设备。
+                </div>
+            </div>
+            <div v-else style="height:165px;padding-top: 35px ;padding-left: 40px">
+                <el-button v-if="device_os.toLowerCase()==='linux'" @click="go_to_teminal" style="width: 180px;height: 50px;color:white;background-color: #3254DC;margin-right: 20px">访问设备终端</el-button>
+                <el-button v-if="device_os.toLowerCase()==='android'" type="primary" @click="go_to_teminal" style="width: 180px;height: 50px;color:white;background-color: #3254DC">访问设备桌面</el-button>
+            </div>
+            <span slot="footer" class="dialog-footer">
+<!--                <el-button @click="instancedialog = false">取 消</el-button>-->
+                <!--               <el-button type="primary" @click="instancedialog = false">确 定</el-button>-->
+                </span>
+        </el-dialog>
+
     </el-container>
 </template>
 <script>
@@ -98,6 +147,10 @@
                 tableData:[],
                 total:0,
                 dataLoading:true,
+                instancedialog:false,
+                radio:'1',
+                assetsId:'',
+                device_os:'',
             }
         },
         methods:{
@@ -172,8 +225,14 @@
                 window.console.log(id)
                 this.$router.push({ name: "InstanceDetails", params: {instanceId: id}});
             },
-            go(assetsId){
-                window.location.href = 'http://10.0.20.114:10088/luna/?login_to='+assetsId;
+            go(assetsId,device_os){
+                this.instancedialog=true
+                this.assetsId = assetsId
+                this.device_os=device_os
+            },
+            go_to_teminal(){
+                this.instancedialog=false
+                window.location.href = 'http://10.0.20.114:10088/luna/?login_to='+this.assetsId;
 
             },
             filter_status(value,row,column){

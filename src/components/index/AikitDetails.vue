@@ -221,7 +221,7 @@
                   <td >RTSP Client</td>
                 </tr>
                 <tr>
-                  <td >Graphic</td>
+                  <td id="i3">Graphic</td>
                   <td >OpenGLES3.2, OpenCL2.0 full</td>
                 </tr>
                 </tbody>
@@ -234,7 +234,8 @@
             </div>
           <img class="imgs" src="../../assets/images/aikit_show8.png" alt width="100%" height="100%"/>
         </div>
-        <div class="pro_show" id="i4">
+          <div style="height: 40px" id="i4"></div>
+        <div class="pro_show" >
             <div  class="pro_show_div_border">
                 <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
             </div>
