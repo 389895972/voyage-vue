@@ -62,7 +62,7 @@
           <el-checkbox-group v-model="checkedOrder">
           <el-table-column width="100" >
             <template slot="header">
-              <el-popover trigger="manual" popper-class="tooltipStyle" placement="top" :value="isPopover" width="120">
+              <el-popover trigger="manual" class="popover_scope" popper-class="tooltipStyle" placement="top" :value="isPopover" width="120">
                 <div @click="deleteOrderList">
                   <i class="el-icon-delete" style="margin-right: 10px;"></i>
                   <span>批量删除</span>
@@ -72,7 +72,7 @@
             </template>
 
               <template scope="scope">
-                <el-checkbox-group v-model="checkedOrder">
+                <el-checkbox-group v-model="checkedOrder" @change="handleCheckedOrderChange">
                   <el-checkbox :label="scope.row.orderID" :disabled="scope.row.state!=='已取消'" >{{null}}</el-checkbox>
                 </el-checkbox-group>
 
@@ -557,8 +557,15 @@
   .export_button {
     width: 128px;
   }
+  .popover_scope{
 
-
+  }
+  .popover_scope /deep/ .el-popper[x-placement^=top] /deep/ .popper__arrow{
+    border-top-color:#E84948;
+  }
+  .popover_scope /deep/ .el-popper[x-placement^=top] /deep/ .popper__arrow::after{
+    border-top-color:#E84948;
+  }
 
 
 
@@ -574,7 +581,6 @@
   }
 
   .tooltipStyle{
-    /*background-color: #E84948 !important;*/
     background: #E84948;
     height: 36px;
     min-width: 100px;
@@ -583,11 +589,12 @@
     color: white;
     cursor:pointer;
   }
-  .el-popper[x-placement^=top] .popper__arrow{
-    border-top-color:#E84948;
+
+  .el-popper[x-placement^=bottom] .popper__arrow{
+    border-bottom-color:#E84948;
   }
-  .el-popper[x-placement^=top] .popper__arrow::after{
-    border-top-color:#E84948;
+  .el-popper[x-placement^=bottom] .popper__arrow::after{
+    border-bottom-color:#E84948;
   }
   .el-loading-spinner {
     top: 85%;

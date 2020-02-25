@@ -375,7 +375,7 @@
             <div class="product_documents">
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -389,7 +389,7 @@
 
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -403,7 +403,7 @@
 
                 <div class = "product_document">
                     <div class="product_document_left">
-                        <img class="document_image" src="../../assets/icons/pdf.svg">
+                        <img class="document_image" src="../../assets/icons/pdf.png">
                         <span class="document_name">相关操作文档.pdf</span>
                     </div>
                     <div class="product_document_right">
@@ -418,7 +418,7 @@
                 <div v-if="isMore" class="more">
                     <div class = "product_document">
                         <div class="product_document_left">
-                            <img class="document_image" src="../../assets/icons/pdf.svg">
+                            <img class="document_image" src="../../assets/icons/pdf.png">
                             <span class="document_name">相关操作文档.pdf</span>
                         </div>
                         <div class="product_document_right">
@@ -675,8 +675,8 @@ export default {
         text-align: right;
     }
     .document_image{
-        width: 31px;
-        height: 36px;
+        width: 28px;
+        height: 29px;
     }
     .document_name{
         font-family: PingFangSC-Regular;
@@ -1110,7 +1110,7 @@ a {
    border-left: 2px solid grey;
   border-right: 2px solid grey;
    font-size: 21px;
-   
+
 }
 
 .service{
@@ -1135,7 +1135,7 @@ a {
   width: 85%;
   margin: 0 auto;
   background-color: #D7D7DB
- 
+
 }
 .service_querstion{
   font-weight: bold;
@@ -1147,7 +1147,7 @@ a {
   font-size:  18px;
   padding-top: 2%;
   padding-bottom: 2%
-  
+
 }
 .home_reg_img{
   align-content: center;

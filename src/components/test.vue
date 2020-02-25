@@ -1,69 +1,50 @@
 <template>
-
-    <div>
-<!--        <div class="act-form">-->
-<!--            <iframe :src="src" width="400px" height="500px" ref="iframe"></iframe>-->
-<!--        </div>-->
-        <el-button v-loading="activeLoading"
-                   element-loading-spinner="el-icon-loading"
-                   element-loading-customClass="iconClass"
-                   @click="activeLoading=!activeLoading">test111</el-button>
-
-
-
-    </div>
-
+    <el-select v-model="value" placeholder="请选择">
+        <el-option-group
+                v-for="group in options"
+                :key="group.label"
+                :label="group.label">
+            <el-option
+                    v-for="item in group.options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+            </el-option>
+        </el-option-group>
+    </el-select>
 </template>
+
 <script>
-
     export default {
-        data(){
-            return{
-                iframeWin:null,
-                src:'http://10.0.20.250:8008',
-                isCheck:false,
-                activeLoading:false
+        data() {
+            return {
+                options: [{
+                    label: '热门城市',
+                    options: [{
+                        value: 'Shanghai',
+                        label: '上海'
+                    }, {
+                        value: 'Beijing',
+                        label: '北京'
+                    }]
+                }, {
+                    label: '城市名',
+                    options: [{
+                        value: 'Chengdu',
+                        label: '成都'
+                    }, {
+                        value: 'Shenzhen',
+                        label: '深圳'
+                    }, {
+                        value: 'Guangzhou',
+                        label: '广州'
+                    }, {
+                        value: 'Dalian',
+                        label: '大连'
+                    }]
+                }],
+                value: ''
             }
-        },
-        methods:{
-
-
-
-        },
-        mounted(){
-
-
-
-        },
-
+        }
     }
 </script>
-<style scoped>
-
-
-</style>
-<style>
-    .tooltipStyle{
-        /*background-color: #E84948 !important;*/
-        background: #E84948;
-        height: 36px;
-        min-width: 100px;
-        vertical-align: center;
-
-        color: white;
-        cursor:pointer;
-    }
-    .el-popper[x-placement^=top] .popper__arrow{
-        border-top-color:#E84948;
-    }
-    .el-popper[x-placement^=top] .popper__arrow::after{
-        border-top-color:#E84948;
-    }
-    .el-loading-spinner {
-        top: 80%;
-        /*margin-top: -21px;*/
-        width: 100%;
-        text-align: center;
-        position: absolute;
-    }
-</style>

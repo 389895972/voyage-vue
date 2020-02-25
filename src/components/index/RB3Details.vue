@@ -372,7 +372,7 @@
                     <div class="product_documents">
                         <div class = "product_document">
                             <div class="product_document_left">
-                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <img class="document_image" src="../../assets/icons/pdf.png">
                                 <span class="document_name">相关操作文档.pdf</span>
                             </div>
                             <div class="product_document_right">
@@ -386,7 +386,7 @@
 
                         <div class = "product_document">
                             <div class="product_document_left">
-                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <img class="document_image" src="../../assets/icons/pdf.png">
                                 <span class="document_name">相关操作文档.pdf</span>
                             </div>
                             <div class="product_document_right">
@@ -400,7 +400,7 @@
 
                         <div class = "product_document">
                             <div class="product_document_left">
-                                <img class="document_image" src="../../assets/icons/pdf.svg">
+                                <img class="document_image" src="../../assets/icons/pdf.png">
                                 <span class="document_name">相关操作文档.pdf</span>
                             </div>
                             <div class="product_document_right">
@@ -415,7 +415,7 @@
                         <div v-if="isMore" class="more">
                             <div class = "product_document">
                                 <div class="product_document_left">
-                                    <img class="document_image" src="../../assets/icons/pdf.svg">
+                                    <img class="document_image" src="../../assets/icons/pdf.png">
                                     <span class="document_name">相关操作文档.pdf</span>
                                 </div>
                                 <div class="product_document_right">
@@ -635,8 +635,8 @@
         text-align: right;
     }
     .document_image{
-        width: 31px;
-        height: 36px;
+        width: 28px;
+        height: 29px;
     }
     .document_name{
         font-family: PingFangSC-Regular;
