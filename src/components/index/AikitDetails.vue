@@ -237,7 +237,7 @@
           <div style="height: 40px" id="i4"></div>
         <div class="pro_show" >
             <div  class="pro_show_div_border">
-                <div class="pro_show_div" ><span style="font-size: 13px">教程与文档</span></div>
+                <div class="pro_show_div" ><span style="font-size: 16px">教程与文档</span></div>
             </div>
           <span class="adv_span1" style="margin-left: 25px">相关文档</span>
             <div class="product_documents">
@@ -771,12 +771,12 @@ export default {
       document.querySelector(tab.name).scrollIntoView(true);
     },
     buy_aikit() {
-        const tokenStr=window.sessionStorage.getItem('token');
-
-        if(!tokenStr){
-            this.$message.error("请先登录！")
-            this.login_dialog1=true
-        }else {
+        // const tokenStr=window.sessionStorage.getItem('token');
+        //
+        // if(!tokenStr){
+        //     this.$message.error("请先登录！")
+        //     this.login_dialog1=true
+        // }else {
             this.$router.push(
                 {
                     path: '/buy',
@@ -786,7 +786,7 @@ export default {
                     }
                 }
             );
-        }
+        //}
     },
       showMore(){
           this.isMore=true;
@@ -1085,7 +1085,7 @@ a {
     border-bottom: 44px solid #3254DC;
     border-left: 30px solid #3254DC;
     border-right: 30px solid transparent;
-    width: 126.72px;
+    width: 140.72px;
     position: relative;
     /*box-shadow: #2aabd2 2px 2px 2px;*/
 

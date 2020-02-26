@@ -445,7 +445,8 @@ vertical-align:middle;">
     }
     #os_config >>> .el-input__inner{
         width: 200px;
-        /*background-color: #3FB560;*/
+        background-color: #3FB560;
+        color: white;
     }
     .configure_os{
         margin-right: 30px;

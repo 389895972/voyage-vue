@@ -1,184 +1,185 @@
 <template>
     <keep-alive>
-    <el-container>
-        <div class="home-container">
+        <el-container>
+            <div class="home-container">
 
-            <div class="buy_body">
-                <div class="product_name">
-                    <span style="width: 10px;height:32px;background-color:#5171F0 ;display: inline-block"></span>
-                    <span> {{product_name}}</span>
-                </div>
-                <!--{{os_specs}}-->
-                <div style="display: flex;justify-content:space-around;width: 100%;">
-                    <div style="width: 100%">
-                 <div class="configure" style="height: 130px">
-                     <span class="configure_title"> 规格配置</span>
-                      <div class="configure_content" >
-                          <el-radio-group v-model="configure">
-                              <el-radio-button label="标准版"></el-radio-button>
-                          </el-radio-group>
+                <div class="buy_body">
+                    <div class="product_name">
+                        <span style="width: 10px;height:32px;background-color:#5171F0 ;display: inline-block"></span>
+                        <span> {{product_name}}</span>
+                    </div>
+                    <!--{{os_specs}}-->
+                    <div style="display: flex;justify-content:space-around;width: 100%;">
+                        <div style="width: 100%">
+                            <div class="configure" style="height: 130px">
+                                <span class="configure_title"> 规格配置</span>
+                                <div class="configure_content" >
+                                    <el-radio-group v-model="configure">
+                                        <el-radio-button label="标准版"></el-radio-button>
+                                    </el-radio-group>
 
-<!--                      <el-select v-model="configure" placeholder="请选择">-->
-<!--                          <el-option  v-for="item in configures"  :key="item.value"  :label="item.label"-->
-<!--                            :value="item.value">-->
-<!--                          </el-option>-->
+                                    <!--                      <el-select v-model="configure" placeholder="请选择">-->
+                                    <!--                          <el-option  v-for="item in configures"  :key="item.value"  :label="item.label"-->
+                                    <!--                            :value="item.value">-->
+                                    <!--                          </el-option>-->
 
-<!--                      </el-select>-->
-                      </div>
-                </div>
+                                    <!--                      </el-select>-->
+                                </div>
+                            </div>
 
 
-<!--                 {{spec[0].attributeName}}-->
-                <div class="configure" id="os_config" style="height: 165px;margin-top: 15px">
-                    <span class="configure_title" >操作系统</span>
-                    <div class="configure_content" >
-                        <el-radio-group v-model="current_os">
+                            <!--                 {{spec[0].attributeName}}-->
+                            <div class="configure" id="os_config" style="height: 165px;margin-top: 15px">
+                                <span class="configure_title" >操作系统</span>
+                                <div class="configure_content" >
+                                    <el-radio-group v-model="current_os">
                        <span style="display:inline-block" v-for="item in oss" :key="item">
                           <el-radio-button style="display:block"
-                                              :key="item"
-                                              :label="item"
-                                              :value="item" >
+                                           :key="item"
+                                           :label="item"
+                                           :value="item" >
 
                             </el-radio-button>
 
-
-                            </span>
-                            <el-select  v-if="current_os!==''" style="display:block;width:200px" v-model="current_os_version" placeholder="请选择">
+                           <el-select  v-bind:class="{isVisible:current_os!==item}"  style="display:block;width:200px;" v-model="current_os_version" placeholder="请选择">
                                 <el-option
-                                        v-for="item in os_specs[current_os]"
-                                        :key="item"
-                                        :label="item"
-                                        :value="item"></el-option>
+                                        v-for="i in os_specs[current_os]"
+                                        :key="i"
+                                        :label="i"
+                                        :value="i"></el-option>
                             </el-select>
-                        </el-radio-group>
 
-                    <span class="configure_os">
+                       </span>
+
+                                    </el-radio-group>
+
+                                    <span class="configure_os">
 <!--            <el-select v-model="current_os" placeholder="请选择">-->
-<!--              <el-option-->
-<!--                      v-for="item in oss"-->
-<!--                      :key="item"-->
-<!--                      :label="item"-->
-<!--                      :value="item"-->
-<!--              ></el-option>-->
-<!--            </el-select>-->
+                                        <!--              <el-option-->
+                                        <!--                      v-for="item in oss"-->
+                                        <!--                      :key="item"-->
+                                        <!--                      :label="item"-->
+                                        <!--                      :value="item"-->
+                                        <!--              ></el-option>-->
+                                        <!--            </el-select>-->
 
 
           </span>
-<!--            <el-select v-model="current_os_version" placeholder="请选择">-->
-<!--                <el-option-->
-<!--                      v-for="item in os_specs[current_os]"-->
-<!--                      :key="item"-->
-<!--                      :label="item"-->
-<!--                      :value="item"></el-option>-->
-<!--             </el-select>-->
+                                    <!--            <el-select v-model="current_os_version" placeholder="请选择">-->
+                                    <!--                <el-option-->
+                                    <!--                      v-for="item in os_specs[current_os]"-->
+                                    <!--                      :key="item"-->
+                                    <!--                      :label="item"-->
+                                    <!--                      :value="item"></el-option>-->
+                                    <!--             </el-select>-->
 
+
+                                </div>
+                            </div>
+                            <!--                <div class="configure">-->
+                            <!--                    <span class="configure_title">操作系统</span>-->
+                            <!--                    <span  class="configure_os">-->
+                            <!--                        <el-select v-model="oss" placeholder="请选择">-->
+                            <!--                            <el-option  v-for="item in spec"  :key="item.id"  :label="item.attributeName"-->
+                            <!--                                        :value="item.attributeName">-->
+                            <!--                            </el-option>-->
+                            <!--                        </el-select>-->
+                            <!--                        </span>-->
+                            <!--                    <span v-if="oss==='linux'" class="configure_os">-->
+                            <!--                        <el-select   v-model="ubuntus" placeholder="请选择">-->
+                            <!--                            <el-option  v-for="item in data"  :key="item.id"  :label="item.spec[0].attributeValue"-->
+                            <!--                                        :value="item.spec[0].attributeValue">-->
+                            <!--                            </el-option>-->
+                            <!--                        </el-select>-->
+                            <!--                        </span>-->
+                            <!--                    <span v-if="oss==='Android'" class="configure_os">-->
+                            <!--                        <el-select   v-model="androids" placeholder="请选择">-->
+                            <!--                            <el-option  v-for="item in data"  :key="item.id"  :label="item.spec[0].attributeValue"-->
+                            <!--                                        :value="item.spec[0].attributeValue">-->
+                            <!--                            </el-option>-->
+                            <!--                        </el-select>-->
+                            <!--                    </span>-->
+                            <!--                </div>-->
+
+                            <div class="configure" style="height: 235px;margin-top: 15px">
+                                <span class="configure_title">购买数量</span>
+                                <div class="configure_content" >
+                                    <el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="1" label="描述文字"></el-input-number>
+
+                                    <div class="block" style="width:90%;margin-top: 20px">
+
+                                        <span class="configure_title">购买时长 <span style="margin-left:30px;font-weight:normal">{{ buy_time}}</span></span>
+
+                                        <el-slider v-model="hire_time" :step="1" :format-tooltip="timestepToolTip" show-stops :max="41" :min="0" ></el-slider>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="configure" style="height: 280px;margin-top: 15px;margin-bottom: 15px" id="config">
+                                <div class="configure_title"> 请输入个人信息</div>
+                                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="login_form">
+                                    <div style="display: flex;margin-top: 20px">
+                                        <el-form-item label="姓名" prop="name">
+                                            <el-input v-model="ruleForm.name"></el-input>
+                                        </el-form-item>
+                                        <el-form-item label="部门" prop="dept">
+                                            <el-input v-model="ruleForm.dept"></el-input>
+                                        </el-form-item>
+                                    </div>
+                                    <div style="display: flex;margin-top: 0px">
+                                        <el-form-item label="性别">
+                                            <el-radio-group class="sex" v-model="ruleForm.sex" id="radiosex">
+                                                <el-radio label="男"></el-radio>
+                                                <el-radio label="女"></el-radio>
+                                            </el-radio-group>
+                                        </el-form-item>
+                                        <el-form-item label="手机号"  style="margin-left:36.5%">
+                                            <el-input v-model="ruleForm.tel"></el-input>
+                                        </el-form-item>
+                                    </div>
+                                    <div style="width: 616px">
+                                        <el-form-item label="用途"  style="width: 100%;margin-top: 0px">
+                                            <el-input type="textarea" v-model="ruleForm.purpose"></el-input>
+                                        </el-form-item>
+                                    </div>
+                                </el-form>
+                            </div>
+                            <!--                <div class="order_btn">-->
+                            <!--                   <span>费用合计：</span><span style="text-decoration:line-through">￥{{pay}} </span> <span style="color:red">￥{{topay}}</span><el-button  type="primary" @click="buy">确认订单</el-button>-->
+                            <!--                </div>-->
+                        </div>
+                        <!--                    <div class="configure_configure">-->
+                        <!--                        <span class="configure_title"> 当前配置</span>-->
+                        <!--                        <div style="margin-top: 20px">-->
+                        <!--                        <span class="config_title"> 规格配置 <span style="margin-left: 40px;color:black"> {{configure}}</span></span>-->
+                        <!--                        <span class="config_title"> 操作系统<span style="margin-left: 40px;color:black"> {{current_os}} {{current_os_version}}</span></span>-->
+                        <!--                        <span class="config_title"> 购买数量 <span style="margin-left: 40px;color:black"> {{buy_nums}}</span></span>-->
+                        <!--                        <span class="config_title" style="margin-top: 40px;margin-bottom: 0px"> 配置费用 </span>-->
+                        <!--                        <span class="config_title" style="margin-top: 10px;margin-bottom: 0px" > <span style="text-decoration:line-through;font-size: 24px;color: black">￥{{pay}} </span> </span>-->
+                        <!--                        <span class="config_title" style="margin-top: 0px"> <span style="color:red;font-size:36px">￥{{topay}}</span></span>-->
+                        <!--                        <span class="config_title"> <el-button  type="primary"  style="background-color: #3254DC;width: 180px;margin-left: 0"  @click="buy">立即下单</el-button></span>-->
+                        <!--                    </div></div>-->
 
                     </div>
                 </div>
-<!--                <div class="configure">-->
-<!--                    <span class="configure_title">操作系统</span>-->
-<!--                    <span  class="configure_os">-->
-<!--                        <el-select v-model="oss" placeholder="请选择">-->
-<!--                            <el-option  v-for="item in spec"  :key="item.id"  :label="item.attributeName"-->
-<!--                                        :value="item.attributeName">-->
-<!--                            </el-option>-->
-<!--                        </el-select>-->
-<!--                        </span>-->
-<!--                    <span v-if="oss==='linux'" class="configure_os">-->
-<!--                        <el-select   v-model="ubuntus" placeholder="请选择">-->
-<!--                            <el-option  v-for="item in data"  :key="item.id"  :label="item.spec[0].attributeValue"-->
-<!--                                        :value="item.spec[0].attributeValue">-->
-<!--                            </el-option>-->
-<!--                        </el-select>-->
-<!--                        </span>-->
-<!--                    <span v-if="oss==='Android'" class="configure_os">-->
-<!--                        <el-select   v-model="androids" placeholder="请选择">-->
-<!--                            <el-option  v-for="item in data"  :key="item.id"  :label="item.spec[0].attributeValue"-->
-<!--                                        :value="item.spec[0].attributeValue">-->
-<!--                            </el-option>-->
-<!--                        </el-select>-->
-<!--                    </span>-->
-<!--                </div>-->
-
-                <div class="configure" style="height: 235px;margin-top: 15px">
-                    <span class="configure_title">购买数量</span>
-                    <div class="configure_content" >
-                    <el-input-number v-model="buy_nums" @change="handleChange" :min="1" :max="1" label="描述文字"></el-input-number>
-
-                  <div class="block" style="width:90%;margin-top: 20px">
-
-                    <span class="configure_title">购买时长 <span style="margin-left:30px;font-weight:normal">{{ buy_time}}</span></span>
-
-                      <el-slider v-model="hire_time" :step="1" :format-tooltip="timestepToolTip" show-stops :max="41" :min="0" ></el-slider>
-
-
-                      </div>
-                </div>
-                </div>
-                <div class="configure" style="height: 280px;margin-top: 15px;margin-bottom: 15px" id="config">
-                    <div class="configure_title"> 请输入个人信息</div>
-                    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="login_form">
-                        <div style="display: flex;margin-top: 20px">
-                        <el-form-item label="姓名" prop="name">
-                            <el-input v-model="ruleForm.name"></el-input>
-                        </el-form-item>
-                        <el-form-item label="部门" prop="dept">
-                            <el-input v-model="ruleForm.dept"></el-input>
-                        </el-form-item>
-                        </div>
-                        <div style="display: flex;margin-top: 0px">
-                        <el-form-item label="性别">
-                            <el-radio-group class="sex" v-model="ruleForm.sex" id="radiosex">
-                                <el-radio label="男"></el-radio>
-                                <el-radio label="女"></el-radio>
-                            </el-radio-group>
-                        </el-form-item>
-                        <el-form-item label="手机号"  style="margin-left:36.5%">
-                            <el-input v-model="ruleForm.tel"></el-input>
-                        </el-form-item>
-                        </div>
-                         <div style="width: 616px">
-                        <el-form-item label="用途"  style="width: 100%;margin-top: 0px">
-                            <el-input type="textarea" v-model="ruleForm.purpose"></el-input>
-                        </el-form-item>
-                         </div>
-                    </el-form>
-                </div>
-<!--                <div class="order_btn">-->
-<!--                   <span>费用合计：</span><span style="text-decoration:line-through">￥{{pay}} </span> <span style="color:red">￥{{topay}}</span><el-button  type="primary" @click="buy">确认订单</el-button>-->
-<!--                </div>-->
-                    </div>
-<!--                    <div class="configure_configure">-->
-<!--                        <span class="configure_title"> 当前配置</span>-->
-<!--                        <div style="margin-top: 20px">-->
-<!--                        <span class="config_title"> 规格配置 <span style="margin-left: 40px;color:black"> {{configure}}</span></span>-->
-<!--                        <span class="config_title"> 操作系统<span style="margin-left: 40px;color:black"> {{current_os}} {{current_os_version}}</span></span>-->
-<!--                        <span class="config_title"> 购买数量 <span style="margin-left: 40px;color:black"> {{buy_nums}}</span></span>-->
-<!--                        <span class="config_title" style="margin-top: 40px;margin-bottom: 0px"> 配置费用 </span>-->
-<!--                        <span class="config_title" style="margin-top: 10px;margin-bottom: 0px" > <span style="text-decoration:line-through;font-size: 24px;color: black">￥{{pay}} </span> </span>-->
-<!--                        <span class="config_title" style="margin-top: 0px"> <span style="color:red;font-size:36px">￥{{topay}}</span></span>-->
-<!--                        <span class="config_title"> <el-button  type="primary"  style="background-color: #3254DC;width: 180px;margin-left: 0"  @click="buy">立即下单</el-button></span>-->
-<!--                    </div></div>-->
-
-                </div>
-            </div>
-            <div class="configure_foot">
-                 <div class="order_btn">
+                <div class="configure_foot">
+                    <div class="order_btn">
                       <span style="display: inline-block;text-align: right;width: 800px;height: 100px">
                           <span style="color:red;font-size:36px;display: block">  <span style="color:black;font-size:16px">配置费用:</span> ￥{{topay}}</span>
                           <span style="text-decoration:line-through;font-size: 24px;color: black;display: block;font-weight:bold">￥{{pay}} </span>
                       </span>
 
-                     <div style="display: inline-block;line-height: 100px;
+                        <div style="display: inline-block;line-height: 100px;
 vertical-align:middle;">
-<!--                     <span style="display: inline-block;line-height: 100px;height: 100px">-->
-                     <el-button  type="primary"  style="background-color: #3254DC;width: 180px;margin-bottom: 35%;height:50px"  @click="buy">立即下单</el-button>
-<!--                     </span>-->
-                     </div>
-                 </div>
+                            <!--                     <span style="display: inline-block;line-height: 100px;height: 100px">-->
+                            <el-button  type="primary"  style="background-color: #3254DC;width: 180px;margin-bottom: 35%;height:50px"  @click="buy">立即下单</el-button>
+                            <!--                     </span>-->
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </el-container>
+        </el-container>
     </keep-alive>
 </template>
 
@@ -210,7 +211,7 @@ vertical-align:middle;">
                 hire_time: 10,
                 hire_time_pay: '',
                 buy_nums: 1,
-               // pay:188,
+                // pay:188,
                 product_name: this.$route.query.name,
                 good_id:this.$route.query.good_id,
                 configures: [
@@ -254,31 +255,31 @@ vertical-align:middle;">
                 window.console.log(value);
             },
             async getOs(){
-              const {data:res}=await this.$http.get('/goodsitem/findAll',{params:{ goodsid:this.good_id}})
-              // window.console.log(res)
-              if(res.code==20000) {
-                  // this.$message.success("成功")
-                  this.data = res.data;
-                  window.console.log(this.data);
-                  for (var i in this.data) {
-                      var spec = JSON.parse(this.data[i].spec);
-                      let spec_attr_name = spec[0].attributeName;
-                      let spec_attr_val = spec[0].attributeValue;
-                      if (spec_attr_name && spec_attr_val) {
-                          if (this.os_specs[spec_attr_name] == undefined) {
-                              this.os_specs[spec_attr_name] = [spec_attr_val];
-                          } else {
-                              if (this.os_specs[spec_attr_name].indexOf(spec_attr_val) == -1) {
-                                  this.os_specs[spec_attr_name].push(spec_attr_val);
-                              }
-                          }
-                      }
-                  }
+                const {data:res}=await this.$http.get('/goodsitem/findAll',{params:{ goodsid:this.good_id}})
+                // window.console.log(res)
+                if(res.code==20000) {
+                    // this.$message.success("成功")
+                    this.data = res.data;
+                    window.console.log(this.data);
+                    for (var i in this.data) {
+                        var spec = JSON.parse(this.data[i].spec);
+                        let spec_attr_name = spec[0].attributeName;
+                        let spec_attr_val = spec[0].attributeValue;
+                        if (spec_attr_name && spec_attr_val) {
+                            if (this.os_specs[spec_attr_name] == undefined) {
+                                this.os_specs[spec_attr_name] = [spec_attr_val];
+                            } else {
+                                if (this.os_specs[spec_attr_name].indexOf(spec_attr_val) == -1) {
+                                    this.os_specs[spec_attr_name].push(spec_attr_val);
+                                }
+                            }
+                        }
+                    }
 
-                  this.oss = Object.keys(this.os_specs)
-              }else if(res==null||res.code!==20000){
-                  this.$message.error("获取操作系统失败")
-              }
+                    this.oss = Object.keys(this.os_specs)
+                }else if(res==null||res.code!==20000){
+                    this.$message.error("获取操作系统失败")
+                }
 
 
 
@@ -293,31 +294,31 @@ vertical-align:middle;">
             buy(){
                 this.$refs.ruleForm.validate(valid=>{
                     const tokenStr=window.sessionStorage.getItem('token');
-                if(this.current_os===''||this.current_os_version===''){
-                    this.$message.error("请选择操作系统版本")
-                }else if(!valid){
-                    this.$message.error("请完善个人信息")
-                }else if(!tokenStr){
+                    if(this.current_os===''||this.current_os_version===''){
+                        this.$message.error("请选择操作系统版本")
+                    }else if(!valid){
+                        this.$message.error("请完善个人信息")
+                    }else if(!tokenStr){
                         this.$message.error("请先登录！")
                         this.login_dialog1=true
                     }else {
 
-                    this.$router.push(
-                        {
-                            name:'Confirm',
-                            params:{
-                                product_name:this.product_name,
-                                os:this.current_os,
-                                version:this.current_os_version,
-                                info:this.ruleForm,
-                                buy_nums:this.buy_nums,
-                                hire_time:this.hire_time,
-                                pay:this.pay,
-                                configure:this.configure,
-                                good_id:this.good_id
-                            }
-                        });
-                }
+                        this.$router.push(
+                            {
+                                name:'Confirm',
+                                params:{
+                                    product_name:this.product_name,
+                                    os:this.current_os,
+                                    version:this.current_os_version,
+                                    info:this.ruleForm,
+                                    buy_nums:this.buy_nums,
+                                    hire_time:this.hire_time,
+                                    pay:this.pay,
+                                    configure:this.configure,
+                                    good_id:this.good_id
+                                }
+                            });
+                    }
 
                 })
             },
@@ -329,8 +330,8 @@ vertical-align:middle;">
 
         },
         created(){
-           this.getOs();
-           // this.setOs();
+            this.getOs();
+            // this.setOs();
         },
         watch:{
             current_os(){
@@ -339,22 +340,22 @@ vertical-align:middle;">
             }
         },
         computed:{
-          pay(){
-                  let pay=0
-                  let time = this.hire_time;
-                   let buy_nums=this.buy_nums
+            pay(){
+                let pay=0
+                let time = this.hire_time;
+                let buy_nums=this.buy_nums
                 if(time>=0 && time<=29){
                     pay=10*time*buy_nums
 
                 }else if(time>=30 && time<=40){
-                   pay=40*(time-29)*buy_nums
+                    pay=40*(time-29)*buy_nums
                 }else{
-                     pay=10*365*buy_nums
+                    pay=10*365*buy_nums
                 }
-                 return pay.toFixed(2);
-             },
+                return pay.toFixed(2);
+            },
             buy_time(){
-              let buy_time=''
+                let buy_time=''
                 let time = this.hire_time;
 
                 if(time>=0 && time<=29){
@@ -367,16 +368,16 @@ vertical-align:middle;">
                 }
                 return buy_time;
             },
-             hire_time_pa(){
-                 return this.toolmsg[this.hire_time_pay]
-             }
+            hire_time_pa(){
+                return this.toolmsg[this.hire_time_pay]
+            }
         }
     }
 </script>
 
 <style scoped>
     .buy_body{
-       width: 1280px;
+        width: 1280px;
         margin: 50px auto 0 auto;
     }
     .product_name{
@@ -406,13 +407,13 @@ vertical-align:middle;">
     .config_title{
         margin-right: 20px;
         font-size: 14px;
-         margin-bottom: 20px;
+        margin-bottom: 20px;
         display: block;
         color: #606879;
 
     }
     .configure_content{
-         margin-top: 20px;
+        margin-top: 20px;
     }
     .configure_content >>>.el-radio-button__inner{
         margin-right: 10px;
@@ -422,8 +423,8 @@ vertical-align:middle;">
     }
     .configure_content >>> .el-radio-button__orig-radio:checked+.el-radio-button__inner{
         margin-right: 10px;
-            background-color: #3FB560;
-            color: white;
+        background-color: #3FB560;
+        color: white;
         border-color: #3FB560;
         width: 140px;
     }
@@ -445,6 +446,8 @@ vertical-align:middle;">
     #os_config >>> .el-input__inner{
         width: 200px;
         /*background-color: #3FB560;*/
+        background-color: #3FB560;
+        color: white;
     }
     .configure_os{
         margin-right: 30px;
@@ -483,9 +486,9 @@ vertical-align:middle;">
         padding-top: 20px;
         padding-left: 30px;
     }
-     .el-button{
-         margin-left: 20px;
-     }
+    .el-button{
+        margin-left: 20px;
+    }
     .block  >>> .el-slider__bar{
         background-color: #3FB560;
     }
@@ -513,7 +516,7 @@ vertical-align:middle;">
 
     .configure >>> .el-form-item__label{
         /*background-color: red;*/
-       text-align: left;
+        text-align: left;
         width: 60px;
     }
     .configure >>> .el-textarea__inner{
@@ -535,4 +538,23 @@ vertical-align:middle;">
         box-shadow:2px 2px 13px #909090;
         margin-top: 40px;
     }
+    .isVisible{
+        visibility: hidden;
+    }
+
+
 </style>
+<!--<style>-->
+<!--    .configure >>> .el-popper[x-placement^=top] .popper__arrow{-->
+<!--        border-top-color:white;-->
+<!--    }-->
+<!--    .configure >>> .el-popper[x-placement^=top] .popper__arrow::after{-->
+<!--        border-top-color:white;-->
+<!--    }-->
+<!--    .el-popper[x-placement^=bottom] .popper__arrow{-->
+<!--        border-bottom-color:white;-->
+<!--    }-->
+<!--    .el-popper[x-placement^=bottom] .popper__arrow::after{-->
+<!--        border-bottom-color:white;-->
+<!--    }-->
+<!--</style>-->

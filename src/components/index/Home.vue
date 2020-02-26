@@ -1,8 +1,7 @@
 <template>
-  <el-container>
-    <Header ref="ff" style="display: none" ></Header>
-
-
+  <el-container style="display: block" >
+    <Header ref="ff" style="display:none" ></Header>
+<!--      <button @click="ii">123456</button>-->
     <div class="home-container" style="background-color: #D7D7DB">
 <!--      <div class="header">-->
 <!--        <img class="img" src="../../assets/images/logo.png" alt />-->
@@ -990,7 +989,7 @@ export default {
      //
      //  this.$emit('header:kk')
      //  this.$emit('header:go_login',false)
-     // this.$parent.$refs.ff.go_login();
+      this.$refs.ff.go_login();
      //  this.$parent.$emit('go_login',true)
      //  window.console.log("fff")
     },
@@ -999,7 +998,7 @@ export default {
 
           if(!tokenStr){
               this.$message.error("请先登录！")
-              this.login_dialog1=true
+              this.ii()
           }else{
               this.$router.push({
                   path:'instance',
@@ -1009,11 +1008,12 @@ export default {
       }
   },
   created(){
-   // this.$emit('header',false);
+    //this.$emit('header',false);
     //this.$emit('footer',false);
   },
 
 };
+
 </script>
 <style scoped>
 div {
