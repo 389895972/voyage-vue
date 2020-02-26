@@ -18,7 +18,10 @@ import Instance from './components/order/Instance'
 import adminOrderList from './components/admin/orderList'
 import adminLogin from './components/admin/Login'
 
+import Page404 from './components/error/Page404'
+
 import de from './ChangLang'
+
 
 Vue.use(Router)
 
@@ -41,7 +44,8 @@ const router =new Router({
         {path:'/tutorial',name:'Tutorial',component:Tutorial,meta:{keepAlive:false}},
         {path:'/personal',name:'Personal',component:Personal,meta:{keepAlive:false}},
         {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}},
-        {path:'/admin/login',name:'adminLogin',component:adminLogin,meta:{keepAlive:false}}
+        {path:'/admin/login',name:'adminLogin',component:adminLogin,meta:{keepAlive:false}},
+        {path:'*',name:'Page404',component:Page404}
 
 
     ],

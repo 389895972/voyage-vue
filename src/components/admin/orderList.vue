@@ -286,7 +286,7 @@
         require.ensure([], () => {
           const { export_json_to_excel } = require('../../ventor/Export2Excel.js');
           const tHeader = Object.keys(this.tableData[0])
-          const list = this.filterData
+          const list = this.tableData
           const filterVal = []
           for(var i in tHeader){
             filterVal.push(tHeader[i])
