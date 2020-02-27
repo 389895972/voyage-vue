@@ -3,7 +3,8 @@
             <div class="home-container">
 
                 <div class="content">
-                    <div> <el-button >&larr;返回</el-button>
+                    <div>
+<!--                        <el-button >&larr;返回</el-button>-->
                     </div>
 
 

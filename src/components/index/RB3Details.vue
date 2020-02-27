@@ -27,7 +27,7 @@
                         Qualcomm<sup>&reg;</sup>Robotics RB3平台（SDA845）
 <!--                        <SUP>TM</SUP>AI套件-->
                         <div class="content">
-                            <p style="width: 670px;margin-left: 0;margin-top: 30px">高通机器人公司RB3开发套件通过将高性能异构计算、高通®人工智能（AI）引擎（用于设备上机器学习、计算机视觉、保险库式安全、多媒体和Wi-Fi以及蜂窝连接（4G/LTE和CBRS）。包括一套全面的软件和硬件，包括业界最好的六轴运动传感器（ICM 42688）、顶级端口PDM传声器（ICS 41351）和气压传感器（ICP—10101），来自TDK VANSENSENS。高通机器人Rb3开发套件旨在帮助制造商和开发人员创建机器人产品。从大型工业和企业机器人到具有挑战性的功耗和散热要求的小型电池驱动机器人。</p>
+                            <p style="width: 670px;margin-left: 0;margin-top: 30px">高通机器人公司RB3开发套件通过将高性能异构计算、高通®人工智能（AI）引擎（用于设备上机器学习、计算机视觉、保险库式安全、多媒体和Wi-Fi以及蜂窝连接（4G/LTE和CBRS）。包括一套全面的软件和硬件，包括业界最好的六轴运动传感器（ICM 42688）、顶级端口PDM传声器（ICS 41351）和气压传感器（ICP—10101）。高通机器人Rb3开发套件旨在帮助制造商和开发人员创建机器人产品。从大型工业和企业机器人到具有挑战性的功耗和散热要求的小型电池驱动机器人。</p>
 
                         </div>
                         <div class="aikit_btn">
@@ -151,7 +151,7 @@
                                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
 <!--                                    Sensor module to do visual Simultaneous Localization and Mapping (vSLAM=-->
 <!--                                    )-->
-                                    传感器模块进行可视化同时定位和映射（vSLAM =）
+                                    传感器模块进行可视化同时定位和映射（vSLAM）
                                 </td>
                                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
 <!--                                    Qualcomm <sup>&reg;</sup>Secure Processing Unit, hardware root of trust, trusted execution environment, secure boot, camera security-->
@@ -439,76 +439,76 @@
 
 
                     </div>
-                    <span class="adv_span1" style="margin-left: 25px">相关教程</span>
-                    <el-row>
-                        <el-col span="8">
-                            <div class="vedio_block_left">
-                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
-                                <div class="vedio_image">
-                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                                    <span class="vedio_desc"></span>
-                                </div>
-                            </div>
-                        </el-col>
+<!--                    <span class="adv_span1" style="margin-left: 25px">相关教程</span>-->
+<!--                    <el-row>-->
+<!--                        <el-col span="8">-->
+<!--                            <div class="vedio_block_left">-->
+<!--                                &lt;!&ndash;                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">&ndash;&gt;-->
+<!--                                <div class="vedio_image">-->
+<!--                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                                    <span class="vedio_desc"></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </el-col>-->
 
-                        <el-col span="8">
-                            <div class="vedio_block_middle">
-                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
-                                <div class="vedio_image">
-                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                                    <span class="vedio_desc"></span>
-                                </div>
-                            </div>
-                        </el-col>
+<!--                        <el-col span="8">-->
+<!--                            <div class="vedio_block_middle">-->
+<!--                                &lt;!&ndash;                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">&ndash;&gt;-->
+<!--                                <div class="vedio_image">-->
+<!--                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                                    <span class="vedio_desc"></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </el-col>-->
 
-                        <el-col span="8">
-                            <div class="vedio_block_right">
-                                <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
-                                <div class="vedio_image">
-                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                                    <span class="vedio_desc"></span>
-                                </div>
-                            </div>
-                        </el-col>
-                    </el-row>
-                    <el-row v-if="isMoreVedio">
-                        <el-col span="8">
-                            <div class="vedio_block_left">
-                                <div class="vedio_image">
-                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                                    <span class="vedio_desc"></span>
-                                </div>
-                            </div>
-                        </el-col>
+<!--                        <el-col span="8">-->
+<!--                            <div class="vedio_block_right">-->
+<!--                                &lt;!&ndash;                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">&ndash;&gt;-->
+<!--                                <div class="vedio_image">-->
+<!--                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                                    <span class="vedio_desc"></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </el-col>-->
+<!--                    </el-row>-->
+<!--                    <el-row v-if="isMoreVedio">-->
+<!--                        <el-col span="8">-->
+<!--                            <div class="vedio_block_left">-->
+<!--                                <div class="vedio_image">-->
+<!--                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                                    <span class="vedio_desc"></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </el-col>-->
 
-                        <el-col span="8">
-                            <div class="vedio_block_middle">
-                                <div class="vedio_image">
-                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                                    <span class="vedio_desc"></span>
-                                </div>
-                            </div>
-                        </el-col>
+<!--                        <el-col span="8">-->
+<!--                            <div class="vedio_block_middle">-->
+<!--                                <div class="vedio_image">-->
+<!--                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                                    <span class="vedio_desc"></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </el-col>-->
 
-                        <el-col span="8">
-                            <div class="vedio_block_right">
-                                <div class="vedio_image">
-                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                                    <span class="vedio_desc"></span>
-                                </div>
-                            </div>
-                        </el-col>
-                        <div style="width: 100%;text-align: center">
-                            <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>
-                        </div>
+<!--                        <el-col span="8">-->
+<!--                            <div class="vedio_block_right">-->
+<!--                                <div class="vedio_image">-->
+<!--                                    <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                                    <span class="vedio_desc"></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </el-col>-->
+<!--                        <div style="width: 100%;text-align: center">-->
+<!--                            <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>-->
+<!--                        </div>-->
 
-                    </el-row>
+<!--                    </el-row>-->
 
-                    <el-row v-else>
-                        <div style="width: 100%;text-align: center">
-                            <el-button class="more_button" @click="showMoreVedio">更多 &gt; &gt;</el-button>
-                        </div>
-                    </el-row>
+<!--                    <el-row v-else>-->
+<!--                        <div style="width: 100%;text-align: center">-->
+<!--                            <el-button class="more_button" @click="showMoreVedio">更多 &gt; &gt;</el-button>-->
+<!--                        </div>-->
+<!--                    </el-row>-->
 
 
                 </div>
@@ -682,10 +682,12 @@
         text-align: center;
         width: 100%;
         height: 25px;
+        margin-bottom: 30px;
     }
     .more{
         text-align: center;
         width: 100%;
+        margin-bottom: 30px;
     }
     .product_vedios{
         width: 100%;

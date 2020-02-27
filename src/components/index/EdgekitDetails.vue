@@ -150,7 +150,7 @@
                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 5% 0 0;height:50px;line-height:1.7em;">
                   <!--                                    Sensor module to do visual Simultaneous Localization and Mapping (vSLAM=-->
                   <!--                                    )-->
-                  传感器模块进行可视化同时定位和映射（vSLAM =）
+                  传感器模块进行可视化同时定位和映射（vSLAM）
                 </td>
                 <td style="vertical-align:top;padding-right:100px;width:50%;padding:0 0% 0 0;height:50px;line-height:1.7em;">
                   <!--                                    Qualcomm <sup>&reg;</sup>Secure Processing Unit, hardware root of trust, trusted execution environment, secure boot, camera security-->
@@ -408,31 +408,28 @@
                   <span class="adv_span1">介绍</span>
                   <div>
                       <p >
-                          TurboX Edge套件包括专门针对机器人的龙板™ 845c开发板，基于高通公司（Qualcomm）SDA845处理器，符合96板开放硬件规范，支持多种夹层板扩展。
+                          该TurboX边缘套件包括特制的机器人为重点的DragonBoard<sup>TM</sup>845的开发板,基于高通公司<sup>®</sup>SDA845处理器和兼容的96Boards开放的硬件规格,支持范围广泛的夹层板扩展的。
                       </p>
                       <p>
-                          Qualcomm SDA845处理器是一种异构计算架构，它集成了一个性能高达2.8GHz的八核Qualcomm？Kryo？CPU、一个Qualcomm？Adreno？630视频处理子系统（包括GPU、VPU和DPU）和一个Qualcomm？Hexagon？685数字信号处理器（带有Hexagon Vector Extensions（HVX））来提供复杂的设备内人工智能处理和移动优化计算机视觉（CV）感知、导航和操作能力。
-                      </p>
-                      <p >
-                          开发板支持Linux和Robotics操作系统（ROS），同时还支持用于高级设备人工智能的Qualcomm<sup>®</sup>神经处理软件开发工具包（SDK）、Qualcomm<sup>®</sup>计算机视觉套件、Qualcomm<sup>®</sup>Hexagon DSP SDK。
+                      高通SDA845处理器是一种异质性计算架构和集成了一个八溴核心高通公司<sup>®</sup>KRYOCPU性能高达2.8GHz的一个高通<sup>®</sup>的Adreno630的视觉处理子系统（包括GPU，VPU和DPU），和一个高通<sup>®</sup>六角<sup>TM</sup>685带有Hexagon矢量扩展（HVX）的DSP提供了先进的设备上AI处理功能以及针对感知，导航和操纵的针对移动设备优化的计算机视觉（CV）功能。
+                       </p>
+                      <p>
+                          该开发板支持Linux和机器人操作系统（ROS），同时还包括对高通的支持<sup>®</sup>神经处理软件开发工具包（SDK）先进设备上的AI，高通<sup>®</sup>计算机视觉套房，高通<sup>®</sup>六角DSP SDK。
                       </p>
                       <p>
                           <!--                                The kit includes:-->
                           该套件包括：
                       </p>
 
-                      <ul >
+                      <ul>
                           <li>
-                              <!--                                    Robotics DragonBoard Qualcomm<sup>TM</sup> 845c development board featuring Qualcomm<sup>&reg;</sup> SDA/SDM845 processor and compliant with the 96Boards open hardware specification-->
-                              Robotics DragonBoard QualcommTM 845c开发板具有Qualcomm<sup>®</sup>SDA / SDM845处理器并符合96Boards开放式硬件规格
+                              机器人DragonBoard <sup>TM</sup> 845开发板配备高通SDA/SDM845处理器和兼容的96Boards开放的硬件规格
                           </li>
                           <li>
-                              <!--                                    Qualcomm Robotics navigation mezzanine featuring time-of-flight, trackingcamera, active stereo camera and main camera, which is compliant with 96Boards open hardware specification-->
                               高通机器人导航夹层具有飞行时间，跟踪摄像头，有源立体摄像头和主摄像头，符合96Boards开放式硬件规格
                           </li>
                           <li>
-                              <!--                                    Sensor support including the industry&prime;s best performing ICM-426886-Axis High Performance Motion Sensor, ICS-41351 Top Port Digital Microphone, and ICP-10101 Barometric Pressure Sensor from TDK InvenSense-->
-                              传感器支持，包括业界性能最佳的ICM-426886轴高性能运动传感器，ICS-41351顶部端口数字麦克风和TDK InvenSense的ICP-10101气压传感器
+                              传感器支持，包括性能最佳的ICM-42688 6轴高性能运动传感器,ICS-41351顶部端口数字麦克风和TDK InvenSense的ICP-10101气压传感器
                           </li>
                           <li>
                               <!--                                    Qualcomm Robotics cellular mezzanine (optional)-->
@@ -531,76 +528,76 @@
 
 
             </div>
-            <span class="adv_span1" style="margin-left: 25px">相关教程</span>
-            <el-row>
-                <el-col span="8">
-                    <div class="vedio_block_left">
-                        <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
-                        <div class="vedio_image">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                            <span class="vedio_desc"></span>
-                        </div>
-                    </div>
-                </el-col>
+<!--            <span class="adv_span1" style="margin-left: 25px">相关教程</span>-->
+<!--            <el-row>-->
+<!--                <el-col span="8">-->
+<!--                    <div class="vedio_block_left">-->
+<!--                        &lt;!&ndash;                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">&ndash;&gt;-->
+<!--                        <div class="vedio_image">-->
+<!--                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                            <span class="vedio_desc"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </el-col>-->
 
-                <el-col span="8">
-                    <div class="vedio_block_middle">
-                        <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
-                        <div class="vedio_image">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                            <span class="vedio_desc"></span>
-                        </div>
-                    </div>
-                </el-col>
+<!--                <el-col span="8">-->
+<!--                    <div class="vedio_block_middle">-->
+<!--                        &lt;!&ndash;                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">&ndash;&gt;-->
+<!--                        <div class="vedio_image">-->
+<!--                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                            <span class="vedio_desc"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </el-col>-->
 
-                <el-col span="8">
-                    <div class="vedio_block_right">
-                        <!--                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">-->
-                        <div class="vedio_image">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                            <span class="vedio_desc"></span>
-                        </div>
-                    </div>
-                </el-col>
-            </el-row>
-            <el-row v-if="isMoreVedio">
-                <el-col span="8">
-                    <div class="vedio_block_left">
-                        <div class="vedio_image">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                            <span class="vedio_desc"></span>
-                        </div>
-                    </div>
-                </el-col>
+<!--                <el-col span="8">-->
+<!--                    <div class="vedio_block_right">-->
+<!--                        &lt;!&ndash;                        <img class="vedio_image" src="../../assets/images/AiKit/aikit_vedio.png">&ndash;&gt;-->
+<!--                        <div class="vedio_image">-->
+<!--                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                            <span class="vedio_desc"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </el-col>-->
+<!--            </el-row>-->
+<!--            <el-row v-if="isMoreVedio">-->
+<!--                <el-col span="8">-->
+<!--                    <div class="vedio_block_left">-->
+<!--                        <div class="vedio_image">-->
+<!--                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                            <span class="vedio_desc"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </el-col>-->
 
-                <el-col span="8">
-                    <div class="vedio_block_middle">
-                        <div class="vedio_image">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                            <span class="vedio_desc"></span>
-                        </div>
-                    </div>
-                </el-col>
+<!--                <el-col span="8">-->
+<!--                    <div class="vedio_block_middle">-->
+<!--                        <div class="vedio_image">-->
+<!--                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                            <span class="vedio_desc"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </el-col>-->
 
-                <el-col span="8">
-                    <div class="vedio_block_right">
-                        <div class="vedio_image">
-                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>
-                            <span class="vedio_desc"></span>
-                        </div>
-                    </div>
-                </el-col>
-                <div style="width: 100%;text-align: center">
-                    <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>
-                </div>
+<!--                <el-col span="8">-->
+<!--                    <div class="vedio_block_right">-->
+<!--                        <div class="vedio_image">-->
+<!--                            <span class="vedio_title">AIKIT的实验一OpenCV在AIKIT中</span>-->
+<!--                            <span class="vedio_desc"></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </el-col>-->
+<!--                <div style="width: 100%;text-align: center">-->
+<!--                    <el-button class="more_button" @click="showLessVedio">收起 &lt; &lt;</el-button>-->
+<!--                </div>-->
 
-            </el-row>
+<!--            </el-row>-->
 
-            <el-row v-else>
-                <div style="width: 100%;text-align: center">
-                    <el-button class="more_button" @click="showMoreVedio">更多 &gt; &gt;</el-button>
-                </div>
-            </el-row>
+<!--            <el-row v-else>-->
+<!--                <div style="width: 100%;text-align: center">-->
+<!--                    <el-button class="more_button" @click="showMoreVedio">更多 &gt; &gt;</el-button>-->
+<!--                </div>-->
+<!--            </el-row>-->
         </div>
       </div>
 
@@ -810,10 +807,12 @@ export default {
         text-align: center;
         width: 100%;
         height: 25px;
+        margin-bottom: 30px;
     }
     .more{
         text-align: center;
         width: 100%;
+        margin-bottom: 30px;
     }
     .product_vedios{
         width: 100%;

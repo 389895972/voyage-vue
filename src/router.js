@@ -21,6 +21,8 @@ import Tutorial from './components/tutorial/Tutorial'
 import Instance from './components/order/Instance'
 import adminOrderList from './components/admin/orderList'
 import adminLogin from './components/admin/Login'
+import Page404 from './components/error/Page404'
+import Page500 from './components/error/Page500'
 
 import de from './ChangLang'
 import Vuex from "vuex";
@@ -58,8 +60,10 @@ const router =new Router({
         {path:'/Header',name:'Header',component:Header,meta:{keepAlive:false}},
 
         {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}},
-        {path:'/admin/login',name:'adminLogin',component:adminLogin,meta:{keepAlive:false}}
-
+        {path:'/admin/login',name:'adminLogin',component:adminLogin,meta:{keepAlive:false}},
+        {path:'/page404',name:'Page404',component:Page404,meta:{keepAlive:false}},
+        {path:'/page500',name:'Page500',component:Page500,meta:{keepAlive:false}},
+        {path:'*',redirect: '/Page404'},
 
 
     ],
@@ -87,7 +91,7 @@ axios.interceptors.response.use(response => {
        // alert(response.data.resMsg)
 
         router.push({
-           path:'test'
+           path:'/page500'
         })
     }
     return response;
@@ -95,14 +99,14 @@ axios.interceptors.response.use(response => {
     if (error && error.response) {
         switch (error.response.status) {
             case 404:
-                window.console.log("404错误")
-                router.push({ path:'test'});
+                window.console.log("router--404错误")
+                router.push({ path:'/page404'});
                 // error.message = '请求出错(404)'
                 break;
 
             case 500:
-                window.console.log("500错误")
-                router.push({ path:'test'});
+                window.console.log("router--500错误")
+                router.push({ path:'/page500'});
                 //  error.message = '服务器错误(500)';
                 break;
 

@@ -3,11 +3,11 @@
         <div class="nav_layout">
             <img class="logo" src="../../assets/images/logo.png" @click="go_home"  style="cursor: pointer" alt />
             <div class="nav_layout_right">
-                <div class="nav_item">
-                    <a class="nav_a" @click="go_tutorial" href="#">
-                        <span class="nav_font">我的教程</span>
-                    </a>
-                </div>
+<!--                <div class="nav_item">-->
+<!--                    <a class="nav_a" @click="go_tutorial" href="#">-->
+<!--                        <span class="nav_font">我的教程</span>-->
+<!--                    </a>-->
+<!--                </div>-->
 
                 <div class="nav_item">
                     <a class="nav_a"  @click="go_instance" href="#">
@@ -23,7 +23,7 @@
                 <div v-if="isLogin" class="nav_item">
                     <el-dropdown trigger="click">
                 <span class="el-dropdown-link">
-                    <img class="head_frame" src="../../assets/images/aikit.png" alt />
+                    <img class="head_frame" :src="head_img"  />
                 </span>
                         <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
                             <el-dropdown-item icon="el-icon-user-solid">
@@ -177,8 +177,8 @@
                     <div style="font-size: 16px;color: #606879;margin:10px auto 0 auto;width:100px"> 其他登录方式</div>
 
                     <div style="text-align: center;height: 40px">
-                        <span style="margin-right: 10px">手机密码登录</span>|
-                        <span style="margin-left: 10px">手机快捷登录</span>
+                        <span style="margin-right: 10px;cursor: pointer" @click="to_pwd_logg">手机密码登录</span>|
+                        <span style="margin-left: 10px;cursor: pointer" @click="to_quic_logg">手机快捷登录</span>
                     </div>
                     <div style="height: 40px"></div>
                 </div>
@@ -204,7 +204,7 @@
                         </el-form-item></td><td>
                             <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>-->
 
-                            <el-button  :id="btn_code"   style="height: 44px;margin-top: 7px"  @click="log_send_code(log.login_tel)" >{{content}}</el-button>
+                            <el-button  :id="btn_code3"   style="height: 44px;margin-top: 7px"  @click="mod_pwd_code(mod_pwd.mod_code)" >{{content3}}</el-button>
                         </td></tr> </table>
                     <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="to_modify2">下一步</el-button>
                     <div style="width: 200px;height:40px;vertical-align:middle;margin:140px auto 30px auto;text-align: center">
@@ -340,13 +340,30 @@
                 </div>
 
             </el-dialog>
+            <el-dialog
 
+                    :visible.sync="mod_pwd_ok_dialog"
+                    width="380px"
+            >
+
+                <div style="width: 200px;margin: 0 auto;">
+                    <img src="../../assets/images/person/sucess.png" style="width: 58px;height: 58px;margin-left: 35%" alt="">
+                    <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">重置密码成功！</div>
+
+
+
+                    <div style="height: 40px"></div>
+                </div>
+
+            </el-dialog>
         </div>
     </el-header>
 </template>
 
 <script >
+    import{ globalBus }from'../../../globalBus';
 
+    import head_img from '../../assets/images/header/head.png'
     import Axios from "axios";
     export default {
 
@@ -364,6 +381,8 @@
                 wx_login_dialog:false,
                 wx_register_dialog:false,
                 register_ok_dialog:false,
+                mod_pwd_ok_dialog:false,
+                head_img,
                 content: '获取验证码',  // 按钮里显示的内容
                 content1: '获取验证码',  // 按钮里显示的内容
                 content2: '获取验证码',  // 按钮里显示的内容
@@ -579,18 +598,22 @@
         },
         created(){
             this.init();
+            //this.total();
+           // this.ii()
             this.$root.$on('go_login')
         },
         methods:{
+            total() {
+                globalBus.$on('login_dialog1',
+                    this.login_dialog1=true);
+            },
+
             init(){
                 let that=this
-                window.console.log(123999999999)
                 const tokenStr=window.sessionStorage.getItem('token');
-
                 if(!tokenStr){
-                          window.console.log(123)
+                     window.console.log(123)
                 }else{
-                    window.console.log(123888888)
                     const newAixos = Axios.create({
                         baseURL: 'http://10.0.20.114:9002',
                         // timeout: 1000,
@@ -602,7 +625,6 @@
                         // data:{token:tokenStr},
                         headers:{"Authorization":"Bearer "+tokenStr}})
                         .then(function(response) {
-                            window.console.log(123777)
                             window.console.log(response);
                             if (response.data.code == 20000) {
                                 that.isLogin=true
@@ -612,13 +634,21 @@
                         })
                         .catch(function(error) {
                             window.console.log(error);
-                            this.$message.success("服务器错误")
+                            that.$message.error("服务器错误")
                         });
 
                 }
             },
             ii(){
                 window.console.log("777"+this.reg_tips)
+            },
+            to_quic_logg(){
+                this.wx_login_dialog=false
+                this.login_dialog1=true
+            },
+            to_pwd_logg(){
+                this.wx_login_dialog=false
+               this.login_dialog2=true
             },
             //进入订单列表
             go_orderList() {
@@ -759,6 +789,30 @@
                     },1000)
                 }
             },
+            countDown3(){
+                // if (!this.canClick) return
+                // this.canClick = false
+                if(!this.btn_code3==='canCli') {
+                    return
+                }else {
+                    this.btn_code3='noCli'
+
+                    this.content3 = this.totalTime3 + 's'
+                    window.console.log( '00000000'+this.content2)
+                    let clock = window.setInterval(() => {
+                        //console.log(clock)
+                        this.totalTime3--
+                        this.content3 = this.totalTime3 + 's'
+                        if (this.totalTime3 < 0) {
+                            window.clearInterval(clock)
+                            this.content3 = '重新发送'
+                            this.totalTime3 = 60
+                            this.canClick3 = true  //这里重新开启
+                            this.btn_code3 = 'canCli'  //这里重新开启
+                        }
+                    },1000)
+                }
+            },
             showPass(){
                 //点击图标是密码隐藏或显示
                 if( this.passw=="text"){
@@ -816,13 +870,18 @@
                     if (!valid) {
                         that.$message.error("请完善表单")
                     } else {
-                    this.modify_pwd_dialog2=false
+                    that.modify_pwd_dialog2=false
+                        that.mod_pwd_ok_dialog=true
                   //  const {data: res}= await that.$http.get('example/findExampleEntity', {params: {id: this.instanceId}})
                     // window.console.log(res)
                    //  if (res.code == 20000) {
                    // window.console.log("444")
                    //
                    //  }
+                        setTimeout(function(){
+                            window.console.log(963)
+                            that.mod_pwd_ok_dialog=false
+                            window.console.log(45663)},1000)
                     }
                 })
             },
@@ -863,7 +922,8 @@
                 this.isLogin=false
             },
             async reg_send_code(tel){
-                this.countDown2()
+                let that=this
+                that.countDown2()
                 const newAixos = Axios.create({
                     baseURL: 'http://10.0.20.114:9002',
                    // timeout: 1000,
@@ -877,7 +937,7 @@
                     })
                     .catch(function(error) {
                         window.console.log(error);
-                        this.$message.success("服务器错误")
+                        that.$message.error("服务器错误")
                     });
 
             },
@@ -886,6 +946,25 @@
                 const newAixos = Axios.create({
                     baseURL: 'http://10.0.20.114:9002',
                    // timeout: 1000,
+                });
+                newAixos.post("/tbUser/loginSms/"+tel)
+                    .then(function(response) {
+                        window.console.log(response);
+                        if (response.status == 200) {
+                            this.$message.success("验证码已发送")
+                        }
+                    })
+                    .catch(function(error) {
+                        window.console.log(error);
+                        this.$message.success("服务器错误")
+                    });
+
+            },
+            async mod_pwd_code(tel){
+                this.countDown3()
+                const newAixos = Axios.create({
+                    baseURL: 'http://10.0.20.114:9002',
+                    // timeout: 1000,
                 });
                 newAixos.post("/tbUser/loginSms/"+tel)
                     .then(function(response) {
@@ -948,20 +1027,16 @@
             },
             async login(tel,code){
                 this.$refs.log_ruleForm.validate(valid=> {
-
                     if (!valid) {
                         this.$message.error("请完善登录表单")
                     } else {
                 let that=this;
                 const newAixos = Axios.create({
                     baseURL: 'http://10.0.20.114:9002',
-                   // timeout: 1000,
                 });
                 newAixos.post("/tbUser/login",{
-
                         mobile: tel,
                         code:code,
-
                     }
                 )
                     .then(function(response) {
@@ -980,13 +1055,17 @@
                             that.roles=response.data.data.roles
                             window.console.log("userinfo-"+response.data.data.userInfo.nickname) ;
                             window.console.log("roles--"+response.data.data.roles) ;
-                            that.$message.success("登录成功！")
+                            that.$message({
+                                message: '登录成功！',
+                                type: 'success',
+                                duration:1000
+                            });
 
                         }
                     })
                     .catch(function(error) {
                         window.console.log(error);
-                        this.$message.success("服务器错误")
+                        that.$message.error("服务器错误")
                     });}})
 
             },
@@ -1030,7 +1109,7 @@
                             })
                             .catch(function(error) {
                                 window.console.log(error);
-                                this.$message.success("服务器错误")
+                                that.$message.error("服务器错误")
                             });}})
 
             },

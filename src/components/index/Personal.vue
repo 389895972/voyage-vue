@@ -2,62 +2,123 @@
     <el-container>
         <div class="home-container">
             <div class="content">
-                <span style="font-size: 36px">个人中心</span>
-                <div style="width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell">
+                <div style="margin-bottom: 10px">
+                <span style="font-size: 36px;margin-bottom: 30px">个人中心</span>
+                </div>
+                <div style="width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell;margin-top: 30px">
                     <img src="../../assets/images/person/myintro.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">我的资料</span>
                 </div>
+
 <!--                个人信息-->
-                <div v-if="!modify_info" style="display: flex;height: 300px">
-                    <div style="width: 140px;height: 140px;display: inline-block;margin: 40px 0 100px 15px">
-                         <img src="../../assets/images/person/u779.png" alt="" style="width: 100%;height: 100%">
-                    </div>
-                    <div style="display: inline-block;height: 140px;margin: 40px 0 100px 0">
-                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 50px;vertical-align: middle;display: table-cell;font-size: 18px;font-weight: bold;padding-left: 15px">
-                            {{nickname}}
-                            <el-button type="primary" icon="el-icon-edit"  @click="modify_instance" style="color:blue;background-color:white;border: white;font-size:14px"></el-button>
+                <div style="height: 300px;display:flex;margin-bottom: 50px" id="personal_infomation">
+                    <div style="margin: auto 40px auto 60px;height: 300px;display:flex;justify-content:center;align-items:center;">
+                        <div style="display:inline-block;text-align: center">
+                        <img src="../../assets/images/header/head.png" style="border-radius: 50%;width: 120px;height:120px "  alt="">
+                         <span style="display: block;margin-top: 10px">{{nickname}} <img v-if="sex=='男'" src="../../assets/images/header/man.png"  alt=""><img v-if="sex=='女'" src="../../assets/images/header/woman.png" alt=""></span>
                         </div>
-                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 90px;padding: 10px ">
-                            <div style="font-size: 14px;font-weight: bold">个人简介</div>
-                            <div>请输入简介</div>
+                    </div>
+                    <div style="border-left: 1px solid #E4E7EB;padding:40px 0 0 20px;width: 700px">
+                             <div style="font-size: 16px;font-weight: bold;margin-bottom: 20px">个人信息</div>
+                             <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
+                                 <span class="person_info" >用户名</span>
+                                 <div style="display: inline-block;width: 500px;">
+                                 <el-input style="width: 490px;display: inline-block;font-weight: bold" v-model="modify_nickname">{{modifynickname}}</el-input>
+                                 </div>
+                                 <el-button size="mini" style="color:#3254DC;background-color: white" @click="mod">修改</el-button>
+                             </div>
+                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;display: flex;margin-top: 10px">
+                            <span class="person_info">头像</span>
+                            <div style="display: flex;justify-content: space-between;width: 500px">
+                            <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 40px;height:40px;border-radius: 22px">
+                                <label>
+                                    <input type="file"   style="display: none" @change="uploadImg">
+                                    <i class="el-icon-plus avatar-uploader-icon"></i>
+                                </label>
+                            </div>
+                                <div class="img-list-item common mb_10" v-if="isShow">
+                                    <img :src="src" class="common" style="width: 40px;height: 40px;border-radius: 22px">
+                                    <i class="del-img" @click="forkImage" >
+<!--                                        <img src="../../assets/images/header/delete.png" style="width: 30px" alt="">-->
+                                    </i>
+                                </div>
+                                <span style="display: inline-block;width: 420px;margin-left: 10px">图片长宽比比例为1：1，建议上传128*128分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB </span>
+                            </div>
+                                <el-button size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="mod">上传头像</el-button>
+
+                        </div>
+                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
+                            <span class="person_info">真实姓名</span>
+
+                            <el-input style="width: 500px;display: inline-block;font-weight: bold" v-model="modify_nickname">{{modifynickname}}</el-input>
+                            <el-button size="mini" style="color:#3254DC;background-color: white" @click="mod">修改</el-button>
+                        </div>
+                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;height:41px ">
+                            <span class="person_info">性别</span>
+                            <el-radio-group  v-model="sex" style="height: 41px" >
+                                <el-radio label="男" style="line-height: 41px"></el-radio>
+                                <el-radio label="女"></el-radio>
+                            </el-radio-group>
+                        </div>
+                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;margin-top: 10px">
+                            <span class="person_info" style="vertical-align: top">个人简介</span>
+                            <el-input type="textarea" style="width: 500px;font-weight:bold">{{modify_introduce}} </el-input>
+                            <el-button size="mini" style="color:#3254DC;background-color: white;vertical-align: top" @click="mod">修改</el-button>
                         </div>
                     </div>
                 </div>
-<!--                修改个人信息-->
-                <div v-if="modify_info" style="height: 300px;width: 800px;margin: 20px">
 
-                  <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">用户名:</span>
-                    <el-input style="width: 490px;margin-left: 10px;display: inline-block" v-model="modify_nickname">{{modifynickname}}</el-input></span>
-                    <div style="display: flex;margin-top: 10px">
-                    <div style="height: 44px;vertical-align:middle;display:table-cell;"> <span>个人头像</span> </div>
 
-                    <div style="width: 40px;height: 40px;display: inline;margin-left: 20px">
+<!--                <div v-if="!modify_info" style="display: flex;height: 300px">-->
+<!--                    <div style="width: 140px;height: 140px;display: inline-block;margin: 40px 0 100px 15px">-->
+<!--                         <img src="../../assets/images/person/u779.png" alt="" style="width: 100%;height: 100%">-->
+<!--                    </div>-->
+<!--                    <div style="display: inline-block;height: 140px;margin: 40px 0 100px 0">-->
+<!--                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 50px;vertical-align: middle;display: table-cell;font-size: 18px;font-weight: bold;padding-left: 15px">-->
+<!--                            {{nickname}}-->
+<!--                            <el-button type="primary" icon="el-icon-edit"  @click="modify_instance" style="color:blue;background-color:white;border: white;font-size:14px"></el-button>-->
+<!--                        </div>-->
+<!--                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 90px;padding: 10px ">-->
+<!--                            <div style="font-size: 14px;font-weight: bold">个人简介</div>-->
+<!--                            <div>请输入简介</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--&lt;!&ndash;                修改个人信息&ndash;&gt;-->
+<!--                <div v-if="modify_info" style="height: 300px;width: 800px;margin: 20px">-->
 
-                        <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 100px;height:100px">
-                            <label>
-                                <input type="file"   style="display: none" @change="uploadImg">
-                                <i class="el-icon-plus avatar-uploader-icon"></i>
-                            </label>
-                        </div>
-                        <div class="img-list-item common mb_10" v-if="isShow">
-                            <img :src="src" class="common" style="width: 100px;height: 100px">
-                            <i class="del-img" @click="forkImage"></i>
-                        </div>
+<!--                  <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">用户名:</span>-->
+<!--                    <el-input style="width: 490px;margin-left: 10px;display: inline-block" v-model="modify_nickname">{{modifynickname}}</el-input></span>-->
+<!--                    <div style="display: flex;margin-top: 10px">-->
+<!--                    <div style="height: 44px;vertical-align:middle;display:table-cell;"> <span>个人头像</span> </div>-->
 
-                    </div>
-                    <div style="margin-left: 70px">
-                         <el-button  style="color:#3254DC;background-color: white" @click="mod">更换图片</el-button>
-                        <br>
-                        <span style="display: inline-block;width: 400px">图片长宽比比例为1：1，建议上传128*128@2x分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB</span>
-                    </div>
+<!--                    <div style="width: 40px;height: 40px;display: inline;margin-left: 20px">-->
 
-                    </div>
-                    <div style="display: flex;margin-top: 50px">
-                       <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">个人简介:</span></span>
-                        <el-input type="textarea" style="width: 490px">{{modify_introduce}} </el-input>
-                    </div>
-                    <div>         <el-button type="primary"   @click="submitUpload" style="text-align: right;color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:490px ;margin-top:20px">确定</el-button></div>
-                     <div style="height: 100px"></div>
-                </div>
+<!--                        <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 100px;height:100px">-->
+<!--                            <label>-->
+<!--                                <input type="file"   style="display: none" @change="uploadImg">-->
+<!--                                <i class="el-icon-plus avatar-uploader-icon"></i>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                        <div class="img-list-item common mb_10" v-if="isShow">-->
+<!--                            <img :src="src" class="common" style="width: 100px;height: 100px">-->
+<!--                            <i class="del-img" @click="forkImage"></i>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                    <div style="margin-left: 70px">-->
+<!--                         <el-button  style="color:#3254DC;background-color: white" @click="mod">更换图片</el-button>-->
+<!--                        <br>-->
+<!--                        <span style="display: inline-block;width: 400px">图片长宽比比例为1：1，建议上传128*128@2x分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB</span>-->
+<!--                    </div>-->
+
+<!--                    </div>-->
+<!--                    <div style="display: flex;margin-top: 50px">-->
+<!--                       <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">个人简介:</span></span>-->
+<!--                        <el-input type="textarea" style="width: 490px">{{modify_introduce}} </el-input>-->
+<!--                    </div>-->
+<!--                    <div>         <el-button type="primary"   @click="submitUpload" style="text-align: right;color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:490px ;margin-top:20px">确定</el-button></div>-->
+<!--                     <div style="height: 100px"></div>-->
+<!--                </div>-->
                 <div style="margin-top:50px;width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell">
                     <img src="../../assets/images/person/safe.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">安全设置</span>
                 </div>
@@ -83,7 +144,7 @@
                                 <div style="font-size:14px;color:#16161D;font-weight: bold">邮箱已绑定</div>
                                 <div style="font-size:13px;color:#606879">您可以使用邮箱保障您的账号安全</div>
                             </div>
-                            <el-button size="mini" style="margin-left:90px;border-color:#3254DC;color: #3254DC">修改邮箱</el-button>
+                            <el-button size="mini" style="margin-left:90px;border-color:#3254DC;color: #3254DC" @click="mod_email">修改邮箱</el-button>
                         </div>
                         <hr>
                     </div>
@@ -153,6 +214,32 @@
             </div>
 
         </el-dialog>
+            <el-dialog
+                    title="修改邮箱"
+                    :visible.sync="email_dialog2"
+                    width="380px"
+            >
+                <hr style="margin:15px;width: 100%;">
+                <div style="width: 300px;margin:15px auto 0 auto" >
+                    <!--               <table> <tr><td>-->
+                    <el-form :model="mmod_email" :rules="rules" ref="mod_email" >
+                        <el-form-item  prop="m_email" style="margin-left:0">
+
+                            <el-input style="width: 300px;" v-model="mmod_email.m_email" placeholder="请输入邮箱号"></el-input>
+                        </el-form-item>
+                    </el-form>
+                    <!--               </td></tr></table>-->
+                    <!--                <el-input style="width: 200px;" v-model="tel" placeholder="请输入验证码"></el-input>-->
+                    <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span1" @click="countDown">{{content}}</el-button>-->
+                    <!--                <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>-->
+                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 10px 0 0 0;" @click="modd_email">修改邮箱</el-button>
+
+                    <div style="height: 190px"></div>
+
+
+                </div>
+
+            </el-dialog>
             <el-dialog
                     title="修改密码"
                     :visible.sync="modify_pwd_dialog"
@@ -279,7 +366,23 @@
 
                 <div style="width: 200px;margin: 0 auto;">
                     <img src="../../assets/images/person/sucess.png" style="width: 58px;height: 58px;margin-left: 35%" alt="">
-                    <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">密码修改成功！</div>
+                    <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">修改密码成功！</div>
+
+
+
+                    <div style="height: 40px"></div>
+                </div>
+
+            </el-dialog>
+            <el-dialog
+
+                    :visible.sync="mod_email_ok_dialog"
+                    width="380px"
+            >
+
+                <div style="width: 200px;margin: 0 auto;">
+                    <img src="../../assets/images/person/sucess.png" style="width: 58px;height: 58px;margin-left: 35%" alt="">
+                    <div style="margin-top:20px;text-align: center;font-size: 20px;color:#333333">邮箱修改成功！</div>
 
 
 
@@ -297,31 +400,30 @@
             return {
                 prefix:'+86',
                 email_dialog:false,
+                email_dialog2:false,
                 modify_pwd_dialog:false,
                 modify_tel_dialog1:false,
                 modify_tel_dialog2:false,
                 modify_tel_dialog3:false,
                 bind_email_ok_dialog:false,
-                content: '获取验证码',  // 按钮里显示的内容
+                mod_pwd_ok_dialog:false,
+                mod_email_ok_dialog:false,
+                content:'获取验证码',  // 按钮里显示的内容
                 totalTime: 60,     //记录具体倒计时时间
                 canClick: true ,//添加canClick
                 btn_code:'canCli' ,
                 tell:0,
                 icon:"el-input__icon el-icon-view",
                 passw:"password",
-
+                sex :'男',
                 tips:'用户名或密码错误',
-                 imageUrl: '',
-
+                imageUrl: '',
                 fileData: '',
-
-
                 username:'123',
                 fileList:[],
-
                 nickname: this.$route.params.userInfo.nickname,
-                 mobile: this.$route.params.userInfo.mobile,
-                email: '',
+                mobile:this.$route.params.userInfo.mobile,
+                email:'',
                 modify_userInfo:false,
                 src: '',
                 isShow:false,
@@ -336,8 +438,15 @@
                 bind_email:{
                     b_email:''
                 },
+                mmod_email:{
+                    m_email:''
+                },
                 rules:{
                     b_email: [
+                        { required: true, message: '请输入邮箱', trigger: 'blur' },
+                        { pattern:/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, message: '请输入正确的邮箱号', trigger: 'blur' }
+                    ],
+                    m_email: [
                         { required: true, message: '请输入邮箱', trigger: 'blur' },
                         { pattern:/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, message: '请输入正确的邮箱号', trigger: 'blur' }
                     ],
@@ -387,6 +496,9 @@
             bbind_email(){
                 this.email_dialog=true;
 
+            },
+            mod_email(){
+                this.email_dialog2=true;
             },
             modify_pwd(){
                 this.modify_pwd_dialog=true
@@ -535,14 +647,48 @@
                 //         this.$message.success("服务器错误")
                 //     });
             },
+            modd_email(){
+                let _this=this
+                _this.$refs.mod_email.validate(valid=> {
+
+                    if (!valid) {
+                        _this.$message.error("请完善表单")
+                    } else {
+                        _this.email_dialog2=false
+                        _this.mod_email_ok_dialog=true
+                        setTimeout(function(){
+                            window.console.log(963)
+                            _this.mod_email_ok_dialog=false
+                            window.console.log(45663)},1000)}})
+                // const newAixos = Axios.create({
+                //     baseURL: 'http://127.0.0.1:8888',
+                //     // timeout: 1000,
+                // });
+                // newAixos.post("/upload",this.formData,)
+                //     .then(function(response) {
+                //         window.console.log(response);
+                //         if (response.status == 200) {
+                //             _this.email_dialog=false
+                //             _this.bind_email_ok_dialog=true
+                //             setTimeout(function(){
+                //                 window.console.log(963)
+                //                 _this.bind_email_ok_dialog=false
+                //                 window.console.log(45663)},1000)
+                //         }
+                //     })
+                //     .catch(function(error) {
+                //         window.console.log(error);
+                //         this.$message.success("服务器错误")
+                //     });
+            },
             mod_pwd(){
 
                 let _this=this
                 _this.modify_pwd_dialog=false
-                _this.bind_email_ok_dialog=true
+                _this.mod_pwd_ok_dialog=true
                 setTimeout(function(){
                     window.console.log(963)
-                    _this.bind_email_ok_dialog=false
+                    _this.mod_pwd_ok_dialog=false
                     window.console.log(45663)},1000)
                 // _this.$refs.bind_email.validate(valid=> {
                 //
@@ -611,11 +757,11 @@
         border-color: #409EFF;
     }
     .avatar-uploader-icon {
-        font-size: 28px;
+        font-size: 15px;
         color: #8c939d;
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
+        width: 40px;
+        height:4px;
+        line-height: 40px;
         text-align: center;
     }
     .avatar {
@@ -761,7 +907,21 @@
     #b_email >>> .el-form-item__content{
         margin-left: 0;
     }
-
+    .person_info{
+        color:#606879;
+        margin-right: 20px;
+        width: 60px;
+        display:inline-block;
+        font-size: 14px;
+    }
+    #personal_infomation >>> .el-input__inner{
+        padding:0;
+        border: 0;
+    }
+    #personal_infomation >>> .el-textarea__inner{
+        padding:0;
+        border: 0;
+    }
     /*#login_dia >>>  .el-button:focus, .el-button:hover{*/
     /*    background-color: #C0C3C9;*/
     /*    border-color: #C0C3C9;*/
@@ -792,6 +952,12 @@
         background-color: #C0C3C9;
         color:white;
         height: 40px
+    }
+    .del-img{
+        width: 15px;
+        display: inline-block;
+        /*background-image: url("../../assets/images/header/delete.png");*/
+        list-style-image: url("../../assets/images/header/delete.png");
     }
 
 </style>

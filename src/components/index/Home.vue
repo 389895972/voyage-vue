@@ -56,7 +56,7 @@
         <div>
           <!--                <img src="../../assets/images/index6.png" width="100%">-->
           <div class="home_first">
-            <img src="../../assets/images/home/first.png" style="width: 100%">
+            <img src="../../assets/images/home/first1.png" style="width: 100%;height:600px">
 <!--            <div class="home_first_left">-->
 <!--              <div class="home_first_left_top">-->
 <!--                <div class="first_font">我们追求更灵活便携的嵌入式开发工作</div>-->
@@ -983,7 +983,7 @@ export default {
     },
     ii(){
      //  window.console.log("ddd")
-        globalBus.$emit('header:go_login',);
+        globalBus.$emit('login_dialog1',true);
      //  this.$emit('app-header:go_login',true)
      //  this.$emit('header.go_login()')
      //
@@ -1008,8 +1008,9 @@ export default {
       }
   },
   created(){
-    //this.$emit('header',false);
+  // this.$emit('header',false);
     //this.$emit('footer',false);
+    this.ii()
   },
 
 };

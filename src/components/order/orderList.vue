@@ -337,8 +337,46 @@
                     })
 
                 } else {
-                    alert("连接服务器失败");
+                    this.$message.error("连接服务器失败")
+                    //alert("连接服务器失败");
                 }
+                // const newAixos = Axios.create({
+                //     baseURL: 'http://10.0.20.114:9002',
+                //     // timeout: 1000,
+                // });
+                // // newAixos.get("/tbUser/getToken/"+tokenStr)
+                // newAixos({
+                //     method:'post',
+                //     url:"/order/insert",
+                //     data:{
+                //         product_name:this.product_name,
+                //         userId:this.user_id,
+                //         goodsId:this.good_id,
+                //         num:this.buy_nums,
+                //         hire_time:this.hire_time,
+                //         OS:this.os,
+                //         // status:this.status,
+                //         status:2,
+                //         price:this.pay,
+                //         infoForm:this.infoForm,
+                //         order_status:2,
+                //         due_time:this.due_time,
+                //         due_order_time:this.due_order_time,
+                //     },
+                //     headers:{"Authorization":"Bearer "+tokenStr}})
+                //     .then(function(response) {
+                //         window.console.log(123777)
+                //         window.console.log(response);
+                //         if (response.data.code == 20000) {
+                //             that.isLogin=true
+                //             that.userInfo=response.data.data.userInfo
+                //             that.roles=response.data.data.roles
+                //         }
+                //     })
+                //     .catch(function(error) {
+                //         window.console.log(error);
+                //         this.$message.success("服务器错误")
+                //     });
             },
             //设置过滤参数
             set_search() {

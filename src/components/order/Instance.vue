@@ -180,12 +180,34 @@
                     this.tableData = [...data];
                     this.total=this.tableData.length
                     this.dataLoading=false
-
-
-
                 } else {
-                    alert("连接服务器失败");
+                    this.$message.error("连接服务器失败")
+                  //  alert("连接服务器失败");
                 }
+
+                //
+                // const newAixos = Axios.create({
+                //     baseURL: 'http://10.0.20.114:9002',
+                //     // timeout: 1000,
+                // });
+                // // newAixos.get("/tbUser/getToken/"+tokenStr)
+                // newAixos({
+                //     method:'get',
+                //     url:"example/findExampleList",
+                //     // data:{token:tokenStr},
+                //     headers:{"Authorization":"Bearer "+tokenStr}})
+                //     .then(function(response) {
+                //         window.console.log(response);
+                //         if (response.data.code == 20000) {
+                //             that.isLogin=true
+                //             that.userInfo=response.data.data.userInfo
+                //             that.roles=response.data.data.roles
+                //         }
+                //     })
+                //     .catch(function(error) {
+                //         window.console.log(error);
+                //         that.$message.error("服务器错误")
+                //     });
 
             },
             tranDate(standard_time) {

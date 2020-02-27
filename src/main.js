@@ -60,40 +60,40 @@ const  i18n = new VueI18n({
   }
 })
 
-axios.interceptors.response.use(response => {
-    window.console.log(response+'123465')
-    // window.console.log('123465')
-    if (response.status== 2000) {
-        localStorage.clear();
-        // alert(response.data.resMsg)
-      // alert(1234765)
-      //
-      //   router.push({
-      //       name:'login'
-      //   })
-    }
-    return response;
-}, error => {
-    if (error && error.response) {
-        switch (error.response.status) {
-            case 404:
-                window.console.log("404错误")
-                router.push({path:'/test'});
-                // error.message = '请求出错(404)'
-                break;
-
-            case 500:
-                window.console.log("500错误")
-                router.push({ path:'/test'});
-                //  error.message = '服务器错误(500)';
-                break;
-
-
-            default: error.message = `连接出错(${error.response.status})!`;
-        }
-    }
-    return Promise.reject(error);
-});
+// axios.interceptors.response.use(response => {
+//     window.console.log(response+'123465')
+//     // window.console.log('123465')
+//     if (response.status== 2000) {
+//         localStorage.clear();
+//         // alert(response.data.resMsg)
+//       // alert(1234765)
+//       //
+//       //   router.push({
+//       //       name:'login'
+//       //   })
+//     }
+//     return response;
+// }, error => {
+//     if (error && error.response) {
+//         switch (error.response.status) {
+//             case 404:
+//                 window.console.log("main-404错误")
+//                 router.push({path:'/test'});
+//                 // error.message = '请求出错(404)'
+//                 break;
+//
+//             case 500:
+//                 window.console.log("main--500错误")
+//                 router.push({ path:'/test'});
+//                 //  error.message = '服务器错误(500)';
+//                 break;
+//
+//
+//             default: error.message = `连接出错(${error.response.status})!`;
+//         }
+//     }
+//     return Promise.reject(error);
+// });
 
 
 new Vue({

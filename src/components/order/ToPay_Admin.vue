@@ -3,7 +3,8 @@
             <div class="home-container">
 
                 <div class="content">
-                    <div> <el-button >&larr;返回</el-button>
+                    <div>
+<!--                        <el-button >&larr;返回</el-button>-->
                     </div>
 
 
@@ -12,17 +13,17 @@
 <!--                        <el-button  style="width: 180px;background-color: #3254DC;color:white;line-height: 25px" v-if="order_status===2"> 管理设备</el-button>-->
                         </div>
                     </div>
-                    <div v-if="order_status===1" style="background-color: #FDEDEC;color: red;text-align:center;height: 50px;font-size: 16px">
-                        <!-- 这里是显示还未结束时的内容，这里只是我这得布局，你可以随意。 -->
-                        <div class="time" v-show="!isShow" style="height: 50px">
-                            <!--                <span class="hour">{{myDay}}</span> :-->
-                           离取消订单还有 <span class="hour">{{myHours}}</span> :
-                            <span style="display: inline-block;height: 50px;line-height: 50px" class="minute">{{myMinutes}}</span> :
-                            <span style="display: inline-block;height: 50px;line-height: 50px" class="second">{{mySeconds}}</span>
-                        </div>
-                        <!-- 这里是显示结束后的内容 -->
-                        <span style="display: inline-block;height: 50px;line-height: 50px" class="second" v-show="isShow">{{clocker}}</span>
-                    </div>
+<!--                    <div v-if="order_status===1" style="background-color: #FDEDEC;color: red;text-align:center;height: 50px;font-size: 16px">-->
+<!--                        &lt;!&ndash; 这里是显示还未结束时的内容，这里只是我这得布局，你可以随意。 &ndash;&gt;-->
+<!--                        <div class="time" v-show="!isShow" style="height: 50px">-->
+<!--                            &lt;!&ndash;                <span class="hour">{{myDay}}</span> :&ndash;&gt;-->
+<!--                           离取消订单还有 <span class="hour">{{myHours}}</span> :-->
+<!--                            <span style="display: inline-block;height: 50px;line-height: 50px" class="minute">{{myMinutes}}</span> :-->
+<!--                            <span style="display: inline-block;height: 50px;line-height: 50px" class="second">{{mySeconds}}</span>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; 这里是显示结束后的内容 &ndash;&gt;-->
+<!--                        <span style="display: inline-block;height: 50px;line-height: 50px" class="second" v-show="isShow">{{clocker}}</span>-->
+<!--                    </div>-->
                     <div class="product_name" style="margin-top: 20px">
                         <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
                         <span style="font-size: 16px;"> 基本信息</span>
@@ -70,7 +71,7 @@
                                 <td valign="top" style="background-color: white;width: 10%;"> {{infoForm1[0].name}}</td>
                                 <td  valign="top" style="background-color: white;width: 10%;">{{infoForm1[0].phone_num}}</td>
                                 <td valign="top" style="background-color: white;width: 20%;">{{create_time}}</td>
-                                <td valign="top" style="background-color: white;width: 20%;">{{os}}</td>
+                                <td valign="top" style="background-color: white;width: 20%;">{{payment_time}}</td>
 <!--                                <td valign="top" style="background-color: white">{{hire_time}}</td>-->
                                 <td v-if="order_status===1" valign="top" style="background-color: white;color:red" > 未支付￥{{price}}</td>
                                 <td v-else-if="order_status===2" valign="top" style="background-color: white;color:green" > 已付款￥{{price}}</td>

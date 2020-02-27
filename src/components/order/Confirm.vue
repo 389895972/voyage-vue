@@ -286,7 +286,7 @@
 
            async buy(){
                this.due_order_time=new  Date().getTime()+86400000
-              window.console.log( "1548"+window.sessionStorage.getItem('token'))
+                window.console.log( "1548"+window.sessionStorage.getItem('token'))
                 const {data:res}=await this.$http.post('/order/insert',{
                     product_name:this.product_name,
                     userId:this.user_id,
@@ -303,6 +303,7 @@
                     due_order_time:this.due_order_time,
                     token:window.sessionStorage.getItem('token')
                 }) ;
+
 
                if(res.code===20000){
 
@@ -345,6 +346,43 @@
                    // this.dialogVisible=false
                }
 
+               // const newAixos = Axios.create({
+               //     baseURL: 'http://10.0.20.114:9002',
+               //     // timeout: 1000,
+               // });
+               // // newAixos.get("/tbUser/getToken/"+tokenStr)
+               // newAixos({
+               //     method:'post',
+               //     url:"/order/insert",
+               //     data:{
+               //         product_name:this.product_name,
+               //         userId:this.user_id,
+               //         goodsId:this.good_id,
+               //         num:this.buy_nums,
+               //         hire_time:this.hire_time,
+               //         OS:this.os,
+               //         // status:this.status,
+               //         status:2,
+               //         price:this.pay,
+               //         infoForm:this.infoForm,
+               //         order_status:2,
+               //         due_time:this.due_time,
+               //         due_order_time:this.due_order_time,
+               //     },
+               //     headers:{"Authorization":"Bearer "+tokenStr}})
+               //     .then(function(response) {
+               //         window.console.log(123777)
+               //         window.console.log(response);
+               //         if (response.data.code == 20000) {
+               //             that.isLogin=true
+               //             that.userInfo=response.data.data.userInfo
+               //             that.roles=response.data.data.roles
+               //         }
+               //     })
+               //     .catch(function(error) {
+               //         window.console.log(error);
+               //         this.$message.success("服务器错误")
+               //     });
            },
              daiPay(){
                     this.$router.push(
