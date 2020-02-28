@@ -1425,6 +1425,7 @@ a:link{
     text-align: left;
     font-size: 12px;
     margin-top: 10px;
+    width: 1280px;
 
 }
 

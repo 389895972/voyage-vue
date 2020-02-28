@@ -17,7 +17,7 @@
 <!--                <div class="table_product">-->
                 <el-table :header-cell-style="{background:'#E4E7EB',color:' #16161D'}"
                           :data="tableData"
-                          style="width: 100%">
+                          style="width: 1280px">
                     <el-table-column
                             prop="device_id"
                             label="设备ID"
