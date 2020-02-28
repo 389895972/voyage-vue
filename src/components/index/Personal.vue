@@ -59,7 +59,7 @@
                                 <el-radio label="女"></el-radio>
                             </el-radio-group>
                         </div>
-                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;margin-top: 10px">
+                        <div style="margin-left: 20px;margin-top: 10px">
                             <span class="person_info" style="vertical-align: top">个人简介</span>
                             <el-input type="textarea" style="width: 500px;font-weight:bold">{{modify_introduce}} </el-input>
                             <el-button size="mini" style="color:#3254DC;background-color: white;vertical-align: top" @click="mod">修改</el-button>
@@ -292,6 +292,7 @@
                 </div>
 
             </el-dialog>
+
             <el-dialog
                     title="手机号修改"
                     :visible.sync="modify_tel_dialog2"
@@ -299,8 +300,10 @@
             >
                 <hr style="margin-top:10px;width: 100%;">
                 <div style="width: 300px;margin:10px auto">
+                    <el-form :model="modify_tell" :rules="rules" ref="mod_tell" >
 
-                    <el-select v-model="prefix" placeholder="请选择" >
+                           <table> <tr> <td>
+                    <el-select v-model="prefix" placeholder="请选择" style="margin-bottom: 18px;" >
                         <el-option
                                 v-for="item in options"
                                 :key="item.value"
@@ -308,10 +311,21 @@
                                 :value="item.value">
                         </el-option>
                     </el-select>
-                    <el-input style="width: 200px;margin-left: 10px" v-model="tel" placeholder="请输入手机号"></el-input>
-                    <el-input style="width: 200px;" v-model="tel" placeholder="请输入内容"></el-input>
+                           </td> <td>
+
+                        <el-form-item  prop="mod_tel" style="margin-left:0">
+                             <el-input style="width: 200px;margin-left: 10px" v-model="modify_tell.mod_tel" placeholder="请输入手机号"></el-input>
+                        </el-form-item>
+                           </td>  </tr></table>
+                           <table> <tr> <td>
+                        <el-form-item  prop="mod_code" style="margin-left:0">
+                            <el-input style="width: 200px;margin-top: 2px" v-model="modify_tell.mod_code" placeholder="请输入验证码"></el-input>
+                        </el-form-item>
+                           </td> <td>
+
                     <!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
-                    <el-button  :id="btn_code"    @click="countDown" >{{content}}</el-button>
+                    <el-button  :id="btn_code"    @click="countDown"  style="height: 44px;margin-top: -5px">{{content}}</el-button>
+                    </td>  </tr></table>
                     <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin:15px 0 130px 0" @click="to_tel_modi3">确认绑定</el-button>
 <!--                    <el-steps :active="2">-->
 <!--                        <el-step id="el-step4" title="验证身份"></el-step>-->
@@ -319,6 +333,7 @@
 <!--                        <el-step id="el-step6" title="完成"></el-step>-->
 <!--                    </el-steps>-->
                      <div style="height: 90px"></div>
+                    </el-form>
                 </div>
 
             </el-dialog>
@@ -398,6 +413,7 @@
     export default {
         data() {
             return {
+                login_dialog1:true,
                 prefix:'+86',
                 email_dialog:false,
                 email_dialog2:false,
@@ -459,11 +475,23 @@
                     new_pwd2:[
                         { required: true, message: '请重复输入新密码', trigger: 'blur' },
                     ],
+                    mod_tel: [
+                        { required: true, message: '请输入手机号', trigger: 'blur' },
+                        { pattern:/^\d{11}$/, message: '请输入正确的手机号', trigger: 'blur' }
+                    ],
+                    mod_code: [
+                        { required: true, message: '请输入验证码', trigger: 'blur' },
+                        { pattern:/^\d{6}$/, message: '请输入六位验证码', trigger: 'blur'}
+                    ],
                 },
                 modify_pwdd:{
                     old_pwd:'',
                     new_pwd1:'',
                     new_pwd2:'',
+                },
+                modify_tell:{
+                    mod_tel:'',
+                    mod_code:'',
                 }
             }
 
@@ -1080,7 +1108,7 @@
 
     }
     #login_dia >>> .el-select .el-input .el-select__caret{
-        margin-top: 6px;
+        margin-top: 10px;
         vertical-align: top;
     }
     #code_span1 >>> span{
@@ -1124,4 +1152,61 @@
         height: 40px
     }
 
+
+
+
+
+    #login_dia >>> .el-input__inner{
+        height: 44px;
+        vertical-align: top;
+           margin-top: 0;
+
+    }
+    #login_dia >>> .el-dialog__body{
+        padding: 0;
+    }
+    #login_dia >>> .el-dialog__header{
+        padding-left: 38px;
+        padding-bottom: 0;
+        font-weight: bold;
+        font-size: 24px
+
+    }
+    #login_dia >>> .el-dialog__title{
+
+        font-size: 24px
+
+    }
+    #login_dia >>> .el-input{
+
+        width: 90px;
+
+    }
+    #login_dia >>> .el-input__inner{
+        height: 44px;
+        vertical-align: top;
+
+
+    }
+    #login_dia >>> .el-form-item{
+        margin-bottom: 12px;
+    }
+    #login_dia >>> .el-form-item__error{
+        padding-top: 5px;
+        padding-left: 10px;
+        font-size: 9px;
+    }
+    #login_dia >>> .el-select .el-input .el-select__caret{
+        margin-top: 9px;
+        vertical-align: top;
+    }
+    #login_dia >>> .el-select-dropdown.el-popper.el-select-dropdown__list{
+        width: 300px;
+    }
+    #login_dia >>> .el-select-dropdown__item{
+        width: 300px;
+    }
+    #login_dia >>> .el-scrollbar__wrap{
+        width: 300px;
+    }
 </style>

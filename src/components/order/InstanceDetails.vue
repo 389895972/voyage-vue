@@ -21,14 +21,15 @@
                     <el-table-column
                             prop="device_id"
                             label="设备ID"
-                            >
+                            style="width: 25%" >
                     </el-table-column>
                     <el-table-column
                             prop="device_name"
                             label="设备名称"
-                            >
+                            style="width: 25%">
                     </el-table-column>
-                    <el-table-column label=""  >
+                    <el-table-column label=""
+                                     style="width: 25%">
 <!--                        <template slot-scope="scope">-->
                         <template >
 
@@ -47,7 +48,7 @@
                     <el-table-column
                             prop="device_model"
                             label="设备型号"
-                            >
+                            style="width: 25%">
                     </el-table-column>
 
                 </el-table>

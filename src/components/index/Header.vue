@@ -11,7 +11,7 @@
 
                 <div class="nav_item">
                     <a class="nav_a"  @click="go_instance" href="#">
-                        <span class="nav_font">控制台 {{num1}}</span>
+                        <span class="nav_font">控制台 </span>
                     </a>
                 </div>
 
@@ -436,18 +436,6 @@
                     mod_tel2:'',
                 },
                 options: [
-                    {
-                        label: '中国香港'+'\xa0\xa0\xa0\xa0\xa0'+'+895' ,
-                        value:'+895'
-                    },
-                    {
-                        label: '中国大陆'+'\xa0\xa0\xa0\xa0\xa0'+'+86' ,
-                        value:'+86'
-                    },
-                    {
-                        label: '中国香港'+'\xa0\xa0\xa0\xa0\xa0'+'+895' ,
-                        value:'+895'
-                    },
                     {
                      label: '+86' +'\xa0\xa0\xa0\xa0\xa0'+'中国大陆',
                        value:'+86'
@@ -1129,7 +1117,11 @@
                                     that.roles=response.data.data.roles
                                     window.console.log("userinfo-"+response.data.data.userInfo.nickname) ;
                                     window.console.log("roles--"+response.data.data.roles) ;
-                                    that.$message.success("登录成功！")
+                                    that.$message({
+                                        message: '登录成功！',
+                                        type: 'success',
+                                        duration:1000
+                                    });
 
                                 }
                             })
