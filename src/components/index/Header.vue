@@ -11,7 +11,7 @@
 
                 <div class="nav_item">
                     <a class="nav_a"  @click="go_instance" href="#">
-                        <span class="nav_font">控制台</span>
+                        <span class="nav_font">控制台 {{num1}}</span>
                     </a>
                 </div>
 
@@ -48,7 +48,7 @@
                         立即登陆
                     </span></el-button>
                 </div>
-
+                    <div style="display: none" @incrl="go_login()"></div>
             </div>
         </div>
         <div id="login_dia">
@@ -366,7 +366,13 @@
     import head_img from '../../assets/images/header/head.png'
     import Axios from "axios";
     export default {
+        // props:['num1'],
+        props:{
+            num1:{
+                type:Boolean,
 
+            }
+        },
         data() {
             return {
                 userInfo:'',
@@ -602,6 +608,26 @@
            // this.ii()
             this.$root.$on('go_login')
         },
+        watch:{
+
+
+       num1(newl,oldl){
+
+       // this.login_dialog1=newl
+        alert("111"+oldl)
+        window.console.log("111")
+
+     }
+    },
+        // computed:{
+        //     login_dialog1(){
+        //         let _this=this
+        //         let i=_this.num1()
+        //         if(i){
+        //
+        //             _this.login_dialog1=true
+        //         }
+        //     }},
         methods:{
             total() {
                 globalBus.$on('login_dialog1',

@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <app-header v-if="header_show"></app-header>
+    <app-header v-if="header_show" ></app-header>
     <keep-alive>
-      <router-view v-on:header="header" v-on:footer="footer" v-if="$route.meta.keepAlive"></router-view>
+      <router-view v-on:header="header" v-on:footer="footer" :num1="login_dialog1" v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
 
-    <router-view v-on:header="header" v-on:footer="footer" v-if="!$route.meta.keepAlive"></router-view>
+    <router-view v-on:header="header" v-on:footer="footer" @incrl="incrl" :num1="login_dialog1"  v-if="!$route.meta.keepAlive"></router-view>
     <el-tooltip placement="top" content="回到顶部">
       <back-to-top :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="0" transition-name="fade"/>
     </el-tooltip>
@@ -31,6 +31,7 @@ export default {
     return {
       header_show:true,
       footer_show:true,
+      login_dialog1:false,
       myBackToTopStyle: {
         right: '50px',
         bottom: '50px',
@@ -38,7 +39,9 @@ export default {
         height: '40px',
         borderRadius: '4px',
         lineHeight: '45px', // 请保持与高度一致以垂直居中
-        background: '#e7eaf1'// 按钮的背景颜色
+        background: '#e7eaf1',// 按钮的背景颜色,
+
+
       }
     }
   },
@@ -51,8 +54,10 @@ export default {
     footer:function (bool) {
       this.footer_show = bool;
     },
-    go_login(){
-       alert(111)
+    incrl(){
+      this.login_dialog1=true
+      window.console.log(this.login_dialog1+'963963')
+      alert(this.login_dialog1)
     }
   }
 }

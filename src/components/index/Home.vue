@@ -1,8 +1,9 @@
 <template>
   <el-container style="display: block" >
     <Header ref="ff" style="display:none" ></Header>
-<!--      <button @click="ii">123456</button>-->
+
     <div class="home-container" style="background-color: #D7D7DB">
+<!--        <button @click="ii ()">123456</button>{{num1}}-->
 <!--      <div class="header">-->
 <!--        <img class="img" src="../../assets/images/logo.png" alt />-->
 <!--      </div>-->
@@ -56,7 +57,7 @@
         <div>
           <!--                <img src="../../assets/images/index6.png" width="100%">-->
           <div class="home_first">
-            <img src="../../assets/images/home/first1.png" style="width: 100%;height:600px">
+            <img src="../../assets/images/home/first1.png" style="width: 100%">
 <!--            <div class="home_first_left">-->
 <!--              <div class="home_first_left_top">-->
 <!--                <div class="first_font">我们追求更灵活便携的嵌入式开发工作</div>-->
@@ -985,8 +986,8 @@ export default {
      //  window.console.log("ddd")
         globalBus.$emit('login_dialog1',true);
      //  this.$emit('app-header:go_login',true)
-     //  this.$emit('header.go_login()')
-     //
+       this.$emit('incrl')
+
      //  this.$emit('header:kk')
      //  this.$emit('header:go_login',false)
       this.$refs.ff.go_login();
@@ -1010,8 +1011,19 @@ export default {
   created(){
   // this.$emit('header',false);
     //this.$emit('footer',false);
-    this.ii()
+   // this.ii()
   },
+   // watch:{
+   //
+   //
+   //      num1(){
+   //          window.console.log("111")
+   //          let _this=this
+   //           _this.login_dialog1=true
+   //          alert("111")
+   //          window.console.log("111")
+   //     }
+   //    },
 
 };
 

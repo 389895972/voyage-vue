@@ -43,7 +43,7 @@
                                 </div>
                                 <span style="display: inline-block;width: 420px;margin-left: 10px">图片长宽比比例为1：1，建议上传128*128分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB </span>
                             </div>
-                                <el-button size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="mod">上传头像</el-button>
+                                <el-button size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="submitUpload">上传头像</el-button>
 
                         </div>
                         <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
