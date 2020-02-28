@@ -14,10 +14,10 @@
                     <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block"></div>
                     <span style="font-size: 16px;"> 基本信息</span>
                 </div>
-<!--                <div class="table_product">-->
+                <div  style="width: 1280px">
                 <el-table :header-cell-style="{background:'#E4E7EB',color:' #16161D'}"
                           :data="tableData"
-                          style="width: 1280px">
+                          style="width: 100%">
                     <el-table-column
                             prop="device_id"
                             label="设备ID"
@@ -26,10 +26,10 @@
                     <el-table-column
                             prop="device_name"
                             label="设备名称"
-                            style="width: 25%">
+                            style="width:25%">
                     </el-table-column>
                     <el-table-column label=""
-                                     style="width: 25%">
+                                     style="width:25%">
 <!--                        <template slot-scope="scope">-->
                         <template >
 
@@ -52,6 +52,31 @@
                     </el-table-column>
 
                 </el-table>
+                    <table  style="width: 100%;height:50px;background-color: #E4E7EB;margin-top: 5px">
+                        <tr style="font-weight: bold">
+                            <td style="height: 50px;width: 25%" > <span style="margin-left: 10px">设备ID</span> </td>
+                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px">设备名称</span></td>
+                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px"></span></td>
+                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px">设备型号</span></td>
+
+                        </tr>
+                        <tr>
+                            <td style="height: 50px;background-color: white" valign="top">
+<span style="margin-left: 10px">
+                           {{tableData[0].device_id}}
+</span>
+                            </td>
+                            <td style="padding-top: 0;background-color: white" valign="top"><span style="margin-left: 10px"> {{tableData[0].device_name}}</span></td>
+                            <td valign="top" style="background-color: white">
+                                <el-button type="primary" icon="el-icon-edit" size="mini" @click="modify_instance" style="color:blue;background-color:white;border: white;font-size:14px">修改</el-button>
+                                <el-button type="primary" icon="el-icon-copy-document" size="mini"  id="bbtn" :data-clipboard-text="tableData[0].device_name" style="color:blue;background-color:white;border: white;font-size:14px"
+                                           @click="copy1">复制</el-button>
+                            </td>
+                            <td valign="top" style="background-color: white"><span style="margin-left: 10px"> {{tableData[0].device_model}}</span></td>
+
+                        </tr>
+                    </table>
+                </div>
                 <div class="product_name">
                     <div style="width: 5px;height:18px;background-color:#5171F0 ;display: inline-block;margin-top: 20px"></div>
                     <span style="font-size: 16px;"> 配置信息</span>
