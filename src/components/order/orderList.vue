@@ -182,6 +182,23 @@
             };
         },
         methods: {
+            open() {
+                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '取消订单成功!'
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消操作'
+                    });
+                });
+            },
             //设置当前页
             handleCurrentChange(val) {
                 this.currentPage = val;
@@ -197,6 +214,11 @@
             //取消订单
             handleCancel(index, row) {
                 var that = this
+                this.$confirm('确认要取消吗?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
                 this.$http
                     .get("/order/cancelOrder", {
                         params: {
@@ -211,13 +233,27 @@
                     })
                     .catch(function (error) {
                         window.console.log(error);
-                        alert("取消失败")
+                        //alert("取消失败")
+                        that.$message.error("取消失败！")
                     });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消操作'
+                    });
+                });
             },
             //删除订单
             handleDelete(index, row) {
                 window.console.log(index, row);
                 var that = this
+                this.$confirm('确定要删除吗?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+
+
                 this.$http
                     .delete("/order/deleteOrder", {
                         params: {
@@ -228,13 +264,21 @@
                         if (response.status == 200) {
                             // this.$router.go(0);
                             that.filterData.splice(that.page_size * (that.currentPage - 1) + index, 1);
-                            alert("删除成功");
+                            //alert("删除成功");
+                            that.$message.success("删除成功！")
                         }
                     })
                     .catch(function (error) {
                         window.console.log(error);
-                        alert("删除失败");
+                        //alert("删除失败");
+                        that.$message.error("删除失败！")
                     });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消操作'
+                    });
+                });
             },
             //支付操作
             payOpera(index,row){
@@ -255,11 +299,12 @@
                             that.dialogVisible=false
                             that.index=null
                             that.row=null
-                            alert("支付成功")
+                            // alert("支付成功")
+                            this.$message.success("支付成功！")
                         }
                     }).catch(function (error) {
                         that.dialogVisible=false
-                        alert("服务出错")
+                    this.$message.error("服务出错！")
                         window.console.log(error)
                 })
             },

@@ -236,6 +236,13 @@
       handleDelete(index, row) {
         window.console.log(index, row);
         var that = this
+        this.$confirm('确定要删除吗？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+
+
         this.$http
                 .delete("/order/deleteOrder", {
                   params: {
@@ -246,17 +253,32 @@
                   if (response.status == 200) {
                     // this.$router.go(0);
                     that.tableData.splice(index, 1);
-                    alert("删除成功");
+                    // alert("删除成功");
+                    that.$message.success("删除成功！")
                   }
                 })
                 .catch(function (error) {
                   window.console.log(error);
-                  alert("删除失败");
+                  //alert("删除失败");
+                  that.$message.error("删除失败！")
                 });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消操作'
+          });
+        });
       },
       //删除订单列表
       deleteOrderList(){
         var that = this
+        this.$confirm('确定要删除吗?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+
+
         this.$http
                 .delete("/order/deleteOrderList", {
                   params: {
@@ -270,13 +292,21 @@
                       that.tableData.splice(that.tableData.indexOf(that.checkedOrder[i]),1)
                     }
                     that.checkedOrder=[];
-                    alert("删除成功");
+                   // alert("删除成功");
+                    that.$message.success("删除成功！")
                   }
                 })
                 .catch(function (error) {
                   window.console.log(error);
-                  alert("删除失败");
+                 // alert("删除失败");
+                  that.$message.error("删除失败！")
                 });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消操作'
+          });
+        });
 
       },
 
@@ -357,7 +387,8 @@
           window.console.log(this.tableData.length)
 
         } else {
-          alert("连接服务器失败");
+          //alert("连接服务器失败");
+          this.$message.error("连接服务器失败！")
         }
       },
       //获取分页过滤订单数据
@@ -400,7 +431,8 @@
           })
           this.dataLoading=false
         } else {
-          alert("连接服务器失败");
+          //alert("连接服务器失败");
+          this.$message.error("连接服务器失败！")
         }
       },
       //检测订单复选状态
