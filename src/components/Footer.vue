@@ -78,6 +78,7 @@
                     size="mini"
                     :data-clipboard-text="email"
                     @click="copy"
+                    style="margin-left:0"
             >复制</el-button>
             <span style="margin-left: 11%">
           <img src="../assets/images/home/Twitter.png" alt="">
@@ -223,7 +224,7 @@ export default {
     }
     .item >>> span{
         display: inline-block;
-        margin-left: 12%;
+        /*margin-left: 12%;*/
     }
     .item >>> img{
         width: 25px;
