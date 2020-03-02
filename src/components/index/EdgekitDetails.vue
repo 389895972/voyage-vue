@@ -607,7 +607,7 @@ export default {
         document.documentElement.scrollTop ||
         document.body.scrollTop;
       const w = document.getElementById("iii");
-      window.console.log(w.offsetTop);
+      // window.console.log(w.offsetTop);
       // var scrollTop = w.scrollTop;
       // window.console.log('aaa'+scrollTop);
       //alart(scrollTop);

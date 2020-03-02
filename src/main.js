@@ -29,6 +29,25 @@ axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.11
 //   config.headers.Authorization= window.sessionStorage.getItem('token');
 //   return config;
 // })
+
+// router.beforeEach((to, from, next) => {
+//     // window.console.log(to.name,from.name)
+//     if(to.name==='Confirm'&& from.name==='Buy'){
+//         // window.console.log(from.meta.keepAlive,to.meta.keepAlive)
+//         from.meta.keepAlive = true;
+//         // window.console.log(from.meta.keepAlive,to.meta.keepAlive)
+//     }else if(to.name==='Buy' && from.name==='Confirm'){
+//         // window.console.log(from.meta.keepAlive,to.meta.keepAlive)
+//         to.meta.keepAlive=true;
+//         // window.console.log(from.meta.keepAlive,to.meta.keepAlive)
+//     } else{
+//
+//         to.fullPath
+//         // from.meta.keepAlive=false;
+//         // this.$destroy()
+//     }
+//     next();
+// });
 router.afterEach(() => {
 
     window.scrollTo(0,0)

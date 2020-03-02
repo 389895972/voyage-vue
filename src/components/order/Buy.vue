@@ -261,7 +261,7 @@ vertical-align:middle;">
               if(res.code==20000) {
                   this.$message.success("成功")
                   this.data = res.data;
-                  window.console.log(this.data);
+                  // window.console.log(this.data);
                   for (var i in this.data) {
                       var spec = JSON.parse(this.data[i].spec);
                       let spec_attr_name = spec[0].attributeName;
@@ -372,7 +372,23 @@ vertical-align:middle;">
              hire_time_pa(){
                  return this.toolmsg[this.hire_time_pay]
              }
-        }
+        },
+        beforeRouteLeave(to, from, next) {
+            if(to.name === 'Confirm'){
+                to.meta.keepAlive=false
+                from.meta.keepAlive=true
+            }
+            next();
+        },
+        beforeRouteEnter(to, from, next) {
+            if(from.name==='Confirm'&&to.name=='Buy'){
+                to.meta.keepAlive=true
+            }else{
+                to.meta.keepAlive=false
+            }
+            next();
+        },
+
     }
 </script>
 

@@ -35,7 +35,7 @@ const router =new Router({
         {path:'/de', component: de,meta:{keepAlive:false}},
         {path:'/test', component: test,meta:{keepAlive:false}},
         {path:'/edgekitdetails',component: EdgekitDetails,meta:{keepAlive:false}},
-        {path:'/buy',component: Buy,meta:{keepAlive:true}},
+        {path:'/buy',name:'Buy',component: Buy,meta:{keepAlive:true}},
         {path:'/confirm',name:'Confirm',component: Confirm,meta:{keepAlive:false}},
         {path:'/instanceDetails',component:InstanceDetails,name:'InstanceDetails',meta:{keepAlive:false}},
         {path:'/instance',component:Instance,meta:{keepAlive:false}},

@@ -246,6 +246,7 @@
                   if (response.status == 200) {
                     // this.$router.go(0);
                     that.tableData.splice(index, 1);
+                    that.orderOptions.splice(that.orderOptions.indexOf(row.orderID),1)
                     alert("删除成功");
                   }
                 })
@@ -268,6 +269,13 @@
                     // this.$router.go(0);
                     for(var i in that.checkedOrder){
                       that.tableData.splice(that.tableData.indexOf(that.checkedOrder[i]),1)
+                      for(var j in that.tableData){
+
+                        if (that.tableData[j] == that.checkedOrder[i]) {
+                          that.tableData.splice(j, 1);
+                        }
+                      }
+                      that.orderOptions.splice(that.orderOptions.indexOf(that.checkedOrder[i]),1)
                     }
                     that.checkedOrder=[];
                     alert("删除成功");
