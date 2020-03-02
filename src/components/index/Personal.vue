@@ -11,46 +11,57 @@
 
 <!--                个人信息-->
                 <div style="height: 300px;display:flex;margin-bottom: 50px" id="personal_infomation">
-                    <div style="margin: auto 40px auto 60px;height: 300px;display:flex;justify-content:center;align-items:center;">
-                        <div style="display:inline-block;text-align: center">
-                        <img src="../../assets/images/header/head.png" style="border-radius: 50%;width: 120px;height:120px "  alt="">
+
+                    <div style="margin: auto 40px auto 60px;height: 300px;display:flex;justify-content:center;align-items:center;position: relative">
+                        <div style="display:block;text-align: center;">
+                        <img    v-if="!isShow" src="../../assets/images/header/head.png" style="border-radius: 50%;width: 120px;height:120px "  alt="">
+                        <img   v-if="isShow" :src="src" style="border-radius: 50%;width: 120px;height:120px "  alt="">
+
+<!--                            <img   style="display:block;width: 30px;height: 30px;margin: -30px auto 0 auto"  src="../../assets/images/header/delete.png" @click="forkImage">-->
+
+                            <input type="file"  ref="file_img"  style="display: none" @change="uploadImg">
                          <span style="display: block;margin-top: 10px">{{nickname}} <img v-if="sex=='男'" src="../../assets/images/header/man.png"  alt=""><img v-if="sex=='女'" src="../../assets/images/header/woman.png" alt=""></span>
                         </div>
                     </div>
+
                     <div style="border-left: 1px solid #E4E7EB;padding:40px 0 0 20px;width: 700px">
                              <div style="font-size: 16px;font-weight: bold;margin-bottom: 20px">个人信息</div>
                              <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
                                  <span class="person_info" >用户名</span>
                                  <div style="display: inline-block;width: 500px;">
-                                 <el-input style="width: 490px;display: inline-block;font-weight: bold" v-model="modify_nickname">{{modifynickname}}</el-input>
+                                 <el-input style="width: 490px;display: inline-block;font-weight: bold" v-model="modify_nickname" ref="nickname_input">{{modifynickname}}</el-input>
                                  </div>
-                                 <el-button size="mini" style="color:#3254DC;background-color: white" @click="mod">修改</el-button>
+
+                                 <el-button v-if="mod_nickname" size="mini" style="color:#3254DC;background-color: white" @click="mod_nickname_before">修改</el-button>
+                                 <el-button v-if="!mod_nickname" size="mini" style="color:#3254DC;background-color: white" @click="mod">确定</el-button>
                              </div>
                         <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;display: flex;margin-top: 10px">
                             <span class="person_info">头像</span>
                             <div style="display: flex;justify-content: space-between;width: 500px">
-                            <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 40px;height:40px;border-radius: 22px">
-                                <label>
-                                    <input type="file"   style="display: none" @change="uploadImg">
-                                    <i class="el-icon-plus avatar-uploader-icon"></i>
-                                </label>
+<!--                            <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 40px;height:40px;border-radius: 22px">-->
+<!--                                <label>-->
+<!--                                    <input type="file"  ref="file_img"  style="display: none" @change="uploadImg">-->
+<!--&lt;!&ndash;                                    <i class="el-icon-plus avatar-uploader-icon"></i>&ndash;&gt;-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="img-list-item common mb_10" v-if="isShow">-->
+<!--                                    <img :src="src" class="common" style="width: 40px;height: 40px;border-radius: 22px">-->
+<!--                                    <i class="del-img" @click="forkImage" >dd-->
+<!--&lt;!&ndash;                                        <img src="../../assets/images/header/delete.png" style="width: 30px" alt="">&ndash;&gt;-->
+<!--                                    </i>-->
+<!--                                </div>-->
+                                <span style="display: inline-block;width: 500px;">图片长宽比比例为1：1，建议上传128*128分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB </span>
                             </div>
-                                <div class="img-list-item common mb_10" v-if="isShow">
-                                    <img :src="src" class="common" style="width: 40px;height: 40px;border-radius: 22px">
-                                    <i class="del-img" @click="forkImage" >
-<!--                                        <img src="../../assets/images/header/delete.png" style="width: 30px" alt="">-->
-                                    </i>
-                                </div>
-                                <span style="display: inline-block;width: 420px;margin-left: 10px">图片长宽比比例为1：1，建议上传128*128分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB </span>
-                            </div>
-                                <el-button size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="submitUpload">上传头像</el-button>
+                                <el-button   size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="mod_head_before">上传头像</el-button>
+<!--                                <el-button v-if="!mod_head" size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="submitUpload">确定</el-button>-->
 
                         </div>
                         <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
                             <span class="person_info">真实姓名</span>
 
-                            <el-input style="width: 500px;display: inline-block;font-weight: bold" v-model="modify_nickname">{{modifynickname}}</el-input>
-                            <el-button size="mini" style="color:#3254DC;background-color: white" @click="mod">修改</el-button>
+                            <el-input style="width: 500px;display: inline-block;font-weight: bold" ref="name_input"  v-model="modify_nickname">{{modifynickname}}</el-input>
+                            <el-button v-if="mod_name" size="mini" style="color:#3254DC;background-color: white" @click="mod_name_before">修改</el-button>
+                            <el-button v-if="!mod_name" size="mini" style="color:#3254DC;background-color: white" @click="mod">确认</el-button>
                         </div>
                         <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;height:41px ">
                             <span class="person_info">性别</span>
@@ -61,8 +72,9 @@
                         </div>
                         <div style="margin-left: 20px;margin-top: 10px">
                             <span class="person_info" style="vertical-align: top">个人简介</span>
-                            <el-input type="textarea" style="width: 500px;font-weight:bold">{{modify_introduce}} </el-input>
-                            <el-button size="mini" style="color:#3254DC;background-color: white;vertical-align: top" @click="mod">修改</el-button>
+                            <el-input type="textarea" style="width: 500px;font-weight:bold" ref="intro_input" v-model="modify_introduce">{{modify_introduce}} </el-input>
+                            <el-button v-if="mod_intro" size="mini" style="color:#3254DC;background-color: white;vertical-align: top" @click="mod_introduce_before">修改</el-button>
+                            <el-button v-if="!mod_intro" size="mini" style="color:#3254DC;background-color: white;vertical-align: top" @click="mod">确认</el-button>
                         </div>
                     </div>
                 </div>
@@ -413,6 +425,10 @@
     export default {
         data() {
             return {
+                mod_intro:true,
+                mod_name:true,
+                mod_nickname:true,
+                mod_head:true,
                 login_dialog1:true,
                 prefix:'+86',
                 email_dialog:false,
@@ -445,8 +461,8 @@
                 isShow:false,
                 formData:'',
                 modify_nickname:'',
-                introduce:'456',
-                modify_introduce:'',
+                introduce:'个人介绍个人介绍个人介绍',
+                modify_introduce:'个人介绍个人介绍个人介绍',
                 modify_info:false,
                 imgData: {
                     accept: 'image/gif, image/jpeg, image/png, image/jpg',
@@ -500,6 +516,27 @@
             this.init()
         },
         methods:{
+            mod_head_before(){
+                this.$refs.file_img.click()
+                // this.mod_head=false
+                //this.submitUpload()
+            },
+            mod_nickname_before(){
+                this.mod_nickname=false
+                this.$refs.nickname_input.focus();
+
+
+            },
+            mod_name_before(){
+                this.mod_name=false
+                this.$refs.name_input.focus();
+            },
+            mod_introduce_before(){
+                this.mod_intro=false
+                this.$refs.intro_input.focus();
+
+
+            },
             countDown(){
                 // if (!this.canClick) return
                 // this.canClick = false
@@ -604,7 +641,13 @@
             forkImage () {
                 this.src = '';
                 this.isShow = false;
+                this.mod_head=true;
+                this.formData=''
+
+                 this.$refs.file_img.value=''
+
             },
+
             uploadImg (e) {
                 let _this = this;
                 let files = e.target.files[0];
@@ -628,11 +671,11 @@
 
                 _this.formData = new FormData();
                 _this.formData.append('file', files);
-
+                this.submitUpload()
             },
             init(){
                 this.modify_nickname=this.nickname;
-                this.modify_introduce=this.introdue;
+                this.modify_introduce=this.introduce;
             },
             modify_instance(){
                 this.modify_info=true
