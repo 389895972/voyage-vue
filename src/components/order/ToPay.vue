@@ -190,7 +190,7 @@
                                     :data="infoForm1"
                                     :span-method="objectSpanMethod"
                                     border
-                                    style="width: 100%; margin: 20px auto 30px auto;">
+                                    style=" margin: 20px auto 30px auto;">
                                 <el-table-column
                                         prop="name"
                                         label="姓名"

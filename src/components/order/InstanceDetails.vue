@@ -54,10 +54,10 @@
 <!--                </el-table>-->
                     <table  style="width: 100%;height:50px;background-color: #E4E7EB;margin-top: 5px">
                         <tr style="font-weight: bold">
-                            <td style="height: 50px;width: 25%" > <span style="margin-left: 10px">设备ID</span> </td>
-                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px">设备名称</span></td>
-                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px"></span></td>
-                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px">设备型号</span></td>
+                            <td style="height: 50px;width: 25%" > <span style="margin-left: 10px;font-size: 14px">设备ID</span> </td>
+                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px;font-size: 14px">设备名称</span></td>
+                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px;font-size: 14px"></span></td>
+                            <td style="height: 50px;width: 25%" ><span style="margin-left: 10px;font-size: 14px">设备型号</span></td>
 
                         </tr>
                         <tr>

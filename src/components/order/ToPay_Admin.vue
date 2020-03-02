@@ -187,33 +187,53 @@
                             </div>
 
 
-                            <el-table
-                                    :data="infoForm1"
-                                    :span-method="objectSpanMethod"
-                                    border
-                                    style="width: 100%; margin: 20px auto 30px auto;">
-                                <el-table-column
-                                        prop="name"
-                                        label="姓名"
-                                        width="360">
-                                </el-table-column>
-                                <el-table-column
-                                        prop="department"
-                                        label="部门">
-                                </el-table-column>
-                                <el-table-column
-                                        prop="sex"
-                                        label="性别">
-                                </el-table-column>
-                                <el-table-column
-                                        prop="phone_num"
-                                        label="电话">
-                                </el-table-column>
-                                <el-table-column
-                                        prop="purpose"
-                                        label="用途">
-                                </el-table-column>
-                            </el-table>
+<!--                            <el-table-->
+<!--                                    :data="infoForm1"-->
+<!--                                    :span-method="objectSpanMethod"-->
+<!--                                    border-->
+<!--                                    style="width: 100%; margin: 20px auto 30px auto;">-->
+<!--                                <el-table-column-->
+<!--                                        prop="name"-->
+<!--                                        label="姓名"-->
+<!--                                        width="360">-->
+<!--                                </el-table-column>-->
+<!--                                <el-table-column-->
+<!--                                        prop="department"-->
+<!--                                        label="部门">-->
+<!--                                </el-table-column>-->
+<!--                                <el-table-column-->
+<!--                                        prop="sex"-->
+<!--                                        label="性别">-->
+<!--                                </el-table-column>-->
+<!--                                <el-table-column-->
+<!--                                        prop="phone_num"-->
+<!--                                        label="电话">-->
+<!--                                </el-table-column>-->
+<!--                                <el-table-column-->
+<!--                                        prop="purpose"-->
+<!--                                        label="用途">-->
+<!--                                </el-table-column>-->
+<!--                            </el-table>-->
+                                <table  style="width: 100%;height:50px;">
+                                    <tr style="border-bottom:1px solid #E7EAED;border-top:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                        <td style="width: 15%">姓名</td>
+                                        <td>部门</td>
+                                        <td>性别</td>
+                                        <td>电话</td>
+                                        <td style="width: 20%;">用途</td>
+
+                                    </tr>
+                                    <tr  style="border-bottom:1px solid #E7EAED;;border-left:0.3px solid #E7EAED;border-right:0.3px solid #E7EAED;">
+                                        <td style="width: 15%;background-color: white">
+                                            {{infoForm1[0].name}}
+                                        </td>
+                                        <td style="padding-top: 0;background-color: white" > {{infoForm1[0].department}}</td>
+                                        <td valign="top" style="background-color: white"> {{infoForm1[0].sex}}</td>
+                                        <td  style="background-color: white"> {{infoForm1[0].phone_num}}</td>
+                                        <td  style="width: 20%;background-color: white"> {{infoForm1[0].purpose}}</td>
+
+                                    </tr>
+                                </table>
                             </div>
                             <div v-if="user!==1" style="margin-top: 50px">
                             <div class="product_name">

@@ -793,7 +793,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <span class="service_querstion">收不到邮箱验证码怎么办？</span>
+                      <span class="service_querstion">收不到短信验证码怎么办？</span>
                       <div style="width:80%">
                         <p class="service_querstion_p">
                             可能会由于手机停机、存储信息已满、信号网络延迟等原因没有及时收到验证码，这时请检查您的手机，保证手机可正常接收短信后，尝试重新获取验证码。

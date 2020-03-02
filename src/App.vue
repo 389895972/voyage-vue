@@ -57,7 +57,7 @@ export default {
     incrl(){
       this.login_dialog1=true
       window.console.log(this.login_dialog1+'963963')
-      alert(this.login_dialog1)
+      // alert(this.login_dialog1)
     }
   }
 }
