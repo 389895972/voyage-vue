@@ -1108,7 +1108,7 @@ div {
   margin-top: 15px;
   margin-bottom: 45px;
   color: white;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 span {
@@ -1203,8 +1203,8 @@ span {
 .adv_content_title2{
     text-align: center;
     margin: 0 auto;
-    font-size: 12px;
-     width: 144px;
+    font-size: 14px;
+     width: 160px;
 }
 .adv_image{
     width: 53.7px;

@@ -21,8 +21,9 @@ import Tutorial from './components/tutorial/Tutorial'
 import Instance from './components/order/Instance'
 import adminOrderList from './components/admin/orderList'
 import adminLogin from './components/admin/Login'
-import Page404 from './components/error/Page404'
 import Page500 from './components/error/Page500'
+
+import Page404 from './components/error/Page404'
 
 import de from './ChangLang'
 import Vuex from "vuex";
@@ -30,6 +31,9 @@ import Vuex from "vuex";
 
 import axios from 'axios'
 
+
+
+Vue.use(Router)
 
 Vue.prototype.$http = axios;
 // Vue.prototype.$http.defaults.withCredentials=true;
@@ -61,9 +65,11 @@ const router =new Router({
 
         {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}},
         {path:'/admin/login',name:'adminLogin',component:adminLogin,meta:{keepAlive:false}},
+
         {path:'/page404',name:'Page404',component:Page404,meta:{keepAlive:false}},
         {path:'/page500',name:'Page500',component:Page500,meta:{keepAlive:false}},
         {path:'*',redirect: '/Page404'},
+
 
 
     ],

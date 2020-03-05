@@ -254,7 +254,7 @@
             },
             go_to_teminal(){
                 this.instancedialog=false
-                window.location.href = 'http://10.0.20.114:10088/luna/?login_to='+this.assetsId;
+                window.location.href = 'http://10.0.20.114:10089/luna/?login_to='+this.assetsId;
 
             },
             filter_status(value,row,column){
