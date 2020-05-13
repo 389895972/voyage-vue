@@ -1,7 +1,7 @@
 <template>
     <el-header  class="header_head" height="100px">
         <div class="nav_layout">
-            <img class="logo" src="../../assets/images/logo.png" @click="go_home"  style="cursor: pointer" alt />
+            <img class="logo" src="../../assets/images/header/logo.png" @click="go_home"  style="cursor: pointer" alt />
             <div class="nav_layout_right">
 <!--                <div class="nav_item">-->
 <!--                    <a class="nav_a" @click="go_tutorial" href="#">-->
@@ -11,7 +11,7 @@
 
                 <div class="nav_item">
                     <a class="nav_a"  @click="go_instance" href="#">
-                        <span class="nav_font">控制台 </span>
+                        <span class="nav_font"> </span>
                     </a>
                 </div>
 
@@ -52,61 +52,61 @@
             </div>
         </div>
         <div id="login_dia">
-        <el-dialog
-                title="登录"
-                :visible.sync="login_dialog1"
-                width="380px"
-                style="position: absolute">
+<!--        <el-dialog-->
+<!--                title="登录"-->
+<!--                :visible.sync="login_dialog1"-->
+<!--                width="380px"-->
+<!--                style="position: absolute">-->
 
-            <hr style="margin: 0;width: 100%;">
+<!--            <hr style="margin: 0;width: 100%;">-->
 
-            <div style="width: 300px;margin:0 auto">
+<!--            <div style="width: 300px;margin:0 auto">-->
 
 
-                <el-form  :model="log" :rules="rules" ref="log_ruleForm"  >
-             <span v-if="log_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img
-                     src="../../assets/icons/zhuyi.png" alt="">{{log_tips}}</span>
-                <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">
+<!--                <el-form  :model="log" :rules="rules" ref="log_ruleForm"  >-->
+<!--             <span v-if="log_tip_status==1"  style="background-color:#E84948;color: white;width: 300px;height: 44px;display: inline-block;line-height:44px;text-align: center;font-size: 14px"><img-->
+<!--                     src="../../assets/icons/zhuyi.png" alt="">{{log_tips}}</span>-->
+<!--                <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">-->
 
-                   <span style="cursor: pointer;font-size:16px;color: #606879;font-weight: bold;margin-right: 5px;" @click="to_pwd_log">手机密码登录</span> |
-                   <span style="font-size:16px;color:#3254DC;font-weight: bold;margin-left: 10px"> 手机快捷登录</span>
-                 </div>
-                    <table> <tr> <td>
-                <el-select v-model="prefix" placeholder="请选择"  style="margin-top: 3px;">
-                    <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                    </el-option>
-                </el-select>
-                    </td> <td>
-                        <el-form-item  prop="login_tel">
-                <el-input style="width: 200px;margin-left: 10px" v-model="log.login_tel" placeholder="请输入手机号"></el-input>
-                        </el-form-item>
-                    </td>  </tr></table>
-                    <table> <tr> <td>
-                       <el-form-item  prop="login_code">
-                <el-input style="width: 200px;" v-model="log.login_code" placeholder="请输入六位验证码"></el-input>
-                       </el-form-item>
-              </td> <td>
-                        <!--                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>-->
-                <el-button  :id="btn_code1"   style="height: 44px;margin-top: 7px"  @click="log_send_code(log.login_tel)" >{{content1}}</el-button>
-                    </td>  </tr></table>
-                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login(log.login_tel,log.login_code)" >立即登录</el-button>
-                <div style="width: 300px;height:40px;vertical-align:middle;display:table-cell;">
-                    <span style="font-size:14px;color: #606879;">没有账号？</span>
-                    <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register"> 5秒注册</span>
-                    <span style="font-size:14px;color:#FCA200;float:right;cursor:pointer" @click="modify_pwd1"> 忘记密码？</span>
-                </div>
-                <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px"> 其他登录方式</div>
-                 <div style="height: 60px">
-                     <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" @click="wx_login" alt="" style="margin-bottom: 30px;cursor:pointer"> <span style="display: inline-block;width: 100px"><hr></span>
-                 </div>
-                </el-form>
-            </div>
-<!--            <div style="position: relative;top: -125px">123</div>-->
-        </el-dialog>
+<!--                   <span style="cursor: pointer;font-size:16px;color: #606879;font-weight: bold;margin-right: 5px;" @click="to_pwd_log">手机密码登录</span> |-->
+<!--                   <span style="font-size:16px;color:#3254DC;font-weight: bold;margin-left: 10px"> 手机快捷登录</span>-->
+<!--                 </div>-->
+<!--                    <table> <tr> <td>-->
+<!--                <el-select v-model="prefix" placeholder="请选择"  style="margin-top: 3px;">-->
+<!--                    <el-option-->
+<!--                            v-for="item in options"-->
+<!--                            :key="item.value"-->
+<!--                            :label="item.label"-->
+<!--                            :value="item.value">-->
+<!--                    </el-option>-->
+<!--                </el-select>-->
+<!--                    </td> <td>-->
+<!--                        <el-form-item  prop="login_tel">-->
+<!--                <el-input style="width: 200px;margin-left: 10px" v-model="log.login_tel" placeholder="请输入手机号"></el-input>-->
+<!--                        </el-form-item>-->
+<!--                    </td>  </tr></table>-->
+<!--                    <table> <tr> <td>-->
+<!--                       <el-form-item  prop="login_code">-->
+<!--                <el-input style="width: 200px;" v-model="log.login_code" placeholder="请输入六位验证码"></el-input>-->
+<!--                       </el-form-item>-->
+<!--              </td> <td>-->
+<!--                        &lt;!&ndash;                <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span" @click="countDown" >{{content}}</el-button>&ndash;&gt;-->
+<!--                <el-button  :id="btn_code1"   style="height: 44px;margin-top: 7px"  @click="log_send_code(log.login_tel)" >{{content1}}</el-button>-->
+<!--                    </td>  </tr></table>-->
+<!--                <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin: 0" @click="login(log.login_tel,log.login_code)" >立即登录</el-button>-->
+<!--                <div style="width: 300px;height:40px;vertical-align:middle;display:table-cell;">-->
+<!--                    <span style="font-size:14px;color: #606879;">没有账号？</span>-->
+<!--                    <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register"> 5秒注册</span>-->
+<!--                    <span style="font-size:14px;color:#FCA200;float:right;cursor:pointer" @click="modify_pwd1"> 忘记密码？</span>-->
+<!--                </div>-->
+<!--                <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px"> 其他登录方式</div>-->
+<!--                 <div style="height: 60px">-->
+<!--                     <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" @click="wx_login" alt="" style="margin-bottom: 30px;cursor:pointer"> <span style="display: inline-block;width: 100px"><hr></span>-->
+<!--                 </div>-->
+<!--                </el-form>-->
+<!--            </div>-->
+<!--&lt;!&ndash;            <div style="position: relative;top: -125px">123</div>&ndash;&gt;-->
+<!--        </el-dialog>-->
             <el-dialog  id="log2"
                     title="登录"
                     :visible.sync="login_dialog2"
@@ -124,7 +124,7 @@
                         <div style="width: 100%;height:40px;vertical-align:middle;display:table-cell;">
 
                             <span style="font-size:16px;color:#3254DC;font-weight: bold;margin-right: 5px"> 手机密码登录</span> |
-                            <span style="font-size:16px;color: #606879;font-weight: bold;margin-left: 5px" @click="to_tel_log">手机快捷登录</span>
+<!--                            <span style="font-size:16px;color: #606879;font-weight: bold;margin-left: 5px" @click="to_tel_log">手机快捷登录</span>-->
 
                         </div>
                         <table> <tr> <td>
@@ -150,9 +150,9 @@
                             <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="register2"> 5秒注册</span>
                             <span style="font-size:14px;color:#FCA200;float:right;cursor:pointer" @click="modify_pwd2"> 忘记密码？</span>
                         </div>
-                        <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px"> 其他登录方式</div>
+                        <div style="font-size: 16px;color: #606879;margin:0 auto 0 100px;width:100px">欢迎使用 </div>
                         <div style="height: 60px">
-                            <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/home/weixin.png" @click="wx_login1" alt="" style="margin-bottom: 30px;cursor:pointer"> <span style="display: inline-block;width: 100px"><hr></span>
+                            <span style="display: inline-block;width: 120px"><hr></span> <img src="../../assets/images/header/logo.png"  @click="wx_login1" alt="" style="margin-bottom: 30px;cursor:pointer;width: 50px"> <span style="display: inline-block;width: 100px"><hr></span>
                         </div>
                     </el-form>
                 </div>
@@ -289,11 +289,17 @@
                     <!--                    <el-button  :class="{disabled: !this.canClick}" style="width: 100px;background-color: #3254DC;color:white;height: 40px"  id="code_span2" @click="countDown" >{{content}}</el-button>-->
                     <el-button  :id="btn_code2"   style="height: 44px;margin-top: 8px"  @click="reg_send_code(reg.reg_tel)" >{{content2}}</el-button>
                         </td> </tr></table>
-                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin-bottom: 25px" @click="regist(reg.reg_username,reg.reg_tel,reg.reg_password,reg.reg_code)">立即注册</el-button>
+                        <el-form-item  prop="reg_name">
+                            <el-input style="width: 300px;"   v-model="reg.reg_name" placeholder="请输入姓名"  ></el-input>
+                        </el-form-item>
+                        <el-form-item  prop="reg_idcard">
+                            <el-input style="width: 300px;"   v-model="reg.reg_idcard" placeholder="请输入身份证号码"   ></el-input>
+                        </el-form-item>
+                    <el-button  style="width: 300px;height: 50px;background-color: #3254DC;color:white;font-size: 16px;margin-bottom: 25px" @click="regist(reg.reg_username,reg.reg_tel,reg.reg_password,reg.reg_code,reg.reg_idcard,reg.reg_name)">立即注册</el-button>
                     <div style="width: 80%;height:40px;vertical-align:middle;display:table-cell;">
                         <span style="font-size:14px;color: #606879;">已有账号？</span>
                         <span style="font-size:14px;color:#3254DC;cursor: pointer" @click="reg_to_login"> 马上登录></span>
-                        <span style="font-size:14px;color:#3254DC;margin-left: 100px;cursor:pointer" @click="wx_register"> 微信注册</span>
+                        <span style="font-size:14px;color:#3254DC;margin-left: 100px;cursor:pointer" @click="wx_register"> </span>
                     </div>
                     <div style="height: 50px"></div>
                          </el-form>
@@ -426,6 +432,8 @@
                     reg_code:'',
                     reg_username:'',
                     reg_password:'',
+                    reg_name:'',
+                    reg_idcard:''
                 },
                 mod_pwd:{
                     mod_tel:'',
@@ -437,111 +445,10 @@
                 },
                 options: [
                     {
-                     label: '+86' +'\xa0\xa0\xa0\xa0\xa0'+'中国大陆',
+                     label: '+86',
                        value:'+86'
-                     },
-                    {
-                        label: '+852' +'\xa0\xa0\xa0\xa0\xa0'+'中国香港',
-                        value:'+852'
-                }, {
-                        label: '+853' +'\xa0\xa0\xa0\xa0\xa0'+'中国澳门',
-                        value:'+853'
+                     }
 
-                }, {
-                        label: '+886' +'\xa0\xa0\xa0\xa0\xa0'+'中国台湾',
-                        value:'+886'
-
-                }, {
-                        label: '+82' +'\xa0\xa0\xa0\xa0\xa0'+'韩国',
-                        value:'+82'
-
-                },{
-                        label: '+853' +'\xa0\xa0\xa0\xa0\xa0'+'日本',
-                        value:'+853'
-
-                    }, {
-                        label: '+1' +'\xa0\xa0\xa0\xa0\xa0'+'美国',
-                        value:'+1'
-
-                    }, {
-                        label: '+1' +'\xa0\xa0\xa0\xa0\xa0'+'加拿大',
-                        value:'+1'
-
-                    },
-                    {
-                        label: '+44' +'\xa0\xa0\xa0\xa0\xa0'+'英国',
-                        value:'+44'
-
-                    }, {
-                        label: '+65' +'\xa0\xa0\xa0\xa0\xa0'+'新加坡',
-                        value:'+65'
-
-                    }, {
-                        label: '+66' +'\xa0\xa0\xa0\xa0\xa0'+'泰国',
-                        value:'+66'
-
-                    }, {
-                        label: '+84' +'\xa0\xa0\xa0\xa0\xa0'+'越南',
-                        value:'+84'
-
-                    },
-                    {
-                        label: '+63' +'\xa0\xa0\xa0\xa0\xa0'+'菲律宾',
-                        value:'+63'
-
-                    }, {
-                        label: '+60' +'\xa0\xa0\xa0\xa0\xa0'+'印度尼西亚',
-                        value:'+60'
-
-                    }, {
-                        label: '+39' +'\xa0\xa0\xa0\xa0\xa0'+'意大利',
-                        value:'+39'
-
-                    },
-                    {
-                        label: '+7' +'\xa0\xa0\xa0\xa0\xa0'+'俄罗斯',
-                        value:'+7'
-
-                    },
-                    {
-                        label: '+64' +'\xa0\xa0\xa0\xa0\xa0'+'新西兰',
-                        value:'+64'
-
-                    }, {
-                        label: '+31' +'\xa0\xa0\xa0\xa0\xa0'+'荷兰',
-                        value:'+31'
-
-                    }, {
-                        label: '+46' +'\xa0\xa0\xa0\xa0\xa0'+'瑞典',
-                        value:'+46'
-
-                    },{
-                        label: '+61' +'\xa0\xa0\xa0\xa0\xa0'+'澳大利亚',
-                        value:'+61'
-
-                    }, {
-                        label: '+380' +'\xa0\xa0\xa0\xa0\xa0'+'乌克兰',
-                        value:'+380'
-
-                    },
-                    {
-                        label: '+33' +'\xa0\xa0\xa0\xa0\xa0'+'法国',
-                        value:'+33'
-
-                    },
-                    {
-                        label: '+49' +'\xa0\xa0\xa0\xa0\xa0'+'德国',
-                        value:'+49'
-
-                    }, {
-                        label: '+31' +'\xa0\xa0\xa0\xa0\xa0'+'荷兰',
-                        value:'+31'
-
-                    }, {
-                        label: '+46' +'\xa0\xa0\xa0\xa0\xa0'+'瑞典',
-                        value:'+46'
-
-                    }
 
                 ],
 
@@ -549,6 +456,14 @@
                     reg_username: [
                       { required: true, message: '请输入用户名', trigger: 'blur' },
                       // { min:5, max: 18, message: '长度在 5 到 18 个字符', trigger: 'blur' }
+                    ],
+                    reg_name: [
+                        { required: true, message: '请输入姓名', trigger: 'blur' },
+                         { min:2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }
+                    ],
+                    reg_idcard: [
+                        { required: true, message: '请输入身份证号码', trigger: 'blur' },
+
                     ],
                     reg_tel: [
                         { required: true, message: '请输入手机号', trigger: 'blur' },
@@ -628,22 +543,25 @@
                 if(!tokenStr){
                      window.console.log(123)
                 }else{
-                    const newAixos = Axios.create({
-                        baseURL: 'http://10.0.20.114:9002',
-                        // timeout: 1000,
-                    });
-                    // newAixos.get("/tbUser/getToken/"+tokenStr)
-                    newAixos({
-                        method:'get',
-                        url:"/tbUser/getToken",
-                        // data:{token:tokenStr},
-                        headers:{"Authorization":"Bearer "+tokenStr}})
-                        .then(function(response) {
+                    // const newAixos = Axios.create({
+                    //     baseURL: 'http://localhost:8087',
+                    //     // timeout: 1000,
+                    // });
+                    // // newAixos.get("/tbUser/getToken/"+tokenStr)
+                    // newAixos({
+                    //     method:'post',
+                    //     url:"/verify",
+                    //      data:{token:tokenStr},
+                    //
+                    // })
+                    this.$http.post(
+                        "auth/verify",{token:tokenStr}
+                    ).then(function(response) {
                             window.console.log(response);
-                            if (response.data.code == 20000) {
+                            if (response.status == 200) {
                                 that.isLogin=true
-                                that.userInfo=response.data.data.userInfo
-                                that.roles=response.data.data.roles
+                                // that.userInfo=response.username
+                                // that.roles=response.data.data.roles
                             }
                         })
                         .catch(function(error) {
@@ -673,10 +591,8 @@
                     this.login_dialog1=true
                 }else{
                 this.$router.push(
-                    { path: '/order/orderList',
-                        query:{
-                            user_id: 1,
-                        }
+                    { path: '/orders',
+
                     }
                 );}
 
@@ -731,7 +647,7 @@
                 //     { path: '/login',
                 //     }
                 // );
-                this.login_dialog1=true
+                this.login_dialog2=true
             },
             countDown(){
                 // if (!this.canClick) return
@@ -938,15 +854,17 @@
             async reg_send_code(tel){
                 let that=this
                 that.countDown2()
-                const newAixos = Axios.create({
-                    baseURL: 'http://10.0.20.114:9002',
-                   // timeout: 1000,
-                });
-                newAixos.post("/tbUser/sendSms/"+tel)
+               //  const newAixos = Axios.create({
+               //      baseURL: 'http://localhost:8085',
+               //     // timeout: 1000,
+               //  });
+               // //newAixos.post("/code",{phone:tel})
+               //  newAixos.get("/code",{params:{phone:tel}})
+                    this.$http.get('user/code',{params:{phone:tel}})
                     .then(function(response) {
                         window.console.log(response);
                         if (response.status == 200) {
-                            this.$message.success("验证码已发送")
+                            that.$message.success("验证码已发送")
                         }
                     })
                     .catch(function(error) {
@@ -961,7 +879,7 @@
                     baseURL: 'http://10.0.20.114:9002',
                    // timeout: 1000,
                 });
-                newAixos.post("/tbUser/loginSms/"+tel)
+                 newAixos.post("/tbUser/loginSms/"+tel)
                     .then(function(response) {
                         window.console.log(response);
                         if (response.status == 200) {
@@ -993,32 +911,44 @@
                     });
 
             },
-            async regist(username,tel,password,code){
+            async regist(username,tel,password,code,idcard,name){
                 this.$refs.reg_ruleForm.validate(valid=> {
 
                     if (!valid) {
                         this.$message.error("请完善注册表单")
                     } else {
+
                         let that = this;
-                        const newAixos = Axios.create({
-                            baseURL: 'http://10.0.20.114:9002',
-                            // timeout: 1000,
-                        });
-                        newAixos.post("/tbUser/register/" + code, {
+                        // const newAixos = Axios.create({
+                        //     baseURL: 'http://localhost:8085',
+                        //     // timeout: 1000,
+                        // });
+                        // newAixos.post("/register/"+code, {
+                        //
+                        //     username: username,
+                        //      phone: tel,
+                        //      password: password,
+                        //     idcard:idcard,
+                        //     name:name
+                        //
+                        //     })
+                        this.$http.post("user/register/"+code,
+                            {
 
-                                nickname: username,
-                                mobile: tel,
-                                password: password,
-
-                            })
+                                username: username,
+                                 phone: tel,
+                                 password: password,
+                                idcard:idcard,
+                                name:name}
+                                )
                             .then(function (response) {
                                 window.console.log(response);
-                                if (response.data.code === 20001) {
+                                if (response.data.code === 201) {
                                     window.console.log("888" + response.data.message)
                                     that.reg_tips = response.data.message
                                     that.reg_tip_status = 1
                                     window.console.log("666" + that)
-                                } else if (response.data.code === 20000) {
+                                } else if (response.data.code === 200) {
                                     that.register_dialog=false
                                     that.register_ok_dialog = true
                                     // setTimeout("close_reg()", 1000)
@@ -1030,7 +960,7 @@
                             })
                             .catch(function (error) {
                                 window.console.log(error);
-                                that.$message.success("服务器错误")
+                                that.$message.error("服务器错误")
                             });
                     }
                 })
@@ -1090,38 +1020,55 @@
                         this.$message.error("请完善登录表单")
                     } else {
                         let that=this;
-                        const newAixos = Axios.create({
-                            baseURL: 'http://10.0.20.114:9002',
-                            // timeout: 1000,
-                        });
-                        newAixos.post("/tbUser/passwordLogin",{
+                       //  const newAixos = Axios.create({
+                       //      baseURL: 'http://localhost:8087',
+                       //      // timeout: 1000,
+                       //  });
+                       // // newAixos.post("/login", {phone: tel, password:pwd})
+                       //  newAixos({
+                       //      method:'post',
+                       //      url:"/accredit",
+                       //      // data:{token:tokenStr},
+                       //      params:{
+                       //           phone: tel, password:pwd
+                       //      },
+                       //
+                       //      headers:{'content-type': 'application/x-www-form-urlencoded'}
+                       //  })
+                        this.$http({
+                             method:'post',
+                             url:"auth/accredit",
+                             // data:{token:tokenStr},
+                             params:{
+                                  phone: tel, password:pwd
+                             },
 
-                                mobile: tel,
-                                password:pwd,
-
-                            }
-                        )
+                             headers:{'content-type': 'application/x-www-form-urlencoded'}
+                         })
+                       //  this.$http.post("auth/accredit",
+                       //      headers:{'content-type': 'application/x-www-form-urlencoded'},
+                       //      {params:{
+                       //                phone: tel, password:pwd
+                       //           }})
                             .then(function(response) {
                                 window.console.log(response);
-                                if (response.data.code == 20002) {
+                                if (response.status == 2001) {
                                     that.log_tips=response.data.message
                                     that.log_tip_status=1
-                                }else if(response.data.code == 20000){
+                                }else if(response.status == 200){
                                     that.login_dialog2=false
 
-                                    window.console.log("789"+response.data.data.token)
-                                    window.sessionStorage.setItem('token',response.data.data.token)
+
+                                    window.sessionStorage.setItem('token',response.data)
                                     window.console.log("token---"+window.sessionStorage.getItem('token')) ;
                                     that.isLogin=true
-                                    that.userInfo=response.data.data.userInfo
-                                    that.roles=response.data.data.roles
-                                    window.console.log("userinfo-"+response.data.data.userInfo.nickname) ;
-                                    window.console.log("roles--"+response.data.data.roles) ;
+
                                     that.$message({
                                         message: '登录成功！',
                                         type: 'success',
                                         duration:1000
                                     });
+                                    that.isLogin=true
 
                                 }
                             })

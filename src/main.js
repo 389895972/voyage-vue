@@ -24,13 +24,13 @@ Vue.prototype.Clipboard=Clipboard;
 Vue.prototype.$http=axios;
 // Vue.prototype.$http.defaults.withCredentials=true;
 
-axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
+//axios.defaults.baseURL=process.env.NODE_ENV === "production" ?"http://10.0.20.114:9001":"/api"
 
 //axios.defaults.baseURL='/api'
 //process.env.NODE_ENV === "production" ? "axios.defaults.baseURL='http://10.0.20.114:9001'" : "axios.defaults.baseURL='/api'",
 //axios.defaults.baseURL='http://10.0.20.114:9001'
 //axios.defaults.baseURL='http://127.0.0.1:8081'
-//axios.defaults.baseURL='http://10.0.20.114:9001'
+axios.defaults.baseURL='http://localhost:10010/api'
 //请求拦截器 添加 token
 // axios.interceptors.request.use(config=>{
 //   config.headers.Authorization= window.sessionStorage.getItem('token');
@@ -60,32 +60,32 @@ router.afterEach(() => {
     window.scrollTo(0,0)
 
 })
-axios.create({
-    baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
-    timeout: 5000 // 请求超时时间
-})
-Vue.config.productionTip = false
-Vue.use(ElementUI);
-Vue.use(router)
-
-Vue.prototype.$http.interceptors.response.use(response => {
-    return response;
-}, error => {
-    if (error && error.response) {
-        switch (error.response.status) {
-            case 403:
-                router.push({name:'Page403'});
-                break;
-            case 500:
-                router.push({ name:'Page500'});
-                //  error.message = '服务器错误(500)';
-                break;
-
-            default: error.message = `连接出错(${error.response.status})!`;
-        }
-    }
-    return Promise.reject(error);
-});
+// axios.create({
+//     baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
+//     timeout: 5000 // 请求超时时间
+// })
+// Vue.config.productionTip = false
+// Vue.use(ElementUI);
+// Vue.use(router)
+//
+// Vue.prototype.$http.interceptors.response.use(response => {
+//     return response;
+// }, error => {
+//     if (error && error.response) {
+//         switch (error.response.status) {
+//             case 403:
+//                 router.push({name:'Page403'});
+//                 break;
+//             case 500:
+//                 router.push({ name:'Page500'});
+//                 //  error.message = '服务器错误(500)';
+//                 break;
+//
+//             default: error.message = `连接出错(${error.response.status})!`;
+//         }
+//     }
+//     return Promise.reject(error);
+// });
 
 Vue.use(ElementUI, { locale })
  Vue.use(ElementUI, {

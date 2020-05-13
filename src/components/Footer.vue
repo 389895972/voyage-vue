@@ -1,35 +1,34 @@
 <template>
     <div style="background-color: #101C3D;">
     <el-footer  class="footer_el" height="600px">
-        <el-row  :offset="3"><img  class="footer_img" src="../../public/logo.png" alt=""></el-row>
+        <el-row  :offset="3"><img  class="footer_img" src="../../public/logo1.png" width="60px" alt=""></el-row>
         <el-row>
             <el-col :span="4" >
                 <div class="footer_block">
-                    <span class="footer_block_title" >产品</span>
-                    <span class="footer_block_content"> <a href=""> AIKIT </a> </span>
-                    <span class="footer_block_content"><a href="">RB3 </a></span>
-                    <span class="footer_block_content"><a href="">Rasybarry Pie </a></span>
-                    <span class="footer_block_content"><a href="">Intel Nuc </a></span>
+                    <span class="footer_block_title" >机票</span>
+                    <span class="footer_block_content"> <a href=""> 中国航空 </a> </span>
+                    <span class="footer_block_content"><a href="">南方航空 </a></span>
+                    <span class="footer_block_content"><a href="">海南航空</a></span>
+                    <span class="footer_block_content"><a href="">春秋航空</a></span>
                 </div>
             </el-col>
             <el-col :span="4">
 
                 <div class="footer_block">
                     <span class="footer_block_title">社区</span>
-                    <span class="footer_block_content"> <a href=""> 5G</a> </span>
-                    <span class="footer_block_content"><a href="">消费电子产品</a></span>
-                    <span class="footer_block_content"><a href="">智能汽车</a></span>
-                    <span class="footer_block_content"><a href="">智慧家居</a></span>
-                    <span class="footer_block_content"><a href="">智慧城市 </a></span>
+                    <span class="footer_block_content"> <a href="">送货上门</a> </span>
+                    <span class="footer_block_content"><a href="">会员办理</a></span>
+                    <span class="footer_block_content"><a href="">贵宾服务</a></span>
+                    <span class="footer_block_content"><a href="">行程安排</a></span>
                 </div>
             </el-col>
             <el-col :span="4">
                 <div class="footer_block">
                     <span class="footer_block_title">教程</span>
-                    <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
-                    <span class="footer_block_content"><a href="">AI服务</a></span>
-                    <span class="footer_block_content"><a href="">AI模块</a></span>
-                    <span class="footer_block_content"><a href="">AI工具</a></span>
+                    <span class="footer_block_content"> <a href="">订票方案</a> </span>
+                    <span class="footer_block_content"><a href="">服务指南</a></span>
+                    <span class="footer_block_content"><a href="">操作指南</a></span>
+                    <span class="footer_block_content"><a href="">工具</a></span>
                 </div>
             </el-col>
             <el-col :span="4">
@@ -44,10 +43,10 @@
             <el-col :span="4">
                 <div class="footer_block">
                     <span class="footer_block_title">其他</span>
-                    <span class="footer_block_content"> <a href=""> AI解决方案</a> </span>
-                    <span class="footer_block_content"><a href="">AI服务</a></span>
-                    <span class="footer_block_content"><a href="">AI模块</a></span>
-                    <span class="footer_block_content"><a href="">AI工具</a></span>
+                    <span class="footer_block_content"> <a href=""> 解决方案</a> </span>
+                    <span class="footer_block_content"><a href="">客户服务</a></span>
+                    <span class="footer_block_content"><a href="">自助服务</a></span>
+                    <span class="footer_block_content"><a href="">投诉</a></span>
                 </div>
             </el-col>
         </el-row>
@@ -58,17 +57,6 @@
         <span class="footer_title_email2">其他联系</span>
 
 
-        <el-table-column fixed="right" label="操作" width="150">
-            <template slot-scope="scope">
-                <el-button-group>
-                    <el-tooltip class="item" effect="dark" content="复制内容" placement="top">
-                        <el-button type="warning" size="mini" v-clipboard:copy="scope.row.content" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                            <i class="fa fa-copy"></i>
-                        </el-button>
-                    </el-tooltip>
-                </el-button-group>
-            </template>
-        </el-table-column>
         <div class="item">
             <el-input  v-model="email" class="footer_input" size="mini"></el-input>
             <!--          <span class="footer_input"> {{email}}</span>-->
@@ -107,7 +95,7 @@
 export default {
    data(){
        return{
-           email:"E-mail:service@45iot.com",
+           email:"E-mail:aiyouhangkong@163.com",
 
        }
    },

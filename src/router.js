@@ -12,6 +12,8 @@ import Buy_Rb3 from './components/order/Buy_Rb3'
 import Buy_Edgekit from './components/order/Buy_Edgekit'
 import orderList from './components/order/orderList'
 
+
+
 import Confirm from './components/order/Confirm'
 import InstanceDetails from './components/order/InstanceDetails'
 import ToPay from './components/order/ToPay'
@@ -19,7 +21,7 @@ import ToPay_Admin from './components/order/ToPay_Admin'
 import Tutorial from './components/tutorial/Tutorial'
 //import First from "./components/index/First";
 import Instance from './components/order/Instance'
-import adminOrderList from './components/admin/orderList'
+
 import adminLogin from './components/admin/Login'
 import Page500 from './components/error/Page500'
 
@@ -29,6 +31,15 @@ import de from './ChangLang'
 import Vuex from "vuex";
 
 
+import Flights from './components/flight/Flights'
+import BuyTicket from './components/flight/BuyTicket'
+import Orders from './components/flight/Orders'
+import OrderDetails from './components/flight/OrderDetails'
+import AdminAdmin from './components/admin/Admin'
+import adminOrderList from './components/admin/orderList'
+import adminFlightList from './components/admin/FlightList'
+import User from './components/admin/user'
+import AdminOrderDetails from './components/admin/OrderDetails'
 import axios from 'axios'
 
 
@@ -44,6 +55,16 @@ const router =new Router({
         {path:'/',redirect: '/home'},
 
         {path:'/home', component: Home,meta:{keepAlive:false}},
+        {path:'/flights', component: Flights,meta:{keepAlive:false}},
+        {path:'/buyticket', component:BuyTicket,meta:{keepAlive:false}},
+        {path:'/orders', component:Orders,meta:{keepAlive:false}},
+        {path:'/orderDetails', component:OrderDetails,meta:{keepAlive:false}},
+        {path:'/admin/orderDetails', component:AdminOrderDetails,meta:{keepAlive:false}},
+        {path:'/admin/admin',name:'adminAdmin',component:AdminAdmin,meta:{keepAlive:false}},
+        {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}},
+        {path:'/admin/flightList',name:'adminFlightList',component:adminFlightList,meta:{keepAlive:false}},
+        {path:'/admin/user',name:'user',component:User,meta:{keepAlive:false}},
+
         {path:'/aikitdetails', component: AikitDetails,meta:{keepAlive:false}},
         {path:'/rb3details', component: RB3Details,meta:{keepAlive:false}},
         {path:'/de', component: de,meta:{keepAlive:false}},
@@ -63,7 +84,7 @@ const router =new Router({
 
         {path:'/Header',name:'Header',component:Header,meta:{keepAlive:false}},
 
-        {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}},
+
         {path:'/admin/login',name:'adminLogin',component:adminLogin,meta:{keepAlive:false}},
 
         {path:'/page404',name:'Page404',component:Page404,meta:{keepAlive:false}},
@@ -89,36 +110,36 @@ router.beforeEach((to, from, next)=>{
 
 })
 
-axios.interceptors.response.use(response => {
-    window.console.log("888888888888")
-    window.console.log(response+"888888888888")
-    if (response.status===500) {
-       // localStorage.clear();
-       // alert(response.data.resMsg)
-
-        router.push({
-           path:'/page500'
-        })
-    }
-    return response;
-}, error => {
-    if (error && error.response) {
-        switch (error.response.status) {
-            case 404:
-                window.console.log("router--404错误")
-                router.push({ path:'/page404'});
-                // error.message = '请求出错(404)'
-                break;
-
-            case 500:
-                window.console.log("router--500错误")
-                router.push({ path:'/page500'});
-                //  error.message = '服务器错误(500)';
-                break;
-
-            default: error.message = `连接出错(${error.response.status})!`;
-        }
-    }
-    return Promise.reject(error);
-});
+// axios.interceptors.response.use(response => {
+//     window.console.log("888888888888")
+//     window.console.log(response+"888888888888")
+//     if (response.status===500) {
+//        // localStorage.clear();
+//        // alert(response.data.resMsg)
+//
+//         router.push({
+//            path:'/page500'
+//         })
+//     }
+//     return response;
+// }, error => {
+//     if (error && error.response) {
+//         switch (error.response.status) {
+//             case 404:
+//                 window.console.log("router--404错误")
+//                 router.push({ path:'/page404'});
+//                 // error.message = '请求出错(404)'
+//                 break;
+//
+//             case 500:
+//                 window.console.log("router--500错误")
+//                 router.push({ path:'/page500'});
+//                 //  error.message = '服务器错误(500)';
+//                 break;
+//
+//             default: error.message = `连接出错(${error.response.status})!`;
+//         }
+//     }
+//     return Promise.reject(error);
+// });
 export default router

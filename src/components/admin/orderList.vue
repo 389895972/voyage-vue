@@ -1,121 +1,70 @@
 <template>
   <!-- .filter(data => !search || data.orderID.toLowerCase().includes(search.toLowerCase())) -->
   <el-container>
+    <el-header  class="header_head" height="100px">
+      <div class="nav_layout">
+        <img class="logo" src="../../assets/images/header/logo1.png"  width="60px" height="60px"  @click="go_home"  style="cursor: pointer" alt />
+        <div class="nav_layout_right">
+          <div  class="nav_item">
+            <el-dropdown trigger="click">
+                <span class="el-dropdown-link">
+                    <img class="head_frame" src="../../assets/images/header/admin.png"  />
+                </span>
+              <el-dropdown-menu style="background-color: #0B152E" slot="dropdown">
+                <el-dropdown-item icon="el-icon-switch-button">
+                  <a href="#">
+                    <span class="nav_dropdown_font" >退出登陆</span>
+                  </a>
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </div>
+      </div>
+
+    </el-header>
     <el-main>
       <div class="middle_size">
-        <h1>订单列表</h1>
-        <el-form :inline="true" :model="formInline" class="demo-form-inline form_height">
-          <div class="form_left">
-            <el-form-item class="product_input">
-              <span class="label_font">产品</span>
-              <el-input v-model="formInline.search_product" placeholder="搜索产品 "></el-input>
-            </el-form-item>
-            <el-form-item>
-              <span class="label_font">订单号</span>
-              <el-input v-model="formInline.search_ID" placeholder="搜索订单"></el-input>
-            </el-form-item>
-            <el-form-item class="time_input">
-              <span class="label_font">时间范围</span><br>
-              <el-select v-model="formInline.search_timescope">
-                <el-option label="全部" value></el-option>
-                <el-option v-for="item in time_scope" :key="item" :label="item"
-                           :value="item"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item class="type_input">
-              <span class="label_font">类型</span><br>
-              <el-select v-model="formInline.search_type">
-                <el-option label="全部" value></el-option>
-                <el-option v-for="item in type_scope" :key="item" :label="item"
-                           :value="item"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item class="state_input">
-              <span class="label_font">状态</span><br>
-              <el-select v-model="formInline.search_state">
-                <el-option label="全部" value></el-option>
-                <el-option v-for="item in state_scope" :key="item" :label="item"
-                           :value="item"></el-option>
-              </el-select>
-            </el-form-item>
-            <el-form-item>
-              <span class="label_font"></span><br>
-              <el-button type="primary" icon="el-icon-search" @click="set_search" class="query_button">
-                查询
-              </el-button>
-            </el-form-item>
-          </div>
-          <div class="form_right">
-            <el-form-item>
-              <span class="label_font"></span><br>
-              <el-button icon="el-icon-download" type="success" @click="handleDownload" class="export_button">
-                导出
-              </el-button>
-            </el-form-item>
-          </div>
-
-        </el-form>
-        <el-table :data="tableData" style="width: 100%"
-                  :header-cell-style="{background:'#E4E7EB',color:' #16161D'}"
-                  header-row-class-name="headerStyle"
-                  v-loading="dataLoading">
-          <el-checkbox-group v-model="checkedOrder">
-          <el-table-column width="100" >
-            <template slot="header">
-              <el-popover trigger="manual" class="popover_scope" popper-class="tooltipStyle" placement="top" :value="isPopover" width="120">
-                <div @click="deleteOrderList">
-                  <i class="el-icon-delete" style="margin-right: 10px;"></i>
-                  <span>批量删除</span>
-                </div>
-                <el-checkbox slot="reference" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange" class="label_text">全选</el-checkbox>
-              </el-popover>
-            </template>
-
-              <template scope="scope">
-                <el-checkbox-group v-model="checkedOrder" @change="handleCheckedOrderChange">
-                  <el-checkbox :label="scope.row.orderID" :disabled="scope.row.state!=='已取消'" >{{null}}</el-checkbox>
-                </el-checkbox-group>
-
-              </template>
+        <h1>管理员   订单列表</h1>
+        <hr>
+        <el-table
+                :data="tableData"
+                style="width: 100%">
+          <el-table-column
+                  prop="orderId"
+                  label="订单编号"
+                  width="180">
           </el-table-column>
-          </el-checkbox-group>
+          <el-table-column
+                  prop="flightNo"
+                  label="航班编号"
+                  width="180">
+          </el-table-column>
+          <el-table-column
+                  prop="flightDate"
+                  label="航班日期">
+          </el-table-column>
+          <el-table-column
+                  prop="fromCity"
+                  label="出发城市">
+          </el-table-column>
+          <el-table-column
+                  prop="toCity"
+                  label="到达城市">
+          </el-table-column>
+          <el-table-column
+                  prop="fromTime"
+                  label="出发时间">
+          </el-table-column>
+          <el-table-column
+                  prop="toTime"
+                  label="到达时间">
+          </el-table-column>
+          <el-table-column
 
-          <el-table-column label="订单编号" prop="orderID" width="200"></el-table-column>
-          <el-table-column label="产品" prop="product" width="120"></el-table-column>
-          <el-table-column width="60" label="类型"  prop="type"></el-table-column>
-          <el-table-column label="创建时间" align="center" prop="create_time" width="200"></el-table-column>
-          <el-table-column label="支付时间" align="center" prop="pay_time" width="200"></el-table-column>
-          <el-table-column width="80" label="状态" prop="state" style="color:red;">
+                  label="操作">
             <template scope="scope">
-              <span v-if="scope.row.state==='已支付'" style="color: green">已支付</span>
-              <span v-else-if="scope.row.state==='已取消'">已取消</span>
-              <span v-else-if="scope.row.state==='未支付'" style="color: red">未支付</span>
-            </template>
-          </el-table-column>
-          <el-table-column width="100px" label="价格" prop="price"></el-table-column>
-
-          <el-table-column width="208px" align="left" label="操作" header-align="center">
-            <template slot-scope="scope">
-              <el-button size="mini" @click="go_order_detaile(scope.$index, scope.row)">详情</el-button>
-
-<!--              这块需要返回是否已经开通-->
-              <el-button
-                      :id = "scope.$index"
-                      v-if="scope.row.state=='已支付'"
-                      size="mini"
-                      type="success"
-                      @click="active(scope.$index,scope.row)"
-              >开通
-              </el-button>
-
-
-              <el-button
-                      v-if="scope.row.state=='已取消'"
-                      size="mini"
-                      type="danger"
-                      @click="handleDelete(scope.$index, scope.row)"
-              >删除
-              </el-button>
+              <el-button type="success" @click="go_order(scope.row.orderId)">详情</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -123,8 +72,8 @@
           <el-pagination
                   background
                   @current-change="handleCurrentChange"
-                  :current-page="currentPage"
-                  :page-size="page_size"
+                  :current-page="page"
+                  :page-size="size"
                   :total="total"
                   layout="total, prev, pager, next, jumper"
           ></el-pagination>
@@ -135,60 +84,39 @@
 </template>
 
 <script>
+  import {tranDate,tranDate1} from '../../../date'
   export default {
     data() {
       return {
-        //用户Id
-        userId: this.$route.query.user_id,
+
         //分页属性
-        currentPage: 1,
-        page_size: 10,
+        page: 1,
+        size: 10,
         total:10,
+        tableData:[]
 
-        //下拉表属性
-        type_scope: ["新购", "续费"],
-        time_scope: ["一个月内", "二个月内", "三个月内"],
-        state_scope: ["已支付", "已取消", "未支付"],
-
-        //数据属性
-        tableData: [],
-        //过滤属性
-        formInline: {
-          search_ID: "",
-          search_product: "",
-          search_type: "",
-          search_timescope: "",
-          search_state: ""
-        },
-        //复选
-        checkedOrder:[],
-        checkAll:false,
-        isIndeterminate:false,
-        orderOptions:[],
-
-
-        //下载表格
-        list: null,
-        listLoading: true,
-        filename: '',
-        autoWidth: true,
-        bookType: 'xlsx',
-
-        //加载
-        dataLoading:true,
 
       };
     },
     methods: {
+      go_home(){
+        this.$router.push({
+          path:'/admin/admin'
+        })
+      },
       //设置当前页
       handleCurrentChange(val) {
         this.currentPage=val
         // 获取请求数据
-
+          this.get_order_list()
       },
       //跳转到订单详情（这里跳转到管理员视图的订单详情）
       go_order_detaile(index, row) {
         this.$router.push({name: "ToPay_Admin", params: {orderId: row.orderID}});
+      },
+      admin(){
+        this.$emit('header', false);
+        this.$emit('footer', false);
       },
       //开通设备
       active(index,row){
@@ -353,52 +281,43 @@
           }
         }))
       },
-      //获取订单数据（这里仅测试用，将由获取过滤分页数据替换）
+      //获取订单数据
       async get_order_list() {
-        this.dataLoading=true
-        const {data: res} = await this.$http.get("/order/findOrders", {
-          params: {userId: 1}
-        });
-        if (res.code == 20000) {
-          let status_map = {"1": "未支付", "2": "已支付", "3": "已取消"};
-          let type_map = {"1": "新购", "2": "续费"};
+        let _this=this
+        this.$http.get("item/order/findAllOrders/"+_this.page).then(function (res) {
+          if (res.status == 200) {
+            window.console.log(res)
+            _this.total=res.data.total
+            //  alert(res.data.total)
+            _this.tableData=[]
 
-          let testIndex=0;
-          for (var index in res.data) {
-            this.tableData[index] = {};
-            this.tableData[index]["orderID"] = res.data[index]["order_id"];
-            this.tableData[index]["product"] = res.data[index]["goods_name"];
-            this.tableData[index]["type"] =
-                    type_map[res.data[index]["payment_type"]];
-            this.tableData[index]["create_time"] = this.tranDate(
-                    res.data[index]["create_time"]
-            );
-            this.tableData[index]["pay_time"] = this.tranDate(
-                    res.data[index]["payment_time"]
-            );
-            this.tableData[index]["state"] =
-                    status_map[res.data[index]["status"]];
-            this.tableData[index]["price"] = res.data[index]["price"];
-            testIndex++;
-            if(this.tableData[index]["state"]==='已取消'){
-              this.orderOptions.push(this.tableData[index]["orderID"])
-            }
+            // _this.tableData=res.data.data
+            for (var index in res.data.list) {
+              _this.tableData[index] = {};
+              _this.tableData[index].flightNo=res.data.list[index].flightNo
+              _this.tableData[index].flightName=res.data.list[index].flightName
+              _this.tableData[index].orderId=res.data.list[index].orderId
+              _this.tableData[index].economyPrice='￥'+res.data.list[index].economyPrice+'起'
+              _this.tableData[index].flightDate=tranDate1(res.data.list[index].flightDate)
 
-            if(testIndex>20){
-              break;
+              _this.tableData[index].fromCity=res.data.list[index].fromCity
+              _this.tableData[index].fromTime=tranDate(res.data.list[index].fromTime)
+              _this.tableData[index].toCity=res.data.list[index].toCity
+              _this.tableData[index].toTime=tranDate(res.data.list[index].toTime)
             }
 
           }
-          this.tableData.sort(function (a, b) {
-            return Date.parse(b.create_time) - Date.parse(a.create_time);
-          })
-          this.dataLoading=false
-          window.console.log(this.tableData.length)
+        })
 
-        } else {
-          //alert("连接服务器失败");
-          this.$message.error("连接服务器失败！")
-        }
+
+      },
+      go_order(orderId){
+        window.console.log(orderId)
+        this.$http.get('/item/order/orderDetails/'+orderId)
+        this.$router.push({
+          path:'/admin/orderDetails',
+          query:{orderId:orderId}
+        })
       },
       //获取分页过滤订单数据
       async get_order_list_filter() {
@@ -503,8 +422,9 @@
     },
 
     //加载前调用
-    mounted() {
+    created() {
       this.get_order_list();
+      this.admin()
     },
 
   };
@@ -645,6 +565,55 @@
   }
   .el-loading-spinner i {
      color: white;
+  }
+  .nav_layout {
+    display: flex;
+    justify-content: space-between;
+    line-height: 6;
+    /*padding-left: 100px;*/
+    /*padding-right: 150px;*/
+  }
+  .nav_layout_right{
+    display: flex;
+    align-items: center;
+  }
+  .header_head{
+    border-bottom: 1px solid grey;
+    border-color: rgba(151, 151, 151, 0.3);
+    padding: 0;
+  }
+  .nav_item{
+    margin-left:20px ;
+
+  }
+  .el-header {
+    background-color: #101c3d;
+    color: white;
+    line-height: 60px;
+
+  }
+  @media (min-width: 768px) {
+    .nav_layout{
+      /*display: flex;*/
+      /*justify-content: space-between;*/
+      /*line-height: 6;*/
+      /*padding-left: 18.1%;*/
+      /*padding-right: 18.1%;*/
+      margin: 0 auto;
+      width: 1280px;
+    }
+  }
+  .head_frame {
+    border: 1px solid rgba(228, 231, 235, 0.2);
+    height: 44px;
+    width: 44px;
+    border-radius: 22px;
+  }
+  .logo{
+    width: 64px;
+    height:64px;
+    margin-top: 15px;
+    /*margin: auto auto auto 0;*/
   }
 </style>
 

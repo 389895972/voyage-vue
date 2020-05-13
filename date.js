@@ -1,23 +1,48 @@
-export function formatDate (date, fmt) {
-    if (/(y+)/.test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-    }
-    let o = {
-        'M+': date.getMonth() + 1,
-        'd+': date.getDate(),
-        'h+': date.getHours(),
-        'm+': date.getMinutes(),
-        's+': date.getSeconds()
-    }
-    for (let k in o) {
-        if (new RegExp(`(${k})`).test(fmt)) {
-            let str = o[k] + '';
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
-        }
-    }
-    return fmt;
-}
 
-function padLeftZero (str) {
-    return ('00' + str).substr(str.length);
+export function tranDate(standard_time){
+
+    if (standard_time == null) {
+        return null
+    }
+    let d = new Date(standard_time.replace(/-/g, '/').replace('T', ' ').replace('.000+0800', ''));
+
+    let hour = d.getHours();
+    let minutes = d.getMinutes();
+
+
+    if (hour < 10) {
+        hour = "0" + hour;
+    }
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+
+    let time = " " + hour + ":" + minutes  ;
+    return time;
+}
+export function tranDate1(standard_time) {
+
+    if (standard_time == null) {
+        return null
+    }
+
+    let d = new Date(standard_time.replace(/-/g, '/').replace('T', ' ').replace('.000+0800', ''));
+    let month = d.getMonth() + 1;
+    let day = d.getDate();
+
+    if (month < 10) {
+        month = "0" + month;
+    }
+
+    if (day < 10) {
+        day = "0" + day;
+    }
+
+
+
+
+    let t = d.getFullYear() + "-" + month + "-" + day ;
+    return t;
 }

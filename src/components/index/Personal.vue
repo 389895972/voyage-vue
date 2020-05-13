@@ -29,7 +29,7 @@
                              <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
                                  <span class="person_info" >用户名</span>
                                  <div style="display: inline-block;width: 500px;">
-                                 <el-input style="width: 490px;display: inline-block;font-weight: bold" v-model="modify_nickname" ref="nickname_input">{{modifynickname}}</el-input>
+                                 <el-input style="width: 490px;display: inline-block;font-weight: bold" v-model="nickname" ref="nickname_input">{{nickname}}</el-input>
                                  </div>
 
                                  <el-button v-if="mod_nickname" size="mini" style="color:#3254DC;background-color: white" @click="mod_nickname_before">修改</el-button>
@@ -453,8 +453,10 @@
                 fileData: '',
                 username:'123',
                 fileList:[],
-                nickname: this.$route.params.userInfo.nickname,
-                mobile:this.$route.params.userInfo.mobile,
+                // nickname: this.$route.params.userInfo.nickname,
+                // mobile:this.$route.params.userInfo.mobile,
+                nickname:'',
+                mobile:'',
                 email:'',
                 modify_userInfo:false,
                 src: '',
@@ -513,7 +515,9 @@
 
         },
         created(){
+            this.init1()
             this.init()
+
         },
         methods:{
             mod_head_before(){
@@ -677,12 +681,39 @@
                 this.modify_nickname=this.nickname;
                 this.modify_introduce=this.introduce;
             },
+            init1(){
+                    let that=this
+                    const tokenStr=window.sessionStorage.getItem('token');
+                    if(!tokenStr){
+                        window.console.log(123)
+                    }else{
+                        this.$http.post(
+                            "auth/verify",{token:tokenStr}
+                        )
+                            .then(function(response) {
+                                window.console.log(response);
+                                if (response.status == 200) {
+                                    that.isLogin=true
+                                   that.nickname=response.data.username
+                                    // that.roles=response.data.data.roles
+                                }
+                            })
+                            .catch(function(error) {
+                                window.console.log(error);
+                                that.$message.error("服务器错误")
+                            });
+
+                    }
+
+            },
             modify_instance(){
                 this.modify_info=true
             },
             trans(tel){
+                if(!tel){
                 var hide_tel=tel.substr(0,3)+'****'+tel.substr(7)
                 return hide_tel
+                }
             },
             bang_email(){
                 let _this=this

@@ -7,18 +7,18 @@
             <div class="login-center clearfix">
                 <div class="login-center-img"><img src="../../assets/images/admin/name.png"/></div>
                 <div class="login-center-input">
-                    <input type="text" name="" value="" placeholder="username" onfocus="this.placeholder=''" onblur="this.placeholder='username'"/>
-                    <div class="login-center-input-text">username</div>
+                    <input type="text" name="" v-model="username" placeholder="username" onfocus="this.placeholder=''" onblur="this.placeholder='username'"/>
+                    <div class="login-center-input-text" >username</div>
                 </div>
             </div>
             <div class="login-center clearfix">
                 <div class="login-center-img"><img src="../../assets/images/admin/password.png"/></div>
                 <div class="login-center-input">
-                    <input type="password" name="" :value="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'"/>
-                    <div class="login-center-input-text">password</div>
+                    <input type="password" name="" v-model="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'"/>
+                    <div class="login-center-input-text" >password</div>
                 </div>
             </div>
-            <div class="login-button">
+            <div class="login-button" @click="login">
                 登录
             </div>
         </div>
@@ -36,24 +36,25 @@
       },
       methods:{
           login(){
-              this.$http.post('/admin/login',{username:this.username,password:this.password})
+              let _this=this
+              _this.$http.post('/user/admin/login',{username:this.username,password:this.password})
                   .then(function (res) {
-                      if(res.status==200){
-                          if(res.data.confirm==true){
-                              this.$router.push({path: "orderList"});
-                          }
-                          else{
-                              this.$message({
-                                  message: '账号密码错误',
-                                  type: 'warning'
-                              });
-                          }
 
+                      if(res.status==200){
+                              _this.$router.push({path: "admin"})
+                      } else{
+                          _this.$message({
+                              message: '账号密码错误',
+                              type: 'warning'
+                          });
                       }
                   })
                   .catch(function (error) {
                       window.console.log(error)
-                      alert("登陆失败")
+                      _this.$message({
+                          message: '账号密码错误',
+                          type: 'warning'
+                      });
                   })
 
           }
