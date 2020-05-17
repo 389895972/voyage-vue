@@ -1020,6 +1020,12 @@
                         this.$message.error("请完善登录表单")
                     } else {
                         let that=this;
+                        const loading = this.$loading({
+                            lock: true,
+                            text: 'Loading',
+                            spinner: 'el-icon-loading',
+                            background: 'rgba(0, 0, 0, 0.7)'
+                        });
                        //  const newAixos = Axios.create({
                        //      baseURL: 'http://localhost:8087',
                        //      // timeout: 1000,
@@ -1062,7 +1068,7 @@
                                     window.sessionStorage.setItem('token',response.data)
                                     window.console.log("token---"+window.sessionStorage.getItem('token')) ;
                                     that.isLogin=true
-
+                                    loading.close()
                                     that.$message({
                                         message: '登录成功！',
                                         type: 'success',
@@ -1073,8 +1079,9 @@
                                 }
                             })
                             .catch(function(error) {
+                                loading.close()
                                 window.console.log(error);
-                                that.$message.error("服务器错误")
+                                that.$message.error("账号或密码错误")
                             });}})
 
             },

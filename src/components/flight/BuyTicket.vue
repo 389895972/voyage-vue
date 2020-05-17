@@ -4,18 +4,20 @@
             <div class="main">
                 <div class="voyage_display">
                     <div class="voyage_cards">
-                        <div style="font-size: 25px;font-weight: bold">购买</div>
-                        <div style="width: 800px;height: 120px;border: 1px blue solid">
-
-                            <table style="font-size: 22px">
-                            <tr>
+                        <div style="font-size: 25px;font-weight: bold">欢迎购买</div>
+                        <el-card class="box-card" style="margin: 0 auto" >
+                            <div slot="header" class="clearfix">
+                                <span>购买</span>
+                            </div>
+                            <table style="font-size: 22px;margin: 0 auto">
+                                <tr>
                                 <tr>
                                     <td width="200px">航班号：{{flight_info.flightNo}}</td>
                                     <td></td>
                                     <td >{{flight_info.fromCity}}</td>
                                     <td>----></td>
                                     <td width="200px">{{flight_info.toCity}}</td>
-                                <td></td>
+                                    <td></td>
                                     <td>{{flight_info.flightDate}}</td>
                                 </tr>
                                 <tr>
@@ -36,12 +38,11 @@
                                 >
                                 </el-option>
                             </el-select>
-<!--                            <el-button type="primary" size="mini" >经济舱￥{{flight_info.economyPrice}}</el-button>-->
-<!--                            <el-button type="success" size="mini">头等舱￥{{flight_info.headPrice}}</el-button>-->
-                        </div>
+                        </el-card>
+
 <!--                        <div>{{flightNo}}</div>-->
-                        <div>
-<!--                            {{this.GroupList.length}}--><el-button type="primary" @click="add()"> 增加乘客</el-button>
+                        <div style="margin: 0 auto;width: 900px">
+<!--                            {{twihis.GroupList.length}}--><el-button type="primary" @click="add()"> 增加乘客</el-button>
                           <div v-for="(item, index) in GroupList" :key="index">
                               <div>乘客{{index+1}}</div>
                             <el-form ref="item"  inline="true" :model="item" label-width="80px">
@@ -83,6 +84,7 @@
      export default {
          data() {
              return {
+                 fullscreenLoading: false,
                  flightNo: this.$route.query.flightno,
                  flight_info: {},
                  options: [{
@@ -104,6 +106,12 @@
          },
         methods:{
              buy(){
+                 const loading = this.$loading({
+                     lock: true,
+                     text: 'Loading',
+                     spinner: 'el-icon-loading',
+                     background: 'rgba(0, 0, 0, 0.7)'
+                 });
                  let _this=this
                  if(_this.value==_this.flight_info.economyPrice){
                      _this.status=1
@@ -125,6 +133,7 @@
                      .then(function (res) {
                          if(res.status==200){
                              window.console.log(res)
+                             loading.close()
                              _this.$message.success("购买机票成功")
                          }
                      })
@@ -248,5 +257,25 @@
         padding-top: 20px;
         padding-bottom: 20px;
         align-items: center;
+    }
+    .text {
+        font-size: 14px;
+    }
+
+    .item {
+        margin-bottom: 18px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+    .clearfix:after {
+        clear: both
+    }
+
+    .box-card {
+        width: 680px;
     }
 </style>

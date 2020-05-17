@@ -50,7 +50,7 @@
                       <img src="../../assets/images/home/dichengben.png" alt="">
                           </span>
                     <span class="adv_content_title1"> 价格放心</span>
-                    <span class="adv_content_title2"> 价格狗名统一，退改标准收费</span>
+                    <span class="adv_content_title2"> 价格透明统一，退改标准收费</span>
                   </span>
                 <span class="adv_content2">
                     <span class="adv_image">
@@ -105,8 +105,32 @@
           </div>
         </div>
       </div>
+        <div style="width: 1280px;margin: 0 auto;">
+        <el-card class="box-card" >
+            <div slot="header" class="clearfix">
+                <span style="font-weight: bold;font-size: 25px">公告</span>
+            </div>
+            <div v-for="(no,index) in notice" :key="index" style="margin-bottom: 10px" >
+<!--                {{'列表内容 ' + o }}-->
+                <span style="display: inline;width: 10px">{{index+1}}</span>
+                <span style="display: inline;width: 70%;margin-left:10px">{{no.content}}</span>
+                <span style="display: inline;width: 20%;float: right">{{no.time}}</span>
+
+            </div>
+        </el-card>
+            <el-card class="box-card" style="margin-left: 50px">
+                <div slot="header" class="clearfix">
+                    <span style="font-weight: bold;font-size: 25px">推荐航班</span>
+                </div>
+                <span v-for="(no,index) in nullRate" :key="index" style="margin-bottom: 20px;display:inline;width: 300px;padding:0 50px;magin-bottom:20px" @click="buy(1,no.flightNo)">
+                  {{no.fromCity}}-->{{no.toCity}}
+
+                    ({{no.flightDate}})
 
 
+                </span>
+            </el-card>
+        </div>
 
       <div style="background-color:#D7D7DB;padding-bottom:10px">
         <div class="service">
@@ -169,6 +193,8 @@ export default {
   },
   data() {
     return {
+        notice:[],
+        nullRate:[],
         form: {
             fromCity: '北京',
             toCity:'太原',
@@ -199,6 +225,15 @@ export default {
     };
   },
   methods: {
+      buy(index, row) {
+          window.console.log(index, row);
+          this.$router.push(
+              {
+                  path:'/buyticket',
+                  query:{flightno:row}
+              }
+          )
+      },
       search(){
           this.$refs.ruleForm.validate(valid=>{
               if(!valid){
@@ -283,28 +318,7 @@ export default {
       );
 
     },
-      buy_edgekit(){
 
-          this.$router.push(
-                { path: '/buy_edgekit',
-                  query:{
-                    name:'Edge KIT',
-                    good_id: 1682320,
-                  }
-                }
-        );
-      },
-      buy_rb3(){
-
-        this.$router.push(
-                { path: '/buy_rb3',
-                  query:{
-                    name:'RB 3',
-                    good_id: 1682320,
-                  }
-                }
-        );
-      },
 
     //进入订单列表
     go_orderList() {
@@ -378,12 +392,35 @@ export default {
 
               })
           }
+      },
+      getNotice(){
+          this.$http.get("item/notice/getNotice").then(res=>{
+            this.notice=  res.data
+          })
+      },
+      getNullRate(){
+          this.$http.get("item/data/nullrate").then(res=>{
+
+              this.nullRate=  res.data
+
+          })
+      },
+      getHotCity(){
+          this.$http.get("item/data/hotcity").then(res=>{
+
+              this.form.fromCity=  res.data.startCity
+              this.form.toCity=  res.data.endCity
+
+          })
       }
   },
   created(){
   // this.$emit('header',false);
     //this.$emit('footer',false);
    // this.ii()
+      this.getNotice()
+      this.getNullRate()
+      this.getHotCity()
   },
    // watch:{
    //
@@ -1355,5 +1392,27 @@ a:link{
         padding-top: 20px;
         padding-bottom: 20px;
         align-items: center;
+    }
+    .text {
+        font-size: 14px;
+    }
+
+    .item {
+        margin-bottom: 18px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+    .clearfix:after {
+        clear: both
+    }
+
+    .box-card {
+        width: 610px;
+        height: 300px;
+        display: inline-block;
     }
 </style>

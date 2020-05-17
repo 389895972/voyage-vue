@@ -3,31 +3,20 @@ import Router from 'vue-router'
 import Home from './components/index/Home'
 import Header from './components/index/Header'
 import Personal from './components/index/Personal'
-import AikitDetails from './components/index/AikitDetails'
-import RB3Details from './components/index/RB3Details'
+
 import test from './components/test'
-import EdgekitDetails from './components/index/EdgekitDetails'
-import Buy from './components/order/Buy'
-import Buy_Rb3 from './components/order/Buy_Rb3'
-import Buy_Edgekit from './components/order/Buy_Edgekit'
-import orderList from './components/order/orderList'
 
 
 
-import Confirm from './components/order/Confirm'
-import InstanceDetails from './components/order/InstanceDetails'
-import ToPay from './components/order/ToPay'
-import ToPay_Admin from './components/order/ToPay_Admin'
-import Tutorial from './components/tutorial/Tutorial'
-//import First from "./components/index/First";
-import Instance from './components/order/Instance'
+
+
 
 import adminLogin from './components/admin/Login'
 import Page500 from './components/error/Page500'
 
 import Page404 from './components/error/Page404'
 
-import de from './ChangLang'
+
 import Vuex from "vuex";
 
 
@@ -38,6 +27,7 @@ import OrderDetails from './components/flight/OrderDetails'
 import AdminAdmin from './components/admin/Admin'
 import adminOrderList from './components/admin/orderList'
 import adminFlightList from './components/admin/FlightList'
+import adminNotice from './components/admin/Notice'
 import User from './components/admin/user'
 import AdminOrderDetails from './components/admin/OrderDetails'
 import axios from 'axios'
@@ -63,23 +53,12 @@ const router =new Router({
         {path:'/admin/admin',name:'adminAdmin',component:AdminAdmin,meta:{keepAlive:false}},
         {path:'/admin/orderList',name:'adminOrderList',component:adminOrderList,meta:{keepAlive:false}},
         {path:'/admin/flightList',name:'adminFlightList',component:adminFlightList,meta:{keepAlive:false}},
+        {path:'/admin/notice',name:'adminNotice',component:adminNotice,meta:{keepAlive:false}},
         {path:'/admin/user',name:'user',component:User,meta:{keepAlive:false}},
 
-        {path:'/aikitdetails', component: AikitDetails,meta:{keepAlive:false}},
-        {path:'/rb3details', component: RB3Details,meta:{keepAlive:false}},
-        {path:'/de', component: de,meta:{keepAlive:false}},
+
         {path:'/test', name:'Test',component: test,meta:{keepAlive:false}},
-        {path:'/edgekitdetails',component: EdgekitDetails,meta:{keepAlive:false}},
-        {path:'/buy',component: Buy,meta:{keepAlive:true}},
-        {path:'/buy_rb3',component: Buy_Rb3,meta:{keepAlive:true}},
-        {path:'/buy_edgekit',component: Buy_Edgekit,meta:{keepAlive:true}},
-        {path:'/confirm',name:'Confirm',component: Confirm,meta:{keepAlive:false}},
-        {path:'/instanceDetails',component:InstanceDetails,name:'InstanceDetails',meta:{keepAlive:false}},
-        {path:'/instance',component:Instance,meta:{keepAlive:false}},
-        {path:"/order/orderList",component:orderList,meta:{keepAlive:false}},
-        {path:'/toPay',name:'ToPay',component:ToPay,meta:{keepAlive:false}},
-        {path:'/toPay_admin',name:'ToPay_Admin',component:ToPay_Admin,meta:{keepAlive:false}},
-        {path:'/tutorial',name:'Tutorial',component:Tutorial,meta:{keepAlive:false}},
+
         {path:'/personal',name:'Personal',component:Personal,meta:{keepAlive:false}},
 
         {path:'/Header',name:'Header',component:Header,meta:{keepAlive:false}},

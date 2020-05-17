@@ -8,21 +8,8 @@
                 <div style="width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell;margin-top: 30px">
                     <img src="../../assets/images/person/myintro.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">我的资料</span>
                 </div>
-
 <!--                个人信息-->
                 <div style="height: 300px;display:flex;margin-bottom: 50px" id="personal_infomation">
-
-                    <div style="margin: auto 40px auto 60px;height: 300px;display:flex;justify-content:center;align-items:center;position: relative">
-                        <div style="display:block;text-align: center;">
-                        <img    v-if="!isShow" src="../../assets/images/header/head.png" style="border-radius: 50%;width: 120px;height:120px "  alt="">
-                        <img   v-if="isShow" :src="src" style="border-radius: 50%;width: 120px;height:120px "  alt="">
-
-<!--                            <img   style="display:block;width: 30px;height: 30px;margin: -30px auto 0 auto"  src="../../assets/images/header/delete.png" @click="forkImage">-->
-
-                            <input type="file"  ref="file_img"  style="display: none" @change="uploadImg">
-                         <span style="display: block;margin-top: 10px">{{nickname}} <img v-if="sex=='男'" src="../../assets/images/header/man.png"  alt=""><img v-if="sex=='女'" src="../../assets/images/header/woman.png" alt=""></span>
-                        </div>
-                    </div>
 
                     <div style="border-left: 1px solid #E4E7EB;padding:40px 0 0 20px;width: 700px">
                              <div style="font-size: 16px;font-weight: bold;margin-bottom: 20px">个人信息</div>
@@ -31,157 +18,36 @@
                                  <div style="display: inline-block;width: 500px;">
                                  <el-input style="width: 490px;display: inline-block;font-weight: bold" v-model="nickname" ref="nickname_input">{{nickname}}</el-input>
                                  </div>
-
-                                 <el-button v-if="mod_nickname" size="mini" style="color:#3254DC;background-color: white" @click="mod_nickname_before">修改</el-button>
-                                 <el-button v-if="!mod_nickname" size="mini" style="color:#3254DC;background-color: white" @click="mod">确定</el-button>
+                                 <el-button  size="mini" style="color:#3254DC;background-color: white" @click="nickname_mod">修改</el-button>
                              </div>
-                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;display: flex;margin-top: 10px">
-                            <span class="person_info">头像</span>
-                            <div style="display: flex;justify-content: space-between;width: 500px">
-<!--                            <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 40px;height:40px;border-radius: 22px">-->
-<!--                                <label>-->
-<!--                                    <input type="file"  ref="file_img"  style="display: none" @change="uploadImg">-->
-<!--&lt;!&ndash;                                    <i class="el-icon-plus avatar-uploader-icon"></i>&ndash;&gt;-->
-<!--                                </label>-->
-<!--                            </div>-->
-<!--                            <div class="img-list-item common mb_10" v-if="isShow">-->
-<!--                                    <img :src="src" class="common" style="width: 40px;height: 40px;border-radius: 22px">-->
-<!--                                    <i class="del-img" @click="forkImage" >dd-->
-<!--&lt;!&ndash;                                        <img src="../../assets/images/header/delete.png" style="width: 30px" alt="">&ndash;&gt;-->
-<!--                                    </i>-->
-<!--                                </div>-->
-                                <span style="display: inline-block;width: 500px;">图片长宽比比例为1：1，建议上传128*128分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB </span>
-                            </div>
-                                <el-button   size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="mod_head_before">上传头像</el-button>
-<!--                                <el-button v-if="!mod_head" size="mini" style="height:27px;color:#3254DC;background-color: white;float:right" @click="submitUpload">确定</el-button>-->
 
-                        </div>
                         <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
                             <span class="person_info">真实姓名</span>
 
-                            <el-input style="width: 500px;display: inline-block;font-weight: bold" ref="name_input"  v-model="modify_nickname">{{modifynickname}}</el-input>
-                            <el-button v-if="mod_name" size="mini" style="color:#3254DC;background-color: white" @click="mod_name_before">修改</el-button>
-                            <el-button v-if="!mod_name" size="mini" style="color:#3254DC;background-color: white" @click="mod">确认</el-button>
+                            <el-input style="width: 500px;display: inline-block;font-weight: bold" ref="name_input"  v-model="uname">{{uname}}</el-input>
+                            <el-button  size="mini" style="color:#3254DC;background-color: white" @click="uname_mod">修改</el-button>
                         </div>
-                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px;height:41px ">
-                            <span class="person_info">性别</span>
-                            <el-radio-group  v-model="sex" style="height: 41px" >
-                                <el-radio label="男" style="line-height: 41px"></el-radio>
-                                <el-radio label="女"></el-radio>
-                            </el-radio-group>
+
+                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
+                            <span class="person_info" style="width: 80px">身份证号码</span>
+
+                            <el-input style="width: 500px;display: inline-block;font-weight: bold" ref="name_input"  v-model="idcard">{{idcard}}</el-input>
+                            <el-button  size="mini" style="color:#3254DC;background-color: white" @click="idcard_mod">修改</el-button>
                         </div>
-                        <div style="margin-left: 20px;margin-top: 10px">
-                            <span class="person_info" style="vertical-align: top">个人简介</span>
-                            <el-input type="textarea" style="width: 500px;font-weight:bold" ref="intro_input" v-model="modify_introduce">{{modify_introduce}} </el-input>
-                            <el-button v-if="mod_intro" size="mini" style="color:#3254DC;background-color: white;vertical-align: top" @click="mod_introduce_before">修改</el-button>
-                            <el-button v-if="!mod_intro" size="mini" style="color:#3254DC;background-color: white;vertical-align: top" @click="mod">确认</el-button>
-                        </div>
+                        <div style="border-bottom: 1px solid #E4E7EB;margin-left: 20px">
+                        <span class="person_info">手机号</span>
+
+                        <el-input style="width: 500px;display: inline-block;font-weight: bold" ref="name_input"  v-model="phone">{{phone}}</el-input>
+                            <el-button  size="mini" style="color:#3254DC;background-color: white" @click="phone_mod">修改</el-button>
+                    </div>
                     </div>
                 </div>
 
-
-<!--                <div v-if="!modify_info" style="display: flex;height: 300px">-->
-<!--                    <div style="width: 140px;height: 140px;display: inline-block;margin: 40px 0 100px 15px">-->
-<!--                         <img src="../../assets/images/person/u779.png" alt="" style="width: 100%;height: 100%">-->
-<!--                    </div>-->
-<!--                    <div style="display: inline-block;height: 140px;margin: 40px 0 100px 0">-->
-<!--                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 50px;vertical-align: middle;display: table-cell;font-size: 18px;font-weight: bold;padding-left: 15px">-->
-<!--                            {{nickname}}-->
-<!--                            <el-button type="primary" icon="el-icon-edit"  @click="modify_instance" style="color:blue;background-color:white;border: white;font-size:14px"></el-button>-->
-<!--                        </div>-->
-<!--                        <div style="border: 1px solid #E4E7EB;width: 358px;height: 90px;padding: 10px ">-->
-<!--                            <div style="font-size: 14px;font-weight: bold">个人简介</div>-->
-<!--                            <div>请输入简介</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--&lt;!&ndash;                修改个人信息&ndash;&gt;-->
-<!--                <div v-if="modify_info" style="height: 300px;width: 800px;margin: 20px">-->
-
-<!--                  <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">用户名:</span>-->
-<!--                    <el-input style="width: 490px;margin-left: 10px;display: inline-block" v-model="modify_nickname">{{modifynickname}}</el-input></span>-->
-<!--                    <div style="display: flex;margin-top: 10px">-->
-<!--                    <div style="height: 44px;vertical-align:middle;display:table-cell;"> <span>个人头像</span> </div>-->
-
-<!--                    <div style="width: 40px;height: 40px;display: inline;margin-left: 20px">-->
-
-<!--                        <div id="img" class="upload-btn common mb_10" v-if="!isShow" style="border:1px solid grey;width: 100px;height:100px">-->
-<!--                            <label>-->
-<!--                                <input type="file"   style="display: none" @change="uploadImg">-->
-<!--                                <i class="el-icon-plus avatar-uploader-icon"></i>-->
-<!--                            </label>-->
-<!--                        </div>-->
-<!--                        <div class="img-list-item common mb_10" v-if="isShow">-->
-<!--                            <img :src="src" class="common" style="width: 100px;height: 100px">-->
-<!--                            <i class="del-img" @click="forkImage"></i>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                    <div style="margin-left: 70px">-->
-<!--                         <el-button  style="color:#3254DC;background-color: white" @click="mod">更换图片</el-button>-->
-<!--                        <br>-->
-<!--                        <span style="display: inline-block;width: 400px">图片长宽比比例为1：1，建议上传128*128@2x分辨率的图片，支持jpg/jpeg/png格式，大小不要超过100KB</span>-->
-<!--                    </div>-->
-
-<!--                    </div>-->
-<!--                    <div style="display: flex;margin-top: 50px">-->
-<!--                       <span style="height: 44px;vertical-align:middle;display:table-cell;"> <span style="line-height: 44px">个人简介:</span></span>-->
-<!--                        <el-input type="textarea" style="width: 490px">{{modify_introduce}} </el-input>-->
-<!--                    </div>-->
-<!--                    <div>         <el-button type="primary"   @click="submitUpload" style="text-align: right;color:white;background-color:#3254DC ;border: white;font-size:14px;margin-left:490px ;margin-top:20px">确定</el-button></div>-->
-<!--                     <div style="height: 100px"></div>-->
-<!--                </div>-->
                 <div style="margin-top:50px;width: 1280px;height: 50px;background-color: #F0F1F3;vertical-align: middle;display: table-cell">
                     <img src="../../assets/images/person/safe.png" style="width: 23px;height: 23px;margin-left: 15px;margin-bottom: 5px"> <span style="font-size: 18px;font-weight: bold;;margin-left: 10px">安全设置</span>
                 </div>
                 <div>
 
-                    <div  v-if="mobile===''" style="margin:30px 0 0 10px;width: 450px;display: inline-block">
-                      <div style="width: 450px;display: flex;margin-bottom: 10px">
-                        <img src="../../assets/images/person/tel_no.png" alt="">
-                         <div style="margin-left: 10px">
-                             <div style="font-size:14px;color:#16161D;font-weight: bold">手机未绑定</div>
-                             <div style="font-size:13px;color:#606879">您可以享受手机相关的安全及提醒</div>
-                         </div>
-                        <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC">绑定手机</el-button>
-                      </div>
-                        <hr>
-                    </div>
-
-
-                    <div v-if="email" style="margin:30px 0 0 10px;width: 450px;display: inline-block">
-                        <div style="width: 450px;display: flex;margin-bottom: 10px">
-                            <img src="../../assets/images/person/email_yes.png" style="height: 26px;margin-top: 10px" alt="">
-                            <div style="margin-left: 10px">
-                                <div style="font-size:14px;color:#16161D;font-weight: bold">邮箱已绑定</div>
-                                <div style="font-size:13px;color:#606879">您可以使用邮箱保障您的账号安全</div>
-                            </div>
-                            <el-button size="mini" style="margin-left:90px;border-color:#3254DC;color: #3254DC" @click="mod_email">修改邮箱</el-button>
-                        </div>
-                        <hr>
-                    </div>
-                    <div v-if="mobile" style="margin:30px 0 0 10px;width: 450px;display: inline-block">
-                        <div style="width: 450px;display: flex;margin-bottom: 10px">
-                            <img src="../../assets/images/person/tel_yes.png" alt="">
-                            <div style="margin-left: 10px">
-                                <div style="font-size:14px;color:#16161D;font-weight: bold">手机已绑定（{{trans(mobile)}}）</div>
-                                <div style="font-size:13px;color:#606879">您可以享受手机相关的安全及提醒</div>
-                            </div>
-                            <el-button size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC" @click="modify_tel">修改手机</el-button>
-                        </div>
-                        <hr>
-                    </div>
-                    <div v-if="email===''" style="margin:30px 0 0 10px;width: 450px;display: inline-block">
-                        <div style="width: 450px;display: flex;margin-bottom: 10px">
-                            <img src="../../assets/images/person/email_no.png" style="height: 26px;margin-top: 10px" alt="">
-                            <div style="margin-left: 10px">
-                                <div style="font-size:14px;color:#16161D;font-weight: bold">邮箱未绑定</div>
-                                <div style="font-size:13px;color:#606879">您可以使用邮箱保障您的账号安全</div>
-                            </div>
-                            <el-button @click="bbind_email" size="mini" style="margin-left:90px;border-color: #3254DC;color: #3254DC" >绑定邮箱</el-button>
-                        </div>
-                        <hr>
-                    </div>
                     <div style="margin:30px 0 0 10px;width: 450px;display: inline-block">
                         <div style="width: 450px;display: flex;margin-bottom: 10px">
                             <img src="../../assets/images/person/pwd.png" style="height: 28px;width:34px;margin-top: 10px" alt="">
@@ -196,7 +62,7 @@
 
 
                 </div>
-                <img src="../../assets/images/person/u779.png" style="width: 1280px" alt="">
+                <img src="../../assets/images/person/person.png" style="width: 1280px;height:600px" alt="">
             </div>
         </div>
         <div id="login_dia">
@@ -450,6 +316,9 @@
                 sex :'男',
                 tips:'用户名或密码错误',
                 imageUrl: '',
+                uname:'',
+                phone:'',
+                idcard:'',
                 fileData: '',
                 username:'123',
                 fileList:[],
@@ -593,6 +462,102 @@
                 this.src=''
                  this.isShow=false
              },
+            nickname_mod(){
+
+                let that=this
+                const tokenStr=window.sessionStorage.getItem('token');
+                if(!tokenStr){
+                    window.console.log("无token")
+                }else {
+                    this.$http.post(
+                        "auth/modifyUser", {token: tokenStr}, {params: {username: this.nickname}}
+                    )
+                        .then(function (response) {
+                            window.console.log(response);
+                            if (response.status == 200) {
+                                that.$message.success("修改成功")
+                                that.init1()
+                            }
+                        })
+                        .catch(function (error) {
+                            window.console.log(error);
+                            that.$message.error("服务器错误")
+                        });
+
+                }
+            },
+            uname_mod(){
+
+                    let that=this
+                    const tokenStr=window.sessionStorage.getItem('token');
+                    if(!tokenStr){
+                        window.console.log("无token")
+                    }else {
+                        this.$http.post(
+                            "auth/modifyUser", {token: tokenStr}, {params: {name: this.uname}}
+                        )
+                            .then(function (response) {
+                                window.console.log(response);
+                                if (response.status == 200) {
+                                    that.$message.success("修改成功")
+                                    that.init1()
+                                }
+                            })
+                            .catch(function (error) {
+                                window.console.log(error);
+                                that.$message.error("服务器错误")
+                            });
+
+                    }
+
+
+            },
+            idcard_mod(){
+                let that=this
+                const tokenStr=window.sessionStorage.getItem('token');
+                if(!tokenStr){
+                    window.console.log("无token")
+                }else {
+                    this.$http.post(
+                        "auth/modifyUser", {token: tokenStr}, {params: {idcard: this.idcard}}
+                    )
+                        .then(function (response) {
+                            window.console.log(response);
+                            if (response.status == 200) {
+                                that.$message.success("修改成功")
+                                that.init1()
+                            }
+                        })
+                        .catch(function (error) {
+                            window.console.log(error);
+                            that.$message.error("服务器错误")
+                        });
+
+                }
+            },
+            phone_mod(){
+                let that=this
+                const tokenStr=window.sessionStorage.getItem('token');
+                if(!tokenStr){
+                    window.console.log("无token")
+                }else {
+                    this.$http.post(
+                        "auth/modifyUser", {token: tokenStr}, {params: {phone: this.phone}}
+                    )
+                        .then(function (response) {
+                            window.console.log(response);
+                            if (response.status == 200) {
+                                that.$message.success("修改成功")
+                                that.init1()
+                            }
+                        })
+                        .catch(function (error) {
+                            window.console.log(error);
+                            that.$message.error("服务器错误")
+                        });
+
+                }
+            },
             // 上传到服务器
             submitUpload() {
             //  let introduce= this.introduce
@@ -695,6 +660,11 @@
                                 if (response.status == 200) {
                                     that.isLogin=true
                                    that.nickname=response.data.username
+                                   that.uname=response.data.name
+
+                                   that.idcard=response.data.idcard
+                                   that.phone=response.data.phone
+
                                     // that.roles=response.data.data.roles
                                 }
                             })
@@ -786,12 +756,8 @@
             mod_pwd(){
 
                 let _this=this
-                _this.modify_pwd_dialog=false
-                _this.mod_pwd_ok_dialog=true
-                setTimeout(function(){
-                    window.console.log(963)
-                    _this.mod_pwd_ok_dialog=false
-                    window.console.log(45663)},1000)
+
+
                 // _this.$refs.bind_email.validate(valid=> {
                 //
                 //     if (!valid) {
@@ -806,8 +772,20 @@
                 //             window.console.log(45663)},1000)
                 //     }
                 // })
-
-
+                const tokenStr=window.sessionStorage.getItem('token');
+                 _this.$http.post("auth/updatePwd",{token:tokenStr,oldPwd:this.modify_pwdd.old_pwd,newPwd:this.modify_pwdd.new_pwd1}).then(res=>{
+                     if(res.data==1){
+                         _this.modify_pwd_dialog=false
+                         _this.mod_pwd_ok_dialog=true
+                         setTimeout(function(){
+                             window.console.log(963)
+                             _this.mod_pwd_ok_dialog=false
+                             window.console.log(45663)},1000)
+                     }else if(res.data==0){
+                         _this.modify_pwd_dialog=false
+                         _this.$message.error("密码修改失败")
+                     }
+                 })
                 // const newAixos = Axios.create({
                 //     baseURL: 'http://127.0.0.1:8888',
                 //     // timeout: 1000,
@@ -843,7 +821,7 @@
         width: 1280px;
         background-color: white;
         margin: 40px auto 0 auto;
-        padding-bottom: 200px;
+        padding-bottom: 50px;
     }
     .content >>> .el-upload__input{
         display: none;

@@ -121,7 +121,6 @@
                         _this.total=res.data.length
                         //  alert(res.data.total)
                         _this.tableData=[]
-
                         // _this.tableData=res.data.data
                         for (var index in res.data) {
                             _this.tableData[index] = {};
@@ -129,16 +128,11 @@
                             _this.tableData[index].username=res.data[index].username
                             _this.tableData[index].name=res.data[index].name
                             _this.tableData[index].created=tranDate1(res.data[index].created)
-
                             _this.tableData[index].idcard=res.data[index].idcard
                             _this.tableData[index].phone=res.data[index].phone
-
                         }
-
                     }
                 })
-
-
             },
             go_order(orderId){
                 window.console.log(orderId)

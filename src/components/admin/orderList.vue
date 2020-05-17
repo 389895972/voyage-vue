@@ -247,40 +247,8 @@
 
       },
 
-      //下载表格
-      handleDownload() {
 
-        require.ensure([], () => {
-          const { export_json_to_excel } = require('../../ventor/Export2Excel.js');
-          const tHeader = Object.keys(this.tableData[0])
-          const list = this.tableData
-          const filterVal = []
-          for(var i in tHeader){
-            filterVal.push(tHeader[i])
-          }
-          window.console.log(filterVal)
 
-          const data = this.formatJson(filterVal, list)
-          export_json_to_excel({
-            header: tHeader,
-            data,
-            filename: this.filename,
-            autoWidth: this.autoWidth,
-            bookType: this.bookType
-          })
-        })
-
-      },
-      //下载的表格数据格式化
-      formatJson(filterVal, jsonData) {
-        return jsonData.map(v => filterVal.map(j => {
-          if (j === 'timestamp') {
-            return v[j]
-          } else {
-            return v[j]
-          }
-        }))
-      },
       //获取订单数据
       async get_order_list() {
         let _this=this
@@ -288,10 +256,7 @@
           if (res.status == 200) {
             window.console.log(res)
             _this.total=res.data.total
-            //  alert(res.data.total)
             _this.tableData=[]
-
-            // _this.tableData=res.data.data
             for (var index in res.data.list) {
               _this.tableData[index] = {};
               _this.tableData[index].flightNo=res.data.list[index].flightNo
